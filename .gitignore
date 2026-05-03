@@ -1,0 +1,23 @@
+# Dependencies
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Output (generated, can be regenerated)
+output/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Env
+.venv/
+venv/
+env/
