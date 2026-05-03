@@ -1,0 +1,333 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-04-06",
+  "restaurants": [
+    {
+      "id": "rest_three_broomsticks",
+      "name": "三把扫帚",
+      "zone": "tag_zone_harry",
+      "tags": [
+        "tag_zone_harry",
+        "tag_conflict",
+        "tag_restaurant"
+      ],
+      "recommended_dishes": [
+        "烤鸡排骨拼盘",
+        "黄油啤酒",
+        "炸鱼薯条",
+        "黄油啤酒（冰沙版）"
+      ],
+      "reviews": [
+        {
+          "content": "必打卡",
+          "sentiment": "positive",
+          "source_files": [
+            "md_05",
+            "md_07"
+          ]
+        }
+      ],
+      "opinions": [
+        {
+          "id": "op_tb_must",
+          "stance": "pro",
+          "claim": "三把扫帚必打卡",
+          "reasoning": "烤鸡排骨拼盘+黄油啤酒是经典组合",
+          "source_files": [
+            "md_05",
+            "md_07"
+          ]
+        },
+        {
+          "id": "op_tb_skip",
+          "stance": "contra",
+          "claim": "别死磕三把扫帚",
+          "reasoning": "和漂流者小馆、背离的秘密的猪肋排味道非常非常相近，没必要排队死磕",
+          "source_files": [
+            "md_05",
+            "md_09"
+          ]
+        },
+        {
+          "id": "op_tb_butter_beer",
+          "stance": "contra",
+          "claim": "黄油啤酒齁甜难喝",
+          "reasoning": "评价两极分化，更多人吐槽太甜，奶盖口感像光明冰砖化了",
+          "source_files": [
+            "md_xhs_01"
+          ]
+        },
+        {
+          "id": "op_tb_roast_chicken",
+          "stance": "contra",
+          "claim": "烤鸡没什么味道",
+          "reasoning": "需要淋酱汁才好吃，排骨比烤鸡更受欢迎",
+          "source_files": [
+            "md_xhs_01"
+          ]
+        }
+      ],
+      "source_files": [
+        "md_05"
+      ]
+    },
+    {
+      "id": "rest_florean_fortescue",
+      "name": "背离的秘密",
+      "zone": "tag_zone_harry",
+      "tags": [
+        "tag_zone_harry",
+        "tag_restaurant"
+      ],
+      "recommended_dishes": [
+        "猪肋排"
+      ],
+      "reviews": [
+        {
+          "content": "猪肋排味道与三把扫帚相近",
+          "sentiment": "neutral",
+          "source_files": [
+            "md_05"
+          ]
+        }
+      ],
+      "opinions": [
+        {
+          "id": "op_rf_value_king",
+          "stance": "pro",
+          "claim": "漂流者小馆是性价比之王",
+          "reasoning": "漂流拼盘分量足，味道和三把扫帚有得一拼，但价格更实惠，是不想长队的绝佳选择",
+          "source_files": [
+            "md_xhs_01"
+          ]
+        }
+      ],
+      "source_files": [
+        "md_05"
+      ]
+    },
+    {
+      "id": "rest_river_floating",
+      "name": "漂流者小馆",
+      "zone": "tag_zone_jurassic",
+      "tags": ["tag_zone_jurassic", "tag_save_money", "tag_conflict", "tag_restaurant"],
+      "recommended_dishes": [
+        "猪肋排"
+      ],
+      "reviews": [
+        {
+          "content": "猪肋排味道与三把扫帚相近",
+          "sentiment": "neutral",
+          "source_files": [
+            "md_05"
+          ]
+        }
+      ],
+      "opinions": [],
+      "source_files": [
+        "md_05"
+      ]
+    },
+    {
+      "id": "rest_hammond",
+      "name": "哈蒙德餐厅",
+      "zone": "tag_zone_jurassic",
+      "tags": ["tag_zone_jurassic", "tag_restaurant"],
+      "recommended_dishes": ["哈蒙德汉堡", "川味炸鸡小汉堡", "慢炖猪颈肉", "黑松露奶油牛肉意面", "烟熏牛肋排", "炙烤加吉鱼", "金丝大虾", "恐龙蛋"],
+      "reviews": [
+        {"content": "侏罗纪世界的米其林，环境和服务都在线，但川味名不副实基本不辣", "sentiment": "positive", "source_files": ["md_xhs_01"]}
+      ],
+      "opinions": [],
+      "source_files": ["md_xhs_01"]
+    },
+    {
+      "id": "rest_amber_ridge",
+      "name": "琥珀岭餐厅",
+      "zone": "tag_zone_jurassic",
+      "tags": ["tag_zone_jurassic", "tag_restaurant"],
+      "recommended_dishes": ["红烧猪肘子饭"],
+      "reviews": [
+        {"content": "红烧猪肘子饭酱汁拌饭非常香，被很多用户称为堪比外面餐馆的美味", "sentiment": "positive", "source_files": ["md_xhs_01"]}
+      ],
+      "opinions": [],
+      "source_files": ["md_xhs_01"]
+    },
+    {
+      "id": "rest_energy_crystal",
+      "name": "能量晶体补充站",
+      "zone": "tag_zone_jurassic",
+      "tags": ["tag_zone_jurassic", "tag_snack", "tag_save_money"],
+      "recommended_dishes": ["烤鸡&猪软骨拼盘"],
+      "reviews": [
+        {"content": "98元烤鸡猪软骨拼盘，猪软骨和烤鸡腿都很嫩，是三把扫帚的平价替代", "sentiment": "positive", "source_files": ["md_xhs_01"]}
+      ],
+      "opinions": [],
+      "source_files": ["md_xhs_01"]
+    },
+    {
+      "id": "rest_mr_ping",
+      "name": "平先生面馆",
+      "zone": "tag_zone_panda",
+      "tags": ["tag_zone_panda", "tag_restaurant"],
+      "recommended_dishes": ["四川担担面", "牛肉拉面", "北京炸酱面", "五香鸭腿油泼辣子刀削面", "鲜虾云吞面", "猪肉玉米煎饺"],
+      "reviews": [
+        {"content": "川渝用户对四川担担面评价不错，但也有用户觉得面条整体偏咸", "sentiment": "mixed", "source_files": ["md_xhs_01"]}
+      ],
+      "opinions": [],
+      "source_files": ["md_xhs_01"]
+    },
+    {
+      "id": "rest_cybertron",
+      "name": "赛博坦骑士餐厅",
+      "zone": "tag_zone_transformer",
+      "tags": ["tag_zone_transformer", "tag_restaurant"],
+      "recommended_dishes": ["北京烤鸭披萨", "四拼披萨", "香辣鸡翅"],
+      "reviews": [
+        {"content": "披萨口味多样，北京烤鸭披萨备受好评，是爱西餐的朋友不容错过的选择", "sentiment": "positive", "source_files": ["md_xhs_01"]}
+      ],
+      "opinions": [],
+      "source_files": ["md_xhs_01"]
+    },
+    {
+      "id": "rest_chocolate",
+      "name": "巧克力餐厅",
+      "zone": "tag_zone_minion",
+      "tags": ["tag_zone_minion", "tag_snack"],
+      "recommended_dishes": ["巧克力金币蛋糕", "巧克力奶昔"],
+      "reviews": [
+        {"content": "巧克力脑袋的天堂，金币蛋糕造型精致口感丝滑，但甜度较高", "sentiment": "positive", "source_files": ["md_xhs_01"]}
+      ],
+      "opinions": [],
+      "source_files": ["md_xhs_01"]
+    },
+    {
+      "id": "rest_flight_hunter",
+      "name": "飞行猎手餐厅",
+      "zone": "tag_zone_jurassic",
+      "tags": ["tag_zone_jurassic", "tag_snack"],
+      "recommended_dishes": ["恐龙足迹甜品"],
+      "reviews": [
+        {"content": "恐龙足迹外层酥壳软软的不酥脆，巧克力味过于甜腻", "sentiment": "negative", "source_files": ["md_xhs_01"]}
+      ],
+      "opinions": [],
+      "source_files": ["md_xhs_01"]
+    },
+    {
+      "id": "rest_bubba_gump",
+      "name": "城市大道阿甘餐厅",
+      "zone": "tag_zone_citywalk",
+      "tags": ["tag_zone_citywalk", "tag_restaurant"],
+      "recommended_dishes": [],
+      "reviews": [
+        {"content": "油泼面、包子非常油腻，吃完后感到恶心，是价格刺客", "sentiment": "negative", "source_files": ["md_xhs_01"]}
+      ],
+      "opinions": [],
+      "source_files": ["md_xhs_01"]
+    },
+    {
+      "id": "rest_minion_icecream",
+      "name": "小黄人冰淇淋",
+      "zone": "tag_zone_minion",
+      "tags": ["tag_zone_minion", "tag_snack"],
+      "recommended_dishes": ["小黄人主题冰淇淋", "照烧牛肉汉堡", "小黄人甜品"],
+      "reviews": [
+        {"content": "颜值很高但味道被不少人评价为颜值大于味道，冰淇淋是草莓味", "sentiment": "mixed", "source_files": ["md_xhs_01"]}
+      ],
+      "opinions": [],
+      "source_files": ["md_xhs_01"]
+    },
+    {
+      "id": "rest_nublar_slush",
+      "name": "努布拉冰沙",
+      "zone": "tag_zone_jurassic",
+      "location": "侏罗纪世界",
+      "recommended_dishes": ["青苹果雪泥", "蓝莓雪泥"],
+      "reviews": [
+        {"content": "青苹果雪泥的诞生地，品质稳定", "sentiment": "positive", "source_files": ["src_txt_04"]}
+      ],
+      "money_saving_tips": [],
+      "tags": ["tag_snack"],
+      "source_files": ["src_txt_04"]
+    },
+    {
+      "id": "rest_coke_tower_snack",
+      "name": "可口可乐塔小吃亭",
+      "zone": "tag_zone_hollywood",
+      "location": "好莱坞大道（可口可乐塔附近）",
+      "recommended_dishes": ["青苹果雪泥", "蓝莓雪泥", "彩虹雪泥"],
+      "reviews": [
+        {"content": "雪泥种类最全的地方之一", "sentiment": "positive", "source_files": ["src_txt_04"]}
+      ],
+      "money_saving_tips": [
+        {"content": "城市大道'春日狂欢纪念杯'88元含一杯雪泥，续杯20元/杯，喝两杯以上买纪念杯更划算", "sentiment": "positive", "source_files": ["src_txt_04"]}
+      ],
+      "tags": ["tag_snack"],
+      "source_files": ["src_txt_04"]
+    },
+    {
+      "id": "rest_hula_cart",
+      "name": "草裙舞小车",
+      "zone": "tag_zone_minion",
+      "location": "小黄人乐园（甜甜屋对面）",
+      "recommended_dishes": ["菠萝雪泥"],
+      "reviews": [],
+      "money_saving_tips": [],
+      "tags": ["tag_snack"],
+      "source_files": ["src_txt_04"]
+    }
+  ],
+  "overall_review": "园区内食物味道都还可以",
+  "money_saving_tips": [
+    {
+      "id": "tip_bring_food",
+      "content": "可以自带饭团、三明治一类的",
+      "tags": [
+        "tag_save_money"
+      ],
+      "source_files": [
+        "md_05"
+      ]
+    },
+    {
+      "id": "tip_delivery",
+      "content": "可以点外卖去门口取，环球是当日不限制次数出入的",
+      "tags": [
+        "tag_save_money"
+      ],
+      "source_files": [
+        "md_05"
+      ]
+    },
+    {
+      "id": "tip_no_wanli",
+      "content": "不建议去湾里吃饭，往返需要耗时近3小时……不值得",
+      "tags": [
+        "tag_save_money"
+      ],
+      "source_files": [
+        "md_05",
+        "md_09"
+      ]
+    },
+    {
+      "id": "tip_snacks",
+      "content": "多带小零食，尤其橘子、香蕉、黄瓜一类的，排队的时候真的很无聊，吃点小零食会好很多",
+      "tags": [
+        "tag_save_money"
+      ],
+      "source_files": [
+        "md_05"
+      ]
+    },
+    {
+      "id": "tip_off_peak_dining",
+      "content": "11:00三把扫帚错峰吃饭，避开中午高峰时段",
+      "tags": [
+        "tag_time_saving"
+      ],
+      "source_files": [
+        "md_05"
+      ]
+    }
+  ]
+}

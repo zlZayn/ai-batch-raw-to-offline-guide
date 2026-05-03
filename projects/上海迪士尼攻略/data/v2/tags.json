@@ -1,0 +1,369 @@
+{
+  "version": "2.0.0",
+  "categories": [
+    {
+      "id": "zone",
+      "name": "园区",
+      "description": "所属园区"
+    },
+    {
+      "id": "attraction_type",
+      "name": "项目类型",
+      "description": "游乐项目类型"
+    },
+    {
+      "id": "intensity",
+      "name": "刺激程度",
+      "description": "项目刺激等级"
+    },
+    {
+      "id": "timing",
+      "name": "时间策略",
+      "description": "推荐游玩时段"
+    },
+    {
+      "id": "facility",
+      "name": "设施相关",
+      "description": "存包、拍照等设施"
+    },
+    {
+      "id": "audience",
+      "name": "适合人群",
+      "description": "目标受众"
+    },
+    {
+      "id": "utility",
+      "name": "实用标签",
+      "description": "省钱省时等"
+    },
+    {
+      "id": "meta_tag",
+      "name": "元标签",
+      "description": "数据层面的标记"
+    },
+    {
+      "id": "taste",
+      "name": "口味",
+      "description": "菜品口味偏好"
+    },
+    {
+      "id": "dish_type",
+      "name": "菜品类型",
+      "description": "菜品/饮品的食物类型"
+    },
+    {
+      "id": "preparation",
+      "name": "行前准备",
+      "description": "入园前的准备事项"
+    }
+  ],
+  "tags": [
+    {
+      "id": "tag_zone_harry",
+      "name": "哈利波特区",
+      "category": "zone",
+      "description": "哈利波特魔法世界园区"
+    },
+    {
+      "id": "tag_zone_minion",
+      "name": "小黄人区",
+      "category": "zone",
+      "description": "小黄人乐园园区"
+    },
+    {
+      "id": "tag_zone_jurassic",
+      "name": "侏罗纪区",
+      "category": "zone",
+      "description": "侏罗纪世界园区"
+    },
+    {
+      "id": "tag_zone_transformer",
+      "name": "变形金刚区",
+      "category": "zone",
+      "description": "变形金刚基地园区"
+    },
+    {
+      "id": "tag_zone_panda",
+      "name": "功夫熊猫区",
+      "category": "zone",
+      "description": "功夫熊猫盖世之地园区"
+    },
+    {
+      "id": "tag_zone_water",
+      "name": "水世界",
+      "category": "zone",
+      "description": "未来水世界园区"
+    },
+    {
+      "id": "tag_zone_hollywood",
+      "name": "好莱坞",
+      "category": "zone",
+      "description": "好莱坞园区"
+    },
+    {
+      "id": "tag_zone_citywalk",
+      "name": "城市大道",
+      "category": "zone",
+      "description": "环球城市大道（园区外商业街）"
+    },
+    {
+      "id": "tag_type_ride",
+      "name": "骑乘项目",
+      "category": "attraction_type",
+      "description": "需要排队乘坐的游乐项目"
+    },
+    {
+      "id": "tag_type_rollercoaster",
+      "name": "过山车",
+      "category": "attraction_type",
+      "description": "过山车类项目"
+    },
+    {
+      "id": "tag_type_4d5d",
+      "name": "4D/5D体验",
+      "category": "attraction_type",
+      "description": "含3D/4D/5D特效的沉浸式项目"
+    },
+    {
+      "id": "tag_type_show",
+      "name": "演出/表演",
+      "category": "attraction_type",
+      "description": "现场表演类"
+    },
+    {
+      "id": "tag_type_interactive",
+      "name": "互动秀",
+      "category": "attraction_type",
+      "description": "观众互动参与的表演"
+    },
+    {
+      "id": "tag_type_music",
+      "name": "音乐/唱跳",
+      "category": "attraction_type",
+      "description": "音乐歌舞类表演"
+    },
+    {
+      "id": "tag_type_stunt",
+      "name": "特技/特效",
+      "category": "attraction_type",
+      "description": "特技动作或电影特效展示"
+    },
+    {
+      "id": "tag_type_water",
+      "name": "水上项目",
+      "category": "attraction_type",
+      "description": "涉及水的项目"
+    },
+    {
+      "id": "tag_type_rotate",
+      "name": "旋转类",
+      "category": "attraction_type",
+      "description": "旋转类温和项目"
+    },
+    {
+      "id": "tag_intensity_high",
+      "name": "高刺激",
+      "category": "intensity",
+      "description": "刺激度高，胆小者慎选"
+    },
+    {
+      "id": "tag_intensity_medium",
+      "name": "中等刺激",
+      "category": "intensity",
+      "description": "有一定刺激感"
+    },
+    {
+      "id": "tag_intensity_low",
+      "name": "低刺激/温和",
+      "category": "intensity",
+      "description": "适合所有人包括小朋友"
+    },
+    {
+      "id": "tag_crowd_morning",
+      "name": "上午优先",
+      "category": "timing",
+      "description": "建议上午游玩，下午排队过长"
+    },
+    {
+      "id": "tag_crowd_afternoon",
+      "name": "下午/巡游时段",
+      "category": "timing",
+      "description": "下午花车巡游时人少"
+    },
+    {
+      "id": "tag_crowd_closing",
+      "name": "闭园前",
+      "category": "timing",
+      "description": "闭园前去玩体验好"
+    },
+    {
+      "id": "tag_need_locker",
+      "name": "需存包",
+      "category": "facility",
+      "description": "项目需要先存包"
+    },
+    {
+      "id": "tag_has_photo",
+      "name": "有官拍",
+      "category": "facility",
+      "description": "有官方拍照服务"
+    },
+    {
+      "id": "tag_kid_friendly",
+      "name": "亲子友好",
+      "category": "audience",
+      "description": "适合带小朋友"
+    },
+    {
+      "id": "tag_harry_fan",
+      "name": "哈迷必刷",
+      "category": "audience",
+      "description": "哈利波特粉丝必体验"
+    },
+    {
+      "id": "tag_save_money",
+      "name": "省钱",
+      "category": "utility",
+      "description": "省钱相关技巧"
+    },
+    {
+      "id": "tag_time_saving",
+      "name": "省时",
+      "category": "utility",
+      "description": "节省时间/排队时间的技巧"
+    },
+    {
+      "id": "tag_conflict",
+      "name": "存在争议",
+      "category": "meta_tag",
+      "description": "该条目存在不同观点，需查看opinions字段"
+    },
+    {
+      "id": "tag_snack",
+      "name": "小吃/补充站",
+      "category": "utility",
+      "description": "非正餐的小吃店或能量补充站"
+    },
+    {
+      "id": "tag_taste_savory",
+      "name": "咸鲜",
+      "category": "taste",
+      "description": "咸鲜口味"
+    },
+    {
+      "id": "tag_taste_sweet",
+      "name": "偏甜",
+      "category": "taste",
+      "description": "甜度较高"
+    },
+    {
+      "id": "tag_taste_spicy",
+      "name": "辣味",
+      "category": "taste",
+      "description": "含辣味"
+    },
+    {
+      "id": "tag_taste_classic",
+      "name": "经典招牌",
+      "category": "taste",
+      "description": "餐厅招牌必点"
+    },
+    {
+      "id": "tag_taste_chocolate",
+      "name": "巧克力",
+      "category": "taste",
+      "description": "巧克力口味"
+    },
+    {
+      "id": "tag_shopping",
+      "name": "购物/周边",
+      "category": "utility",
+      "description": "购买周边商品、纪念品相关"
+    },
+    {
+      "id": "tag_birthday",
+      "name": "生日/福利",
+      "category": "utility",
+      "description": "生日月福利、游客服务中心福利"
+    },
+    {
+      "id": "tag_restaurant",
+      "name": "正餐餐厅",
+      "category": "utility",
+      "description": "提供正餐的坐下来吃的餐厅"
+    },
+    {
+      "id": "tag_type_parade",
+      "name": "巡游/花车",
+      "category": "attraction_type",
+      "description": "花车巡游类演出"
+    },
+    {
+      "id": "tag_type_light_show",
+      "name": "灯光秀",
+      "category": "attraction_type",
+      "description": "灯光投影秀"
+    },
+    {
+      "id": "tag_type_live_show",
+      "name": "现场演出",
+      "category": "attraction_type",
+      "description": "舞台现场演出"
+    },
+    {
+      "id": "tag_type_interactive_show",
+      "name": "互动演出",
+      "category": "attraction_type",
+      "description": "观众可参与的互动类演出"
+    },
+    {
+      "id": "tag_type_stunt_show",
+      "name": "特技表演",
+      "category": "attraction_type",
+      "description": "特技动作类现场表演"
+    },
+    {
+      "id": "tag_clothing",
+      "name": "穿着建议",
+      "category": "preparation",
+      "description": "穿鞋、穿衣等行前准备建议"
+    },
+    {
+      "id": "tag_prohibited",
+      "name": "禁带物品",
+      "category": "preparation",
+      "description": "安检禁带物品相关"
+    },
+    {
+      "id": "tag_dish_type_slush",
+      "name": "雪泥/冰沙",
+      "category": "dish_type",
+      "description": "雪泥、冰沙类冷饮"
+    },
+    {
+      "id": "tag_dish_type_dessert",
+      "name": "甜品",
+      "category": "dish_type",
+      "description": "蛋糕、甜品等"
+    },
+    {
+      "id": "tag_dish_type_drink",
+      "name": "饮品",
+      "category": "dish_type",
+      "description": "各类饮料（含黄油啤酒）"
+    },
+    {
+      "id": "tag_dish_type_main",
+      "name": "主菜/正餐",
+      "category": "dish_type",
+      "description": "正餐主菜类"
+    },
+    {
+      "id": "tag_dish_type_snack_food",
+      "name": "小吃",
+      "category": "dish_type",
+      "description": "小吃类食物"
+    }
+  ],
+  "last_updated": "2026-04-08"
+}

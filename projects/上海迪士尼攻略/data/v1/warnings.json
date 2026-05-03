@@ -1,0 +1,344 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-04-06",
+  "warnings": [
+    {
+      "id": "warn_shoes",
+      "category": "穿鞋避雷",
+      "tags": ["tag_clothing"],
+      "items": [
+        {
+          "content": "穿带跟的鞋：日均2万步警告！",
+          "severity": "high",
+          "alternative": "平底运动鞋是唯一正确选择",
+          "source_files": [
+            "md_09",
+            "md_01"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "warn_food_smell",
+      "category": "食物避雷",
+      "tags": ["tag_save_money"],
+      "items": [
+        {
+          "content": "有气味的食物：排队时不宜吃",
+          "severity": "medium",
+          "alternative": "带橘子、香蕉、黄瓜等无气味小零食",
+          "source_files": [
+            "md_09",
+            "md_01"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "warn_prohibited",
+      "category": "物品避雷",
+      "tags": ["tag_need_locker", "tag_prohibited"],
+      "items": [
+        {
+          "content": "玻璃容器/玻璃制品：不能带！被安检查出来只能寄存，既麻烦又浪费钱",
+          "severity": "high",
+          "alternative": null,
+          "source_files": [
+            "md_09",
+            "md_01"
+          ]
+        },
+        {
+          "content": "大型三脚架：不能带",
+          "severity": "high",
+          "alternative": null,
+          "source_files": [
+            "md_09",
+            "md_01"
+          ]
+        },
+        {
+          "content": "没用的东西千万别带：带了也拿不进去，浪费检查时间不说，还得花钱寄存",
+          "severity": "medium",
+          "alternative": null,
+          "source_files": [
+            "md_09",
+            "md_02"
+          ]
+        },
+        {
+          "content": "自拍杆、三脚架、稳定器等带支架的摄影器材不能带入",
+          "severity": "high",
+          "alternative": null,
+          "source_files": ["md_xhs_02"]
+        },
+        {
+          "content": "压力罐体物品（防晒喷雾、发胶、杀虫剂等）不能带入",
+          "severity": "high",
+          "alternative": null,
+          "source_files": ["md_xhs_02"]
+        },
+        {
+          "content": "滑板、轮滑鞋、平衡车、露营车等代步工具不能带入",
+          "severity": "high",
+          "alternative": null,
+          "source_files": ["md_xhs_02"]
+        },
+        {
+          "content": "22寸以上的行李箱过不了安检",
+          "severity": "high",
+          "alternative": null,
+          "source_files": ["md_xhs_02"]
+        }
+      ]
+    },
+    {
+      "id": "warn_attractions",
+      "category": "项目避雷",
+      "tags": ["tag_time_saving", "tag_intensity_high"],
+      "items": [
+        {
+          "content": "鹰马飞行：过程特别短（不到1分钟），排好久队不值得",
+          "severity": "medium",
+          "alternative": null,
+          "related_attraction": "attr_flight_of_hippogriff",
+          "source_files": [
+            "md_09",
+            "md_04a"
+          ]
+        },
+        {
+          "content": "奇遇迅猛龙：就是小表演，排队半小时起不值得",
+          "severity": "medium",
+          "alternative": null,
+          "related_attraction": "attr_raptor_encounter",
+          "source_files": [
+            "md_09",
+            "md_04c"
+          ]
+        },
+        {
+          "content": "奥利凡德：7分钟小表演，排队就不推荐",
+          "severity": "low",
+          "alternative": null,
+          "related_attraction": "attr_ollivander",
+          "source_files": [
+            "md_09",
+            "md_04a"
+          ]
+        },
+        {
+          "content": "非第一批不要冲禁忌之旅：排到崩溃",
+          "severity": "high",
+          "alternative": "下午花车巡游时去玩",
+          "related_attraction": "attr_forbidden_journey",
+          "source_files": [
+            "md_09",
+            "md_04a"
+          ]
+        },
+        {
+          "content": "霸天虎过山车：胆小的不要玩",
+          "severity": "high",
+          "alternative": null,
+          "related_attraction": "attr_decepticoaster",
+          "source_files": [
+            "md_09",
+            "md_04d"
+          ]
+        },
+        {
+          "content": "飞跃侏罗纪：有点吓人，心理准备",
+          "severity": "medium",
+          "alternative": null,
+          "related_attraction": "attr_velocicoaster",
+          "source_files": [
+            "md_09",
+            "md_04c"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "warn_dining",
+      "category": "餐饮避雷",
+      "tags": ["tag_save_money", "tag_zone_harry"],
+      "items": [
+        {
+          "content": "别死磕三把扫帚：和漂流者小馆、背离的秘密的猪肋排味道非常相近",
+          "severity": "low",
+          "alternative": "漂流者小馆或背离的秘密",
+          "alternatives": [
+            {"type": "restaurant", "entity_id": "rest_river_floating", "name": "漂流者小馆", "reason": "猪肋排味道相近，价格更实惠"},
+            {"type": "restaurant", "entity_id": "rest_florean_fortescue", "name": "背离的秘密", "reason": "猪肋排味道非常相近"}
+          ],
+          "related_restaurant": "rest_three_broomsticks",
+          "source_files": [
+            "md_09",
+            "md_05"
+          ]
+        },
+        {
+          "content": "不建议去湾里吃饭：往返耗时近3小时",
+          "severity": "medium",
+          "alternative": "自带食物或点外卖去门口取",
+          "source_files": [
+            "md_09",
+            "md_05"
+          ]
+        },
+        {
+          "content": "不要买园区的雨衣：死贵死贵，提前备好",
+          "severity": "medium",
+          "alternative": "自带雨衣",
+          "source_files": [
+            "md_09",
+            "md_06"
+          ]
+        },
+        {
+          "content": "不要买单张纸质照片：买当日拍照套餐更划算",
+          "severity": "low",
+          "alternative": "买当日拍照套餐，可拼单",
+          "source_files": [
+            "md_09",
+            "md_08"
+          ]
+        },
+        {
+          "content": "金枪鱼煎饼：金枪鱼给得少、全是菜，而且是冰冷的会冰牙",
+          "severity": "low",
+          "alternative": null,
+          "related_restaurant": null,
+          "source_files": ["md_xhs_01"]
+        },
+        {
+          "content": "功夫熊猫区面条普遍偏咸，性价比不高",
+          "severity": "low",
+          "alternative": null,
+          "related_restaurant": "rest_mr_ping",
+          "source_files": ["md_xhs_01"]
+        },
+        {
+          "content": "变形金刚区千层面巨难吃，建议直接跳过",
+          "severity": "medium",
+          "alternative": null,
+          "related_restaurant": "rest_cybertron",
+          "source_files": ["md_xhs_01"]
+        },
+        {
+          "content": "小黄人冰淇淋颜值大于味道，价格偏贵性价比低",
+          "severity": "low",
+          "alternative": null,
+          "related_restaurant": "rest_minion_icecream",
+          "source_files": ["md_xhs_01"]
+        },
+        {
+          "content": "蓝莓雪泥评价两极分化，有人觉得有'工业味儿'太甜",
+          "severity": "low",
+          "alternative": "青苹果雪泥是更稳妥的选择",
+          "related_restaurant": "rest_coke_tower_snack",
+          "source_files": ["src_txt_04"]
+        },
+        {
+          "content": "茉莉蜜桃雪泥可能已下架，被蓝莓味替代，去之前别白跑一趟",
+          "severity": "low",
+          "alternative": null,
+          "source_files": ["src_txt_04"]
+        }
+      ]
+    },
+    {
+      "id": "warn_route",
+      "category": "路线避雷",
+      "tags": ["tag_time_saving", "tag_zone_minion"],
+      "items": [
+        {
+          "content": "不要绕小黄人区去哈利波特区：从小黄人萌乐园穿过去少走800米+",
+          "severity": "medium",
+          "alternative": "穿小黄人萌乐园",
+          "related_shortcut": "sc_gate_to_harry",
+          "source_files": [
+            "md_09",
+            "md_03"
+          ]
+        },
+        {
+          "content": "不要绕小黄人区去侏罗纪区：奔假山走，从底下穿过",
+          "severity": "medium",
+          "alternative": "奔假山走从底下穿过",
+          "related_shortcut": "sc_gate_to_jurassic",
+          "source_files": [
+            "md_09",
+            "md_03"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "warn_timing",
+      "category": "时间避雷",
+      "tags": ["tag_time_saving", "tag_crowd_morning"],
+      "items": [
+        {
+          "content": "侏罗纪大冒险不要下午玩：排队过长，一定要上午玩",
+          "severity": "high",
+          "alternative": "上午玩",
+          "related_attraction": "attr_jurassic_adventure",
+          "source_files": [
+            "md_09",
+            "md_04c"
+          ]
+        },
+        {
+          "content": "不要在大球拍照（入园时）：中午或下午再拍",
+          "severity": "low",
+          "alternative": "中午或下午再拍",
+          "source_files": [
+            "md_09",
+            "md_02"
+          ]
+        },
+        {
+          "content": "不要全程跟花车巡游：在小黄人区等就行",
+          "severity": "low",
+          "alternative": "在小黄人区等",
+          "related_show": "show_parade",
+          "source_files": [
+            "md_09",
+            "md_06"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "warn_mental",
+      "category": "心理准备",
+      "tags": ["tag_clothing", "tag_prohibited"],
+      "items": [
+        {
+          "content": "基本上所有项目都是排队n小时体验五分钟，要有心理准备",
+          "severity": "low",
+          "alternative": null,
+          "source_files": [
+            "md_09",
+            "md_04g"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "warn_shopping",
+      "category": "购物避雷",
+      "tags": ["tag_save_money", "tag_shopping"],
+      "items": [
+        {
+          "content": "无牙仔亲亲挂件是爆款，经常秒空断货，去晚了基本买不到",
+          "severity": "low",
+          "alternative": "提前找靠谱代购或在城市大道商店碰运气",
+          "source_files": ["src_txt_04"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>北京环球影城攻略</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f2f2f7;--card:#fff;--text:#1c1c1e;--sub:#8e8e93;--border:#e5e5ea;
+  --green:#34c759;--orange:#ff9500;--red:#ff3b30;
+  --radius:14px;
+  /* 语义色 */
+  --yellow: #f1c40f;
+  /* 透明度辅助 */
+  --glass-bg: rgba(255,255,255,.85);
+  --glass-border: rgba(0,0,0,.08);
+  --divider: rgba(0,0,0,.04);
+  --shadow-color: rgba(0,0,0,.06);
+  --shadow: 0 1px 4px var(--shadow-color);
+  /* 非实体内容：黑白灰 */
+  --neutral: #3a3a3c;
+  --neutral-light: rgba(0,0,0,.04);
+  --neutral-border: rgba(0,0,0,.15);
+  --opinion-bg: linear-gradient(135deg, #f9f9fb, #f5f5f7);
+  --relations-bg: linear-gradient(135deg, #f9f9fb, #f5f5f7);
+  /* 实体颜色：高区分度、统一饱和度 */
+  --c-attraction: #007aff;   /* 蓝 — 项目 */
+  --c-show: #af52de;         /* 紫 — 演出 */
+  --c-restaurant: #ff9500;   /* 橙 — 餐厅 */
+  --c-dish: #ff9500;         /* 橙 — 菜品（与餐厅同系） */
+  --c-tip: #34c759;          /* 绿 — 技巧 */
+  --c-warning: #ff3b30;      /* 红 — 避雷 */
+  --c-shortcut: #8e8e93;     /* 灰 — 小道（中性） */
+  --c-itinerary: #5856d6;    /* 靛蓝 — 行程 */
+}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Segoe UI",Roboto,"Helvetica Neue",sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;padding-top:56px;padding-bottom:64px}
+a{color:var(--neutral);text-decoration:none}
+
+/* 顶栏 */
+#header{position:fixed;top:0;left:0;right:0;height:56px;background:var(--glass-bg);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:0.5px solid var(--glass-border);display:flex;align-items:center;padding:0 16px;z-index:100}
+#header .logo{font-weight:800;font-size:18px;letter-spacing:-.5px;color:var(--text)}
+#header .search-btn{flex:1;margin:0 12px;display:flex;align-items:center;justify-content:center;height:32px;border-radius:10px;background:var(--divider);border:1px solid var(--shadow-color);font-size:13px;color:var(--sub);cursor:pointer;letter-spacing:.2px}
+
+/* 底栏 */
+#nav{position:fixed;bottom:0;left:0;right:0;height:64px;background:var(--glass-bg);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-top:0.5px solid var(--glass-border);display:flex;z-index:100;padding-bottom:env(safe-area-inset-bottom)}
+#nav a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;color:var(--sub);text-decoration:none;letter-spacing:.3px;transition:color .2s;position:relative}
+#nav a.active{color:var(--text);font-weight:600}
+#nav a.active::after{content:'';position:absolute;bottom:4px;width:16px;height:2.5px;border-radius:2px;background:var(--text)}
+#nav a .icon{font-size:22px;margin-bottom:1px}
+
+/* 内容区 */
+#app{padding:14px 12px;max-width:600px;margin:0 auto}
+
+/* 卡片 */
+.card{background:var(--card);border-radius:var(--radius);padding:16px;margin-bottom:10px;box-shadow:var(--shadow)}
+.card.standalone{margin-bottom:12px}
+.card.hint{margin-bottom:16px}
+.warn-banner{background:linear-gradient(135deg,#f9f9fb,#f5f5f7);border-left:4px solid var(--neutral);margin-bottom:12px;padding:10px 14px;font-size:13px;color:var(--neutral)}
+.footer-text{margin-top:20px;text-align:center;color:var(--sub);font-size:13px}
+.card h3{font-size:16px;margin-bottom:8px;font-weight:600;letter-spacing:-.2px}
+.card p{margin-bottom:5px}
+.card p:last-child{margin-bottom:0}
+
+/* 标签 */
+.tag{display:inline-block;background:var(--neutral-light);color:var(--neutral);padding:4px 10px;border-radius:20px;font-size:12px;margin:2px 4px 2px 0;font-weight:500}
+.tag.zone{background:rgba(255,149,0,.1);color:var(--orange)}
+.tag.warn{background:rgba(255,59,48,.08);color:var(--red)}
+.tag.intensity{background:rgba(255,59,48,.08);color:var(--red)}
+.tag.audience{background:rgba(175,82,222,.08);color:var(--c-show)}
+.tag.utility{background:rgba(52,199,89,.08);color:var(--green)}
+.tag.taste{background:rgba(255,149,0,.08);color:var(--orange)}
+.tag.meta_tag{background:var(--neutral-light);color:var(--neutral)}
+.tag.clickable{cursor:pointer;border:1px solid var(--neutral-border)}
+.tag.clickable:active{background:var(--neutral-light)}
+
+/* 评分 */
+.stars{color:var(--yellow);letter-spacing:1px;font-size:14px}
+
+/* 严重度 */
+.sev-high{color:var(--red);font-weight:700}
+.sev-medium{color:var(--orange);font-weight:600}
+.sev-low{color:var(--green)}
+
+/* 网格 */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.grid-item{background:var(--card);border-radius:var(--radius);padding:22px 8px;text-align:center;box-shadow:var(--shadow);cursor:pointer;transition:transform .15s}
+.grid-item:active{transform:scale(.96)}
+.grid-item .num{font-size:32px;font-weight:800;color:var(--neutral);letter-spacing:-.8px}
+.grid-item .label{font-size:11px;color:var(--sub);margin-top:4px;letter-spacing:.3px}
+.grid-item .grid-hint{font-size:10px;color:var(--sub);margin-top:2px;opacity:.7}
+
+/* 筛选栏 */
+.filter-bar{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.filter-btn{padding:6px 14px;border-radius:16px;border:1px solid var(--border);background:var(--card);font-size:13px;cursor:pointer;color:var(--text);transition:all .2s}
+.filter-btn.active{background:var(--text);color:var(--card);border-color:var(--text);box-shadow:0 2px 8px rgba(0,0,0,.15)}
+
+/* 列表项 */
+.list-item{background:var(--card);border-radius:var(--radius);padding:14px 16px;margin-bottom:8px;box-shadow:var(--shadow);cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:transform .15s;border-left:3px solid transparent}
+.list-item:active{transform:scale(.985)}
+.list-item .info{flex:1;min-width:0}
+.list-item .info h4{font-size:15px;margin-bottom:3px;font-weight:600;letter-spacing:-.1px}
+.list-item .info p{font-size:13px;color:var(--sub);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.list-item .arrow{color:var(--sub);font-size:18px;margin-left:8px;font-weight:300}
+
+/* 首页Top5横向柱状图 */
+.rank-chart{background:var(--card);border-radius:var(--radius);padding:16px;margin-bottom:12px;box-shadow:var(--shadow)}
+.rank-chart-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:14px;letter-spacing:-.2px}
+.rank-row{display:flex;align-items:center;margin-bottom:10px;cursor:pointer;transition:transform .15s}
+.rank-row:last-child{margin-bottom:0}
+.rank-row:active{transform:scale(.98)}
+.rank-num{width:22px;font-size:13px;font-weight:800;color:var(--c-attraction);flex-shrink:0}
+.rank-name{width:130px;font-size:12px;font-weight:600;color:var(--text);flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-right:8px}
+.rank-bar-wrap{flex:1;height:26px;background:var(--bg);border-radius:6px;overflow:hidden;position:relative}
+.rank-bar{height:100%;border-radius:6px;display:flex;align-items:center;padding:0 8px;transition:width .6s ease}
+.rank-bar span{font-size:11px;font-weight:700;color:var(--card);white-space:nowrap;text-shadow:0 1px 2px rgba(0,0,0,.15)}
+.rank-stars{margin-left:6px;font-size:11px;flex-shrink:0}
+
+/* 首页技巧网格 */
+.tip-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
+.tip-card{background:var(--card);border-radius:var(--radius);padding:14px 12px;box-shadow:var(--shadow);cursor:pointer;transition:transform .15s;border-left:3px solid var(--c-tip)}
+.tip-card:active{transform:scale(.97)}
+.tip-card .tip-icon{font-size:20px;margin-bottom:6px}
+.tip-card h4{font-size:13px;font-weight:600;margin-bottom:4px;letter-spacing:-.1px;line-height:1.3}
+.tip-card p{font-size:11px;color:var(--sub);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* 首页菜品横向滚动 — 已改为网格，样式备用已移除 */
+
+/* 首页轮播 */
+.carousel{position:relative;margin-bottom:12px;overflow:hidden;touch-action:pan-y}
+.carousel-track{display:flex;transition:transform .35s ease}
+.carousel-slide{width:100%;flex-shrink:0}
+.carousel-dots{display:flex;justify-content:center;gap:6px;margin-top:10px}
+.carousel-dot{width:6px;height:6px;border-radius:50%;background:var(--border);cursor:pointer;transition:all .3s}
+.carousel-dot.active{background:var(--neutral);width:18px;border-radius:3px}
+.list-item[data-type="attraction"]{border-left-color:var(--c-attraction)}
+.list-item[data-type="show"]{border-left-color:var(--c-show)}
+.list-item[data-type="restaurant"]{border-left-color:var(--c-restaurant)}
+.list-item[data-type="dish"]{border-left-color:var(--c-dish)}
+.list-item[data-type="tip"]{border-left-color:var(--c-tip)}
+.list-item[data-type="warning"]{border-left-color:var(--c-warning)}
+.list-item[data-type="shortcut"]{border-left-color:var(--c-shortcut)}
+.list-item[data-type="itinerary"]{border-left-color:var(--c-itinerary)}
+.detail-header{border-left:4px solid var(--neutral)}
+.detail-header[data-type="attraction"]{border-left-color:var(--c-attraction)}
+.detail-header[data-type="show"]{border-left-color:var(--c-show)}
+.detail-header[data-type="restaurant"]{border-left-color:var(--c-restaurant)}
+.detail-header[data-type="dish"]{border-left-color:var(--c-dish)}
+.detail-header[data-type="tip"]{border-left-color:var(--c-tip)}
+.detail-header[data-type="warning"]{border-left-color:var(--c-warning)}
+.detail-header[data-type="shortcut"]{border-left-color:var(--c-shortcut)}
+.detail-header[data-type="itinerary"]{border-left-color:var(--c-itinerary)}
+
+/* 详情页 */
+.detail-header{background:var(--card);border-radius:var(--radius);padding:22px 18px 18px;margin-bottom:10px;box-shadow:var(--shadow)}
+.detail-header h2{font-size:22px;margin-bottom:6px;font-weight:700;letter-spacing:-.5px}
+.detail-header .sub{color:var(--sub);font-size:14px;margin-bottom:10px}
+
+/* 分区标题 */
+.section-title{font-size:15px;font-weight:700;margin:18px 0 8px;padding-left:10px;border-left:3px solid var(--section-color, var(--neutral));letter-spacing:-.1px}
+
+/* 对立观点 */
+.opinion-block{background:var(--opinion-bg);border-left:3px solid var(--section-color, var(--neutral-border));padding:14px 16px;margin:6px 0;border-radius:0 var(--radius) var(--radius) 0;font-size:14px}
+.opinion-block .stance{font-weight:700;margin-bottom:4px}
+.opinion-block .stance.pro{color:var(--green)}
+.opinion-block .stance.con{color:var(--red)}
+
+/* 时间轴 */
+.timeline{position:relative;padding-left:24px}
+.timeline::before{content:"";position:absolute;left:7px;top:4px;bottom:4px;width:2px;background:linear-gradient(to bottom,var(--section-color, var(--neutral-border)),var(--border));border-radius:1px}
+.timeline-item{position:relative;padding-left:24px;margin-bottom:16px}
+.timeline-item::before{content:"";position:absolute;left:-21px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--section-color, var(--neutral));border:2.5px solid var(--card);box-shadow:0 0 0 2px var(--section-color, var(--neutral))}
+.timeline-item .time{font-size:13px;color:var(--section-color, var(--neutral));font-weight:600}
+.timeline-item .action{font-size:14px;margin-top:2px}
+.timeline-item .note{font-size:13px;color:var(--sub);margin-top:2px}
+.tl-link{cursor:pointer}
+.tl-link .action{color:var(--section-color, var(--neutral));text-decoration:underline;text-underline-offset:2px}
+
+/* 关联区 */
+.relations{background:var(--relations-bg);border-radius:var(--radius);padding:14px 16px;margin-top:10px;box-shadow:var(--shadow)}
+.relations .rel-title{font-size:13px;font-weight:600;color:var(--section-color, var(--neutral));margin-bottom:6px;letter-spacing:.3px}
+.rel-subtitle{font-size:13px;color:var(--sub);margin-bottom:4px}
+.rel-subtitle.mt{margin-top:8px}
+.rel-item{padding:8px 0;border-bottom:1px solid var(--divider);font-size:14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.rel-item:last-child{border-bottom:none}
+.rel-item:active{color:var(--section-color, var(--neutral))}
+.relations .rel-arrow{color:var(--sub);font-size:16px;margin-left:8px;flex-shrink:0}
+.relations .rel-static{cursor:default;color:var(--text)}
+
+/* 空状态 */
+.empty{text-align:center;padding:48px 20px;color:var(--sub);font-size:14px}
+
+/* 演出时间轴 */
+.schedule-page{padding-bottom:20px}
+.schedule-period{font-size:13px;font-weight:600;color:var(--sub);padding:12px 0 6px;border-bottom:1px solid var(--border);margin-top:8px}
+.schedule-slot{display:flex;align-items:center;padding:14px 0;border-bottom:1px solid var(--divider);cursor:pointer;transition:background .15s}
+.schedule-slot:active{background:rgba(0,0,0,.03)}
+.schedule-time{font-size:20px;font-weight:700;color:var(--section-color, var(--neutral));min-width:56px;letter-spacing:-.5px}
+.schedule-info{flex:1;margin-left:12px}
+.schedule-name{font-size:15px;font-weight:600;color:var(--text)}
+.schedule-meta{font-size:12px;color:var(--sub);margin-top:2px}
+
+/* 面包屑 */
+.breadcrumb{font-size:13px;margin-bottom:12px;display:flex;align-items:center;flex-wrap:wrap;gap:2px;padding:8px 12px;background:var(--card);border-radius:10px;box-shadow:0 1px 2px var(--divider)}
+.bc-item{color:var(--neutral);cursor:pointer;padding:2px 6px;border-radius:4px;transition:background .15s}
+.bc-item:active{background:var(--neutral-light)}
+.bc-here{color:var(--text);font-weight:600;cursor:default;padding:2px 6px}
+.bc-sep{color:var(--border);font-size:11px;margin:0 1px}
+
+/* 可点击文字 */
+.wc-link{color:var(--neutral);cursor:pointer}
+.wc-link:active{opacity:.6}
+
+/* 隐藏 */
+.hidden{display:none}
+
+/* 通用辅助类 */
+.sub-text{font-size:13px;color:var(--sub)}
+.small-text{font-size:12px;color:var(--sub)}
+.warn-card{border-left-color:var(--c-warning)}
+.dish-card{border-left-color:var(--c-dish)}
+.indent{padding-left:12px}
+</style>
+</head>
+<body>
+
+<div id="header">
+  <span class="logo">环球攻略</span>
+  <div class="search-btn" onclick="nav('tags')">🔍 按标签查找</div>
+</div>
+
+<div id="app"></div>
+
+<div id="nav">
+  <a href="#home" data-page="home" onclick="nav('home')"><span class="icon">🏠</span>首页</a>
+  <a href="#attractions" data-page="attractions" onclick="nav('attractions')"><span class="icon">🎢</span>项目</a>
+  <a href="#restaurants" data-page="restaurants" onclick="nav('restaurants')"><span class="icon">🍽️</span>餐厅</a>
+  <a href="#shows" data-page="shows" onclick="nav('shows')"><span class="icon">🎭</span>演出</a>
+  <a href="#more" data-page="more" onclick="nav('more')"><span class="icon">📋</span>更多</a>
+</div>
+
+<script>
+// ========== 数据注入 ==========
+const DATA = {{ data_blob | safe }};
+const INDEXES = {{ indexes_blob | safe }};
+
+// ========== 工具函数 ==========
+const $ = id => document.getElementById(id);
+const app = () => $('app');
+
+function find(id, type) { return DATA._maps[type] && DATA._maps[type][id]; }
+function findReviews(targetId) { return DATA._maps.reviews_by_target[targetId] || []; }
+function findOpinions(targetId) { return DATA._maps.opinions_by_target[targetId] || []; }
+function findWarnings(targetId) { return DATA._maps.warnings_by_target[targetId] || []; }
+function zonesHtml(zoneIds) { return (zoneIds || []).map(z => tagLookup(z)).filter(Boolean).join(' · '); }
+function sentimentIcon(s) { return s === 'positive' ? '👍' : s === 'negative' ? '👎' : '🤔'; }
+function sevStyle(sev) { return sev === 'high' ? 'color:var(--red);font-weight:700' : sev === 'medium' ? 'color:var(--orange)' : 'color:var(--sub)'; }
+
+function dishRestaurantName(dish) {
+  return (dish.restaurant_ids || []).map(rid => { const r = find(rid, 'restaurants'); return r ? r.name : ''; }).filter(Boolean)[0] || '';
+}
+
+function tagLookup(tagId) {
+  const t = DATA.tags.tags.find(t => t.id === tagId);
+  if (!t) return '';
+  const catCls = ['zone','intensity','audience','utility','taste','meta_tag'].includes(t.category) ? t.category : '';
+  const cls = 'tag' + (catCls ? ' ' + catCls : '');
+  const click = typeof renderTagContent === 'function' ? ` onclick="nav('tags/${tagId}')"` : '';
+  return `<span class="${cls}${click ? ' clickable' : ''}">${t.name}</span>`;
+}
+
+function getTypeTag(tags) {
+  if (!tags || !tags.length) return '';
+  const typeTag = tags.find(id => {
+    const t = DATA.tags.tags.find(tag => tag.id === id);
+    return t && t.category === 'attraction_type';
+  });
+  return typeTag ? tagLookup(typeTag) : '';
+}
+
+function getTypeIcon(tags) {
+  if (!tags || !tags.length) return '🎤';
+  const typeTag = tags.find(id => {
+    const t = DATA.tags.tags.find(tag => tag.id === id);
+    return t && t.category === 'attraction_type';
+  });
+  const iconMap = {
+    'tag_type_parade': '🎪',
+    'tag_type_live_show': '🎭',
+    'tag_type_light_show': '✨',
+    'tag_type_stunt_show': '🔥',
+    'tag_type_interactive_show': '🤝'
+  };
+  return typeTag && iconMap[typeTag] ? iconMap[typeTag] : '🎤';
+}
+
+function categoryLookup(catId) {
+  const c = DATA.tags.categories.find(c => c.id === catId);
+  return c ? c.name : catId;
+}
+
+function starsHtml(rating) {
+  if (!rating) return '';
+  return '<span class="stars">' + '★'.repeat(rating) + '☆'.repeat(5 - rating) + '</span>';
+}
+
+function severityIcon(sev) {
+  if (sev === 'high') return '🔴';
+  if (sev === 'medium') return '🟠';
+  return '🟡';
+}
+
+function severityHtml(sev) {
+  const cls = sev === 'high' ? 'sev-high' : sev === 'medium' ? 'sev-medium' : 'sev-low';
+  const label = sev === 'high' ? '严重' : sev === 'medium' ? '注意' : '轻微';
+  return `<span class="${cls}">[${label}]</span>`;
+}
+
+function tagsHtml(tagIds, clickable) {
+  if (!tagIds || !tagIds.length) return '';
+  return tagIds.map(id => {
+    const t = DATA.tags.tags.find(t => t.id === id);
+    if (!t) return '';
+    const catCls = ['zone','intensity','audience','utility','taste','meta_tag'].includes(t.category) ? ' ' + t.category : '';
+    const clickCls = clickable ? ' clickable' : '';
+    const onclick = clickable ? ` onclick="nav('tags/${id}')"` : '';
+    return `<span class="tag${catCls}${clickCls}"${onclick}>${t.name}</span>`;
+  }).join('');
+}
+
+// ========== 通用渲染 ==========
+
+const SEV_ORDER = { high: 0, medium: 1, low: 2 };
+const TIP_ICONS = ['💡','⏰','🎒','📱','🎯','🔑'];
+function sortBySeverity(a, b) { return (SEV_ORDER[a.severity] ?? 3) - (SEV_ORDER[b.severity] ?? 3); }
+
+function renderReviews(entityId) {
+  const reviews = findReviews(entityId);
+  if (!reviews || !reviews.length) return '';
+  let html = '<div class="section-title">游客评价</div><div class="card">';
+  const groups = [
+    ['positive', reviews.filter(r => r.sentiment === 'positive'), '👍 好评', 'var(--green)'],
+    ['negative', reviews.filter(r => r.sentiment === 'negative'), '👎 差评', 'var(--red)'],
+    ['mixed', reviews.filter(r => r.sentiment === 'mixed' || r.sentiment === 'neutral'), '🤔 中评', 'var(--orange)']
+  ];
+  groups.forEach(([key, items, label, color]) => {
+    if (!items.length) return;
+    html += `<div style="font-size:12px;color:${color};margin-bottom:4px;margin-top:6px">${label} (${items.length})</div>`;
+    items.forEach(r => { html += `<p>${r.content || ''}</p>`; });
+  });
+  return html + '</div>';
+}
+
+function renderOpinions(entityId) {
+  const opinions = findOpinions(entityId);
+  if (!opinions || !opinions.length) return '';
+  let html = '<div class="section-title">不同观点</div>';
+  opinions.forEach(op => {
+    const cls = op.stance === 'pro' ? 'pro' : 'con';
+    const label = op.stance === 'pro' ? '✅ 正方' : '❌ 反方';
+    html += `<div class="opinion-block"><div class="stance ${cls}">${label}</div><div><b>${op.claim}</b></div><p>${op.reasoning || ''}</p></div>`;
+  });
+  return html;
+}
+
+function renderWarnings(entityId) {
+  const warnings = findWarnings(entityId);
+  if (!warnings || !warnings.length) return '';
+  let html = '<div class="section-title">注意事项</div><div class="card">';
+  warnings.slice().sort(sortBySeverity).forEach(w => { html += `<p>${severityHtml(w.severity)} ${w.content || ''}</p>`; });
+  return html + '</div>';
+}
+
+function renderFilterBar(filterValue, filterFnName) {
+  const zoneTags = DATA.tags.tags.filter(t => t.category === 'zone');
+  let html = '<div class="filter-bar">';
+  html += `<span class="filter-btn ${filterValue === 'all' ? 'active' : ''}" onclick="${filterFnName}('all')">全部</span>`;
+  zoneTags.forEach(t => {
+    html += `<span class="filter-btn ${filterValue === t.id ? 'active' : ''}" onclick="${filterFnName}('${t.id}')">${t.name}</span>`;
+  });
+  return html + '</div>';
+}
+
+function renderEntityLinks(title, type, ids, nameField, icon) {
+  if (!ids || !ids.length) return '';
+  let html = `<div class="section-title">${title}</div>`;
+  ids.forEach(id => {
+    const item = find(id, type);
+    if (item) html += `<div class="list-item" data-type="${type}" onclick="nav('${type}/${id}')"><div class="info"><h4>${icon || ''}${item[nameField] || item.name || item.content || ''}</h4></div><span class="arrow">›</span></div>`;
+  });
+  return html;
+}
+
+// ========== 路由 ==========
+function nav(page) {
+  location.hash = page;
+}
+
+// ========== 状态管理 ==========
+const filters = { attractions: 'all', shows: 'all', restaurants: 'all', dishes: 'all' };
+function setFilter(key, page, renderFn) {
+  return function(zoneId) {
+    filters[key] = zoneId;
+    app().innerHTML = breadcrumb(page) + renderFn();
+    window.scrollTo(0, 0);
+  };
+}
+const setAttrFilter = setFilter('attractions', 'attractions', renderAttractionList);
+const setShowFilter = setFilter('shows', 'shows', renderShowList);
+const setRestFilter = setFilter('restaurants', 'restaurants', renderRestaurantList);
+const setDishFilter = setFilter('dishes', 'dishes', renderDishList);
+
+// ========== 首页轮播 ==========
+const carousel = { timer: null, idx: 0, touchStartX: 0, touchDeltaX: 0, isSwiping: false };
+function goSlide(idx) {
+  var c = document.getElementById('homeCarousel');
+  if (!c) return;
+  var track = c.querySelector('.carousel-track');
+  var slides = c.querySelectorAll('.carousel-slide');
+  var dots = c.querySelectorAll('.carousel-dot');
+  var total = slides.length;
+  if (idx < 0) idx = total - 1;
+  if (idx >= total) idx = 0;
+  if (track) track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+  dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+  carousel.idx = idx;
+}
+function startCarousel() {
+  var c = document.getElementById('homeCarousel');
+  if (!c) return;
+  var total = c.querySelectorAll('.carousel-slide').length;
+  if (total <= 1) return;
+  shuffleCarouselContent();
+  carousel.timer = setInterval(function() {
+    goSlide(carousel.idx + 1);
+    shuffleCarouselContent();
+  }, 5000);
+  // 触摸滑动
+  c.addEventListener('touchstart', function(e) { carousel.touchStartX = e.touches[0].clientX; carousel.isSwiping = true; }, {passive: true});
+  c.addEventListener('touchmove', function(e) {
+    if (!carousel.isSwiping) return;
+    carousel.touchDeltaX = e.touches[0].clientX - carousel.touchStartX;
+  }, {passive: true});
+  c.addEventListener('touchend', function() {
+    if (!carousel.isSwiping) return;
+    carousel.isSwiping = false;
+    if (Math.abs(carousel.touchDeltaX) > 40) { goSlide(carousel.touchDeltaX < 0 ? carousel.idx + 1 : carousel.idx - 1); }
+    carousel.touchDeltaX = 0;
+  });
+}
+function stopCarousel() { if (carousel.timer) { clearInterval(carousel.timer); carousel.timer = null; } }
+
+// 后台时轮播内容随机刷新
+function shuffleCarouselContent() {
+  var c = document.getElementById('homeCarousel');
+  if (!c || !DATA || !DATA.tips || !DATA.warnings) return;
+  var allTips = DATA.tips.tips;
+  var allWarns = DATA.warnings.warnings;
+  var allDishes = DATA.dishes.dishes.filter(function(d) { return findReviews(d.id).length > 0; });
+  function pick(arr, n) {
+    var s = arr.slice().sort(function() { return Math.random() - 0.5; });
+    return s.slice(0, n);
+  }
+  var tipIcons = TIP_ICONS;
+  var slides = c.querySelectorAll('.carousel-slide');
+  slides.forEach(function(slide) {
+    var type = slide.getAttribute('data-type');
+    var grid = slide.querySelector('.tip-grid');
+    if (!grid) return;
+    var html = '';
+    if (type === 'tip') {
+      var items = pick(allTips, 6);
+      items.forEach(function(t, i) {
+        html += '<div class="tip-card" onclick="nav(\'tips/' + t.id + '\')"><div class="tip-icon">' + (tipIcons[i] || '💡') + '</div><h4>' + (t.title || t.category) + '</h4><p>' + (t.content || '').slice(0, 60) + '</p></div>';
+      });
+    } else if (type === 'warn') {
+      var items = pick(allWarns, 6);
+      items.forEach(function(w) {
+        var sevCls = sevStyle(w.severity);
+        html += '<div class="tip-card warn-card" onclick="nav(\'warnings/' + w.id + '\')"><div class="tip-icon" style="' + sevCls + '">' + severityIcon(w.severity) + '</div><h4>' + (w.content || '').slice(0, 20) + '</h4><p>' + (w.content || '').slice(0, 60) + '</p></div>';
+      });
+    } else if (type === 'dish') {
+      var items = pick(allDishes, 6);
+      items.forEach(function(d) {
+        var restName = dishRestaurantName(d);
+        var reviews = findReviews(d.id);
+        var sentiment = reviews[0] ? reviews[0].sentiment : '';
+        var sentIcon = sentimentIcon(sentiment);
+        html += '<div class="tip-card dish-card" onclick="nav(\'dishes/' + d.id + '\')"><div class="tip-icon">' + sentIcon + '</div><h4>' + d.name + '</h4><p>' + restName + '</p></div>';
+      });
+    }
+    grid.innerHTML = html;
+  });
+}
+document.addEventListener('visibilitychange', function() {
+  if (document.hidden) { stopCarousel(); }
+  else {
+    shuffleCarouselContent();
+    var c = document.getElementById('homeCarousel');
+    if (c && c.querySelectorAll('.carousel-slide').length > 1) startCarousel();
+  }
+});
+
+// ========== 面包屑导航 ==========
+const PAGE_META = {
+  home:        {label: '首页', parent: null},
+  attractions: {label: '游乐项目', parent: 'home'},
+  shows:       {label: '演出', parent: 'home'},
+  show_schedule: {label: '演出时间轴', parent: 'shows'},
+  restaurants: {label: '餐厅', parent: 'home'},
+  dishes:      {label: '菜品', parent: 'restaurants'},
+  itineraries: {label: '行程', parent: 'home'},
+  tips:        {label: '技巧', parent: 'home'},
+  warnings:    {label: '避雷', parent: 'home'},
+  preparations:{label: '行前准备', parent: 'home'},
+  shortcuts:   {label: '小道', parent: 'home'},
+  tags:        {label: '标签', parent: 'home'},
+  more:        {label: '更多', parent: 'home'},
+};
+
+function breadcrumb(page, param) {
+  const meta = PAGE_META[page];
+  if (!meta) return '';
+  const crumbs = [];
+  if (param && meta) {
+    // 详情页：当前type就是列表页
+    crumbs.push({hash: page, label: meta.label});
+  }
+  // 向上追溯到首页
+  let cur = meta;
+  while (cur && cur.parent) {
+    const parentMeta = PAGE_META[cur.parent];
+    if (parentMeta) crumbs.push({hash: cur.parent, label: parentMeta.label});
+    cur = parentMeta;
+  }
+  crumbs.reverse();
+  // 最后一项是当前页
+  const current = crumbs.pop();
+  return '<div class="breadcrumb">' + crumbs.map(c => `<span class="bc-item" onclick="nav('${c.hash}')">${c.label}</span>`).join('<span class="bc-sep">/</span>') + `<span class="bc-here">${current ? current.label : page}</span></div>`;
+}
+
+function resolveEntityName(page, id) {
+  if (!id) return '';
+  const e = find(id, page);
+  if (!e) return '';
+  if (e.name) return e.name;
+  if (e.title) return e.title;
+  if (e.content) return e.content.slice(0, 20);
+  return '';
+}
+
+function router() {
+  const hash = location.hash.slice(1) || 'home';
+  const parts = hash.split('/');
+  const page = parts[0];
+  const param = parts[1] || null;
+
+  // 底栏高亮
+  document.querySelectorAll('#nav a').forEach(a => {
+    const dp = a.dataset.page;
+    a.classList.toggle('active', page === dp || page.startsWith(dp.replace(/s$/, '')));
+  });
+
+  // 详情页渲染器映射（复数type → detail函数）
+  const DETAIL = {
+    attractions: id => renderAttractionDetail(id),
+    shows: id => renderShowDetail(id),
+    restaurants: id => renderRestaurantDetail(id),
+    dishes: id => renderDishDetail(id),
+    itineraries: id => renderItineraryDetail(id),
+    tips: id => renderTipDetail(id),
+    warnings: id => renderWarningDetail(id),
+    shortcuts: id => renderShortcutDetail(id),
+    tags: id => renderTagContent(id),
+    preparations: id => renderPreparationDetail(id),
+  };
+
+  // 列表页渲染器映射
+  const LIST = {
+    home: renderHome,
+    attractions: renderAttractionList,
+    shows: renderShowList,
+    show_schedule: renderShowSchedule,
+    restaurants: renderRestaurantList,
+    dishes: renderDishList,
+    itineraries: renderItineraryList,
+    tips: renderTipList,
+    warnings: renderWarningList,
+    shortcuts: renderShortcutList,
+    tags: renderTagCloud,
+    preparations: renderPreparations,
+    more: renderMore,
+  };
+
+  let html = '';
+  // 列表页/详情页的实体颜色映射
+  const PAGE_COLOR = {
+    attractions:'var(--c-attraction)', shows:'var(--c-show)',
+    restaurants:'var(--c-restaurant)', dishes:'var(--c-dish)',
+    tips:'var(--c-tip)', warnings:'var(--c-warning)',
+    shortcuts:'var(--c-shortcut)', itineraries:'var(--c-itinerary)',
+  };
+  if (param && DETAIL[page]) {
+    // 详情页
+    html = breadcrumb(page, param) + DETAIL[page](param);
+  } else if (LIST[page]) {
+    // 列表页
+    const content = (page !== 'home' ? breadcrumb(page) : '') + LIST[page]();
+    const color = PAGE_COLOR[page];
+    html = color ? `<div style="--section-color:${color}">${content}</div>` : content;
+  }
+
+  if (html) {
+    app().innerHTML = html;
+    window.scrollTo(0, 0);
+  }
+}
+
+window.addEventListener('hashchange', function() { stopCarousel(); router(); if (location.hash === '#home' || location.hash === '' || location.hash === '#') startCarousel(); });
+window.addEventListener('DOMContentLoaded', function() { router(); startCarousel(); });
+
+// ========== 页面渲染 ==========
+
+// --- 首页 ---
+function renderStatGrid() {
+  const entries = [
+    {label: '游乐项目', num: DATA.attractions.attractions.length, page: 'attractions'},
+    {label: '演出', num: DATA.shows.shows.length, page: 'shows'},
+    {label: '餐厅', num: DATA.restaurants.restaurants.length, page: 'restaurants'},
+    {label: '行程', num: DATA.itineraries.itineraries.length, page: 'itineraries'},
+    {label: '技巧', num: DATA.tips.tips.length, page: 'tips'},
+    {label: '避雷', num: DATA.warnings.warnings.length, page: 'warnings'},
+    {label: '小道', num: DATA.shortcuts.shortcuts.length, page: 'shortcuts'},
+    {label: '标签', num: DATA.tags.tags.length, page: 'tags'},
+    {label: '行前准备', num: '🎒', page: 'preparations'},
+  ];
+  let html = '<div class="grid">';
+  entries.forEach(e => {
+    html += `<div class="grid-item" onclick="nav('${e.page}')">
+      <div class="num">${e.num}</div><div class="label">${e.label}</div><div class="grid-hint">查看 ›</div></div>`;
+  });
+  return html + '</div>';
+}
+
+function renderTop5Chart() {
+  const top5 = DATA.attractions.attractions
+    .filter(a => a.ranking)
+    .sort((a, b) => a.ranking - b.ranking)
+    .slice(0, 5);
+  if (!top5.length) return '';
+  let html = '<div class="section-title">项目排名 Top5</div>';
+  const BAR_COLORS = ['linear-gradient(90deg,#007aff,#5ac8fa)','linear-gradient(90deg,#af52de,#da8fff)','linear-gradient(90deg,#ff9500,#ffcc00)','linear-gradient(90deg,#34c759,#86efac)','linear-gradient(90deg,#007aff,#5856d6)'];
+  html += '<div class="rank-chart"><div class="rank-chart-title">🎢 必玩项目推荐</div>';
+  const maxRating = 5;
+  top5.forEach((a, i) => {
+    const pct = Math.round((a.rating / maxRating) * 100);
+    const barBg = BAR_COLORS[i] || BAR_COLORS[0];
+    const stars = '★'.repeat(a.rating) + '☆'.repeat(5 - a.rating);
+    html += `<div class="rank-row" onclick="nav('attractions/${a.id}')">
+      <div class="rank-num">#${a.ranking}</div>
+      <div class="rank-name">${a.name}</div>
+      <div class="rank-bar-wrap"><div class="rank-bar" style="width:${pct}%;background:${barBg}"><span>${stars} ${a.rating}分</span></div></div>
+    </div>`;
+  });
+  return html + '</div>';
+}
+
+function buildCarouselSlides() {
+  const warnItems = DATA.warnings.warnings.slice(0, 6);
+  const dishItems = DATA.dishes.dishes.filter(d => findReviews(d.id).length > 0).slice(0, 6);
+  const slides = [
+    {type:'tip', items: DATA.tips.tips.slice(0, 6)},
+    {type:'warn', items: warnItems},
+    {type:'dish', items: dishItems}
+  ].filter(s => s.items.length > 0);
+  return slides;
+}
+
+function renderCarousel(slides) {
+  if (slides.length <= 1) return '';
+  let html = '<div class="carousel" id="homeCarousel"><div class="carousel-track">';
+  slides.forEach(s => {
+    html += `<div class="carousel-slide" data-type="${s.type}">`;
+    html += renderSlideContent(s);
+    html += '</div>';
+  });
+  html += '</div><div class="carousel-dots">';
+  slides.forEach((_, i) => html += `<span class="carousel-dot${i === 0 ? ' active' : ''}" onclick="goSlide(${i})"></span>`);
+  html += '</div></div>';
+  return html;
+}
+
+function renderSlideContent(s) {
+  const tipIcons = TIP_ICONS;
+  if (s.type === 'tip') {
+    let html = '<div class="section-title">💡 实用技巧</div><div class="tip-grid">';
+    s.items.slice(0, 6).forEach((t, i) => {
+      html += `<div class="tip-card" onclick="nav('tips/${t.id}')">
+        <div class="tip-icon">${tipIcons[i] || '💡'}</div>
+        <h4>${t.title || t.category}</h4>
+        <p>${(t.content || '').slice(0, 60)}${(t.content || '').length > 60 ? '...' : ''}</p>
+      </div>`;
+    });
+    return html + '</div>';
+  } else if (s.type === 'warn') {
+    let html = '<div class="section-title">⚠️ 避雷提醒</div><div class="tip-grid">';
+    s.items.slice(0, 6).forEach(w => {
+      const sevCls = sevStyle(w.severity);
+      html += `<div class="tip-card warn-card" onclick="nav('warnings/${w.id}')">
+        <div class="tip-icon" style="${sevCls}">${severityIcon(w.severity)}</div>
+        <h4>${(w.content || '').slice(0, 20)}</h4>
+        <p>${(w.content || '').slice(0, 60)}</p>
+      </div>`;
+    });
+    return html + '</div>';
+  } else if (s.type === 'dish') {
+    let html = '<div class="section-title">🍽️ 热门菜品</div><div class="tip-grid">';
+    s.items.slice(0, 6).forEach(d => {
+      const restName = dishRestaurantName(d);
+      const reviews = findReviews(d.id);
+      const sentiment = reviews[0] ? reviews[0].sentiment : '';
+      const sentIcon = sentimentIcon(sentiment);
+      html += `<div class="tip-card dish-card" onclick="nav('dishes/${d.id}')">
+        <div class="tip-icon">${sentIcon}</div>
+        <h4>${d.name}</h4>
+        <p>${restName}</p>
+      </div>`;
+    });
+    return html + '</div>';
+  }
+  return '';
+}
+
+function renderFallbackSections(slides) {
+  let html = '';
+  if (slides.length <= 1) {
+    const keyTips = DATA.tips.tips.slice(0, 6);
+    html += '<div class="section-title">实用技巧</div><div class="tip-grid">';
+    const tipIcons = TIP_ICONS;
+    keyTips.forEach((t, i) => {
+      html += `<div class="tip-card" onclick="nav('tips/${t.id}')">
+        <div class="tip-icon">${tipIcons[i] || '💡'}</div>
+        <h4>${t.title || t.category}</h4>
+        <p>${(t.content || '').slice(0, 60)}${(t.content || '').length > 60 ? '...' : ''}</p>
+      </div>`;
+    });
+    html += '</div>';
+  }
+  if (slides.length <= 1) {
+    const popularDishes = DATA.dishes.dishes.filter(d => findReviews(d.id).length > 0).slice(0, 6);
+    if (popularDishes.length) {
+      html += '<div class="section-title">热门菜品</div><div class="tip-grid">';
+      popularDishes.forEach(d => {
+        const restName = dishRestaurantName(d);
+        const reviews = findReviews(d.id);
+        const sentiment = reviews[0] ? reviews[0].sentiment : '';
+        const sentIcon = sentimentIcon(sentiment);
+        html += `<div class="tip-card dish-card" onclick="nav('dishes/${d.id}')">
+          <div class="tip-icon">${sentIcon}</div>
+          <h4>${d.name}</h4>
+          <p>${restName}</p>
+        </div>`;
+      });
+      html += '</div>';
+    }
+  }
+  return html;
+}
+
+function renderMentalPrep() {
+  if (!DATA.attractions.mental_preparation || !DATA.attractions.mental_preparation.length) return '';
+  let html = '<div class="section-title">心理准备</div><div class="card">';
+  DATA.attractions.mental_preparation.forEach(m => html += `<p>🧠 ${m}</p>`);
+  return html + '</div>';
+}
+
+function renderHome() {
+  const slides = buildCarouselSlides();
+  return renderStatGrid() + renderTop5Chart() + renderCarousel(slides) + renderFallbackSections(slides) + renderMentalPrep();
+}
+
+// --- 项目列表 ---
+function renderAttractionList() {
+  let html = '';
+  html += renderFilterBar(filters.attractions, 'setAttrFilter');
+
+  let list = DATA.attractions.attractions;
+  if (filters.attractions !== 'all') {
+    list = list.filter(a => (a.zone_ids || []).includes(filters.attractions) || a.tags.includes(filters.attractions));
+  }
+  if (!list.length) { html += '<div class="empty">该园区暂无项目</div>'; }
+  list = list.sort((a, b) => (a.ranking || 99) - (b.ranking || 99));
+
+  list.forEach(a => {
+    const hTag = a.height_requirement && a.height_requirement.min_cm ? `<span style="font-size:11px;color:var(--orange);margin-left:4px">📏≥${a.height_requirement.min_cm}cm</span>` : '';
+    html += `<div class="list-item" data-type="attraction" onclick="nav('attractions/${a.id}')">
+      <div class="info"><h4>${a.name} ${starsHtml(a.rating)}${hTag}</h4>
+      <p>${a.subtype || ''} · ${zonesHtml(a.zone_ids)}</p></div>
+      <span class="arrow">›</span></div>`;
+  });
+
+  return html;
+}
+
+// --- 项目详情 ---
+function renderAttractionDetail(id) {
+  const a = find(id, 'attractions');
+  if (!a) return '<div class="empty">内容不存在：项目</div>';
+
+  let html = '<div style="--section-color:var(--c-attraction)">';
+  html += `<div class="detail-header" data-type="attraction">
+    <h2>${a.name} ${starsHtml(a.rating)}</h2>
+    <div class="sub">${a.subtype || ''}${a.ranking ? ' · 排名 #' + a.ranking : ''}</div>
+    ${tagsHtml(a.tags, true)}
+  </div>`;
+
+  // 身高限制
+  if (a.height_requirement && a.height_requirement.min_cm) {
+    const hr = a.height_requirement;
+    html += '<div class="section-title">身高限制</div><div class="card">';
+    html += `<p>📏 最低身高：<b>${hr.min_cm}cm</b></p>`;
+    if (hr.note) html += `<p class="sub-text">${hr.note}</p>`;
+    html += '</div>';
+  }
+
+  // 客观属性
+  html += '<div class="section-title">项目信息</div><div class="card">';
+  if (a.duration_minutes) html += `<p>⏱ 时长：<b>${a.duration_minutes}分钟</b></p>`;
+  html += `<p>${a.indoor ? '🏠 室内' : '🌳 室外'}</p>`;
+  if (a.water_splash) html += '<p>💦 可能会湿身</p>';
+  if (a.single_rider) html += '<p>🎫 有单人通道</p>';
+  if (a.has_photo) html += '<p>📸 有官方拍照</p>';
+  html += '</div>';
+
+  // 排队策略
+  if (a.queue_strategy) {
+    const qs = a.queue_strategy;
+    html += '<div class="section-title">排队策略</div><div class="card">';
+    if (qs.first_batch) {
+      html += `<p><b>第一批入园：</b>${qs.first_batch.is_recommended ? '✅ 推荐' : '❌ 不推荐'} ${qs.first_batch.description || ''}</p>`;
+    }
+    if (qs.non_first_batch) {
+      html += `<p><b>非第一批：</b>${qs.non_first_batch.is_recommended ? '✅ 推荐' : '❌ 不推荐'} ${qs.non_first_batch.description || ''}</p>`;
+    }
+    if (qs.best_timing) html += `<p><b>最佳时机：</b>${qs.best_timing}</p>`;
+    if (qs.threshold_minutes) html += `<p><b>排队阈值：</b>≤${qs.threshold_minutes}分钟${qs.threshold_rule ? ' → ' + qs.threshold_rule : ''}</p>`;
+    if (qs.channel_advice) html += `<p>${qs.channel_advice}</p>`;
+    html += '</div>';
+  }
+
+  // 存包
+  if (a.locker) {
+    const lk = a.locker;
+    if (lk.is_required) {
+      html += '<div class="section-title">存包须知</div><div class="card">';
+      html += `<p>需存包 · ${lk.timing || ''}</p>`;
+      if (lk.phone_allowed) html += '<p>📱 手机可以带入</p>';
+      if (lk.pickup_location) html += `<p>取包：${lk.pickup_location}</p>`;
+      if (lk.notes) html += `<p>${lk.notes}</p>`;
+      html += '</div>';
+    } else if (lk.phone_allowed) {
+      html += '<div class="section-title">存包须知</div><div class="card">';
+      html += '<p>✅ 无需存包</p>';
+      html += '<p>📱 手机可以带入</p>';
+      html += '</div>';
+    }
+  }
+
+  // 座位建议
+  if (a.seat_advice && a.seat_advice.length) {
+    html += '<div class="section-title">座位建议</div><div class="card">';
+    a.seat_advice.forEach(s => {
+      html += `<p><b>${s.position}：</b>${s.experience || ''} ${s.how_to_get ? '（' + s.how_to_get + '）' : ''}</p>`;
+    });
+    html += '</div>';
+  }
+
+  // 评价
+  html += renderReviews(a.id);
+
+  // 对立观点
+  html += renderOpinions(a.id);
+
+  // 项目自身避雷
+  html += renderWarnings(a.id);
+
+  // 反向索引 - 关联信息
+  html += renderRelations(id);
+
+  return html + '</div>';
+}
+
+// --- 反向索引渲染 ---
+function renderRelations(entityId) {
+  let hasContent = false;
+  let html = '<div class="section-title">关联信息</div><div class="relations">';
+
+  // 1. 同园区内容（通过 zone_index）
+  const zoneId = resolveEntityZone(entityId);
+  if (zoneId) {
+    const zi = INDEXES.zone_index[zoneId];
+    if (zi) {
+      // 同园区其他项目
+      const otherAttrs = (zi.attractions || []).filter(id => id !== entityId);
+      if (otherAttrs.length) {
+        hasContent = true;
+        html += '<div class="rel-subtitle">同园区项目</div>';
+        otherAttrs.forEach(id => {
+          const a = find(id, 'attractions');
+          if (a) html += `<div class="rel-item" onclick="nav('attractions/${id}')"><span style="color:var(--c-attraction)">●</span> ${a.name} ${starsHtml(a.rating)} <span class="rel-arrow">›</span></div>`;
+        });
+      }
+      // 同园区演出
+      if (zi.shows && zi.shows.length) {
+        hasContent = true;
+        html += '<div class="rel-subtitle mt">同园区演出</div>';
+        zi.shows.forEach(id => {
+          const s = find(id, 'shows');
+          if (s) html += `<div class="rel-item" onclick="nav('shows/${id}')"><span style="color:var(--c-show)">●</span> ${s.name} <span class="rel-arrow">›</span></div>`;
+        });
+      }
+      // 同园区餐厅
+      if (zi.restaurants && zi.restaurants.length) {
+        hasContent = true;
+        html += '<div class="rel-subtitle mt">同园区餐厅</div>';
+        zi.restaurants.forEach(id => {
+          const r = find(id, 'restaurants');
+          if (r) html += `<div class="rel-item" onclick="nav('restaurants/${id}')"><span style="color:var(--c-restaurant)">●</span> ${r.name} <span class="rel-arrow">›</span></div>`;
+        });
+      }
+    }
+  }
+
+  // 1.5 替代选择（通过 alternative_index）
+  const altRels = INDEXES.alternative_index[entityId];
+  if (altRels && altRels.length) {
+    hasContent = true;
+    html += '<div class="rel-subtitle mt">替代选择</div>';
+    altRels.forEach(alt => {
+      let label = alt.name;
+      if (!label && alt.entity_id) {
+        const dd = find(alt.entity_id, 'dishes');
+        if (dd) label = dd.name;
+        else { const rr = find(alt.entity_id, 'restaurants'); if (rr) label = rr.name; }
+      }
+      if (label && alt.entity_id) {
+        const route = alt.type === 'dish' ? 'dishes' : alt.type === 'restaurant' ? 'restaurants' : alt.type === 'attraction' ? 'attractions' : alt.type === 'warning' ? 'warnings' : alt.type === 'show' ? 'shows' : '';
+        html += `<div class="rel-item" onclick="nav('${route}/${alt.entity_id}')">
+          🔄 ${label}${alt.reason ? ' · ' + alt.reason : ''} <span class="rel-arrow">›</span></div>`;
+      } else if (label) {
+        html += `<div class="rel-item rel-static">🔄 ${label}${alt.reason ? ' · ' + alt.reason : ''}</div>`;
+      }
+    });
+  }
+
+  // 2. 反向索引（backrefs）
+  const refs = INDEXES.backrefs[entityId];
+  if (refs) {
+    if (refs.tips && refs.tips.length) {
+      hasContent = true;
+      html += '<div class="rel-subtitle mt">相关技巧</div>';
+      refs.tips.forEach(t => {
+        html += `<div class="rel-item" onclick="nav('tips/${t.id}')">💡 ${t.title} <span class="rel-arrow">›</span></div>`;
+      });
+    }
+
+    if (refs.warnings && refs.warnings.length) {
+      hasContent = true;
+      html += '<div class="rel-subtitle mt">相关避雷</div>';
+      refs.warnings.forEach(w => {
+        const short = (w.content || '').slice(0, 40) + ((w.content || '').length > 40 ? '...' : '');
+        const alt = w.alternative ? ' → ' + w.alternative : '';
+        html += `<div class="rel-item" onclick="nav('warnings/${w.id}')">⚠️ ${severityHtml(w.severity)} ${short}${alt} <span class="rel-arrow">›</span></div>`;
+      });
+    }
+
+    if (refs.itineraries && refs.itineraries.length) {
+      hasContent = true;
+      html += '<div class="rel-subtitle mt">出现在行程</div>';
+      refs.itineraries.forEach(it => {
+        html += `<div class="rel-item" onclick="nav('itineraries/${it.id}')">📅 ${it.name} ${it.time || ''} ${it.action ? '· ' + it.action : ''} <span class="rel-arrow">›</span></div>`;
+      });
+    }
+    if (refs.reviews && refs.reviews.length) {
+      html += '<div class="rel-subtitle mt">相关评价</div>';
+      refs.reviews.forEach(r => {
+        const icon = sentimentIcon(r.sentiment);
+        html += `<div class="rel-item" style="cursor:default"><span style="font-size:12px">${icon} ${(r.content || '').length > 40 ? (r.content || '').slice(0, 40) + '...' : (r.content || '')}</span></div>`;
+      });
+    }
+  }
+
+  html += '</div>';
+  return hasContent ? html : '';
+}
+
+function resolveEntityZone(entityId) {
+  if (!entityId) return '';
+  for (const type of ['attractions','shows','restaurants','dishes']) {
+    const e = find(entityId, type);
+    if (e && e.zone_ids && e.zone_ids.length) return e.zone_ids[0];
+  }
+  return '';
+}
+
+// --- 演出列表 ---
+function renderShowList() {
+  let html = '';
+  html += '<div class="card warn-banner">演出时间仅供参考，具体以环球影城官方 App 为准</div>';
+  html += '<div class="section-title">演出时间表 <span style="float:right;font-size:13px;font-weight:400"><a href="#show_schedule" style="color:var(--section-color, var(--neutral));text-decoration:none">查看时间轴 ›</a></span></div>';
+  html += renderFilterBar(filters.shows, 'setShowFilter');
+
+  let list = DATA.shows.shows;
+  if (filters.shows !== 'all') {
+    list = list.filter(s => (s.zone_ids || []).includes(filters.shows) || s.tags.includes(filters.shows));
+  }
+  if (!list.length) { html += '<div class="empty">该园区暂无演出</div>'; }
+  list.forEach(s => {
+    const sched = s.schedule || {};
+    const allTimes = sched.times || sched.example_times || [];
+    // 超过6场时只显示频率，避免列表页文字过长
+    const timeStr = allTimes.length > 6 ? (sched.frequency || allTimes.slice(0,3).join(', ') + '…') : allTimes.join(', ');
+    const freqStr = timeStr ? timeStr : (sched.frequency || '');
+    const typeTag = getTypeTag(s.tags);
+    html += `<div class="list-item" data-type="show" onclick="nav('shows/${s.id}')">
+      <div class="info"><h4>${s.name}</h4>
+      <p>${typeTag}${freqStr ? ' · ' + freqStr : ''}</p></div>
+      <span class="arrow">›</span></div>`;
+  });
+
+  return html;
+}
+
+// --- 演出时间轴 ---
+function renderShowSchedule() {
+  // 按时间排序所有演出场次
+  var slots = [];
+  DATA.shows.shows.forEach(function(s) {
+    var sched = s.schedule || {};
+    var times = sched.example_times || sched.times || [];
+    if (!times.length) return;
+    // 超过8场的演出只取首尾各3场，避免时间轴过长
+    if (times.length > 8) {
+      times = times.slice(0, 3).concat(times.slice(-3));
+    }
+    times.forEach(function(t) {
+      var h = parseInt(t.split(':')[0]) || 0;
+      var m = parseInt(t.split(':')[1]) || 0;
+      slots.push({time: t, sort: h * 60 + m, show: s, duration: sched.duration_minutes || 0, note: sched.note || ''});
+    });
+  });
+  slots.sort(function(a, b) { return a.sort - b.sort; });
+
+  var html = '<div class="schedule-page">';
+  html += '<div class="card hint"><p class="sub-text">以下为参考时间，实际场次以当日App为准。点击演出名称查看详情。</p></div>';
+
+  var curHour = -1;
+  slots.forEach(function(slot) {
+    var h = parseInt(slot.time.split(':')[0]);
+    // 时间分组标题
+    if (h !== curHour) {
+      curHour = h;
+      var period = h < 12 ? '上午' : h < 18 ? '下午' : '晚上';
+      html += '<div class="schedule-period">' + period + ' ' + slot.time.split(':')[0] + ':00</div>';
+    }
+    // 场次卡片
+    var s = slot.show;
+    var zoneName = zonesHtml(s.zone_ids) || '';
+    var durStr = slot.duration ? slot.duration + 'min' : '';
+    var typeLabel = getTypeIcon(s.tags);
+    html += '<div class="schedule-slot" onclick="nav(\'shows/' + s.id + '\')">';
+    html += '<div class="schedule-time">' + slot.time + '</div>';
+    html += '<div class="schedule-info">';
+    html += '<div class="schedule-name">' + typeLabel + ' ' + s.name + '</div>';
+    html += '<div class="schedule-meta">' + zoneName + (durStr ? ' · ' + durStr : '') + '</div>';
+    html += '</div></div>';
+  });
+
+  html += '</div>';
+  return html;
+}
+
+// --- 演出详情 ---
+function renderShowDetail(id) {
+  const s = find(id, 'shows');
+  if (!s) return '<div class="empty">内容不存在</div>';
+  let html = '<div style="--section-color:var(--c-show)">';
+  html += `<div class="detail-header" data-type="show"><h2>${s.name}</h2>
+    ${tagsHtml(s.tags, true)}</div>`;
+
+  if (s.location) {
+    html += `<div class="card standalone"><p>📍 ${s.location}</p></div>`;
+  }
+
+  // 客观属性
+  html += '<div class="card standalone">';
+  if (s.language) html += `<p>🗣 语言：<b>${s.language}</b></p>`;
+  if (s.is_seasonal) html += '<p>🌸 季节限定</p>';
+  html += '</div>';
+
+  if (s.highlights && s.highlights.length) {
+    html += '<div class="section-title">亮点</div><div class="card">';
+    s.highlights.forEach(h => html += `<p>✨ ${h}</p>`);
+    html += '</div>';
+  }
+
+  if (s.schedule) {
+    const sc = s.schedule;
+    html += '<div class="section-title">演出时间</div><div class="card">';
+    if (sc.frequency) html += `<p>${sc.frequency}</p>`;
+    if (sc.times) html += `<p><b>时间：</b>${sc.times.join(', ')}</p>`;
+    if (sc.example_times) html += `<p><b>参考时间：</b>${sc.example_times.join(', ')}</p>`;
+    if (sc.time_range) html += `<p><b>时间段：</b>${sc.time_range}</p>`;
+    if (sc.duration_minutes) html += `<p><b>时长：</b>${sc.duration_minutes}分钟</p>`;
+    if (sc.note) html += `<p>${sc.note}</p>`;
+    html += '</div>';
+  }
+
+  if (s.route) {
+    html += '<div class="section-title">巡游路线</div><div class="card">';
+    if (s.route.start) html += `<p><b>起点：</b>${s.route.start}</p>`;
+    if (s.route.path) html += `<p><b>路线：</b>${s.route.path}</p>`;
+    if (s.route.viewing_advice) html += `<p><b>观看建议：</b>${s.route.viewing_advice}</p>`;
+    if (s.route.spots) s.route.spots.forEach(sp => html += `<p>📍 ${sp}</p>`);
+    if (s.route.tips) s.route.tips.forEach(t => html += `<p>💡 ${t}</p>`);
+    html += '</div>';
+  }
+
+  if (s.tips && s.tips.length) {
+    html += '<div class="section-title">观看技巧</div><div class="card">';
+    s.tips.forEach(t => { const txt = typeof t === 'string' ? t : (t.content || ''); if (txt) html += `<p>💡 ${txt}</p>`; });
+    html += '</div>';
+  }
+
+  html += renderOpinions(s.id);
+
+  html += renderWarnings(s.id);
+
+  html += renderRelations(id);
+  return html + '</div>';
+}
+
+// --- 餐厅列表 ---
+function renderRestaurantList() {
+  let html = '';
+  html += renderFilterBar(filters.restaurants, 'setRestFilter');
+
+  let list = DATA.restaurants.restaurants;
+  if (filters.restaurants !== 'all') {
+    list = list.filter(r => (r.zone_ids || []).includes(filters.restaurants) || r.tags.includes(filters.restaurants));
+  }
+  if (!list.length) { html += '<div class="empty">该园区暂无餐厅</div>'; }
+  list.forEach(r => {
+    const dishNames = (r.recommended_dish_ids || []).map(did => {
+      const d = find(did, 'dishes');
+      return d ? d.name : '';
+    }).filter(Boolean);
+    html += `<div class="list-item" data-type="restaurant" onclick="nav('restaurants/${r.id}')">
+      <div class="info"><h4>${r.name}</h4>
+      <p>${r.average_price ? '人均¥' + r.average_price + ' · ' : ''}${zonesHtml(r.zone_ids) || ''}${dishNames.length ? ' · ' + dishNames.join('、') : ''}</p></div>
+      <span class="arrow">›</span></div>`;
+  });
+
+  return html;
+}
+
+function renderDishList() {
+  let html = '';
+  html += renderFilterBar(filters.dishes, 'setDishFilter');
+
+  let list = DATA.dishes.dishes;
+  if (filters.dishes !== 'all') {
+    list = list.filter(d => (d.zone_ids || []).includes(filters.dishes) || d.tags.includes(filters.dishes));
+  }
+  if (!list.length) { html += '<div class="empty">该园区暂无菜品</div>'; }
+  list.forEach(d => {
+    const restNames = (d.restaurant_ids || []).map(rid => {
+      const r = find(rid, 'restaurants');
+      return r ? r.name : '';
+    }).filter(Boolean).join('、');
+    html += `<div class="list-item" data-type="dish" onclick="nav('dishes/${d.id}')">
+      <div class="info"><h4>${d.name}</h4>
+      <p>${d.price ? '¥' + d.price + ' · ' : ''}${restNames}</p></div><span class="arrow">›</span></div>`;
+  });
+  return html;
+}
+
+function renderDishDetail(id) {
+  const d = find(id, 'dishes');
+  if (!d) return '<div class="empty">内容不存在：菜品</div>';
+  let html = '<div style="--section-color:var(--c-dish)">';
+
+  // 头部：所在餐厅
+  const restNames = (d.restaurant_ids || []).map(rid => {
+    const r = find(rid, 'restaurants');
+    return r ? `<span class="tag clickable" onclick="event.stopPropagation();nav('restaurants/${rid}')">${r.name}</span>` : '';
+  }).filter(Boolean).join(' ');
+  const zoneName = zonesHtml(d.zone_ids);
+  html += '<div class="detail-header" data-type="dish"><h2>' + d.name + '</h2><div class="sub">' + (zoneName ? zoneName + ' · ' : '') + '所在餐厅：' + restNames + '</div></div>';
+
+  // 客观属性
+  if (d.price) {
+    html += `<div class="card standalone"><p>💰 价格：<b>¥${d.price}</b></p></div>`;
+  }
+
+  // 口味标签（从 tags 中筛选 taste 分类）
+  const tasteTags = (d.tags || []).filter(t => { const tag = DATA.tags.tags.find(x => x.id === t); return tag && tag.category === 'taste'; });
+  if (tasteTags.length) {
+    html += '<div class="section-title">口味</div><div class="card">';
+    html += tasteTags.map(t => tagLookup(t)).filter(Boolean).join(' ');
+    html += '</div>';
+  }
+
+  // 评价
+  html += renderReviews(d.id);
+
+  // 对立观点
+  html += renderOpinions(d.id);
+
+  // 关联信息
+  html += renderRelations(id);
+  return html + '</div>';
+}
+
+function renderRestaurantDetail(id) {
+  const r = find(id, 'restaurants');
+  if (!r) return '<div class="empty">内容不存在</div>';
+  let html = '<div style="--section-color:var(--c-restaurant)">';
+  html += `<div class="detail-header" data-type="restaurant"><h2>${r.name}</h2>
+    <div class="sub">${tagsHtml(r.tags, true)}</div>`;
+
+  if (r.location) {
+    html += '<div class="card standalone"><p>📍 ' + r.location + '</p></div>';
+  }
+
+  // 客观属性
+  html += '<div class="card standalone">';
+  if (r.average_price) html += `<p>💰 人均：<b>¥${r.average_price}</b></p>`;
+  if (r.business_hours) html += `<p>🕐 营业时间：<b>${r.business_hours}</b></p>`;
+  html += `<p>${r.indoor ? '🏠 室内' : '🌳 室外'}</p>`;
+  html += '</div>';
+
+  // 评价
+  html += renderReviews(r.id);
+
+  html += renderOpinions(r.id);
+
+  html += renderRelations(id);
+  return html + '</div>';
+}
+
+// --- 行程列表 ---
+function renderItineraryList() {
+  let html = '';
+  DATA.itineraries.itineraries.forEach(it => {
+    html += `<div class="list-item" data-type="itinerary" onclick="nav('itineraries/${it.id}')">
+      <div class="info"><h4>${it.name}</h4>
+      <p>${it.description ? it.description.slice(0, 50) : ''}</p></div>
+      <span class="arrow">›</span></div>`;
+  });
+  return html;
+}
+
+function renderItineraryDetail(id) {
+  const it = find(id, 'itineraries');
+  if (!it) return '<div class="empty">内容不存在</div>';
+
+  let html = '<div style="--section-color:var(--c-itinerary)">';
+  html += `<div class="detail-header" data-type="itinerary"><h2>${it.name}</h2>
+    <div class="sub">${it.description || ''}</div>${tagsHtml(it.tags, true)}</div>`;
+
+  if (it.time_slots) {
+    it.time_slots.forEach(slot => {
+      html += `<div class="section-title">${slot.period || ''}</div><div class="timeline">`;
+      slot.items.forEach(item => {
+        // 多值支持：从 attraction_ids / show_ids / restaurant_ids 构建链接
+        const attractions = (item.attraction_ids || []).map(aid => find(aid, 'attractions')).filter(Boolean);
+        const shows = (item.show_ids || []).map(sid => find(sid, 'shows')).filter(Boolean);
+        const restaurants = (item.restaurant_ids || []).map(rid => find(rid, 'restaurants')).filter(Boolean);
+
+        // 确定链接目标：优先取第一个有值的实体
+        let onclick = '';
+        if (attractions.length) onclick = ` class="tl-link" onclick="nav('attractions/${attractions[0].id}')"`;
+        else if (shows.length) onclick = ` class="tl-link" onclick="nav('shows/${shows[0].id}')"`;
+        else if (restaurants.length) onclick = ` class="tl-link" onclick="nav('restaurants/${restaurants[0].id}')"`;
+
+        // 构建关联实体名称列表
+        const linkedNames = [];
+        attractions.forEach(a => linkedNames.push(a.name));
+        shows.forEach(s => linkedNames.push(s.name));
+        restaurants.forEach(r => linkedNames.push(r.name));
+        const extraNames = linkedNames.length > 1 ? linkedNames.slice(1).join('、') : '';
+
+        html += `<div class="timeline-item"${onclick}>
+          <div class="time">${item.time || ''}</div>
+          <div class="action">${item.action || ''}${onclick ? ' ›' : ''}</div>
+          ${extraNames ? '<div class="note">🔗 ' + extraNames + '</div>' : ''}
+          ${item.note ? '<div class="note">' + item.note + '</div>' : ''}
+        </div>`;
+      });
+      html += '</div>';
+    });
+  }
+
+  if (it.principles && it.principles.length) {
+    html += '<div class="section-title">行程原则</div><div class="card">';
+    it.principles.forEach(p => html += `<p>📌 ${p}</p>`);
+    html += '</div>';
+  }
+  return html + '</div>';
+}
+
+// --- 技巧列表 ---
+function renderTipList() {
+  let html = '';
+  DATA.tips.tips.forEach(t => {
+    html += `<div class="list-item" data-type="tip" onclick="nav('tips/${t.id}')">
+      <div class="info"><h4>${t.title || t.category}</h4>
+      <p>${t.category || ''}</p></div>
+      <span class="arrow">›</span></div>`;
+  });
+  return html;
+}
+
+function renderTipDetail(id) {
+  const t = find(id, 'tips');
+  if (!t) return '<div class="empty">内容不存在</div>';
+  let html = '<div style="--section-color:var(--c-tip)">';
+  html += `<div class="detail-header" data-type="tip"><h2>${t.title || t.category}</h2>
+    <div class="sub">${t.category || ''}</div>${tagsHtml(t.tags, true)}</div>`;
+  if (t.content) {
+    html += `<div class="card"><p>${t.content}</p></div>`;
+  }
+
+  html += renderOpinions(t.id);
+  html += renderRelations(id);
+
+  return html + '</div>';
+}
+
+// --- 避雷列表 ---
+function renderWarningList() {
+  let html = '';
+  const all = DATA.warnings.warnings;
+  const sorted = all.slice().sort((a, b) =>
+    (a.severity === 'high' ? 0 : a.severity === 'medium' ? 1 : 2) -
+    (b.severity === 'high' ? 0 : b.severity === 'medium' ? 1 : 2)
+  );
+  sorted.forEach(w => {
+    const targets = [];
+    (w.attraction_ids || []).forEach(id => { const a = find(id, 'attractions'); if (a) targets.push(a.name); });
+    (w.restaurant_ids || []).forEach(id => { const r = find(id, 'restaurants'); if (r) targets.push(r.name); });
+    (w.show_ids || []).forEach(id => { const s = find(id, 'shows'); if (s) targets.push(s.name); });
+    html += `<div class="list-item" data-type="warning" onclick="nav('warnings/${w.id}')">
+      <div class="info"><h4>${severityIcon(w.severity)} ${(w.content || '').slice(0, 30)}${(w.content || '').length > 30 ? '...' : ''}</h4>
+      <p>${w.category}${targets.length ? ' · ' + targets.join('、') : ''}</p></div>
+      <span class="arrow">›</span></div>`;
+  });
+  return html;
+}
+
+// --- 避雷详情 ---
+function renderWarningDetail(id) {
+  const w = find(id, 'warnings');
+  if (!w) return renderWarningList();
+  let html = '<div style="--section-color:var(--c-warning)">';
+  html += `<div class="detail-header" data-type="warning"><h2>${severityIcon(w.severity)} ${w.content}</h2>
+    <div class="sub">${w.category}</div></div>`;
+  if (w.alternative) {
+    html += '<div class="card"><p>💡 替代方案：' + w.alternative + '</p></div>';
+  }
+  if (w.tags && w.tags.length) {
+    html += '<div class="section-title">标签</div><div class="card">';
+    html += tagsHtml(w.tags, true);
+    html += '</div>';
+  }
+  html += renderRelations(id);
+  return html + '</div>';
+}
+
+// --- 行前准备 ---
+function renderPreparations() {
+  const p = DATA.preparations;
+  let html = '';
+  const sections = [
+    {id: 'transport', label: '交通指南', icon: '🚇', desc: '地铁/打车/回程'},
+    {id: 'ticket', label: '票价与优速通', icon: '🎫', desc: '四级票价 + 快速通道'},
+    {id: 'parking', label: '停车与寄存', icon: '🅿️', desc: '停车场/寄存柜/行李寄存'},
+    {id: 'rental', label: '租赁服务', icon: '♿', desc: '轮椅/婴儿车租赁'},
+    {id: 'clothing', label: '穿衣指南', icon: '👕', desc: '必穿/必带/不要穿'},
+    {id: 'items', label: '物品清单', icon: '🎒', desc: '必带 + 禁忌物品'},
+    {id: 'dates', label: '最佳日期', icon: '📅', desc: '淡季/周几/人流量判断'},
+    {id: 'checklist', label: '行前必做', icon: '✅', desc: '出发前检查清单'},
+  ];
+  sections.forEach(s => {
+    html += `<div class="list-item" onclick="nav('preparations/${s.id}')">
+      <div class="info"><h4>${s.icon} ${s.label}</h4><p>${s.desc}</p></div>
+      <span class="arrow">›</span></div>`;
+  });
+  return html;
+}
+
+function renderTransportSection(p) {
+  const tr = p.transportation;
+  if (!tr) return '<div class="empty">暂无数据</div>';
+  let html = '';
+  if (tr.subway) {
+    const sw = tr.subway;
+    html += '<div class="section-title">🚇 地铁</div><div class="card">';
+    if (sw.lines) { html += '<p><b>线路：</b>'; sw.lines.forEach(l => html += `<span class="tag zone">${l}</span>`); html += '</p>'; }
+    if (sw.station) html += `<p><b>站点：</b>${sw.station}</p>`;
+    if (sw.best_exit) html += `<p><b>最佳出口：</b>${sw.best_exit}</p>`;
+    if (sw.security_advice) html += `<p><b>安检提示：</b>${sw.security_advice}</p>`;
+    html += '</div>';
+  }
+  if (tr.taxi_arrival && tr.taxi_arrival.length) {
+    html += '<div class="section-title">🚗 打车去（下车点）</div><div class="card">';
+    tr.taxi_arrival.forEach((t, i) => { html += `<p><b>📍 方案${i + 1}：${t.location}</b></p>`; if (t.note) html += `<p class="sub-text">${t.note}</p>`; });
+    html += '</div>';
+  }
+  if (tr.taxi_departure && tr.taxi_departure.length) {
+    html += '<div class="section-title">🚕 打车回（上车点）</div><div class="card">';
+    tr.taxi_departure.forEach(t => { html += `<p><b>📍 ${t.location}</b></p>`; if (t.note) html += `<p class="sub-text">${t.note}</p>`; });
+    html += '</div>';
+  }
+  if (tr.alternative_departure) { html += '<div class="section-title">💡 回程建议</div><div class="opinion-block"><p>' + tr.alternative_departure + '</p></div>'; }
+  return html;
+}
+
+function renderClothingSection(p) {
+  const cl = p.clothing;
+  if (!cl) return '<div class="empty">暂无数据</div>';
+  let html = '<div class="card">';
+  if (cl.must_wear) html += `<p>👟 <b>必穿：</b>${cl.must_wear}</p>`;
+  if (cl.must_bring) html += `<p>🧥 <b>必带：</b>${cl.must_bring}</p>`;
+  if (cl.forbidden) html += `<p>🚫 <b>不要穿：</b>${cl.forbidden}</p>`;
+  if (cl.note) html += `<p style="margin-top:8px;color:var(--sub)">${cl.note}</p>`;
+  return html + '</div>';
+}
+
+function renderItemsSection(p) {
+  let html = '';
+  if (p.essential_items && p.essential_items.length) {
+    html += '<div class="section-title">必带物品</div><div class="card">';
+    p.essential_items.forEach(i => html += `<p>📦 ${i.item}${i.purpose ? ' — ' + i.purpose : ''}</p>`);
+    html += '</div>';
+  }
+  if (p.prohibited_items && p.prohibited_items.length) {
+    html += '<div class="section-title">禁忌物品</div><div class="card">';
+    p.prohibited_items.forEach(i => html += `<p>🚫 ${i.item}${i.reason ? ' — ' + i.reason : ''}</p>`);
+    html += '</div>';
+  }
+  return html || '<div class="empty">暂无数据</div>';
+}
+
+function renderDatesSection(p) {
+  const bd = p.best_dates;
+  if (!bd) return '<div class="empty">暂无数据</div>';
+  let html = '<div class="card">';
+  if (bd.off_peak_seasons) { html += '<p><b>淡季推荐：</b>'; bd.off_peak_seasons.forEach(s => html += `<span class="tag zone">${s}</span>`); html += '</p>'; }
+  if (bd.best_weekdays) { html += '<p><b>最佳周几：</b>'; bd.best_weekdays.forEach(w => html += `<span class="tag zone">${w}</span>`); html += '</p>'; }
+  if (bd.weekend_note) html += `<p>${bd.weekend_note}</p>`;
+  if (bd.holiday_tip) html += `<p>${bd.holiday_tip}</p>`;
+  html += '</div>';
+  const ce = p.crowd_estimation;
+  if (ce) {
+    html += '<div class="section-title">人流量判断</div><div class="card">';
+    if (ce.method) html += `<p><b>判断方法：</b>${ce.method}</p>`;
+    if (ce.formula) html += `<p><b>估算公式：</b>${ce.formula}</p>`;
+    if (ce.thresholds && ce.thresholds.length) {
+      html += '<p style="margin-top:6px"><b>参考标准：</b></p>';
+      ce.thresholds.forEach(t => {
+        let range = '';
+        if (t.max_sessions && !t.min_sessions) range = `≤${t.max_sessions}场`;
+        else if (t.min_sessions && t.max_sessions) range = `${t.min_sessions}-${t.max_sessions}场`;
+        else if (t.min_sessions) range = `≥${t.min_sessions}场`;
+        html += `<p>${range} → ${t.advice}</p>`;
+      });
+    }
+    html += '</div>';
+  }
+  return html;
+}
+
+function renderChecklistSection(p) {
+  if (!p.pre_trip_checklist || !p.pre_trip_checklist.length) return '<div class="empty">暂无数据</div>';
+  let html = '<div class="card">';
+  p.pre_trip_checklist.forEach(i => html += `<p>☑️ ${i.item}${i.purpose ? ' — ' + i.purpose : ''}</p>`);
+  return html + '</div>';
+}
+
+function renderTicketSection(p) {
+  if (!p.ticket_prices) return '<div class="empty">暂无数据</div>';
+  const tp = p.ticket_prices;
+  let html = '';
+  if (tp.note) html += `<p style="font-size:12px;color:var(--sub);margin-bottom:8px">⚠️ ${tp.note}</p>`;
+  html += '<div class="section-title">🎫 门票</div><div class="card">';
+  if (tp.tiers) { tp.tiers.forEach(t => html += `<p><b>${t.type}</b>：¥${t.price}${t.description ? ' <span class="small-text">（' + t.description + '）</span>' : ''}</p>`); }
+  html += '</div>';
+  if (tp.express_pass) {
+    const ep = tp.express_pass;
+    html += '<div class="section-title">⚡ 优速通</div><div class="card">';
+    if (ep.note) html += `<p class="small-text">${ep.note}</p>`;
+    if (ep.options) { ep.options.forEach(o => html += `<p><b>${o.type}</b>：¥${o.price}${o.description ? ' — ' + o.description : ''}</p>`); }
+    html += '</div>';
+  }
+  return html;
+}
+
+function renderParkingSection(p) {
+  let html = '';
+  if (p.parking) {
+    html += '<div class="section-title">🅿️ 停车场</div><div class="card">';
+    if (p.parking.note) html += `<p class="small-text">${p.parking.note}</p>`;
+    if (p.parking.options) { p.parking.options.forEach(o => html += `<p><b>${o.type}</b>：${o.price}${o.unit}${o.description ? ' <span class="small-text">（' + o.description + '）</span>' : ''}</p>`); }
+    html += '</div>';
+  }
+  if (p.locker) {
+    const lk = p.locker;
+    html += '<div class="section-title">🔒 寄存</div><div class="card">';
+    if (lk.note) html += `<p class="small-text">⚠️ ${lk.note}</p>`;
+    if (lk.self_service) { html += '<p><b>自助寄存柜</b></p>'; lk.self_service.forEach(s => html += `<p class="indent">${s.type}：${s.price}${s.unit}（${s.size}）</p>`); }
+    if (lk.ride_locker) { html += '<p><b>项目入口寄存柜</b></p><p class="indent">' + lk.ride_locker.description + ' — ' + lk.ride_locker.price + '</p>'; }
+    if (lk.baggage_service) {
+      const bs = lk.baggage_service;
+      html += `<p><b>${bs.description}</b></p>`;
+      if (bs.prices) bs.prices.forEach(pr => html += `<p class="indent">${pr.type}：${pr.price}${pr.unit}${pr.note ? '（' + pr.note + '）' : ''}</p>`);
+      if (bs.note) html += `<p class="small-text">${bs.note}</p>`;
+    }
+    html += '</div>';
+  }
+  return html || '<div class="empty">暂无数据</div>';
+}
+
+function renderRentalSection(p) {
+  if (!p.rental) return '<div class="empty">暂无数据</div>';
+  const rt = p.rental;
+  let html = '<div class="card">';
+  if (rt.wheelchair) html += `<p><b>♿ 轮椅</b>：${rt.wheelchair.price}${rt.wheelchair.unit}${rt.wheelchair.location ? '（' + rt.wheelchair.location + '）' : ''}</p>`;
+  if (rt.stroller) { rt.stroller.forEach(s => html += `<p><b>🚼 ${s.type}</b>：${s.price}${s.unit}</p>`); }
+  if (rt.note) html += `<p class="small-text">⚠️ ${rt.note}</p>`;
+  return html + '</div>';
+}
+
+const PREP_SECTIONS = {
+  transport: { title: '交通指南', render: renderTransportSection },
+  clothing:  { title: '穿衣指南', render: renderClothingSection },
+  items:     { title: '物品清单', render: renderItemsSection },
+  dates:     { title: '最佳日期', render: renderDatesSection },
+  checklist: { title: '行前必做', render: renderChecklistSection },
+  ticket:    { title: '票价与优速通', render: renderTicketSection },
+  parking:   { title: '停车与寄存', render: renderParkingSection },
+  rental:    { title: '租赁服务', render: renderRentalSection },
+};
+
+function renderPreparationDetail(section) {
+  const p = DATA.preparations;
+  if (!p) return '<div class="empty">暂无数据</div>';
+  const config = PREP_SECTIONS[section];
+  if (!config) return '<div class="empty">暂无数据</div>';
+  return `<div class="detail-header"><h2>${config.title}</h2></div>` + config.render(p);
+}
+
+// --- 秘密小道 ---// --- 秘密小道 ---
+function renderShortcutList() {
+  let html = '';
+  DATA.shortcuts.shortcuts.forEach(s => {
+    html += `<div class="list-item" data-type="shortcut" onclick="nav('shortcuts/${s.id}')">
+      <div class="info"><h4>${s.name}</h4>
+      <p>${s.from} → ${s.to} · 节省${s.savings}</p></div>
+      <span class="arrow">›</span></div>`;
+  });
+  return html;
+}
+
+// --- 标签云 ---
+function renderShortcutDetail(id) {
+  const s = find(id, 'shortcuts');
+  if (!s) return '<div class="empty">内容不存在</div>';
+  let html = '<div style="--section-color:var(--c-shortcut)">';
+  html += `<div class="detail-header" data-type="shortcut"><h2>${s.name}</h2>
+    <div class="sub">${s.from} → ${s.to}</div></div>`;
+
+  html += '<div class="card">';
+  html += `<p><b>路线</b>：${s.route || '暂无'}</p>`;
+  if (s.savings) html += `<p><b>节省</b>：${s.savings}</p>`;
+  if (s.avoid_mistake) html += `<p><b>避坑</b>：${s.avoid_mistake}</p>`;
+  if (s.condition) html += `<p><b>条件</b>：${s.condition}</p>`;
+  html += '</div>';
+
+  if (s.tags && s.tags.length) {
+    html += '<div class="section-title">标签</div><div class="card">';
+    html += tagsHtml(s.tags, true);
+    html += '</div>';
+  }
+
+  html += renderRelations(id);
+  return html + '</div>';
+}
+
+function renderTagCloud() {
+  let html = '';
+  const categories = DATA.tags.categories;
+  categories.forEach(cat => {
+    const catTags = DATA.tags.tags.filter(t => t.category === cat.id);
+    if (!catTags.length) return;
+    html += `<div class="card"><h3>${cat.name}</h3>`;
+    catTags.forEach(t => {
+      const tagCount = (INDEXES.tag_index[t.id] ? Object.values(INDEXES.tag_index[t.id]).flat().length : 0);
+      const zoneCount = (INDEXES.zone_index[t.id] ? Object.values(INDEXES.zone_index[t.id]).flat().length : 0);
+      const count = tagCount + zoneCount;
+      html += `<span class="tag clickable" onclick="nav('tags/${t.id}')">${t.name} (${count})</span> `;
+    });
+    html += '</div>';
+  });
+  return html;
+}
+
+function renderTagContent(tagId) {
+  const tag = DATA.tags.tags.find(t => t.id === tagId);
+  if (!tag) return '<div class="empty">未找到标签</div>';
+
+  let html = '';
+  html += `<div class="detail-header"><h2>${tag.name}</h2>
+    <div class="sub">${categoryLookup(tag.category)}${tag.description ? ' · ' + tag.description : ''}</div></div>`;
+
+  // 合并 tag_index 和 zone_index（zone 标签可能只在 zone_index 中）
+  const tagIdx = INDEXES.tag_index[tagId] || {};
+  const zoneIdx = INDEXES.zone_index[tagId] || {};
+  const idx = {};
+  for (const type of ['attractions','shows','restaurants','dishes','tips','shortcuts','warnings','itineraries']) {
+    const items = [...new Set([...(tagIdx[type] || []), ...(zoneIdx[type] || [])])];
+    if (items.length) idx[type] = items;
+  }
+
+  html += renderEntityLinks('相关项目', 'attractions', idx.attractions, 'name');
+  html += renderEntityLinks('相关演出', 'shows', idx.shows, 'name');
+  html += renderEntityLinks('相关餐厅', 'restaurants', idx.restaurants, 'name');
+
+  html += renderEntityLinks('相关菜品', 'dishes', idx.dishes, 'name', '🍽️ ');
+
+  html += renderEntityLinks('相关技巧', 'tips', idx.tips, 'title');
+  html += renderEntityLinks('相关小道', 'shortcuts', idx.shortcuts, 'name');
+
+  html += renderEntityLinks('相关避雷', 'warnings', idx.warnings, 'content', '⚠️ ');
+
+  html += renderEntityLinks('相关行程', 'itineraries', idx.itineraries, 'name', '📅 ');
+
+  const hasAny = Object.values(idx).some(v => v && v.length);
+  if (!hasAny) html += '<div class="empty">暂无关联内容</div>';
+
+  return html;
+}
+
+// --- 更多 ---
+function renderMore() {
+  const items = [
+    {label: '行程方案', page: 'itineraries', icon: '📅'},
+    {label: '标签索引', page: 'tags', icon: '🏷️'},
+    {label: '隐藏技巧', page: 'tips', icon: '💡'},
+    {label: '避雷提醒', page: 'warnings', icon: '⚠️'},
+    {label: '秘密小道', page: 'shortcuts', icon: '🚶'},
+    {label: '行前准备', page: 'preparations', icon: '🎒'},
+  ];
+  let html = '<div class="section-title">更多内容</div>';
+  items.forEach(it => {
+    html += `<div class="list-item" onclick="nav('${it.page}')">
+      <div class="info"><h4>${it.icon} ${it.label}</h4></div>
+      <span class="arrow">›</span></div>`;
+  });
+
+  html += `<div class="card footer-text">
+    <p>生成时间：{{ generated_at }}（北京时间）</p>
+    <p>数据版本：v${DATA.meta.version || '1.0'} · 数据更新日期：${DATA.meta.last_updated || '未知'}</p>
+  </div>`;
+  return html;
+}
+</script>
+</body>
+</html>
