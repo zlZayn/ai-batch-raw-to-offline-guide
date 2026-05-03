@@ -1,0 +1,1038 @@
+{
+  "version": "3.2.0",
+  "last_updated": "2026-04-08",
+  "reviews": [
+    {
+      "id": "rev_attr_01",
+      "target_type": "attraction",
+      "target_id": "attr_forbidden_journey",
+      "content": "好玩好玩！代入感很好！全场最佳十分推荐！",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04a",
+        "md_04g",
+        "md_02",
+        "md_00",
+        "md_07"
+      ]
+    },
+    {
+      "id": "rev_attr_02",
+      "target_type": "attraction",
+      "target_id": "attr_forbidden_journey",
+      "content": "5D沉浸飞行（裸眼3D+实景），哈迷必刷",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04a",
+        "md_04g",
+        "md_02",
+        "md_00",
+        "md_07"
+      ]
+    },
+    {
+      "id": "rev_attr_03",
+      "target_type": "attraction",
+      "target_id": "attr_forbidden_journey",
+      "content": "提早入园首冲不排队！5D沉浸飞行",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04a",
+        "md_04g",
+        "md_02",
+        "md_00",
+        "md_07"
+      ]
+    },
+    {
+      "id": "rev_attr_04",
+      "target_type": "attraction",
+      "target_id": "attr_jurassic_adventure",
+      "content": "特别好玩！里面恐龙模型很逼真场景也非常有代入感",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04c",
+        "md_04g",
+        "md_02",
+        "md_07"
+      ]
+    },
+    {
+      "id": "rev_attr_05",
+      "target_type": "attraction",
+      "target_id": "attr_jurassic_adventure",
+      "content": "坐第一排爽死了！推荐推荐！",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04c",
+        "md_04g",
+        "md_02",
+        "md_07"
+      ]
+    },
+    {
+      "id": "rev_attr_06",
+      "target_type": "attraction",
+      "target_id": "attr_source_battle",
+      "content": "好玩好玩，3D眼镜带上效果特别好，这些机器人就在我们面前",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04d",
+        "md_04g",
+        "md_02",
+        "md_07"
+      ]
+    },
+    {
+      "id": "rev_attr_07",
+      "target_type": "attraction",
+      "target_id": "attr_source_battle",
+      "content": "喷水画面的时候是会洒水到人身上的，炮弹飞过来的时候会有热气喷身上非常真实的感觉",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04d",
+        "md_04g",
+        "md_02",
+        "md_07"
+      ]
+    },
+    {
+      "id": "rev_attr_08",
+      "target_type": "attraction",
+      "target_id": "attr_source_battle",
+      "content": "排名Top3的项目，必玩！刺激！",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04d",
+        "md_04g",
+        "md_02",
+        "md_07"
+      ]
+    },
+    {
+      "id": "rev_attr_09",
+      "target_type": "attraction",
+      "target_id": "attr_minion_mayhem",
+      "content": "好玩好玩！入场前有一段影片场景很有趣",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04b",
+        "md_04g",
+        "md_07"
+      ]
+    },
+    {
+      "id": "rev_attr_10",
+      "target_type": "attraction",
+      "target_id": "attr_minion_mayhem",
+      "content": "还有香蕉味的屁，体验很好不会刺激，推荐！",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04b",
+        "md_04g",
+        "md_07"
+      ]
+    },
+    {
+      "id": "rev_attr_11",
+      "target_type": "attraction",
+      "target_id": "attr_minion_mayhem",
+      "content": "可可爱爱的项目裸眼4D，这个项目也有一点刺激！好玩推荐！香蕉屁也太萌了",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04b",
+        "md_04g",
+        "md_07"
+      ]
+    },
+    {
+      "id": "rev_attr_12",
+      "target_type": "attraction",
+      "target_id": "attr_kung_fu_panda",
+      "content": "全程水上漂，很舒服，两边有情景剧",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04e",
+        "md_04g"
+      ]
+    },
+    {
+      "id": "rev_attr_13",
+      "target_type": "attraction",
+      "target_id": "attr_kung_fu_panda",
+      "content": "快结束有一个下大坡第一排可能会被溅到水",
+      "sentiment": "neutral",
+      "source_files": [
+        "md_04e",
+        "md_04g"
+      ]
+    },
+    {
+      "id": "rev_attr_14",
+      "target_type": "attraction",
+      "target_id": "attr_kung_fu_panda",
+      "content": "功夫熊猫园区最推荐这个！",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04e",
+        "md_04g"
+      ]
+    },
+    {
+      "id": "rev_attr_15",
+      "target_type": "attraction",
+      "target_id": "attr_velocicoaster",
+      "content": "时间挺短的，但有点吓人",
+      "sentiment": "mixed",
+      "source_files": [
+        "md_04c",
+        "md_04g",
+        "md_08"
+      ]
+    },
+    {
+      "id": "rev_attr_16",
+      "target_type": "attraction",
+      "target_id": "attr_velocicoaster",
+      "content": "全球独家，夜景很美",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04c",
+        "md_04g",
+        "md_08"
+      ]
+    },
+    {
+      "id": "rev_attr_17",
+      "target_type": "attraction",
+      "target_id": "attr_velocicoaster",
+      "content": "VR体验逼真飞跃侏罗纪——过山车，可以来看夜景，很美",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04c",
+        "md_04g",
+        "md_08"
+      ]
+    },
+    {
+      "id": "rev_attr_18",
+      "target_type": "attraction",
+      "target_id": "attr_decepticoaster",
+      "content": "非常刺激，胆小的建议不要玩",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04d",
+        "md_04g"
+      ]
+    },
+    {
+      "id": "rev_attr_19",
+      "target_type": "attraction",
+      "target_id": "attr_decepticoaster",
+      "content": "排队时间偏短，喜欢刺激胆大者的不二之选",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04d",
+        "md_04g"
+      ]
+    },
+    {
+      "id": "rev_attr_20",
+      "target_type": "attraction",
+      "target_id": "attr_decepticoaster",
+      "content": "有实测者因害怕没去玩，但排队时间偏短，胆大者的不二之选",
+      "sentiment": "neutral",
+      "source_files": [
+        "md_04d",
+        "md_04g"
+      ]
+    },
+    {
+      "id": "rev_attr_21",
+      "target_type": "attraction",
+      "target_id": "attr_flight_of_hippogriff",
+      "content": "过程特别短，可能就不到一分钟，俯瞰海格小屋",
+      "sentiment": "neutral",
+      "source_files": [
+        "md_04a",
+        "md_04g",
+        "md_09",
+        "md_07"
+      ]
+    },
+    {
+      "id": "rev_attr_22",
+      "target_type": "attraction",
+      "target_id": "attr_flight_of_hippogriff",
+      "content": "要排好久队就别去，不值得",
+      "sentiment": "negative",
+      "source_files": [
+        "md_04a",
+        "md_04g",
+        "md_09",
+        "md_07"
+      ]
+    },
+    {
+      "id": "rev_attr_23",
+      "target_type": "attraction",
+      "target_id": "attr_flight_of_hippogriff",
+      "content": "小型过山车，俯瞰海格小屋",
+      "sentiment": "neutral",
+      "source_files": [
+        "md_04a",
+        "md_04g",
+        "md_09",
+        "md_07"
+      ]
+    },
+    {
+      "id": "rev_attr_24",
+      "target_type": "attraction",
+      "target_id": "attr_bumblebee_spin",
+      "content": "一般，特色就是大黄蜂在控制旋转",
+      "sentiment": "neutral",
+      "source_files": [
+        "md_04d",
+        "md_04g"
+      ]
+    },
+    {
+      "id": "rev_attr_25",
+      "target_type": "attraction",
+      "target_id": "attr_raptor_encounter",
+      "content": "没去，排队时间不少",
+      "sentiment": "neutral",
+      "source_files": [
+        "md_04c",
+        "md_04g",
+        "md_09"
+      ]
+    },
+    {
+      "id": "rev_attr_26",
+      "target_type": "attraction",
+      "target_id": "attr_raptor_encounter",
+      "content": "跟奥利凡德一样就是小表演，不值得花那么多时间排队",
+      "sentiment": "negative",
+      "source_files": [
+        "md_04c",
+        "md_04g",
+        "md_09"
+      ]
+    },
+    {
+      "id": "rev_attr_27",
+      "target_type": "attraction",
+      "target_id": "attr_raptor_encounter",
+      "content": "日票捧油就不要去玩了，见面会看起来排队人不多但是基本也是半小时起的",
+      "sentiment": "negative",
+      "source_files": [
+        "md_04c",
+        "md_04g",
+        "md_09"
+      ]
+    },
+    {
+      "id": "rev_attr_28",
+      "target_type": "attraction",
+      "target_id": "attr_ollivander",
+      "content": "就是魔杖小表演，可以看，要排队就不推荐",
+      "sentiment": "neutral",
+      "source_files": [
+        "md_04a",
+        "md_04g",
+        "md_09"
+      ]
+    },
+    {
+      "id": "rev_attr_29",
+      "target_type": "attraction",
+      "target_id": "attr_ollivander",
+      "content": "跟奇遇迅猛龙一样就是表演，可看可不看，长时间排队不值得",
+      "sentiment": "neutral",
+      "source_files": [
+        "md_04a",
+        "md_04g",
+        "md_09"
+      ]
+    },
+    {
+      "id": "rev_attr_30",
+      "target_type": "attraction",
+      "target_id": "attr_despicable_me_spin",
+      "content": "就一下，转个几圈，一般，适合小孩玩",
+      "sentiment": "neutral",
+      "source_files": [
+        "md_04b"
+      ]
+    },
+    {
+      "id": "rev_attr_31",
+      "target_type": "attraction",
+      "target_id": "attr_kung_fu_panda_coaster",
+      "content": "跟鹰马飞行一样短但是没鹰马飞行刺激，会平缓一些，还行",
+      "sentiment": "neutral",
+      "source_files": [
+        "md_04b",
+        "md_07"
+      ]
+    },
+    {
+      "id": "rev_attr_32",
+      "target_type": "attraction",
+      "target_id": "attr_kung_fu_panda_coaster",
+      "content": "很适合小朋友的过山车，有一丢丢失重感",
+      "sentiment": "neutral",
+      "source_files": [
+        "md_04b",
+        "md_07"
+      ]
+    },
+    {
+      "id": "rev_attr_33",
+      "target_type": "attraction",
+      "target_id": "attr_lantern_festival",
+      "content": "悠闲项目",
+      "sentiment": "neutral",
+      "source_files": [
+        "md_04e"
+      ]
+    },
+    {
+      "id": "rev_attr_34",
+      "target_type": "attraction",
+      "target_id": "attr_kung_fu_panda_carousel",
+      "content": "个人觉得比灯影传奇好玩",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04e"
+      ]
+    },
+    {
+      "id": "rev_attr_35",
+      "target_type": "attraction",
+      "target_id": "attr_water_world",
+      "content": "真人特级表演，挺不错的",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04f"
+      ]
+    },
+    {
+      "id": "rev_attr_36",
+      "target_type": "attraction",
+      "target_id": "attr_water_world",
+      "content": "喜欢呼呼着火咔咔跳水的选水世界",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04f"
+      ]
+    },
+    {
+      "id": "rev_attr_37",
+      "target_type": "attraction",
+      "target_id": "attr_water_world",
+      "content": "环球两个大演出之一，不容错过",
+      "sentiment": "positive",
+      "source_files": [
+        "md_04f"
+      ]
+    },
+    {
+      "id": "rev_attr_38",
+      "target_type": "attraction",
+      "target_id": "attr_lights_camera_action",
+      "content": "其他项目值得玩的之一",
+      "sentiment": "neutral",
+      "source_files": [
+        "md_04f"
+      ]
+    },
+    {
+      "id": "rev_rest_01",
+      "target_type": "restaurant",
+      "target_id": "rest_three_broomsticks",
+      "content": "必打卡",
+      "sentiment": "positive",
+      "source_files": [
+        "md_05"
+      ]
+    },
+    {
+      "id": "rev_rest_02",
+      "target_type": "restaurant",
+      "target_id": "rest_florean_fortescue",
+      "content": "猪肋排味道与三把扫帚相近",
+      "sentiment": "neutral",
+      "source_files": [
+        "md_05"
+      ]
+    },
+    {
+      "id": "rev_rest_03",
+      "target_type": "restaurant",
+      "target_id": "rest_river_floating",
+      "content": "猪肋排味道与三把扫帚相近",
+      "sentiment": "neutral",
+      "source_files": [
+        "md_05"
+      ]
+    },
+    {
+      "id": "rev_rest_04",
+      "target_type": "restaurant",
+      "target_id": "rest_hammond",
+      "content": "侏罗纪世界的米其林，环境和服务都在线，但川味名不副实基本不辣",
+      "sentiment": "positive",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_rest_05",
+      "target_type": "restaurant",
+      "target_id": "rest_amber_ridge",
+      "content": "红烧猪肘子饭酱汁拌饭非常香，被很多用户称为堪比外面餐馆的美味",
+      "sentiment": "positive",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_rest_06",
+      "target_type": "restaurant",
+      "target_id": "rest_energy_crystal",
+      "content": "98元烤鸡猪软骨拼盘，猪软骨和烤鸡腿都很嫩，是三把扫帚的平价替代",
+      "sentiment": "positive",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_rest_07",
+      "target_type": "restaurant",
+      "target_id": "rest_mr_ping",
+      "content": "川渝用户对四川担担面评价不错，但也有用户觉得面条整体偏咸",
+      "sentiment": "mixed",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_rest_08",
+      "target_type": "restaurant",
+      "target_id": "rest_cybertron",
+      "content": "披萨口味多样，北京烤鸭披萨备受好评，是爱西餐的朋友不容错过的选择",
+      "sentiment": "positive",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_rest_09",
+      "target_type": "restaurant",
+      "target_id": "rest_chocolate",
+      "content": "巧克力脑袋的天堂，金币蛋糕造型精致口感丝滑，但甜度较高",
+      "sentiment": "positive",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_rest_10",
+      "target_type": "restaurant",
+      "target_id": "rest_flight_hunter",
+      "content": "恐龙足迹外层酥壳软软的不酥脆，巧克力味过于甜腻",
+      "sentiment": "negative",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_rest_11",
+      "target_type": "restaurant",
+      "target_id": "rest_bubba_gump",
+      "content": "油泼面、包子非常油腻，吃完后感到恶心，是价格刺客",
+      "sentiment": "negative",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_rest_12",
+      "target_type": "restaurant",
+      "target_id": "rest_minion_icecream",
+      "content": "颜值很高但味道被不少人评价为颜值大于味道，冰淇淋是草莓味",
+      "sentiment": "mixed",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_rest_13",
+      "target_type": "restaurant",
+      "target_id": "rest_nublar_slush",
+      "content": "青苹果雪泥的诞生地，品质稳定",
+      "sentiment": "positive",
+      "source_files": [
+        "src_txt_04"
+      ]
+    },
+    {
+      "id": "rev_rest_14",
+      "target_type": "restaurant",
+      "target_id": "rest_coke_tower_snack",
+      "content": "雪泥种类最全的地方之一",
+      "sentiment": "positive",
+      "source_files": [
+        "src_txt_04"
+      ]
+    },
+    {
+      "id": "rev_dish_01",
+      "target_type": "dish",
+      "target_id": "dish_roast_chicken_ribs",
+      "content": "烤鸡排骨拼盘+黄油啤酒是经典组合",
+      "sentiment": "positive",
+      "source_files": [
+        "md_05",
+        "md_07",
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_dish_02",
+      "target_type": "dish",
+      "target_id": "dish_butter_beer",
+      "content": "黄油啤酒是哈利波特区必打卡饮品",
+      "sentiment": "positive",
+      "source_files": [
+        "md_05",
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_dish_03",
+      "target_type": "dish",
+      "target_id": "dish_pork_ribs",
+      "content": "猪肋排味道与三把扫帚相近",
+      "sentiment": "neutral",
+      "source_files": [
+        "md_05",
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_dish_04",
+      "target_type": "dish",
+      "target_id": "dish_pork_ribs",
+      "content": "漂流拼盘分量足，味道和三把扫帚有得一拼",
+      "sentiment": "positive",
+      "source_files": [
+        "md_05",
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_dish_05",
+      "target_type": "dish",
+      "target_id": "dish_sichuan_chicken_burger",
+      "content": "川味炸鸡小汉堡是哈蒙德餐厅招牌，但川味名不副实基本不辣",
+      "sentiment": "positive",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_dish_06",
+      "target_type": "dish",
+      "target_id": "dish_braised_pork_neck",
+      "content": "慢炖猪颈肉是哈蒙德餐厅招牌",
+      "sentiment": "positive",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_dish_07",
+      "target_type": "dish",
+      "target_id": "dish_braised_pork_elbow_rice",
+      "content": "红烧猪肘子饭酱汁拌饭非常香，被很多用户称为堪比外面餐馆的美味",
+      "sentiment": "positive",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_dish_08",
+      "target_type": "dish",
+      "target_id": "dish_chicken_cartilage_platter",
+      "content": "98元烤鸡猪软骨拼盘，猪软骨和烤鸡腿都很嫩，是三把扫帚的平价替代",
+      "sentiment": "positive",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_dish_09",
+      "target_type": "dish",
+      "target_id": "dish_dandan_noodles",
+      "content": "川渝用户对四川担担面评价不错，但也有用户觉得面条整体偏咸",
+      "sentiment": "mixed",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_dish_10",
+      "target_type": "dish",
+      "target_id": "dish_peking_duck_pizza",
+      "content": "北京烤鸭披萨备受好评，是爱西餐的朋友不容错过的选择",
+      "sentiment": "positive",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_dish_11",
+      "target_type": "dish",
+      "target_id": "dish_chocolate_gold_coin",
+      "content": "巧克力金币蛋糕造型精致口感丝滑，但甜度较高",
+      "sentiment": "positive",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_dish_12",
+      "target_type": "dish",
+      "target_id": "dish_chocolate_milkshake",
+      "content": "巧克力奶昔巧克力味浓郁，但甜度较高",
+      "sentiment": "positive",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_dish_13",
+      "target_type": "dish",
+      "target_id": "dish_dinosaur_footprint",
+      "content": "恐龙足迹外层酥壳软软的不酥脆，巧克力味过于甜腻",
+      "sentiment": "negative",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_dish_14",
+      "target_type": "dish",
+      "target_id": "dish_minion_icecream",
+      "content": "颜值很高但味道被不少人评价为颜值大于味道，冰淇淋是草莓味",
+      "sentiment": "mixed",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_dish_15",
+      "target_type": "dish",
+      "target_id": "dish_tuna_pancake",
+      "content": "金枪鱼给得少、全是菜，而且金枪鱼是冰冷的会冰牙",
+      "sentiment": "negative",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_dish_16",
+      "target_type": "dish",
+      "target_id": "dish_lasagna",
+      "content": "变形金刚区千层面巨难吃，建议直接跳过",
+      "sentiment": "negative",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_dish_17",
+      "target_type": "dish",
+      "target_id": "dish_oil_splash_noodles",
+      "content": "油泼面非常油腻，吃完后感到恶心",
+      "sentiment": "negative",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_dish_18",
+      "target_type": "dish",
+      "target_id": "dish_baozi",
+      "content": "包子非常油腻，是价格刺客",
+      "sentiment": "negative",
+      "source_files": [
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "rev_dish_19",
+      "target_type": "dish",
+      "target_id": "dish_slush_green_apple",
+      "content": "绝对的顶流！口感细腻像芬达汽水打成的冰沙，气泡感十足，酸甜清爽，是解暑神器",
+      "sentiment": "positive",
+      "source_files": [
+        "src_txt_04"
+      ]
+    },
+    {
+      "id": "rev_dish_20",
+      "target_type": "dish",
+      "target_id": "dish_slush_blueberry",
+      "content": "颜色和味道都很浓郁，有蓝莓果酱的酸甜味",
+      "sentiment": "positive",
+      "source_files": [
+        "src_txt_04"
+      ]
+    },
+    {
+      "id": "rev_dish_21",
+      "target_type": "dish",
+      "target_id": "dish_slush_rainbow",
+      "content": "颜值超高颜色梦幻非常适合拍照，口味是多种水果混合，像小时候把各种汽水混在一起的味道",
+      "sentiment": "neutral",
+      "source_files": [
+        "src_txt_04"
+      ]
+    },
+    {
+      "id": "rev_dish_22",
+      "target_type": "dish",
+      "target_id": "dish_slush_banana",
+      "content": "香蕉味很突出，但气泡感和清爽度不如青苹果",
+      "sentiment": "neutral",
+      "source_files": [
+        "src_txt_04"
+      ]
+    },
+    {
+      "id": "rev_dish_23",
+      "target_type": "dish",
+      "target_id": "dish_slush_jasmine_peach",
+      "content": "桃子味浓郁带着一丝茶香，口感清爽解渴，但可能已经下架被蓝莓味替代",
+      "sentiment": "positive",
+      "source_files": [
+        "src_txt_04"
+      ]
+    },
+    {
+      "id": "rev_dish_24",
+      "target_type": "dish",
+      "target_id": "dish_slush_pineapple",
+      "content": "仅在小黄人乐园草裙舞小车有售",
+      "sentiment": "neutral",
+      "source_files": [
+        "src_txt_04"
+      ]
+    },
+    {
+      "id": "rev_dish_25",
+      "target_type": "dish",
+      "target_id": "dish_fish_chips",
+      "content": "经典英式炸鱼薯条，88元，搭配柠檬汁和塔塔酱别有一番风味",
+      "sentiment": "positive",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_26",
+      "target_type": "dish",
+      "target_id": "dish_fish_chips",
+      "content": "鱼排外酥里嫩但偏薄，薯条一般，性价比不如排骨拼盘",
+      "sentiment": "neutral",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_27",
+      "target_type": "dish",
+      "target_id": "dish_butter_beer_slush",
+      "content": "冰沙版比普通版更清爽，夏天推荐，顶部奶盖绵密",
+      "sentiment": "positive",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_28",
+      "target_type": "dish",
+      "target_id": "dish_butter_beer_slush",
+      "content": "冰沙版口感更佳，普通版偏甜腻",
+      "sentiment": "positive",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_29",
+      "target_type": "dish",
+      "target_id": "dish_hammond_burger",
+      "content": "哈蒙德汉堡118元，是餐厅招牌，牛肉饼厚实多汁，配菜丰富",
+      "sentiment": "positive",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_30",
+      "target_type": "dish",
+      "target_id": "dish_hammond_burger",
+      "content": "汉堡个头很大，一个人吃不完，建议两人分享",
+      "sentiment": "positive",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_31",
+      "target_type": "dish",
+      "target_id": "dish_smoked_beef_ribs",
+      "content": "烟熏牛肋排218元，是哈蒙德最贵的菜品，肉质软烂入味，烟熏味浓郁",
+      "sentiment": "positive",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_32",
+      "target_type": "dish",
+      "target_id": "dish_smoked_beef_ribs",
+      "content": "价格偏高但分量很大，适合2-3人分享，排队时间长不推荐赶时间的人",
+      "sentiment": "neutral",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_33",
+      "target_type": "dish",
+      "target_id": "dish_black_truffle_pasta",
+      "content": "黑松露意面是哈蒙德餐厅招牌，138元，分量大，松露味浓郁",
+      "sentiment": "positive",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_34",
+      "target_type": "dish",
+      "target_id": "dish_black_truffle_pasta",
+      "content": "排队60-100分钟，意面口感偏硬，松露味有人觉得太重有人觉得刚好",
+      "sentiment": "neutral",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_35",
+      "target_type": "dish",
+      "target_id": "dish_black_truffle_pasta",
+      "content": "菜量过大且不支持打包，人少时建议别点太多避免浪费",
+      "sentiment": "neutral",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_36",
+      "target_type": "dish",
+      "target_id": "dish_grilled_garoupa",
+      "content": "哈蒙德餐厅高级招牌菜，鱼肉鲜嫩，摆盘精致",
+      "sentiment": "positive",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_37",
+      "target_type": "dish",
+      "target_id": "dish_dinosaur_egg",
+      "content": "造型独特，巧克力外壳内是慕斯，适合拍照打卡",
+      "sentiment": "positive",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_38",
+      "target_type": "dish",
+      "target_id": "dish_beijing_zhajiang_noodles",
+      "content": "经典京味炸酱面，面条筋道，酱香浓郁",
+      "sentiment": "positive",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_39",
+      "target_type": "dish",
+      "target_id": "dish_beef_noodle_soup",
+      "content": "平先生面馆招牌，牛肉大块，汤底浓郁，68元",
+      "sentiment": "positive",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_40",
+      "target_type": "dish",
+      "target_id": "dish_beef_noodle_soup",
+      "content": "面条整体偏咸，汤头比不上外面专业牛肉面馆",
+      "sentiment": "neutral",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_41",
+      "target_type": "dish",
+      "target_id": "dish_duck_braised_noodles",
+      "content": "鸭腿大只，刀削面厚实有嚼劲，油泼辣子香气足",
+      "sentiment": "positive",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_42",
+      "target_type": "dish",
+      "target_id": "dish_shrimp_wonton_noodles",
+      "content": "云吞皮薄馅大，虾肉弹牙，汤头清淡鲜美",
+      "sentiment": "positive",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_43",
+      "target_type": "dish",
+      "target_id": "dish_four_cheese_pizza",
+      "content": "赛博坦骑士餐厅招牌，10寸披萨两人足够，88元性价比不错",
+      "sentiment": "positive",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_44",
+      "target_type": "dish",
+      "target_id": "dish_four_cheese_pizza",
+      "content": "披萨饼底偏厚， toppings 丰富但口味中规中矩",
+      "sentiment": "neutral",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_45",
+      "target_type": "dish",
+      "target_id": "dish_spicy_chicken_wings",
+      "content": "外酥里嫩，辣度适中，是赛博坦餐厅的热门小食",
+      "sentiment": "positive",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_46",
+      "target_type": "dish",
+      "target_id": "dish_golden_shrimp",
+      "content": "哈蒙德餐厅推荐菜品，虾肉鲜嫩，外层酥脆",
+      "sentiment": "positive",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_47",
+      "target_type": "dish",
+      "target_id": "dish_pork_corn_dumplings",
+      "content": "煎饺底部焦脆，馅料鲜嫩多汁，48元一份性价比不错",
+      "sentiment": "positive",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_48",
+      "target_type": "dish",
+      "target_id": "dish_teriyaki_beef_burger",
+      "content": "照烧牛肉汉堡配薯条88元，牛肉饼厚实多汁",
+      "sentiment": "positive",
+      "source_files": []
+    },
+    {
+      "id": "rev_dish_49",
+      "target_type": "dish",
+      "target_id": "dish_minion_dessert",
+      "content": "小黄人造型的甜品，38元一份，适合拍照打卡",
+      "sentiment": "positive",
+      "source_files": []
+    }
+  ]
+}

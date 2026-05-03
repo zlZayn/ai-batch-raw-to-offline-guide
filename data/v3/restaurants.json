@@ -1,0 +1,437 @@
+{
+  "version": "3.2.0",
+  "last_updated": "2026-04-08",
+  "restaurants": [
+    {
+      "id": "rest_three_broomsticks",
+      "name": "三把扫帚",
+      "tags": [
+        "tag_zone_harry",
+        "tag_conflict",
+        "tag_restaurant"
+      ],
+      "source_files": [
+        "md_05"
+      ],
+      "recommended_dish_ids": [
+        "dish_roast_chicken_ribs",
+        "dish_butter_beer",
+        "dish_fish_chips",
+        "dish_butter_beer_slush"
+      ],
+      "location": "哈利波特区城堡内",
+      "review_ids": [
+        "rev_rest_01"
+      ],
+      "opinion_ids": [
+        "op_tb_must",
+        "op_tb_skip",
+        "op_tb_butter_beer",
+        "op_tb_roast_chicken"
+      ],
+      "zone_ids": [
+        "tag_zone_harry"
+      ],
+      "warning_ids": [
+        "warn_dining_16"
+      ],
+      "average_price": 120,
+      "indoor": true,
+      "business_hours": "10:00-20:30"
+    },
+    {
+      "id": "rest_florean_fortescue",
+      "name": "背离的秘密",
+      "tags": [
+        "tag_zone_harry",
+        "tag_restaurant"
+      ],
+      "source_files": [
+        "md_05"
+      ],
+      "recommended_dish_ids": [
+        "dish_pork_ribs"
+      ],
+      "location": "哈利波特区",
+      "review_ids": [
+        "rev_rest_02"
+      ],
+      "opinion_ids": [
+        "op_rf_value_king"
+      ],
+      "zone_ids": [
+        "tag_zone_harry"
+      ],
+      "warning_ids": [
+        "warn_dining_16"
+      ],
+      "average_price": 60,
+      "indoor": true,
+      "business_hours": "09:30-20:00"
+    },
+    {
+      "id": "rest_river_floating",
+      "name": "漂流者小馆",
+      "tags": [
+        "tag_zone_jurassic",
+        "tag_save_money",
+        "tag_conflict",
+        "tag_restaurant"
+      ],
+      "source_files": [
+        "md_05"
+      ],
+      "recommended_dish_ids": [
+        "dish_pork_ribs"
+      ],
+      "location": "哈利波特区",
+      "review_ids": [
+        "rev_rest_03"
+      ],
+      "opinion_ids": [],
+      "zone_ids": [
+        "tag_zone_jurassic"
+      ],
+      "warning_ids": [
+        "warn_dining_16"
+      ],
+      "average_price": 100,
+      "indoor": true,
+      "business_hours": "10:00-20:00"
+    },
+    {
+      "id": "rest_hammond",
+      "name": "哈蒙德餐厅",
+      "tags": [
+        "tag_zone_jurassic",
+        "tag_restaurant"
+      ],
+      "source_files": [
+        "md_xhs_01"
+      ],
+      "recommended_dish_ids": [
+        "dish_hammond_burger",
+        "dish_sichuan_chicken_burger",
+        "dish_braised_pork_neck",
+        "dish_black_truffle_pasta",
+        "dish_smoked_beef_ribs",
+        "dish_grilled_garoupa",
+        "dish_golden_shrimp",
+        "dish_dinosaur_egg"
+      ],
+      "location": "侏罗纪世界",
+      "review_ids": [
+        "rev_rest_04"
+      ],
+      "opinion_ids": [],
+      "zone_ids": [
+        "tag_zone_jurassic"
+      ],
+      "warning_ids": [],
+      "average_price": 130,
+      "indoor": true,
+      "business_hours": "11:00-20:00"
+    },
+    {
+      "id": "rest_amber_ridge",
+      "name": "琥珀岭餐厅",
+      "tags": [
+        "tag_zone_jurassic",
+        "tag_restaurant"
+      ],
+      "source_files": [
+        "md_xhs_01"
+      ],
+      "recommended_dish_ids": [
+        "dish_braised_pork_elbow_rice"
+      ],
+      "location": "侏罗纪世界",
+      "review_ids": [
+        "rev_rest_05"
+      ],
+      "opinion_ids": [],
+      "zone_ids": [
+        "tag_zone_jurassic"
+      ],
+      "warning_ids": [],
+      "average_price": 110,
+      "indoor": true,
+      "business_hours": "11:00-20:00"
+    },
+    {
+      "id": "rest_energy_crystal",
+      "name": "能量晶体补充站",
+      "tags": [
+        "tag_zone_jurassic",
+        "tag_snack",
+        "tag_save_money"
+      ],
+      "source_files": [
+        "md_xhs_01"
+      ],
+      "recommended_dish_ids": [
+        "dish_chicken_cartilage_platter"
+      ],
+      "location": "侏罗纪世界",
+      "review_ids": [
+        "rev_rest_06"
+      ],
+      "opinion_ids": [],
+      "zone_ids": [
+        "tag_zone_jurassic"
+      ],
+      "warning_ids": [],
+      "average_price": 80,
+      "indoor": true,
+      "business_hours": "09:30-20:30"
+    },
+    {
+      "id": "rest_mr_ping",
+      "name": "平先生面馆",
+      "tags": [
+        "tag_zone_panda",
+        "tag_restaurant"
+      ],
+      "source_files": [
+        "md_xhs_01"
+      ],
+      "recommended_dish_ids": [
+        "dish_dandan_noodles",
+        "dish_beef_noodle_soup",
+        "dish_beijing_zhajiang_noodles",
+        "dish_duck_braised_noodles",
+        "dish_shrimp_wonton_noodles",
+        "dish_pork_corn_dumplings"
+      ],
+      "location": "功夫熊猫区",
+      "review_ids": [
+        "rev_rest_07"
+      ],
+      "opinion_ids": [],
+      "zone_ids": [
+        "tag_zone_panda"
+      ],
+      "warning_ids": [
+        "warn_dining_21"
+      ],
+      "average_price": 80,
+      "indoor": true,
+      "business_hours": "10:00-20:00"
+    },
+    {
+      "id": "rest_cybertron",
+      "name": "赛博坦骑士餐厅",
+      "tags": [
+        "tag_zone_transformer",
+        "tag_restaurant"
+      ],
+      "source_files": [
+        "md_xhs_01"
+      ],
+      "recommended_dish_ids": [
+        "dish_peking_duck_pizza",
+        "dish_four_cheese_pizza",
+        "dish_spicy_chicken_wings"
+      ],
+      "location": "变形金刚区",
+      "review_ids": [
+        "rev_rest_08"
+      ],
+      "opinion_ids": [],
+      "zone_ids": [
+        "tag_zone_transformer"
+      ],
+      "warning_ids": [
+        "warn_dining_22"
+      ],
+      "average_price": 90,
+      "indoor": true,
+      "business_hours": "10:00-20:30"
+    },
+    {
+      "id": "rest_chocolate",
+      "name": "巧克力餐厅",
+      "tags": [
+        "tag_zone_minion",
+        "tag_snack"
+      ],
+      "source_files": [
+        "md_xhs_01"
+      ],
+      "recommended_dish_ids": [
+        "dish_chocolate_gold_coin",
+        "dish_chocolate_milkshake"
+      ],
+      "location": "小黄人区",
+      "review_ids": [
+        "rev_rest_09"
+      ],
+      "opinion_ids": [],
+      "zone_ids": [
+        "tag_zone_minion"
+      ],
+      "warning_ids": [],
+      "average_price": 70,
+      "indoor": true,
+      "business_hours": "10:00-20:00"
+    },
+    {
+      "id": "rest_flight_hunter",
+      "name": "飞行猎手餐厅",
+      "tags": [
+        "tag_zone_jurassic",
+        "tag_snack"
+      ],
+      "source_files": [
+        "md_xhs_01"
+      ],
+      "recommended_dish_ids": [
+        "dish_dinosaur_footprint"
+      ],
+      "location": "城市大道",
+      "review_ids": [
+        "rev_rest_10"
+      ],
+      "opinion_ids": [],
+      "zone_ids": [
+        "tag_zone_jurassic"
+      ],
+      "warning_ids": [],
+      "average_price": 100,
+      "indoor": true,
+      "business_hours": "11:00-21:00"
+    },
+    {
+      "id": "rest_bubba_gump",
+      "name": "城市大道阿甘餐厅",
+      "tags": [
+        "tag_zone_citywalk",
+        "tag_restaurant"
+      ],
+      "source_files": [
+        "md_xhs_01"
+      ],
+      "location": "城市大道",
+      "recommended_dish_ids": [],
+      "review_ids": [
+        "rev_rest_11"
+      ],
+      "opinion_ids": [],
+      "zone_ids": [
+        "tag_zone_citywalk"
+      ],
+      "warning_ids": [],
+      "average_price": 100,
+      "indoor": true,
+      "business_hours": "11:00-21:00"
+    },
+    {
+      "id": "rest_minion_icecream",
+      "name": "小黄人冰淇淋",
+      "tags": [
+        "tag_zone_minion",
+        "tag_snack"
+      ],
+      "source_files": [
+        "md_xhs_01"
+      ],
+      "recommended_dish_ids": [
+        "dish_minion_icecream",
+        "dish_teriyaki_beef_burger",
+        "dish_minion_dessert"
+      ],
+      "location": "小黄人区",
+      "review_ids": [
+        "rev_rest_12"
+      ],
+      "opinion_ids": [],
+      "zone_ids": [
+        "tag_zone_minion"
+      ],
+      "warning_ids": [
+        "warn_dining_23"
+      ],
+      "average_price": 50,
+      "indoor": false,
+      "business_hours": "09:30-20:00"
+    },
+    {
+      "id": "rest_nublar_slush",
+      "name": "努布拉冰沙",
+      "location": "侏罗纪世界",
+      "tags": [
+        "tag_snack"
+      ],
+      "source_files": [
+        "src_txt_04"
+      ],
+      "recommended_dish_ids": [
+        "dish_slush_green_apple",
+        "dish_slush_blueberry"
+      ],
+      "review_ids": [
+        "rev_rest_13"
+      ],
+      "opinion_ids": [],
+      "zone_ids": [
+        "tag_zone_jurassic"
+      ],
+      "warning_ids": [],
+      "average_price": 35,
+      "indoor": false,
+      "business_hours": "09:00-20:00"
+    },
+    {
+      "id": "rest_coke_tower_snack",
+      "name": "可口可乐塔小吃亭",
+      "location": "好莱坞大道（可口可乐塔附近）",
+      "tags": [
+        "tag_snack"
+      ],
+      "source_files": [
+        "src_txt_04"
+      ],
+      "recommended_dish_ids": [
+        "dish_slush_green_apple",
+        "dish_slush_blueberry",
+        "dish_slush_rainbow"
+      ],
+      "review_ids": [
+        "rev_rest_14"
+      ],
+      "opinion_ids": [],
+      "zone_ids": [
+        "tag_zone_hollywood"
+      ],
+      "warning_ids": [
+        "warn_dining_24"
+      ],
+      "average_price": 50,
+      "indoor": false,
+      "business_hours": "09:00-20:00"
+    },
+    {
+      "id": "rest_hula_cart",
+      "name": "草裙舞小车",
+      "location": "小黄人乐园（甜甜屋对面）",
+      "tags": [
+        "tag_snack"
+      ],
+      "source_files": [
+        "src_txt_04"
+      ],
+      "recommended_dish_ids": [
+        "dish_slush_pineapple"
+      ],
+      "review_ids": [],
+      "opinion_ids": [],
+      "zone_ids": [
+        "tag_zone_minion"
+      ],
+      "warning_ids": [],
+      "average_price": 40,
+      "indoor": false,
+      "business_hours": "09:00-20:00"
+    }
+  ]
+}

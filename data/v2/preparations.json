@@ -1,0 +1,340 @@
+{
+  "version": "2.0.0",
+  "last_updated": "2026-04-08",
+  "source_files": [
+    "md_01",
+    "md_05",
+    "web_official"
+  ],
+  "ticket_prices": {
+    "note": "四级票价结构，根据淡旺季及特定日期定价，具体以官方App为准",
+    "tiers": [
+      {
+        "type": "淡季日",
+        "price": 418,
+        "description": "部分春秋季及大部分冬季日期"
+      },
+      {
+        "type": "平季日",
+        "price": 528,
+        "description": "大部分春秋季及部分冬季日期"
+      },
+      {
+        "type": "旺季日",
+        "price": 638,
+        "description": "开园当月、部分法定节假日及部分暑期日期"
+      },
+      {
+        "type": "特定日",
+        "price": 748,
+        "description": "部分法定节假日及大部分暑期日期"
+      }
+    ],
+    "express_pass": {
+      "note": "价格因日期而异，仅限当日使用，需单独购买",
+      "options": [
+        {
+          "type": "单项",
+          "price": "100元起",
+          "description": "单个项目快速通道"
+        },
+        {
+          "type": "3项套装",
+          "price": 200,
+          "description": "禁忌之旅+火种源争夺战+侏罗纪世界大冒险"
+        },
+        {
+          "type": "5项套装",
+          "price": 300,
+          "description": "3项+鹰马飞行+小黄人闹翻天"
+        }
+      ]
+    }
+  },
+  "parking": {
+    "note": "自驾游客可选择不同停车区域",
+    "options": [
+      {
+        "type": "普通停车场",
+        "price": 100,
+        "unit": "元/天"
+      },
+      {
+        "type": "停车楼",
+        "price": 150,
+        "unit": "元/天"
+      },
+      {
+        "type": "代客停车",
+        "price": 200,
+        "unit": "元/天",
+        "description": "城市大道入口西侧，钥匙交给泊车员"
+      }
+    ]
+  },
+  "locker": {
+    "note": "主题公园主入口及部分项目入口处设有寄存柜；尺寸超56×36×23cm仅能寄存在行李寄存服务中心",
+    "self_service": [
+      {
+        "type": "标准柜",
+        "price": 60,
+        "unit": "元/天",
+        "size": "280×350×450mm"
+      },
+      {
+        "type": "大号柜",
+        "price": 80,
+        "unit": "元/天",
+        "size": "424×350×450mm"
+      }
+    ],
+    "ride_locker": {
+      "description": "部分骑乘项目入口处的寄存柜（禁忌之旅、飞跃侏罗纪、霸天虎、鹰马飞行）",
+      "price": "第1小时免费，第2小时起50元/小时"
+    },
+    "baggage_service": {
+      "description": "行李寄存服务中心（日间游客）",
+      "prices": [
+        {
+          "type": "普通行李",
+          "price": 90,
+          "unit": "元/件"
+        },
+        {
+          "type": "小件物品",
+          "price": 20,
+          "unit": "元/件",
+          "note": "长宽高之和≤60cm"
+        }
+      ],
+      "note": "入住度假区酒店（环球影城大酒店/诺金度假酒店）的游客免费寄存"
+    }
+  },
+  "rental": {
+    "wheelchair": {
+      "price": 100,
+      "unit": "元/天",
+      "location": "主题公园入口处、城市大道"
+    },
+    "stroller": [
+      {
+        "type": "单人婴儿车",
+        "price": 100,
+        "unit": "元/天"
+      },
+      {
+        "type": "双人婴儿车",
+        "price": 130,
+        "unit": "元/天"
+      }
+    ],
+    "note": "需持有效身份证件前往城市大道租赁点办理"
+  },
+  "park_rules": {
+    "reentry": "园区当日不限制次数出入，可中途出园取外卖再回来",
+    "food_policy": "允许自带食物入园（饭团、三明治等），可以点外卖到园区门口取",
+    "source_files": [
+      "md_05"
+    ]
+  },
+  "transportation": {
+    "subway": {
+      "lines": [
+        "7号线",
+        "1号线"
+      ],
+      "station": "环球度假区站",
+      "best_exit": "B口离园区入口最近",
+      "security_advice": "出地铁站后安检走右边棚的最左边安检通道",
+      "source_files": [
+        "md_01"
+      ]
+    },
+    "taxi_arrival": [
+      {
+        "location": "北京有礼（环球度假区店）",
+        "note": "非常近，很快到达入口，不用担心下车找不到",
+        "source_files": [
+          "md_01"
+        ]
+      },
+      {
+        "location": "环球度假区地铁站F口",
+        "note": "从地铁站内部穿过",
+        "source_files": [
+          "md_01"
+        ]
+      },
+      {
+        "location": "环球影城大酒店大堂",
+        "note": "避开人群的好选择，从酒店大堂步行到安检口更近",
+        "source_files": [
+          "src_txt_04"
+        ]
+      }
+    ],
+    "taxi_departure": [
+      {
+        "location": "环球大酒店门口",
+        "note": "从酒店里面走，超级近",
+        "source_files": [
+          "md_01"
+        ]
+      },
+      {
+        "location": "网约车固定落客区",
+        "note": "园区主入口的固定落客区，人相对多一些",
+        "source_files": [
+          "src_txt_04"
+        ]
+      }
+    ],
+    "taxi_cost": "去程不堵车约20-25分钟，拼车一口价约25-30元；返程夜间服务费约46元，20-30分钟到站",
+    "taxi_from_yizhuang": "刷身份证出站后向右转，跟着'网约车等候区'指示牌走到专门上客点；打车软件起点定位'亦庄火车站地铁站A口'",
+    "taxi_tips": [
+      "去程首选定位'北京有礼（环球度假区店）'，下车就是入园口最省力",
+      "返程从'环球影城大酒店大堂'打车，人少好打车还能少走路",
+      "可以尝试拼车或留意平台优惠券省钱"
+    ],
+    "alternative_departure": "晚上走的时候坐两站地铁然后打车，很方便很快",
+    "source_files": [
+      "md_01"
+    ]
+  },
+  "clothing": {
+    "must_wear": "平底运动鞋（日均2万步+）",
+    "must_bring": "外套（保暖必备）",
+    "forbidden": "带跟的鞋",
+    "note": "3月北京气温升高，一定要实时关注温度调整衣物，外套是必备，保暖才是王道",
+    "source_files": [
+      "md_01"
+    ]
+  },
+  "essential_items": [
+    {
+      "item": "纸巾",
+      "purpose": "擦东西需要"
+    },
+    {
+      "item": "小零食",
+      "purpose": "排队时可以垫垫肚子"
+    },
+    {
+      "item": "迷你充电宝",
+      "purpose": "园区网速慢，保证手机有电"
+    },
+    {
+      "item": "未开封零食和水杯",
+      "purpose": "避免园区高价小吃"
+    },
+    {
+      "item": "橘子/香蕉/黄瓜",
+      "purpose": "排队时吃点小零食会好很多，缓解无聊"
+    },
+    {
+      "item": "身份证",
+      "purpose": "入园必须出示有效身份证件"
+    },
+    {
+      "item": "轻便双肩包",
+      "purpose": "解放双手，方便排队和游玩，也方便存包"
+    },
+    {
+      "item": "非玻璃水杯",
+      "purpose": "园区厕所有免费直饮水，带水杯可随时接水省钱"
+    }
+  ],
+  "prohibited_items": [
+    {
+      "item": "玻璃容器/玻璃制品",
+      "reason": "不能带！别抱有侥幸心理，被安检查出来只能寄存，既麻烦又浪费钱"
+    },
+    {
+      "item": "大型三脚架",
+      "reason": "不能带"
+    },
+    {
+      "item": "有气味的食物",
+      "reason": "排队时不宜吃"
+    },
+    {
+      "item": "自拍杆/三脚架/稳定器",
+      "reason": "带支架的摄影器材不能带入园区"
+    },
+    {
+      "item": "压力罐体（防晒喷雾等）",
+      "reason": "压缩气体类物品不能带入"
+    },
+    {
+      "item": "代步工具（滑板车/平衡车等）",
+      "reason": "不能带入园区"
+    },
+    {
+      "item": "22寸以上行李箱",
+      "reason": "过不了安检，需在门口寄存"
+    },
+    {
+      "item": "专业摄影/摄像器材",
+      "reason": "大型设备不能带入"
+    },
+    {
+      "item": "气味浓烈或需二次加热的食物",
+      "reason": "榴莲、螺蛳粉、自热火锅等不能带入"
+    }
+  ],
+  "pre_trip_checklist": [
+    {
+      "item": "提前下载北京环球度假区App",
+      "purpose": "查看排队时间和线上餐厅点单"
+    },
+    {
+      "item": "提前看好地图",
+      "purpose": "确定方向"
+    },
+    {
+      "item": "生日月去游客服务中心",
+      "purpose": "领生日徽章"
+    },
+    {
+      "item": "提前在官方查看",
+      "purpose": "季节/节日限定活动"
+    }
+  ],
+  "best_dates": {
+    "off_peak_seasons": [
+      "二三月",
+      "11月万圣节结束到寒假"
+    ],
+    "best_weekdays": [
+      "周二",
+      "周三"
+    ],
+    "weekend_note": "周六一般比周日人少一点",
+    "holiday_tip": "小长假最后一天人也少",
+    "source_files": [
+      "md_01"
+    ]
+  },
+  "crowd_estimation": {
+    "method": "0点后打开乐园时间，看表演'不可驯服'的场次",
+    "formula": "基本当天人数 ≈ 场次 × 5000",
+    "thresholds": [
+      {
+        "max_sessions": 6,
+        "advice": "基本不用攻略"
+      },
+      {
+        "min_sessions": 8,
+        "max_sessions": 9,
+        "advice": "请考虑优速通或提前入园"
+      },
+      {
+        "min_sessions": 10,
+        "advice": "快跑"
+      }
+    ],
+    "source_files": [
+      "md_01"
+    ]
+  }
+}

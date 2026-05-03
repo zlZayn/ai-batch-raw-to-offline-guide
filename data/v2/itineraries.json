@@ -1,0 +1,324 @@
+{
+  "version": "2.0.0",
+  "last_updated": "2026-04-07",
+  "itineraries": [
+    {
+      "id": "itin_v1",
+      "name": "详细一日游行程（参考版）",
+      "description": "按时间顺序的详细行程表，适合第一批入园的游客",
+      "tags": [
+        "tag_time_saving"
+      ],
+      "time_slots": [
+        {
+          "period": "上午",
+          "items": [
+            {
+              "time": "07:50",
+              "action": "到达环球",
+              "note": "能早尽量早！",
+              "attraction_ids": [],
+              "show_ids": [],
+              "restaurant_ids": []
+            },
+            {
+              "time": "08:20",
+              "action": "入园，拍照然后加速往检票口冲",
+              "note": null,
+              "attraction_ids": [],
+              "show_ids": [],
+              "restaurant_ids": []
+            },
+            {
+              "time": "08:40",
+              "action": "到园区门口排队",
+              "note": "安检往两边通道排，速度较快",
+              "attraction_ids": [],
+              "show_ids": [],
+              "restaurant_ids": []
+            },
+            {
+              "time": "09:00",
+              "action": "开放入园",
+              "note": "提前看好地图，确定方向，跑就完了！",
+              "attraction_ids": [],
+              "show_ids": [],
+              "restaurant_ids": []
+            },
+            {
+              "time": "09:20",
+              "action": "哈利波特禁忌之旅",
+              "note": "提早入园首冲不排队！5D沉浸飞行",
+              "attraction_ids": [
+                "attr_forbidden_journey"
+              ],
+              "show_ids": [],
+              "restaurant_ids": []
+            },
+            {
+              "time": "10:10",
+              "action": "鹰马飞行",
+              "note": "小型过山车，俯瞰海格小屋",
+              "attraction_ids": [
+                "attr_flight_of_hippogriff"
+              ],
+              "show_ids": [],
+              "restaurant_ids": []
+            },
+            {
+              "time": "11:00",
+              "action": "三把扫帚错峰吃饭",
+              "note": "烤鸡排骨拼盘+黄油啤酒，必打卡",
+              "attraction_ids": [],
+              "show_ids": [],
+              "restaurant_ids": [
+                "rest_three_broomsticks"
+              ]
+            }
+          ]
+        },
+        {
+          "period": "中午",
+          "items": [
+            {
+              "time": "12:30",
+              "action": "不可驯服",
+              "note": "二楼视野更好！",
+              "attraction_ids": [],
+              "show_ids": [
+                "show_how_to_train"
+              ],
+              "restaurant_ids": []
+            },
+            {
+              "time": "13:10",
+              "action": "侏罗纪世界大冒险",
+              "note": "一定要放在上午玩！下午排队过长",
+              "attraction_ids": [
+                "attr_jurassic_adventure"
+              ],
+              "show_ids": [],
+              "restaurant_ids": []
+            },
+            {
+              "time": "13:45",
+              "action": "未来水世界",
+              "note": "选前排可互动，备好雨衣",
+              "attraction_ids": [],
+              "show_ids": [
+                "show_water_world"
+              ],
+              "restaurant_ids": []
+            }
+          ]
+        },
+        {
+          "period": "下午",
+          "items": [
+            {
+              "time": "15:00",
+              "action": "霸天虎过山车",
+              "note": "非常刺激，胆小的不要玩",
+              "attraction_ids": [
+                "attr_decepticoaster"
+              ],
+              "show_ids": [],
+              "restaurant_ids": []
+            },
+            {
+              "time": "16:30",
+              "action": "火种源争夺战",
+              "note": "排名Top3必玩！可商量坐第一排",
+              "attraction_ids": [
+                "attr_source_battle"
+              ],
+              "show_ids": [],
+              "restaurant_ids": []
+            },
+            {
+              "time": "17:00",
+              "action": "花车大巡游",
+              "note": "每天仅一场！不要错过！",
+              "attraction_ids": [],
+              "show_ids": [
+                "show_parade"
+              ],
+              "restaurant_ids": []
+            },
+            {
+              "time": "17:35",
+              "action": "飞跃侏罗纪",
+              "note": "VR过山车，夜景很美",
+              "attraction_ids": [
+                "attr_velocicoaster"
+              ],
+              "show_ids": [],
+              "restaurant_ids": []
+            }
+          ]
+        },
+        {
+          "period": "傍晚",
+          "items": [
+            {
+              "time": "18:10",
+              "action": "小黄人闹翻天",
+              "note": "裸眼4D，香蕉屁太萌",
+              "attraction_ids": [
+                "attr_minion_mayhem"
+              ],
+              "show_ids": [],
+              "restaurant_ids": []
+            },
+            {
+              "time": "19:00",
+              "action": "萌转过山车",
+              "note": "适合小朋友，一丢丢失重感",
+              "attraction_ids": [
+                "attr_kung_fu_panda_coaster"
+              ],
+              "show_ids": [],
+              "restaurant_ids": []
+            },
+            {
+              "time": "19:45",
+              "action": "霍格沃兹灯光秀",
+              "note": "提前半小时来！5min配音乐超有代入感",
+              "attraction_ids": [],
+              "show_ids": [
+                "show_lights"
+              ],
+              "restaurant_ids": []
+            },
+            {
+              "time": "20:00",
+              "action": "出园~完美的一天~",
+              "note": null,
+              "attraction_ids": [],
+              "show_ids": [],
+              "restaurant_ids": []
+            }
+          ]
+        }
+      ],
+      "principles": [
+        "灵活调整：随时查看App排队时间，哪个少玩哪个",
+        "上午玩热门：侏罗纪大冒险一定要上午玩",
+        "下午利用巡游空档：花车巡游时其他项目人少",
+        "闭园前最后冲刺：闭园时间去玩飞跃侏罗纪",
+        "吃饭错峰：11:00或13:00后吃饭，避开高峰"
+      ],
+      "source_files": [
+        "md_07"
+      ]
+    },
+    {
+      "id": "itin_v2",
+      "name": "错峰游玩黄金时间（另一版本）",
+      "description": "错峰游玩方案，开园直冲火种源避开哈利波特早高峰",
+      "tags": [
+        "tag_time_saving"
+      ],
+      "time_slots": [
+        {
+          "period": "入园~10:00",
+          "items": [
+            {
+              "time": null,
+              "action": "开园直冲火种源争夺战，避开哈利波特早高峰",
+              "note": null,
+              "attraction_ids": [
+                "attr_source_battle"
+              ],
+              "show_ids": [],
+              "restaurant_ids": []
+            }
+          ]
+        },
+        {
+          "period": "10:00-11:00",
+          "items": [
+            {
+              "time": null,
+              "action": "火种源争夺战 → 飞跃侏罗纪",
+              "note": null,
+              "attraction_ids": [
+                "attr_source_battle"
+              ],
+              "show_ids": [],
+              "restaurant_ids": []
+            }
+          ]
+        },
+        {
+          "period": "11:30-13:00",
+          "items": [
+            {
+              "time": null,
+              "action": "侏罗纪世界大冒险 → 驯龙高手表演",
+              "note": null,
+              "attraction_ids": [
+                "attr_jurassic_adventure"
+              ],
+              "show_ids": [
+                "show_how_to_train"
+              ],
+              "restaurant_ids": []
+            }
+          ]
+        },
+        {
+          "period": "13:30-15:00",
+          "items": [
+            {
+              "time": null,
+              "action": "霸天虎过山车 → 功夫熊猫",
+              "note": null,
+              "attraction_ids": [
+                "attr_decepticoaster"
+              ],
+              "show_ids": [],
+              "restaurant_ids": []
+            }
+          ]
+        },
+        {
+          "period": "17:00-18:30",
+          "items": [
+            {
+              "time": null,
+              "action": "禁忌之旅 → 鹰马飞行",
+              "note": "利用巡游空档",
+              "attraction_ids": [
+                "attr_forbidden_journey"
+              ],
+              "show_ids": [],
+              "restaurant_ids": []
+            }
+          ]
+        },
+        {
+          "period": "19:00-20:00",
+          "items": [
+            {
+              "time": null,
+              "action": "小黄人闹翻天 → 圣诞节演出/灯光秀",
+              "note": null,
+              "attraction_ids": [
+                "attr_minion_mayhem"
+              ],
+              "show_ids": [
+                "show_lights"
+              ],
+              "restaurant_ids": []
+            }
+          ]
+        }
+      ],
+      "principles": [],
+      "source_files": [
+        "md_07"
+      ]
+    }
+  ]
+}

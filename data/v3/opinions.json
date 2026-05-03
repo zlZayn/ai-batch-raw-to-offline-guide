@@ -1,0 +1,275 @@
+{
+  "version": "3.2.0",
+  "last_updated": "2026-04-08",
+  "opinions": [
+    {
+      "id": "op_dc_ranking_debate",
+      "target_type": "attraction",
+      "target_id": "attr_velocicoaster",
+      "stance": "contra",
+      "claim": "霸天虎排名应该更高",
+      "reasoning": "作为园区最刺激的过山车，垂直上升和急速俯冲肾上腺素飙升，体验感极强，排名第七偏低",
+      "source_files": [
+        "md_04c",
+        "md_04g",
+        "md_08"
+      ]
+    },
+    {
+      "id": "op_decepticoaster_pro",
+      "target_type": "attraction",
+      "target_id": "attr_decepticoaster",
+      "stance": "pro",
+      "claim": "非常刺激，排队时间短性价比高",
+      "reasoning": "垂直上升和急速俯冲肾上腺素飙升，排队时间偏短，胆大者的不二之选",
+      "source_files": [
+        "md_04d",
+        "md_04g"
+      ]
+    },
+    {
+      "id": "op_decepticoaster_con",
+      "target_type": "attraction",
+      "target_id": "attr_decepticoaster",
+      "stance": "contra",
+      "claim": "排名第七偏低，实际体验应该更高",
+      "reasoning": "作为园区最刺激的过山车，体验感极强，但也有人觉得太短或太吓人",
+      "source_files": [
+        "md_04d",
+        "md_04g"
+      ]
+    },
+    {
+      "id": "op_show_transformer",
+      "target_type": "show",
+      "target_id": "show_transformer_live",
+      "stance": "pro",
+      "claim": "威震天互动非常有趣",
+      "reasoning": "威震天的嘴很毒，互动感强，排队合影的人非常多",
+      "source_files": [
+        "src_txt_04"
+      ]
+    },
+    {
+      "id": "op_show_transformer_con",
+      "target_type": "show",
+      "target_id": "show_transformer_live",
+      "stance": "contra",
+      "claim": "只是个互动秀，不值得专门排队",
+      "reasoning": "如果不喜欢互动或者只是想看热闹，性价比不高",
+      "source_files": [
+        "src_txt_04"
+      ]
+    },
+    {
+      "id": "op_show_sing_pro",
+      "target_type": "show",
+      "target_id": "show_sing_on",
+      "stance": "pro",
+      "claim": "唱跳不错氛围感好",
+      "reasoning": "整体表演质量不错",
+      "source_files": [
+        "src_txt_04"
+      ]
+    },
+    {
+      "id": "op_show_sing_con",
+      "target_type": "show",
+      "target_id": "show_sing_on",
+      "stance": "contra",
+      "claim": "看前情提要才能入场的模式很烦",
+      "reasoning": "演员互动性不强，模式让人不舒服",
+      "source_files": [
+        "src_txt_04"
+      ]
+    },
+    {
+      "id": "op_show_frog_pro",
+      "target_type": "show",
+      "target_id": "show_frog_chorus",
+      "stance": "pro",
+      "claim": "人声阿卡贝拉很生动",
+      "reasoning": "角色性格鲜明，表演有趣",
+      "source_files": [
+        "src_txt_04"
+      ]
+    },
+    {
+      "id": "op_show_frog_con",
+      "target_type": "show",
+      "target_id": "show_frog_chorus",
+      "stance": "contra",
+      "claim": "只是一场5分钟左右的舞蹈表演",
+      "reasoning": "评价一般，不值得专门跑去看",
+      "source_files": [
+        "src_txt_04"
+      ]
+    },
+    {
+      "id": "op_tb_must",
+      "target_type": "restaurant",
+      "target_id": "rest_three_broomsticks",
+      "stance": "pro",
+      "claim": "三把扫帚必打卡",
+      "reasoning": "烤鸡排骨拼盘+黄油啤酒是经典组合",
+      "source_files": [
+        "md_05"
+      ]
+    },
+    {
+      "id": "op_tb_skip",
+      "target_type": "restaurant",
+      "target_id": "rest_three_broomsticks",
+      "stance": "contra",
+      "claim": "别死磕三把扫帚",
+      "reasoning": "和漂流者小馆、背离的秘密的猪肋排味道非常非常相近，没必要排队死磕",
+      "source_files": [
+        "md_05"
+      ]
+    },
+    {
+      "id": "op_tb_butter_beer",
+      "target_type": "restaurant",
+      "target_id": "rest_three_broomsticks",
+      "stance": "contra",
+      "claim": "黄油啤酒齁甜难喝",
+      "reasoning": "评价两极分化，更多人吐槽太甜，奶盖口感像光明冰砖化了",
+      "source_files": [
+        "md_05"
+      ]
+    },
+    {
+      "id": "op_tb_roast_chicken",
+      "target_type": "restaurant",
+      "target_id": "rest_three_broomsticks",
+      "stance": "contra",
+      "claim": "烤鸡没什么味道",
+      "reasoning": "需要淋酱汁才好吃，排骨比烤鸡更受欢迎",
+      "source_files": [
+        "md_05"
+      ]
+    },
+    {
+      "id": "op_rf_value_king",
+      "target_type": "restaurant",
+      "target_id": "rest_florean_fortescue",
+      "stance": "pro",
+      "claim": "漂流者小馆是性价比之王",
+      "reasoning": "漂流拼盘分量足，味道和三把扫帚有得一拼，但价格更实惠，是不想长队的绝佳选择",
+      "source_files": [
+        "md_05"
+      ]
+    },
+    {
+      "id": "op_dish_roast_chicken",
+      "target_type": "dish",
+      "target_id": "dish_roast_chicken_ribs",
+      "stance": "contra",
+      "claim": "烤鸡没什么味道",
+      "reasoning": "需要淋酱汁才好吃，排骨比烤鸡更受欢迎",
+      "source_files": [
+        "md_05",
+        "md_07",
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "op_dish_butter_beer",
+      "target_type": "dish",
+      "target_id": "dish_butter_beer",
+      "stance": "contra",
+      "claim": "黄油啤酒齁甜难喝",
+      "reasoning": "评价两极分化，更多人吐槽太甜，奶盖口感像光明冰砖化了",
+      "source_files": [
+        "md_05",
+        "md_xhs_01"
+      ]
+    },
+    {
+      "id": "op_slush_blueberry",
+      "target_type": "dish",
+      "target_id": "dish_slush_blueberry",
+      "stance": "contra",
+      "claim": "蓝莓雪泥有工业味儿太甜",
+      "reasoning": "评价两极分化，有人觉得是纯元级别最爱，也有人觉得有工业味儿",
+      "source_files": [
+        "src_txt_04"
+      ]
+    },
+    {
+      "id": "op_butter_beer_slush",
+      "target_type": "dish",
+      "target_id": "dish_butter_beer_slush",
+      "stance": "pro",
+      "claim": "冰沙版比普通版好喝很多",
+      "reasoning": "冰沙口感中和了甜腻感，夏天解暑首选",
+      "source_files": []
+    },
+    {
+      "id": "op_hammond_burger",
+      "target_type": "dish",
+      "target_id": "dish_hammond_burger",
+      "stance": "pro",
+      "claim": "哈蒙德汉堡是园区内最好吃的汉堡",
+      "reasoning": "牛肉饼现烤，汁水丰富，比其他快餐汉堡高一个档次",
+      "source_files": []
+    },
+    {
+      "id": "op_smoked_ribs",
+      "target_type": "dish",
+      "target_id": "dish_smoked_beef_ribs",
+      "stance": "contra",
+      "claim": "218元太贵性价比不高",
+      "reasoning": "虽然味道不错但价格远超其他菜品，不如点排骨拼盘或哈蒙德汉堡划算",
+      "source_files": []
+    },
+    {
+      "id": "op_entry_early",
+      "target_type": "tip",
+      "target_id": "tip_entry_timing",
+      "stance": "pro",
+      "claim": "第一批入园相当于免费优速通",
+      "reasoning": "提前至少1小时到安检口，热门项目不用排长队",
+      "source_files": [
+        "md_01",
+        "md_02"
+      ]
+    },
+    {
+      "id": "op_entry_relaxed",
+      "target_type": "tip",
+      "target_id": "tip_entry_timing",
+      "stance": "contra",
+      "claim": "9点半左右慢悠悠入园也行",
+      "reasoning": "园区9点开门，热门项目也能玩个遍，不用早早起床赶第一波",
+      "source_files": [
+        "md_01",
+        "md_02"
+      ]
+    },
+    {
+      "id": "op_entry_no_rush_fj",
+      "target_type": "tip",
+      "target_id": "tip_entry_timing",
+      "stance": "contra",
+      "claim": "非第一批入园不要冲禁忌之旅",
+      "reasoning": "排到崩溃，下午花车巡游时再去人少一大半",
+      "source_files": [
+        "md_01",
+        "md_02"
+      ]
+    },
+    {
+      "id": "op_entry_830",
+      "target_type": "tip",
+      "target_id": "tip_entry_timing",
+      "stance": "pro",
+      "claim": "8:30-9:00到安检口是最佳时间",
+      "reasoning": "不需要像第一批那么拼命早起，但也不会太晚错过黄金时间，提前半小时到可以排在前面的安检通道",
+      "source_files": [
+        "md_01",
+        "md_02"
+      ]
+    }
+  ]
+}

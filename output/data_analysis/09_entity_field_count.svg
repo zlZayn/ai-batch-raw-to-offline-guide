@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="320">
+<text x="250" y="25" text-anchor="middle" font-size="16" font-weight="bold">各实体字段数量</text>
+<text x="215" y="63" text-anchor="end" font-size="12">attractions</text>
+<rect x="220" y="45" width="220.0" height="22" fill="#4E79A7" rx="3"/>
+<text x="445.0" y="63" font-size="11">20</text>
+<text x="215" y="89" text-anchor="end" font-size="12">shows</text>
+<rect x="220" y="71" width="165.0" height="22" fill="#F28E2B" rx="3"/>
+<text x="390.0" y="89" font-size="11">15</text>
+<text x="215" y="115" text-anchor="end" font-size="12">restaurants</text>
+<rect x="220" y="97" width="143.0" height="22" fill="#E15759" rx="3"/>
+<text x="368.0" y="115" font-size="11">13</text>
+<text x="215" y="141" text-anchor="end" font-size="12">dishes</text>
+<rect x="220" y="123" width="121.00000000000001" height="22" fill="#76B7B2" rx="3"/>
+<text x="346.0" y="141" font-size="11">11</text>
+<text x="215" y="167" text-anchor="end" font-size="12">tips</text>
+<rect x="220" y="149" width="88.0" height="22" fill="#59A14F" rx="3"/>
+<text x="313.0" y="167" font-size="11">8</text>
+<text x="215" y="193" text-anchor="end" font-size="12">warnings</text>
+<rect x="220" y="175" width="143.0" height="22" fill="#EDC948" rx="3"/>
+<text x="368.0" y="193" font-size="11">13</text>
+<text x="215" y="219" text-anchor="end" font-size="12">itineraries</text>
+<rect x="220" y="201" width="77.0" height="22" fill="#B07AA1" rx="3"/>
+<text x="302.0" y="219" font-size="11">7</text>
+<text x="215" y="245" text-anchor="end" font-size="12">shortcuts</text>
+<rect x="220" y="227" width="110.0" height="22" fill="#FF9DA7" rx="3"/>
+<text x="335.0" y="245" font-size="11">10</text>
+<text x="215" y="271" text-anchor="end" font-size="12">reviews</text>
+<rect x="220" y="253" width="66.0" height="22" fill="#9C755F" rx="3"/>
+<text x="291.0" y="271" font-size="11">6</text>
+<text x="215" y="297" text-anchor="end" font-size="12">opinions</text>
+<rect x="220" y="279" width="77.0" height="22" fill="#BAB0AC" rx="3"/>
+<text x="302.0" y="297" font-size="11">7</text>
+</svg>

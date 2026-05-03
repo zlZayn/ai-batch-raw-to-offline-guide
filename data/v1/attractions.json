@@ -1,0 +1,1049 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-04-06",
+  "ranking_overview": "哈利波特禁忌之旅 > 侏罗纪世界大冒险 = 火种源争夺战 > 小黄人闹翻天 > 神龙大侠之旅 > 飞跃侏罗纪 > 鹰马飞行 > 大黄蜂回旋机",
+  "mental_preparation": [
+    "基本上所有项目都是排队2小时起体验五分钟的，要有心理准备",
+    "最近园区人爆增，排队2小时起真的不开玩笑"
+  ],
+  "locker_summary": [
+    {
+      "attraction": "禁忌之旅",
+      "timing": "排到最后才存包",
+      "phone_allowed": true,
+      "pickup": "出口取包，记住柜子编号"
+    },
+    {
+      "attraction": "飞跃侏罗纪",
+      "timing": "必须先存包再排队",
+      "phone_allowed": true,
+      "pickup": null,
+      "note": "建议穿拉链或口袋深的外套，否则手机真的会掉"
+    },
+    {
+      "attraction": "霸天虎过山车",
+      "timing": "必须先存包再排队",
+      "phone_allowed": false,
+      "pickup": null,
+      "note": "存完还要二次安检，口袋掏干净，手机钥匙帽子等必须寄存"
+    }
+  ],
+  "attractions": [
+    {
+      "id": "attr_forbidden_journey",
+      "name": "哈利波特与禁忌之旅",
+      "zone": "tag_zone_harry",
+      "type": "tag_type_4d5d",
+      "subtype": "5D沉浸飞行（裸眼3D+实景）",
+      "rating": 5,
+      "ranking": 1,
+      "tags": [
+        "tag_zone_harry",
+        "tag_type_4d5d",
+        "tag_harry_fan",
+        "tag_crowd_morning",
+        "tag_crowd_afternoon",
+        "tag_need_locker",
+        "tag_intensity_medium",
+        "tag_has_photo"
+      ],
+      "locker": {
+        "required": true,
+        "timing": "排到最后才存包",
+        "phone_allowed": true,
+        "pickup_location": "出口取包",
+        "notes": "先排队！一路排到存包区，找到柜子存包。手机还能拿手上拍照。存包之后请记住柜子的编号，项目结束后在出口取包，不需要回存包的地方取。省时技巧：可以提前在青蛙合唱团附近存包，抢占先机"
+      },
+      "queue_strategy": {
+        "first_batch": {
+          "recommended": true,
+          "description": "第一批入园首冲不排队！"
+        },
+        "non_first_batch": {
+          "recommended": false,
+          "description": "千万不要冲禁忌之旅！排到崩溃"
+        },
+        "best_timing": "下午花车巡游再去玩，人少一大半",
+        "threshold_minutes": 30,
+        "threshold_rule": "排队≤30分钟快速冲过去；>30分钟先玩别的"
+      },
+      "seat_advice": [
+        {
+          "position": "第一排",
+          "experience": "视野开阔",
+          "how_to_get": "排到了跟staff说想坐第一排会给你安排"
+        }
+      ],
+      "experience_reviews": [
+        {
+          "content": "好玩好玩！代入感很好！全场最佳十分推荐！",
+          "sentiment": "positive",
+          "source_files": [
+            "md_04a"
+          ]
+        },
+        {
+          "content": "5D沉浸飞行（裸眼3D+实景），哈迷必刷",
+          "sentiment": "positive",
+          "source_files": [
+            "md_04a"
+          ]
+        },
+        {
+          "content": "提早入园首冲不排队！5D沉浸飞行",
+          "sentiment": "positive",
+          "source_files": [
+            "md_07"
+          ]
+        }
+      ],
+      "opinions": [],
+      "warnings": [
+        {
+          "content": "非第一批不要冲禁忌之旅，排到崩溃",
+          "severity": "high",
+          "related_tags": [
+            "tag_time_saving"
+          ],
+          "source_files": [
+            "md_04a",
+            "md_09"
+          ]
+        }
+      ],
+      "source_files": [
+        "md_04a",
+        "md_04g",
+        "md_02",
+        "md_00",
+        "md_07"
+      ]
+    },
+    {
+      "id": "attr_jurassic_adventure",
+      "name": "侏罗纪世界大冒险",
+      "zone": "tag_zone_jurassic",
+      "type": "tag_type_ride",
+      "subtype": "沉浸式骑乘体验",
+      "rating": 5,
+      "ranking": 2,
+      "tags": [
+        "tag_zone_jurassic",
+        "tag_type_ride",
+        "tag_intensity_medium",
+        "tag_crowd_morning",
+        "tag_has_photo"
+      ],
+      "locker": {
+        "required": false,
+        "timing": null,
+        "phone_allowed": true,
+        "pickup_location": null,
+        "notes": null
+      },
+      "queue_strategy": {
+        "first_batch": {
+          "recommended": true,
+          "description": "进门向右走，人少靠前"
+        },
+        "non_first_batch": {
+          "recommended": false,
+          "description": "下午排队过长"
+        },
+        "best_timing": "一定要放在上午玩！下午普遍排队过长，还有机会二刷",
+        "channel_advice": "进门向右走，直接选右边排队通道。右边人一般相对少一些，也更容易坐到车的靠前位置。等过了关键场景分流时，继续坚持走右，这样基本能排在前几批"
+      },
+      "seat_advice": [
+        {
+          "position": "靠前位置",
+          "experience": "近距离感受恐龙的震撼，坐第一排爽死了",
+          "how_to_get": "排队走右侧通道更容易坐到靠前位置"
+        }
+      ],
+      "experience_reviews": [
+        {
+          "content": "特别好玩！里面恐龙模型很逼真场景也非常有代入感",
+          "sentiment": "positive",
+          "source_files": [
+            "md_04c"
+          ]
+        },
+        {
+          "content": "坐第一排爽死了！推荐推荐！",
+          "sentiment": "positive",
+          "source_files": [
+            "md_04c"
+          ]
+        }
+      ],
+      "opinions": [],
+      "warnings": [
+        {
+          "content": "下午排队过长，一定要上午玩",
+          "severity": "high",
+          "related_tags": [
+            "tag_time_saving",
+            "tag_crowd_morning"
+          ],
+          "source_files": [
+            "md_04c",
+            "md_07",
+            "md_09"
+          ]
+        }
+      ],
+      "source_files": [
+        "md_04c",
+        "md_04g",
+        "md_02",
+        "md_07"
+      ]
+    },
+    {
+      "id": "attr_source_battle",
+      "name": "火种源争夺战",
+      "zone": "tag_zone_transformer",
+      "type": "tag_type_4d5d",
+      "subtype": "3D沉浸式骑乘",
+      "rating": 5,
+      "ranking": 2,
+      "tags": [
+        "tag_zone_transformer",
+        "tag_type_4d5d",
+        "tag_intensity_medium",
+        "tag_crowd_morning",
+        "tag_has_photo"
+      ],
+      "locker": {
+        "required": false,
+        "timing": null,
+        "phone_allowed": true,
+        "pickup_location": null,
+        "notes": null
+      },
+      "queue_strategy": {
+        "first_batch": {
+          "recommended": true,
+          "description": "开园直冲火种源争夺战，避开哈利波特早高峰"
+        },
+        "non_first_batch": {
+          "recommended": true,
+          "description": "禁忌之旅排队>30分钟时优先冲这个"
+        }
+      },
+      "seat_advice": [
+        {
+          "position": "第一排",
+          "experience": "视野开阔，能清晰看到所有特效",
+          "how_to_get": "E人可以和工作人员商量坐下一辆车的第一排。别忘了领3D眼镜！"
+        }
+      ],
+      "experience_reviews": [
+        {
+          "content": "好玩好玩，3D眼镜带上效果特别好，这些机器人就在我们面前",
+          "sentiment": "positive",
+          "source_files": [
+            "md_04d"
+          ]
+        },
+        {
+          "content": "喷水画面的时候是会洒水到人身上的，炮弹飞过来的时候会有热气喷身上非常真实的感觉",
+          "sentiment": "positive",
+          "source_files": [
+            "md_04d"
+          ]
+        },
+        {
+          "content": "排名Top3的项目，必玩！刺激！",
+          "sentiment": "positive",
+          "source_files": [
+            "md_04d",
+            "md_07"
+          ]
+        }
+      ],
+      "opinions": [],
+      "warnings": [],
+      "source_files": [
+        "md_04d",
+        "md_04g",
+        "md_02",
+        "md_07"
+      ]
+    },
+    {
+      "id": "attr_minion_mayhem",
+      "name": "小黄人闹翻天",
+      "zone": "tag_zone_minion",
+      "type": "tag_type_4d5d",
+      "subtype": "裸眼4D体验",
+      "rating": 4,
+      "ranking": 4,
+      "tags": [
+        "tag_zone_minion",
+        "tag_type_4d5d",
+        "tag_intensity_low",
+        "tag_kid_friendly"
+      ],
+      "locker": {
+        "required": false,
+        "timing": null,
+        "phone_allowed": true,
+        "pickup_location": null,
+        "notes": null
+      },
+      "queue_strategy": null,
+      "seat_advice": [],
+      "experience_reviews": [
+        {
+          "content": "好玩好玩！入场前有一段影片场景很有趣",
+          "sentiment": "positive",
+          "source_files": [
+            "md_04b"
+          ]
+        },
+        {
+          "content": "还有香蕉味的屁，体验很好不会刺激，推荐！",
+          "sentiment": "positive",
+          "source_files": [
+            "md_04b"
+          ]
+        },
+        {
+          "content": "可可爱爱的项目裸眼4D，这个项目也有一点刺激！好玩推荐！香蕉屁也太萌了",
+          "sentiment": "positive",
+          "source_files": [
+            "md_04b",
+            "md_07"
+          ]
+        }
+      ],
+      "opinions": [],
+      "warnings": [],
+      "source_files": [
+        "md_04b",
+        "md_04g",
+        "md_07"
+      ]
+    },
+    {
+      "id": "attr_kung_fu_panda",
+      "name": "神龙大侠之旅",
+      "zone": "tag_zone_panda",
+      "type": "tag_type_water",
+      "subtype": "水上漂流",
+      "rating": 4,
+      "ranking": 5,
+      "tags": [
+        "tag_zone_panda",
+        "tag_type_water",
+        "tag_intensity_low",
+        "tag_kid_friendly"
+      ],
+      "locker": {
+        "required": false,
+        "timing": null,
+        "phone_allowed": true,
+        "pickup_location": null,
+        "notes": null
+      },
+      "queue_strategy": {
+        "channel_advice": "无脑选中间：排队时直接走中间那条道。等进入场景后，工作人员分流时，继续坚持走中间。这样你基本能处于比较靠前的位置，观看表演和拍照视角都特别好"
+      },
+      "seat_advice": [
+        {
+          "position": "中间靠前",
+          "experience": "观看表演和拍照视角都特别好",
+          "how_to_get": "排队走中间通道"
+        }
+      ],
+      "experience_reviews": [
+        {
+          "content": "全程水上漂，很舒服，两边有情景剧",
+          "sentiment": "positive",
+          "source_files": [
+            "md_04e"
+          ]
+        },
+        {
+          "content": "快结束有一个下大坡第一排可能会被溅到水",
+          "sentiment": "neutral",
+          "source_files": [
+            "md_04e"
+          ]
+        },
+        {
+          "content": "功夫熊猫园区最推荐这个！",
+          "sentiment": "positive",
+          "source_files": [
+            "md_04e"
+          ]
+        }
+      ],
+      "opinions": [],
+      "warnings": [],
+      "source_files": [
+        "md_04e",
+        "md_04g"
+      ]
+    },
+    {
+      "id": "attr_velocicoaster",
+      "name": "飞跃侏罗纪",
+      "zone": "tag_zone_jurassic",
+      "type": "tag_type_rollercoaster",
+      "subtype": "VR过山车（全球独家）",
+      "rating": 3,
+      "ranking": 6,
+      "tags": [
+        "tag_zone_jurassic",
+        "tag_type_rollercoaster",
+        "tag_intensity_high",
+        "tag_need_locker",
+        "tag_crowd_closing",
+        "tag_conflict"
+      ],
+      "locker": {
+        "required": true,
+        "timing": "必须先存包再排队",
+        "phone_allowed": true,
+        "pickup_location": null,
+        "notes": "手机可以不存，建议穿带拉链或者口袋比较深的外套或者裤子，否则玩项目的时候手机真的会掉"
+      },
+      "queue_strategy": {
+        "first_batch": {
+          "recommended": false,
+          "description": null
+        },
+        "non_first_batch": {
+          "recommended": true,
+          "description": "推荐闭园前去玩"
+        },
+        "best_timing": "闭园前去玩，夜景很美"
+      },
+      "seat_advice": [],
+      "experience_reviews": [
+        {
+          "content": "时间挺短的，但有点吓人",
+          "sentiment": "mixed",
+          "source_files": [
+            "md_04c"
+          ]
+        },
+        {
+          "content": "全球独家，夜景很美",
+          "sentiment": "positive",
+          "source_files": [
+            "md_04c"
+          ]
+        },
+        {
+          "content": "VR体验逼真飞跃侏罗纪——过山车，可以来看夜景，很美",
+          "sentiment": "positive",
+          "source_files": [
+            "md_04c",
+            "md_07"
+          ]
+        }
+      ],
+      "opinions": [
+        {
+          "id": "op_dc_ranking_debate",
+          "stance": "contra",
+          "claim": "霸天虎排名应该更高",
+          "reasoning": "作为园区最刺激的过山车，垂直上升和急速俯冲肾上腺素飙升，体验感极强，排名第七偏低",
+          "source_files": ["md_xhs_01"]
+        }
+      ],
+      "warnings": [
+        {
+          "content": "有点吓人，需要心理准备",
+          "severity": "medium",
+          "related_tags": [
+            "tag_intensity_high"
+          ],
+          "source_files": [
+            "md_04c",
+            "md_09"
+          ]
+        }
+      ],
+      "source_files": [
+        "md_04c",
+        "md_04g",
+        "md_08"
+      ]
+    },
+    {
+      "id": "attr_decepticoaster",
+      "name": "霸天虎过山车",
+      "zone": "tag_zone_transformer",
+      "type": "tag_type_rollercoaster",
+      "subtype": "刺激过山车",
+      "rating": 4,
+      "ranking": 7,
+      "tags": [
+        "tag_zone_transformer",
+        "tag_type_rollercoaster",
+        "tag_intensity_high",
+        "tag_need_locker",
+        "tag_conflict"
+      ],
+      "locker": {
+        "required": true,
+        "timing": "必须先存包再排队",
+        "phone_allowed": false,
+        "pickup_location": null,
+        "notes": "口袋掏干净，存完包还要过一遍安检。手机、钥匙、帽子等零碎物品都是必须寄存的。先排队以后再存包，存完去二次安检，然后继续排队，所以一点东西都不可以有！"
+      },
+      "queue_strategy": null,
+      "seat_advice": [
+        {
+          "position": "第一排",
+          "experience": "视野开阔，能清晰看到所有特效（出去上面有特效画面），适合第一次体验的宝子",
+          "how_to_get": null
+        },
+        {
+          "position": "最后一排",
+          "experience": "失重感超强，感觉整个人都要被甩出去，喜欢刺激的朋友一定别错过",
+          "how_to_get": null
+        }
+      ],
+      "experience_reviews": [
+        {
+          "content": "非常刺激，胆小的建议不要玩",
+          "sentiment": "positive",
+          "source_files": [
+            "md_04d"
+          ]
+        },
+        {
+          "content": "排队时间偏短，喜欢刺激胆大者的不二之选",
+          "sentiment": "positive",
+          "source_files": [
+            "md_04d"
+          ]
+        },
+        {
+          "content": "有实测者因害怕没去玩，但排队时间偏短，胆大者的不二之选",
+          "sentiment": "neutral",
+          "source_files": [
+            "md_04d"
+          ]
+        }
+      ],
+      "opinions": [
+        {
+          "id": "op_decepticoaster_pro",
+          "stance": "pro",
+          "claim": "非常刺激，排队时间短性价比高",
+          "reasoning": "垂直上升和急速俯冲肾上腺素飙升，排队时间偏短，胆大者的不二之选",
+          "source_files": ["md_04d"]
+        },
+        {
+          "id": "op_decepticoaster_con",
+          "stance": "contra",
+          "claim": "排名第七偏低，实际体验应该更高",
+          "reasoning": "作为园区最刺激的过山车，体验感极强，但也有人觉得太短或太吓人",
+          "source_files": ["md_04d", "md_04g"]
+        }
+      ],
+      "warnings": [
+        {
+          "content": "胆小的不要玩",
+          "severity": "high",
+          "related_tags": [
+            "tag_intensity_high"
+          ],
+          "source_files": [
+            "md_04d",
+            "md_09"
+          ]
+        }
+      ],
+      "source_files": [
+        "md_04d",
+        "md_04g"
+      ]
+    },
+    {
+      "id": "attr_flight_of_hippogriff",
+      "name": "鹰马飞行",
+      "zone": "tag_zone_harry",
+      "type": "tag_type_rollercoaster",
+      "subtype": "小型过山车",
+      "rating": 2,
+      "ranking": 8,
+      "tags": [
+        "tag_zone_harry",
+        "tag_type_rollercoaster",
+        "tag_intensity_low",
+        "tag_kid_friendly"
+      ],
+      "locker": {
+        "required": false,
+        "timing": null,
+        "phone_allowed": true,
+        "pickup_location": null,
+        "notes": null
+      },
+      "queue_strategy": null,
+      "seat_advice": [],
+      "experience_reviews": [
+        {
+          "content": "过程特别短，可能就不到一分钟，俯瞰海格小屋",
+          "sentiment": "neutral",
+          "source_files": [
+            "md_04a"
+          ]
+        },
+        {
+          "content": "要排好久队就别去，不值得",
+          "sentiment": "negative",
+          "source_files": [
+            "md_04a"
+          ]
+        },
+        {
+          "content": "小型过山车，俯瞰海格小屋",
+          "sentiment": "neutral",
+          "source_files": [
+            "md_07"
+          ]
+        }
+      ],
+      "opinions": [],
+      "warnings": [
+        {
+          "content": "过程特别短（不到1分钟），排好久队不值得",
+          "severity": "medium",
+          "related_tags": [
+            "tag_time_saving"
+          ],
+          "source_files": [
+            "md_04a",
+            "md_09"
+          ]
+        }
+      ],
+      "source_files": [
+        "md_04a",
+        "md_04g",
+        "md_09",
+        "md_07"
+      ]
+    },
+    {
+      "id": "attr_bumblebee_spin",
+      "name": "大黄蜂回旋机",
+      "zone": "tag_zone_transformer",
+      "type": "tag_type_rotate",
+      "subtype": "旋转类项目",
+      "rating": 2,
+      "ranking": 9,
+      "tags": [
+        "tag_zone_transformer",
+        "tag_type_rotate",
+        "tag_intensity_low",
+        "tag_kid_friendly"
+      ],
+      "locker": {
+        "required": false,
+        "timing": null,
+        "phone_allowed": true,
+        "pickup_location": null,
+        "notes": null
+      },
+      "queue_strategy": null,
+      "seat_advice": [],
+      "experience_reviews": [
+        {
+          "content": "一般，特色就是大黄蜂在控制旋转",
+          "sentiment": "neutral",
+          "source_files": [
+            "md_04d"
+          ]
+        }
+      ],
+      "opinions": [],
+      "warnings": [],
+      "source_files": [
+        "md_04d",
+        "md_04g"
+      ]
+    },
+    {
+      "id": "attr_raptor_encounter",
+      "name": "奇遇迅猛龙",
+      "zone": "tag_zone_jurassic",
+      "type": "tag_type_show",
+      "subtype": "小表演/见面会",
+      "rating": 0,
+      "ranking": null,
+      "tags": [
+        "tag_zone_jurassic",
+        "tag_type_show",
+        "tag_intensity_low"
+      ],
+      "locker": {
+        "required": false,
+        "timing": null,
+        "phone_allowed": true,
+        "pickup_location": null,
+        "notes": null
+      },
+      "queue_strategy": null,
+      "seat_advice": [],
+      "experience_reviews": [
+        {
+          "content": "没去，排队时间不少",
+          "sentiment": "neutral",
+          "source_files": [
+            "md_04c"
+          ]
+        },
+        {
+          "content": "跟奥利凡德一样就是小表演，不值得花那么多时间排队",
+          "sentiment": "negative",
+          "source_files": [
+            "md_04c"
+          ]
+        },
+        {
+          "content": "日票捧油就不要去玩了，见面会看起来排队人不多但是基本也是半小时起的",
+          "sentiment": "negative",
+          "source_files": [
+            "md_04c"
+          ]
+        }
+      ],
+      "opinions": [],
+      "warnings": [
+        {
+          "content": "就是小表演，排队半小时起不值得",
+          "severity": "medium",
+          "related_tags": [
+            "tag_time_saving"
+          ],
+          "source_files": [
+            "md_04c",
+            "md_09"
+          ]
+        }
+      ],
+      "source_files": [
+        "md_04c",
+        "md_04g",
+        "md_09"
+      ]
+    },
+    {
+      "id": "attr_ollivander",
+      "name": "奥利凡德",
+      "zone": "tag_zone_harry",
+      "type": "tag_type_show",
+      "subtype": "魔杖小表演",
+      "rating": 0,
+      "ranking": null,
+      "duration_minutes": 7,
+      "tags": [
+        "tag_zone_harry",
+        "tag_type_show",
+        "tag_intensity_low"
+      ],
+      "locker": {
+        "required": false,
+        "timing": null,
+        "phone_allowed": true,
+        "pickup_location": null,
+        "notes": null
+      },
+      "queue_strategy": null,
+      "seat_advice": [],
+      "experience_reviews": [
+        {
+          "content": "就是魔杖小表演，可以看，要排队就不推荐",
+          "sentiment": "neutral",
+          "source_files": [
+            "md_04a"
+          ]
+        },
+        {
+          "content": "跟奇遇迅猛龙一样就是表演，可看可不看，长时间排队不值得",
+          "sentiment": "neutral",
+          "source_files": [
+            "md_04a"
+          ]
+        }
+      ],
+      "opinions": [],
+      "warnings": [
+        {
+          "content": "7分钟小表演，排队就不推荐",
+          "severity": "low",
+          "related_tags": [
+            "tag_time_saving"
+          ],
+          "source_files": [
+            "md_04a",
+            "md_09"
+          ]
+        }
+      ],
+      "source_files": [
+        "md_04a",
+        "md_04g",
+        "md_09"
+      ]
+    },
+    {
+      "id": "attr_despicable_me_spin",
+      "name": "超萌璇璇涡",
+      "zone": "tag_zone_minion",
+      "type": "tag_type_rotate",
+      "subtype": "旋转类项目",
+      "rating": 2,
+      "ranking": null,
+      "tags": [
+        "tag_zone_minion",
+        "tag_type_rotate",
+        "tag_intensity_low",
+        "tag_kid_friendly"
+      ],
+      "locker": {
+        "required": false,
+        "timing": null,
+        "phone_allowed": true,
+        "pickup_location": null,
+        "notes": null
+      },
+      "queue_strategy": null,
+      "seat_advice": [],
+      "experience_reviews": [
+        {
+          "content": "就一下，转个几圈，一般，适合小孩玩",
+          "sentiment": "neutral",
+          "source_files": [
+            "md_04b"
+          ]
+        }
+      ],
+      "opinions": [],
+      "warnings": [],
+      "source_files": [
+        "md_04b"
+      ]
+    },
+    {
+      "id": "attr_kung_fu_panda_coaster",
+      "name": "萌转过山车",
+      "zone": "tag_zone_minion",
+      "type": "tag_type_rollercoaster",
+      "subtype": "小型过山车",
+      "rating": 2,
+      "ranking": null,
+      "tags": [
+        "tag_zone_minion",
+        "tag_type_rollercoaster",
+        "tag_intensity_low",
+        "tag_kid_friendly"
+      ],
+      "locker": {
+        "required": false,
+        "timing": null,
+        "phone_allowed": true,
+        "pickup_location": null,
+        "notes": null
+      },
+      "queue_strategy": null,
+      "seat_advice": [],
+      "experience_reviews": [
+        {
+          "content": "跟鹰马飞行一样短但是没鹰马飞行刺激，会平缓一些，还行",
+          "sentiment": "neutral",
+          "source_files": [
+            "md_04b"
+          ]
+        },
+        {
+          "content": "很适合小朋友的过山车，有一丢丢失重感",
+          "sentiment": "neutral",
+          "source_files": [
+            "md_04b",
+            "md_07"
+          ]
+        }
+      ],
+      "opinions": [],
+      "warnings": [],
+      "source_files": [
+        "md_04b",
+        "md_07"
+      ]
+    },
+    {
+      "id": "attr_lantern_festival",
+      "name": "灯影传奇",
+      "zone": "tag_zone_panda",
+      "type": "tag_type_ride",
+      "subtype": "悠闲项目",
+      "rating": 2,
+      "ranking": null,
+      "tags": [
+        "tag_zone_panda",
+        "tag_type_ride",
+        "tag_intensity_low",
+        "tag_kid_friendly"
+      ],
+      "locker": {
+        "required": false,
+        "timing": null,
+        "phone_allowed": true,
+        "pickup_location": null,
+        "notes": null
+      },
+      "queue_strategy": null,
+      "seat_advice": [],
+      "experience_reviews": [
+        {
+          "content": "悠闲项目",
+          "sentiment": "neutral",
+          "source_files": [
+            "md_04e"
+          ]
+        }
+      ],
+      "opinions": [],
+      "warnings": [],
+      "source_files": [
+        "md_04e"
+      ]
+    },
+    {
+      "id": "attr_kung_fu_panda_carousel",
+      "name": "炫转武侠",
+      "zone": "tag_zone_panda",
+      "type": "tag_type_rotate",
+      "subtype": "功夫熊猫版本旋转木马",
+      "rating": 2,
+      "ranking": null,
+      "tags": [
+        "tag_zone_panda",
+        "tag_type_rotate",
+        "tag_intensity_low",
+        "tag_kid_friendly"
+      ],
+      "locker": {
+        "required": false,
+        "timing": null,
+        "phone_allowed": true,
+        "pickup_location": null,
+        "notes": null
+      },
+      "queue_strategy": null,
+      "seat_advice": [],
+      "experience_reviews": [
+        {
+          "content": "个人觉得比灯影传奇好玩",
+          "sentiment": "positive",
+          "source_files": [
+            "md_04e"
+          ]
+        }
+      ],
+      "opinions": [],
+      "warnings": [],
+      "source_files": [
+        "md_04e"
+      ]
+    },
+    {
+      "id": "attr_water_world",
+      "name": "未来水世界",
+      "zone": "tag_zone_water",
+      "type": "tag_type_show",
+      "subtype": "真人剧情水上特技表演",
+      "rating": 4,
+      "ranking": 10,
+      "tags": [
+        "tag_zone_water",
+        "tag_type_show",
+        "tag_intensity_low"
+      ],
+      "locker": {
+        "required": false,
+        "timing": null,
+        "phone_allowed": true,
+        "pickup_location": null,
+        "notes": null
+      },
+      "queue_strategy": null,
+      "seat_advice": [],
+      "experience_reviews": [
+        {
+          "content": "真人特级表演，挺不错的",
+          "sentiment": "positive",
+          "source_files": [
+            "md_04f"
+          ]
+        },
+        {
+          "content": "喜欢呼呼着火咔咔跳水的选水世界",
+          "sentiment": "positive",
+          "source_files": [
+            "md_04f"
+          ]
+        },
+        {
+          "content": "环球两个大演出之一，不容错过",
+          "sentiment": "positive",
+          "source_files": [
+            "md_04f"
+          ]
+        }
+      ],
+      "opinions": [],
+      "warnings": [],
+      "source_files": [
+        "md_04f"
+      ]
+    },
+    {
+      "id": "attr_lights_camera_action",
+      "name": "灯光摄影开拍",
+      "zone": "tag_zone_hollywood",
+      "type": "tag_type_show",
+      "subtype": "电影制作表演秀",
+      "rating": 3,
+      "ranking": null,
+      "tags": [
+        "tag_zone_hollywood",
+        "tag_type_show",
+        "tag_intensity_low"
+      ],
+      "locker": {
+        "required": false,
+        "timing": null,
+        "phone_allowed": true,
+        "pickup_location": null,
+        "notes": null
+      },
+      "queue_strategy": null,
+      "seat_advice": [],
+      "experience_reviews": [
+        {
+          "content": "其他项目值得玩的之一",
+          "sentiment": "neutral",
+          "source_files": [
+            "md_04f"
+          ]
+        }
+      ],
+      "opinions": [],
+      "warnings": [],
+      "source_files": [
+        "md_04f"
+      ]
+    }
+  ]
+}

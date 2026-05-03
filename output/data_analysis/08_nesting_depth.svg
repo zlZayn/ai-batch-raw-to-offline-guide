@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="280">
+<text x="250" y="25" text-anchor="middle" font-size="16" font-weight="bold">各实体最大嵌套深度</text>
+<text x="215" y="59" text-anchor="end" font-size="12">attractions</text>
+<rect x="220" y="45" width="110.0" height="18" fill="#4E79A7" rx="3"/>
+<text x="335.0" y="59" font-size="11">3</text>
+<text x="215" y="81" text-anchor="end" font-size="12">shows</text>
+<rect x="220" y="67" width="110.0" height="18" fill="#F28E2B" rx="3"/>
+<text x="335.0" y="81" font-size="11">3</text>
+<text x="215" y="103" text-anchor="end" font-size="12">restaurants</text>
+<rect x="220" y="89" width="73.33333333333333" height="18" fill="#E15759" rx="3"/>
+<text x="298.3333333333333" y="103" font-size="11">2</text>
+<text x="215" y="125" text-anchor="end" font-size="12">dishes</text>
+<rect x="220" y="111" width="110.0" height="18" fill="#76B7B2" rx="3"/>
+<text x="335.0" y="125" font-size="11">3</text>
+<text x="215" y="147" text-anchor="end" font-size="12">tips</text>
+<rect x="220" y="133" width="73.33333333333333" height="18" fill="#59A14F" rx="3"/>
+<text x="298.3333333333333" y="147" font-size="11">2</text>
+<text x="215" y="169" text-anchor="end" font-size="12">warnings</text>
+<rect x="220" y="155" width="73.33333333333333" height="18" fill="#EDC948" rx="3"/>
+<text x="298.3333333333333" y="169" font-size="11">2</text>
+<text x="215" y="191" text-anchor="end" font-size="12">itineraries</text>
+<rect x="220" y="177" width="220.0" height="18" fill="#B07AA1" rx="3"/>
+<text x="445.0" y="191" font-size="11">6</text>
+<text x="215" y="213" text-anchor="end" font-size="12">shortcuts</text>
+<rect x="220" y="199" width="73.33333333333333" height="18" fill="#FF9DA7" rx="3"/>
+<text x="298.3333333333333" y="213" font-size="11">2</text>
+<text x="215" y="235" text-anchor="end" font-size="12">reviews</text>
+<rect x="220" y="221" width="73.33333333333333" height="18" fill="#9C755F" rx="3"/>
+<text x="298.3333333333333" y="235" font-size="11">2</text>
+<text x="215" y="257" text-anchor="end" font-size="12">opinions</text>
+<rect x="220" y="243" width="73.33333333333333" height="18" fill="#BAB0AC" rx="3"/>
+<text x="298.3333333333333" y="257" font-size="11">2</text>
+</svg>

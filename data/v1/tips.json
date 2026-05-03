@@ -1,0 +1,214 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-04-06",
+  "tips": [
+    {
+      "id": "tip_toilet_card",
+      "category": "排队技巧",
+      "title": "排队上厕所技巧",
+      "content": "排队过程中可以上厕所，呼唤工作人员给你厕所卡，不要自己从队伍中跑出来再挤回去",
+      "tags": [
+        "tag_time_saving"
+      ],
+      "source_files": [
+        "md_08"
+      ]
+    },
+    {
+      "id": "tip_seat_select",
+      "category": "座位技巧",
+      "title": "大项目座位选择",
+      "content": "大项目除了过山车是可以选位置的，排到了跟staff说想坐第一排会给你安排",
+      "tags": [
+        "tag_time_saving"
+      ],
+      "related_attractions": [
+        "attr_forbidden_journey",
+        "attr_source_battle"
+      ],
+      "source_files": [
+        "md_08"
+      ]
+    },
+    {
+      "id": "tip_closing_time",
+      "category": "时间技巧",
+      "title": "闭园技巧",
+      "content": "闭园时间到了也不会赶人，在闭园时间到了之前进入到项目的排队队伍中就可以把项目玩完。推荐闭园前去玩飞跃侏罗纪（夜景很美）",
+      "tags": [
+        "tag_time_saving",
+        "tag_crowd_closing"
+      ],
+      "related_attractions": [
+        "attr_velocicoaster"
+      ],
+      "source_files": [
+        "md_08"
+      ]
+    },
+    {
+      "id": "tip_official_photo",
+      "category": "拍照服务",
+      "title": "官方拍照服务",
+      "content": "环球有官拍服务，拍照点位：大球、城堡、见面会和几个骑乘项目。买当日拍照套餐，不要买单张纸质照片。套餐可以找人拼单，一共可以拍6人",
+      "tags": [
+        "tag_has_photo",
+        "tag_save_money"
+      ],
+      "source_files": [
+        "md_08",
+        "md_09"
+      ]
+    },
+    {
+      "id": "tip_birthday",
+      "category": "福利",
+      "title": "生日福利",
+      "content": "生日月记得去游客服务中心领生日徽章",
+      "tags": ["tag_save_money", "tag_birthday"],
+      "source_files": [
+        "md_08",
+        "md_01"
+      ]
+    },
+    {
+      "id": "tip_app",
+      "category": "工具使用",
+      "title": "App使用技巧",
+      "content": "提前下载北京环球度假区App，功能：查看排队时间、线上餐厅点单。随时刷排队时间，灵活调整行程",
+      "tags": [
+        "tag_time_saving"
+      ],
+      "source_files": [
+        "md_08",
+        "md_01"
+      ]
+    },
+    {
+      "id": "tip_crowd_judge",
+      "category": "行前判断",
+      "title": "人流量预判方法",
+      "content": "0点后打开乐园时间，看表演不可驯服的场次。基本当天人数约等于场次x5000。6场以下基本不用攻略，8场以上请考虑优速通或提前入园，10场快跑",
+      "tags": [
+        "tag_time_saving"
+      ],
+      "source_files": [
+        "md_01"
+      ]
+    },
+    {
+      "id": "tip_security_lane",
+      "category": "入园技巧",
+      "title": "安检通道选择",
+      "content": "排队过安检别瞎站，尽量挑两侧的两个通道，尤其是左侧，工作人员多效率高，实测能比旁边队伍早进去十几分钟",
+      "tags": [
+        "tag_time_saving"
+      ],
+      "source_files": [
+        "md_02",
+        "md_01"
+      ]
+    },
+    {
+      "id": "tip_no_photo_early",
+      "category": "入园技巧",
+      "title": "入园后不要在大球拍照",
+      "content": "不要在大球拍照！中午或者下午再出来拍，入园后提前看好地图确定方向，跑就完了",
+      "tags": [
+        "tag_time_saving"
+      ],
+      "source_files": [
+        "md_02",
+        "md_09"
+      ]
+    },
+    {
+      "id": "tip_entry_timing",
+      "category": "入园策略",
+      "title": "入园时间策略（存在不同观点）",
+      "content": "关于何时入园存在不同观点，详见opinions",
+      "tags": [
+        "tag_time_saving",
+        "tag_conflict"
+      ],
+      "opinions": [
+        {
+          "id": "op_entry_early",
+          "stance": "pro",
+          "claim": "第一批入园相当于免费优速通",
+          "reasoning": "提前至少1小时到安检口，热门项目不用排长队",
+          "source_files": [
+            "md_01",
+            "md_02",
+            "md_00"
+          ]
+        },
+        {
+          "id": "op_entry_relaxed",
+          "stance": "contra",
+          "claim": "9点半左右慢悠悠入园也行",
+          "reasoning": "园区9点开门，热门项目也能玩个遍，不用早早起床赶第一波",
+          "source_files": [
+            "md_01"
+          ]
+        },
+        {
+          "id": "op_entry_no_rush_fj",
+          "stance": "contra",
+          "claim": "非第一批入园不要冲禁忌之旅",
+          "reasoning": "排到崩溃，下午花车巡游时再去人少一大半",
+          "source_files": [
+            "md_02",
+            "md_04a"
+          ]
+        },
+        {
+          "id": "op_entry_830",
+          "stance": "pro",
+          "claim": "8:30-9:00到安检口是最佳时间",
+          "reasoning": "不需要像第一批那么拼命早起，但也不会太晚错过黄金时间，提前半小时到可以排在前面的安检通道",
+          "source_files": ["md_xhs_02"]
+        }
+      ],
+      "source_files": [
+        "md_01",
+        "md_02"
+      ]
+    },
+    {
+      "id": "tip_off_peak_hours",
+      "category": "时间技巧",
+      "title": "错峰时段推荐",
+      "content": "12:00-13:30和15:00-16:30是相对人少的错峰时段，适合刷热门项目或吃饭",
+      "tags": ["tag_time_saving"],
+      "related_attractions": [],
+      "source_files": ["md_xhs_02"]
+    },
+    {
+      "id": "tip_travel_light",
+      "category": "行前技巧",
+      "title": "轻装上阵原则",
+      "content": "尽量少带东西，带了也拿不进去浪费检查时间还得花钱寄存。带一个轻便双肩包装必需品即可，手机用挂绳挂在脖子上过安检和排队都快人一步",
+      "tags": ["tag_time_saving", "tag_save_money"],
+      "related_attractions": [],
+      "source_files": ["md_xhs_02"]
+    },
+    {
+      "id": "tip_slush_cup",
+      "category": "省钱技巧",
+      "title": "雪泥续杯省钱法",
+      "content": "城市大道'春日狂欢纪念杯'88元含一杯雪泥，之后续杯20元/杯。如果计划喝两杯以上，买纪念杯比单买划算。单杯雪泥28元，两杯就是56元，而纪念杯+续杯=88+20=108元还多一杯",
+      "tags": ["tag_save_money"],
+      "source_files": ["src_txt_04"]
+    },
+    {
+      "id": "tip_merch_toothless",
+      "category": "购物攻略",
+      "title": "无牙仔钥匙扣购买指南",
+      "content": "无牙仔'亲亲挂件'钥匙扣参考价169-179元，热门款经常断货需手速快。购买地点：动画工坊周边商店（好莱坞大道最里面，货品最全，有驯龙高手限定产品）是首选，环球影城商店（好莱坞大道）和城市大道环球影城商店也有售。如果怕断货可以提前找靠谱代购，年卡用户代购可直接邮寄但需服务费",
+      "tags": ["tag_save_money", "tag_shopping"],
+      "related_attractions": [],
+      "source_files": ["src_txt_04"]
+    }
+  ]
+}

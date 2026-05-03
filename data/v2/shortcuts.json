@@ -1,0 +1,56 @@
+{
+  "version": "2.0.0",
+  "last_updated": "2026-04-06",
+  "shortcuts": [
+    {
+      "id": "sc_gate_to_harry",
+      "name": "门口到哈利波特区",
+      "from": "大门口",
+      "to": "哈利波特区",
+      "route": "从小黄人萌乐园穿过去",
+      "savings": "少走至少800米",
+      "avoid_mistake": "不要绕小黄人神偷奶爸闹翻天走",
+      "condition": null,
+      "tags": [
+        "tag_time_saving"
+      ],
+      "source_files": [
+        "md_03",
+        "md_09"
+      ]
+    },
+    {
+      "id": "sc_gate_to_jurassic",
+      "name": "大门口到侏罗纪区",
+      "from": "大门口",
+      "to": "侏罗纪区",
+      "route": "奔着假山走，从假山底下穿过去",
+      "savings": "避免绕路",
+      "avoid_mistake": "不要绕到小黄人区再去",
+      "condition": null,
+      "tags": [
+        "tag_time_saving"
+      ],
+      "source_files": [
+        "md_03",
+        "md_09"
+      ]
+    },
+    {
+      "id": "sc_jurassic_to_water",
+      "name": "侏罗纪大冒险到水世界",
+      "from": "侏罗纪大冒险",
+      "to": "水世界",
+      "route": "走右边开通的通道",
+      "savings": "避免绕行变形金刚/哈利波特区",
+      "avoid_mistake": "不用再从变形金刚区或者哈利·波特区绕过去",
+      "condition": "节假日限定（人多时右边会开通一个通道）",
+      "tags": [
+        "tag_time_saving"
+      ],
+      "source_files": [
+        "md_03"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,410 @@
+{
+  "version": "1.1.0",
+  "last_updated": "2026-04-07",
+  "shows": [
+    {
+      "id": "show_parade",
+      "name": "花车大巡游",
+      "zone": "multiple",
+      "type": "parade",
+      "tags": [
+        "tag_type_show",
+        "tag_zone_hollywood",
+        "tag_type_parade"
+      ],
+      "schedule": {
+        "frequency": "每天1场",
+        "example_times": ["17:00"],
+        "duration_minutes": 50,
+        "note": "路线：好莱坞大道→变形金刚基地→侏罗纪世界→小黄人乐园。建议提前15分钟到好莱坞大道卡位，花车刚出发时人最少。巡游期间热门项目排队会变短，可分头行动"
+      },
+      "route": {
+        "start": "好莱坞大道",
+        "path": "途径侏罗纪和小黄人区",
+        "viewing_advice": "没必要全程跟，可以在小黄人区等，看完迅速刷项目"
+      },
+      "tips": [
+        {
+          "content": "没必要全程跟，可以在小黄人区等",
+          "source_files": [
+            "md_06"
+          ]
+        },
+        {
+          "content": "看完迅速刷项目",
+          "source_files": [
+            "md_06"
+          ]
+        },
+        {
+          "content": "不要错过巡游时间",
+          "source_files": [
+            "md_06",
+            "md_07"
+          ]
+        }
+      ],
+      "warnings": [],
+      "source_files": [
+        "md_06",
+        "md_07"
+      ]
+    },
+    {
+      "id": "show_water_world",
+      "name": "未来水世界",
+      "zone": "tag_zone_water",
+      "type": "live_show",
+      "tags": [
+        "tag_zone_water",
+        "tag_type_show",
+        "tag_type_stunt"
+      ],
+      "schedule": {
+        "frequency": "每天5场",
+        "example_times": ["12:15", "13:45", "15:15", "16:30", "17:45"],
+        "duration_minutes": 20,
+        "note": "户外露天剧场，真人特技表演。蓝色区（前排）会被水喷湿，绿色区（中排）微湿视野好，红色区（后排）完全干。建议提前20-25分钟到场。现场有惊险的高空跳水和喷火场面，氛围感十足"
+      },
+      "tips": [
+        {
+          "content": "选前排可以互动，但容易被淋湿",
+          "source_files": [
+            "md_06",
+            "md_04f"
+          ]
+        },
+        {
+          "content": "提前备好雨衣，园区的死贵死贵",
+          "source_files": [
+            "md_06",
+            "md_04f",
+            "md_09"
+          ]
+        },
+        {
+          "content": "提前15分钟去排队，挑选最佳观看位置",
+          "source_files": [
+            "md_06"
+          ]
+        }
+      ],
+      "warnings": [
+        {
+          "content": "不要买园区的雨衣，死贵死贵，提前备好",
+          "severity": "medium",
+          "source_files": [
+            "md_06",
+            "md_09"
+          ]
+        }
+      ],
+      "source_files": [
+        "md_06",
+        "md_04f"
+      ]
+    },
+    {
+      "id": "show_how_to_train",
+      "name": "不可驯服",
+      "zone": "tag_zone_hollywood",
+      "type": "live_show",
+      "tags": [
+        "tag_zone_hollywood",
+        "tag_type_show",
+        "tag_type_music"
+      ],
+      "schedule": {
+        "frequency": "每天多场，通常12:00-18:00之间",
+        "example_times": ["12:00", "13:00", "14:30", "15:15", "16:15", "18:00"],
+        "duration_minutes": 30,
+        "note": "室内剧场，有冷气。改编自热门动画《驯龙高手》，北京环球影城原创舞台秀，获主题娱乐协会Thea大奖。巨型龙偶由多位操偶师操控，建议选中间区域中等距离座位。二楼视野体验感更好"
+      },
+      "tips": [
+        {
+          "content": "喜欢唱歌跳舞稍微静一点的选不可驯服",
+          "source_files": [
+            "md_06"
+          ]
+        },
+        {
+          "content": "选18:00场人较少",
+          "source_files": [
+            "md_06"
+          ]
+        },
+        {
+          "content": "二楼视野更好！可以看到夜煞从眼前飞过，看到他们喷火、喷气，很真实的感觉",
+          "source_files": [
+            "md_06",
+            "md_07"
+          ]
+        }
+      ],
+      "warnings": [],
+      "source_files": [
+        "md_06",
+        "md_07"
+      ]
+    },
+    {
+      "id": "show_lights",
+      "name": "霍格沃兹城堡灯光秀",
+      "zone": "tag_zone_harry",
+      "type": "light_show",
+      "tags": [
+        "tag_zone_harry",
+        "tag_type_show",
+        "tag_harry_fan",
+        "tag_type_light_show"
+      ],
+      "schedule": {
+        "frequency": "日落后循环播放，每15分钟一场",
+        "example_times": ["19:15", "19:30", "19:45", "20:00"],
+        "duration_minutes": 6,
+        "note": "光雕投影秀，日落后自动开始无需预约。每轮约6分钟循环播放直到闭园。站在面对城堡的开放庭院正中间角度最好。四个学院主题色彩变换，结尾四院合一白金光芒最惊艳。整个霍格沃茨城堡被点亮，配合音乐和魔法效果，是园区最浪漫最值得纪念的时刻之一"
+      },
+      "tips": [
+        {
+          "content": "提前半个小时来，一定要看哦！",
+          "source_files": [
+            "md_06"
+          ]
+        },
+        {
+          "content": "5分钟左右配上音乐很有代入感！哈迷圆满了！",
+          "source_files": [
+            "md_06",
+            "md_07"
+          ]
+        },
+        {
+          "content": "选19:45场，看完刚好离场",
+          "source_files": [
+            "md_06"
+          ]
+        }
+      ],
+      "warnings": [],
+      "source_files": [
+        "md_06",
+        "md_07"
+      ]
+    },
+    {
+      "id": "show_transformer_live",
+      "name": "变形金刚传奇现场",
+      "zone": "tag_zone_transformer",
+      "type": "interactive_show",
+      "location": "变形金刚基地",
+      "schedule": {
+        "frequency": "全天多场，约每20分钟一场",
+        "example_times": ["11:00", "11:20", "11:40", "12:00", "12:20", "12:40", "13:00", "13:20", "13:40", "14:00", "14:20", "14:40", "15:00", "15:20", "15:40", "16:00", "16:20", "16:40", "17:00", "17:20", "17:40", "18:00", "18:20", "18:40"],
+        "duration_minutes": 20,
+        "note": "互动秀，威震天嘴很'毒'，排队合影的人非常多。变形金刚基地内演出"
+      },
+      "highlights": ["威震天互动斗嘴", "变形金刚角色合影"],
+      "tips": ["想和威震天互怼的不要错过", "只是想看热闹的路过凑个热闹也够"],
+      "tags": ["tag_type_interactive"],
+      "opinions": [
+        {"id": "op_show_transformer", "stance": "pro", "claim": "威震天互动非常有趣", "reasoning": "威震天的嘴很毒，互动感强，排队合影的人非常多", "source_files": ["src_txt_04"]},
+        {"id": "op_show_transformer_con", "stance": "contra", "claim": "只是个互动秀，不值得专门排队", "reasoning": "如果不喜欢互动或者只是想看热闹，性价比不高", "source_files": ["src_txt_04"]}
+      ],
+      "source_files": ["src_txt_04"]
+    },
+    {
+      "id": "show_sing_on",
+      "name": "欢乐好声音巡演",
+      "zone": "tag_zone_hollywood",
+      "type": "live_show",
+      "location": "好莱坞",
+      "schedule": {
+        "frequency": "全天多场，约每30分钟一场",
+        "example_times": ["10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "18:30", "19:00"],
+        "duration_minutes": 20,
+        "note": "唱跳表演，需要看完前情提要才能入场。演员互动性不强，不喜欢这种模式的可以考虑放弃"
+      },
+      "highlights": ["唱跳表演", "氛围感好"],
+      "tips": ["演员互动性不强", "不喜欢'看前情提要才入场'模式的可以考虑放弃"],
+      "tags": ["tag_type_music"],
+      "opinions": [
+        {"id": "op_show_sing_pro", "stance": "pro", "claim": "唱跳不错氛围感好", "reasoning": "整体表演质量不错", "source_files": ["src_txt_04"]},
+        {"id": "op_show_sing_con", "stance": "contra", "claim": "看前情提要才能入场的模式很烦", "reasoning": "演员互动性不强，模式让人不舒服", "source_files": ["src_txt_04"]}
+      ],
+      "source_files": ["src_txt_04"]
+    },
+    {
+      "id": "show_frog_chorus",
+      "name": "青蛙合唱团",
+      "zone": "tag_zone_hollywood",
+      "type": "live_show",
+      "location": "好莱坞",
+      "schedule": {
+        "frequency": "每天4场",
+        "example_times": ["13:00", "14:30", "16:00", "17:30"],
+        "duration_minutes": 10,
+        "note": "人声阿卡贝拉表演，位于魔法世界城堡入口附近。霍格华兹学生搭配机械蟾蜍偶，约10分钟。不用排队不用预约，路过遇到就停下来看"
+      },
+      "highlights": ["阿卡贝拉人声表演", "角色生动有趣"],
+      "tips": ["如果正好在附近可以顺路看"],
+      "tags": ["tag_type_music"],
+      "opinions": [
+        {"id": "op_show_frog_pro", "stance": "pro", "claim": "人声阿卡贝拉很生动", "reasoning": "角色性格鲜明，表演有趣", "source_files": ["src_txt_04"]},
+        {"id": "op_show_frog_con", "stance": "contra", "claim": "只是一场5分钟左右的舞蹈表演", "reasoning": "评价一般，不值得专门跑去看", "source_files": ["src_txt_04"]}
+      ],
+      "source_files": ["src_txt_04"]
+    },
+    {
+      "id": "show_halftime",
+      "name": "环球中场秀",
+      "zone": "tag_zone_hollywood",
+      "type": "live_show",
+      "location": "好莱坞（可口可乐塔前）",
+      "schedule": {
+        "frequency": "每天4场",
+        "example_times": ["11:00", "12:45", "14:30", "16:00"],
+        "duration_minutes": 13,
+        "note": "嘻哈唱跳秀，位于好莱坞可口可乐塔前。站着就能看得不错，适合歇脚时顺便看，不需要专门排队"
+      },
+      "highlights": ["嘻哈唱跳"],
+      "tips": ["适合歇脚时顺便看", "不需要专门排队"],
+      "tags": ["tag_type_music"],
+      "source_files": ["src_txt_04"]
+    },
+    {
+      "id": "show_lights_camera",
+      "name": "灯光，摄像，开拍！",
+      "zone": "tag_zone_hollywood",
+      "type": "stunt_show",
+      "location": "好莱坞",
+      "schedule": {
+        "frequency": "全天多场",
+        "example_times": ["10:00", "11:30", "13:30", "15:30", "17:00"],
+        "duration_minutes": 15,
+        "note": "室内特效秀，由史蒂芬·史匹柏和张艺谋联合监制。模拟飓风、火焰爆破、爆炸等电影特效。全程站立，排队时间长性价比不高。路过好莱坞时顺便看一场很值得"
+      },
+      "highlights": ["电影幕后特效展示", "逼真震撼"],
+      "tips": ["排队时间长且全程站立，性价比不高"],
+      "tags": ["tag_type_stunt"],
+      "source_files": ["src_txt_04"]
+    },
+    {
+      "id": "show_triwizard",
+      "name": "三强争霸赛动员会",
+      "zone": "tag_zone_harry",
+      "type": "interactive_show",
+      "location": "霍格沃茨城堡前",
+      "schedule": {
+        "frequency": "每天4场",
+        "example_times": ["12:30", "14:00", "15:30", "17:00"],
+        "duration_minutes": 15,
+        "note": "霍格沃茨城堡前的互动表演，三强争霸赛主题。魔法世界学生角色互动，氛围感强，哈迷不容错过"
+      },
+      "highlights": ["魔法世界角色互动", "三强争霸赛主题"],
+      "tips": ["哈迷必看，互动感强"],
+      "tags": ["tag_zone_harry", "tag_type_show", "tag_type_interactive", "tag_harry_fan"],
+      "source_files": []
+    },
+    {
+      "id": "show_pop_music",
+      "name": "环球流行乐",
+      "zone": "tag_zone_hollywood",
+      "type": "live_show",
+      "location": "好莱坞",
+      "schedule": {
+        "frequency": "每天4场",
+        "example_times": ["12:30", "14:15", "15:45", "18:00"],
+        "duration_minutes": 20,
+        "note": "流行音乐表演，位于好莱坞园区。活力十足的唱跳秀，适合喜欢音乐和热闹氛围的游客"
+      },
+      "highlights": ["流行音乐唱跳", "氛围热烈"],
+      "tips": ["适合歇脚时顺便看"],
+      "tags": ["tag_zone_hollywood", "tag_type_show", "tag_type_music"],
+      "source_files": []
+    },
+    {
+      "id": "show_celebration",
+      "name": "庆典！砰砰大行动",
+      "zone": "tag_zone_minion",
+      "type": "interactive_show",
+      "location": "小黄人乐园",
+      "schedule": {
+        "frequency": "每天3场",
+        "example_times": ["11:30", "14:15", "17:00"],
+        "duration_minutes": 15,
+        "note": "《原神》羽球节联动互动主题区，位于小黄人乐园。游戏IP联动活动，互动性强，适合原神粉丝"
+      },
+      "highlights": ["《原神》联动", "互动体验"],
+      "tips": ["原神粉丝必打卡"],
+      "tags": ["tag_zone_minion", "tag_type_show", "tag_type_interactive"],
+      "source_files": []
+    },
+    {
+      "id": "show_spring_party",
+      "name": "无限春日狂欢派对",
+      "zone": "multiple",
+      "type": "interactive_show",
+      "location": "全园多处",
+      "schedule": {
+        "frequency": "每天3场",
+        "example_times": ["11:30", "15:00", "18:45"],
+        "duration_minutes": 20,
+        "note": "季节限定活动，全园多处上演的春日主题派对。互动性强，适合全家参与"
+      },
+      "highlights": ["季节限定", "全园互动"],
+      "tips": ["季节限定活动，注意查看当日时间表"],
+      "tags": ["tag_type_show", "tag_type_interactive"],
+      "source_files": []
+    },
+    {
+      "id": "show_minion_soda",
+      "name": "小黄人冰淇淋苏打秀",
+      "zone": "tag_zone_minion",
+      "type": "interactive_show",
+      "location": "小黄人乐园",
+      "schedule": {
+        "frequency": "每天4场",
+        "example_times": ["11:15", "13:00", "14:45", "16:15"],
+        "duration_minutes": 15,
+        "note": "小黄人主题的冰淇淋苏打互动表演，位于小黄人乐园。可爱有趣，适合亲子家庭"
+      },
+      "highlights": ["小黄人主题", "冰淇淋苏打互动"],
+      "tips": ["带小朋友的家庭适合看"],
+      "tags": ["tag_zone_minion", "tag_type_show", "tag_type_interactive", "tag_kid_friendly"],
+      "source_files": []
+    },
+    {
+      "id": "show_panda_live",
+      "name": "阿宝欢乐现场",
+      "zone": "tag_zone_panda",
+      "type": "interactive_show",
+      "location": "功夫熊猫盖世之地",
+      "schedule": {
+        "frequency": "全天多场，约每30分钟一场",
+        "example_times": ["11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00"],
+        "duration_minutes": 15,
+        "note": "功夫熊猫阿宝互动表演，位于功夫熊猫盖世之地室内区域。阿宝角色互动，气氛欢乐，适合亲子"
+      },
+      "highlights": ["阿宝角色互动", "功夫熊猫主题"],
+      "tips": ["室内区域，不受天气影响", "适合带小朋友的家庭"],
+      "tags": ["tag_zone_panda", "tag_type_show", "tag_type_interactive", "tag_kid_friendly"],
+      "source_files": []
+    }
+  ],
+  "show_selection_guide": [
+    {"preference": "喜欢唱歌跳舞、稍微静一点", "recommended": ["show_how_to_train"], "reason": "不可驯服是室内舞台秀，有座位有冷气，音乐和龙偶表演精致，适合喜欢歌舞又想安静坐着的游客"},
+    {"preference": "喜欢着火、跳水特技", "recommended": ["show_water_world"], "reason": "未来水世界有真火、真水、真人高空跳水，水上飞机坠入水池的压轴场面是全园最震撼的特技表演"},
+    {"preference": "哈迷必看", "recommended": ["show_lights"], "reason": "霍格沃茨城堡夜间灯光秀是园区最浪漫的体验，四学院主题色彩变换，结尾白金光芒最惊艳"},
+    {"preference": "不容错过", "recommended": ["show_parade"], "reason": "环球大巡游是园区的'春晚'，七大主题花车+全套戏服表演者沿路互动，气氛最热烈"},
+    {"preference": "追求视觉震撼", "recommended": ["show_water_world", "show_lights"], "reason": "未来水世界的特技场面和霍格沃茨城堡的灯光魔法是园区最震撼的视觉体验", "source_files": ["src_txt_04"]},
+    {"preference": "喜欢互动有趣", "recommended": ["show_transformer_live", "show_frog_chorus"], "reason": "变形金刚传奇现场可以和威震天斗嘴，青蛙合唱团的阿卡贝拉表演生动有趣", "source_files": ["src_txt_04"]},
+    {"preference": "想轻松歇脚", "recommended": ["show_how_to_train", "show_parade"], "reason": "不可驯服剧场有座位可以休息，环球大巡游可以找个地方坐着看", "source_files": ["src_txt_04"]},
+    {"preference": "哈迷深度体验", "recommended": ["show_triwizard", "show_lights"], "reason": "三强争霸赛动员会可以在城堡前和魔法世界角色互动，灯光秀是夜间压轴"},
+    {"preference": "带小朋友", "recommended": ["show_panda_live", "show_minion_soda", "show_celebration"], "reason": "阿宝欢乐现场和小黄人苏打秀互动性强，庆典砰砰大行动有原神联动元素"},
+    {"preference": "喜欢热闹互动", "recommended": ["show_transformer_live", "show_spring_party", "show_pop_music"], "reason": "威震天斗嘴、春日派对和流行乐表演都是互动感强的演出"}
+  ],
+  "general_tips": [
+    "提前15分钟去排队，挑选最佳观看位置",
+    "环球基本都有季节/节日限定活动，可以提前在官方看一下"
+  ]
+}

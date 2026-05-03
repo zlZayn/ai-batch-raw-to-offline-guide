@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="320">
+<text x="250" y="25" text-anchor="middle" font-size="16" font-weight="bold">字段值类型分布</text>
+<path d="M160,160 L160.0,40.0 A120,120 0 0,1 202.79089729073726,272.11128002593483 Z" fill="#4E79A7" stroke="white" stroke-width="2"/>
+<path d="M160,160 L202.79089729073726,272.11128002593483 A120,120 0 0,1 174.5487704432332,279.1147903435594 Z" fill="#F28E2B" stroke="white" stroke-width="2"/>
+<path d="M160,160 L174.5487704432332,279.1147903435594 A120,120 0 0,1 84.07583592054914,67.07249433651722 Z" fill="#E15759" stroke="white" stroke-width="2"/>
+<path d="M160,160 L84.07583592054914,67.07249433651722 A120,120 0 0,1 97.27819180959443,57.696653146996354 Z" fill="#76B7B2" stroke="white" stroke-width="2"/>
+<path d="M160,160 L97.27819180959443,57.696653146996354 A120,120 0 0,1 134.848893473041,42.66534254334928 Z" fill="#59A14F" stroke="white" stroke-width="2"/>
+<path d="M160,160 L134.848893473041,42.66534254334928 A120,120 0 0,1 159.99999999999997,40.0 Z" fill="#EDC948" stroke="white" stroke-width="2"/>
+<rect x="320" y="50" width="14" height="14" fill="#4E79A7" rx="2"/>
+<text x="340" y="62" font-size="12">string (1131, 44%)</text>
+<rect x="320" y="72" width="14" height="14" fill="#F28E2B" rx="2"/>
+<text x="340" y="84" font-size="12">number (99, 4%)</text>
+<rect x="320" y="94" width="14" height="14" fill="#E15759" rx="2"/>
+<text x="340" y="106" font-size="12">array (1050, 41%)</text>
+<rect x="320" y="116" width="14" height="14" fill="#76B7B2" rx="2"/>
+<text x="340" y="128" font-size="12">object (55, 2%)</text>
+<rect x="320" y="138" width="14" height="14" fill="#59A14F" rx="2"/>
+<text x="340" y="150" font-size="12">boolean (138, 5%)</text>
+<rect x="320" y="160" width="14" height="14" fill="#EDC948" rx="2"/>
+<text x="340" y="172" font-size="12">null (86, 3%)</text>
+</svg>
