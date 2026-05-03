@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>北京环球影城攻略｜作品展示</title>
+  <style>
+    /*
+      图片替换说明：
+      把你的截图放到当前 HTML 同级的 images 文件夹，按下面文件名替换即可：
+      home.png / projects.png / restaurant.png / shows.png / more.png / tags.png
+      project-detail.png / restaurant-detail.png / tips.png / warnings.png / preparations.png
+
+      所有截图都使用 object-fit: contain，不会拉伸原图比例。
+      如果你的截图比例就是手机截图比例，会自然铺满手机屏幕。
+    */
+
+    :root {
+      --bg: #f6f7fb;
+      --paper: rgba(255, 255, 255, .92);
+      --ink: #162033;
+      --soft-ink: #4e5868;
+      --muted: #7f8795;
+      --light: #a7afbc;
+      --brand: #ef4365;
+      --brand-soft: rgba(239, 67, 101, .10);
+      --blue: #138cf5;
+      --orange: #ff9f1c;
+      --line: rgba(21, 32, 51, .08);
+      --shadow: 0 20px 54px rgba(20, 31, 48, .11);
+      --shadow-soft: 0 12px 30px rgba(20, 31, 48, .075);
+      --radius-xl: 32px;
+      --radius-lg: 26px;
+      --radius-md: 20px;
+      --phone-ratio: 828 / 1792;
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "PingFang SC",
+        "Hiragino Sans GB",
+        "Microsoft YaHei",
+        Arial,
+        sans-serif;
+      background:
+        radial-gradient(circle at 82% 5%, rgba(239, 67, 101, .08), transparent 30%),
+        radial-gradient(circle at 12% 66%, rgba(19, 140, 245, .065), transparent 34%),
+        linear-gradient(180deg, #fbfcff 0%, #f5f6fa 100%);
+    }
+
+    .poster {
+      width: min(100%, 1240px);
+      margin: 0 auto;
+      padding: 52px 56px 38px;
+      overflow: hidden;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 420px;
+      gap: 58px;
+      align-items: start;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      margin-bottom: 34px;
+      border-radius: 999px;
+      background: var(--brand-soft);
+      color: var(--brand);
+      font-size: 16px;
+      font-weight: 850;
+      letter-spacing: .02em;
+    }
+
+    .badge svg {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2.6;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(44px, 5.25vw, 72px);
+      line-height: 1.04;
+      letter-spacing: -.065em;
+      font-weight: 950;
+    }
+
+    h1 .accent {
+      color: var(--brand);
+    }
+
+    .subtitle {
+      margin: 22px 0 0;
+      color: #5d6674;
+      font-size: clamp(24px, 2.45vw, 33px);
+      line-height: 1.28;
+      letter-spacing: -.035em;
+      font-weight: 780;
+    }
+
+    .subtitle .accent {
+      color: var(--brand);
+    }
+
+    .lead {
+      max-width: 660px;
+      margin: 18px 0 0;
+      color: #707986;
+      font-size: 22px;
+      line-height: 1.62;
+      font-weight: 560;
+      letter-spacing: -.01em;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      max-width: 650px;
+      margin-top: 34px;
+    }
+
+    .stat-card {
+      min-height: 134px;
+      display: grid;
+      place-items: center;
+      padding: 22px 15px 20px;
+      text-align: center;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, .92);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .96), rgba(255, 255, 255, .86));
+      box-shadow: var(--shadow-soft);
+    }
+
+    .stat-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 6px;
+      border-radius: 15px;
+      background: rgba(239, 67, 101, .08);
+      color: rgba(239, 67, 101, .58);
+      font-size: 28px;
+      line-height: 1;
+      filter: saturate(.82);
+    }
+
+    .stat-card strong {
+      display: block;
+      color: var(--brand);
+      font-size: 36px;
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: -.035em;
+    }
+
+    .stat-card span {
+      display: block;
+      margin-top: 10px;
+      color: #6e7684;
+      font-size: 17px;
+      font-weight: 760;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px 34px;
+      max-width: 670px;
+      margin-top: 30px;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .feature .icon {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      color: var(--brand);
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .feature h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 20px;
+      line-height: 1.2;
+      letter-spacing: -.025em;
+      font-weight: 920;
+    }
+
+    .feature p {
+      margin: 7px 0 0;
+      color: #7d8491;
+      font-size: 15px;
+      line-height: 1.45;
+      font-weight: 560;
+    }
+
+    .phone {
+      --w: 320px;
+      position: relative;
+      width: var(--w);
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 10px;
+      border-radius: 42px;
+      background:
+        linear-gradient(145deg, #080a0f 0%, #343942 52%, #07080c 100%);
+      box-shadow:
+        0 30px 68px rgba(0, 0, 0, .22),
+        inset 0 0 0 1px rgba(255, 255, 255, .22);
+    }
+
+    .phone::after {
+      content: "";
+      position: absolute;
+      right: -3px;
+      top: 132px;
+      width: 4px;
+      height: 74px;
+      border-radius: 999px;
+      background: rgba(7, 8, 12, .62);
+    }
+
+    .screen {
+      position: relative;
+      aspect-ratio: var(--phone-ratio);
+      overflow: hidden;
+      border-radius: 32px;
+      background:
+        linear-gradient(180deg, #f9fafc 0%, #f2f4f8 100%);
+    }
+
+    .screen img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      object-position: center top;
+      background: #f7f8fb;
+    }
+
+    .fallback {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .96), rgba(248, 249, 252, .92)),
+        repeating-linear-gradient(-45deg, rgba(239, 67, 101, .07) 0 8px, transparent 8px 16px);
+      color: #8f97a4;
+      font-weight: 850;
+      line-height: 1.6;
+    }
+
+    .fallback b {
+      display: block;
+      color: var(--brand);
+      font-size: 18px;
+    }
+
+    .fallback small {
+      display: block;
+      max-width: 100%;
+      margin-top: 6px;
+      color: #a2aab6;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      font-weight: 650;
+      word-break: break-word;
+    }
+
+    .hero-phone {
+      --w: 372px;
+      padding: 12px;
+      border-radius: 47px;
+      transform: translateY(-8px);
+    }
+
+    .hero-phone .screen {
+      border-radius: 35px;
+    }
+
+    .modules {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 26px;
+      margin-top: 48px;
+    }
+
+    .module {
+      min-width: 0;
+      overflow: hidden;
+      padding: 24px 22px 24px;
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, .92);
+      background: var(--paper);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .module-title {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 17px;
+    }
+
+    .module-icon {
+      width: 44px;
+      height: 44px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--brand-soft);
+      color: var(--brand);
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .module-title h2 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 22px;
+      line-height: 1.15;
+      letter-spacing: -.035em;
+      font-weight: 950;
+    }
+
+    .module-title p {
+      margin: 6px 0 0;
+      color: #8a929f;
+      font-size: 14px;
+      line-height: 1.2;
+      font-weight: 680;
+    }
+
+    .module .phone {
+      --w: 270px;
+      padding: 8px;
+      border-radius: 36px;
+      box-shadow:
+        0 22px 48px rgba(0, 0, 0, .14),
+        inset 0 0 0 1px rgba(255, 255, 255, .22);
+    }
+
+    .module .screen {
+      border-radius: 28px;
+    }
+
+    .preview-strip {
+      display: grid;
+      grid-template-columns: 138px minmax(0, 1fr);
+      gap: 24px;
+      align-items: center;
+      margin-top: 30px;
+      padding: 26px 28px;
+      border-radius: 29px;
+      border: 1px solid rgba(255, 255, 255, .94);
+      background: rgba(255, 255, 255, .92);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .strip-label {
+      color: var(--ink);
+      font-size: 28px;
+      line-height: 1.08;
+      letter-spacing: -.045em;
+      font-weight: 950;
+    }
+
+    .strip-label .spark {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--brand);
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .thumbs {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 14px;
+      align-items: end;
+    }
+
+    .mini-phone {
+      min-width: 0;
+      text-align: center;
+    }
+
+    .mini-phone .phone {
+      --w: 88px;
+      padding: 4px;
+      border-radius: 17px;
+      box-shadow:
+        0 12px 24px rgba(0, 0, 0, .12),
+        inset 0 0 0 1px rgba(255, 255, 255, .18);
+    }
+
+    .mini-phone .phone::after {
+      display: none;
+    }
+
+    .mini-phone .screen {
+      border-radius: 13px;
+    }
+
+    .mini-phone p {
+      margin: 8px 0 0;
+      color: #7d8491;
+      font-size: 12px;
+      font-weight: 780;
+      white-space: nowrap;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+      color: #9ba3ae;
+      font-size: 14px;
+      font-weight: 680;
+    }
+
+    .footer .heart {
+      color: var(--brand);
+    }
+
+    @media (max-width: 980px) {
+      .poster {
+        padding: 34px 22px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-phone {
+        --w: min(372px, 88vw);
+      }
+
+      .stats-grid,
+      .feature-grid {
+        max-width: none;
+      }
+
+      .modules {
+        grid-template-columns: 1fr;
+      }
+
+      .preview-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .thumbs {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .poster {
+        padding: 26px 16px;
+      }
+
+      .badge {
+        font-size: 13px;
+      }
+
+      h1 {
+        font-size: 43px;
+      }
+
+      .subtitle {
+        font-size: 22px;
+      }
+
+      .lead {
+        font-size: 17px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .thumbs {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .module .phone {
+        --w: min(280px, 78vw);
+      }
+    }
+
+    @media print {
+      @page {
+        size: 1240px 1754px;
+        margin: 0;
+      }
+
+      body {
+        background: var(--bg);
+      }
+
+      .poster {
+        width: 1240px;
+        padding: 52px 56px 38px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="poster">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <circle cx="12" cy="8" r="3.2"></circle>
+            <path d="M5.2 20c.9-4.2 4-6.3 6.8-6.3s5.9 2.1 6.8 6.3"></path>
+          </svg>
+          个人产品 / 设计 / 开发成果展示
+        </div>
+
+        <h1>北京<span class="accent">环球影城</span>攻略</h1>
+        <p class="subtitle">离线交互版 · <span class="accent">HTML 攻略 App</span></p>
+        <p class="lead">打开即用，无需安装、无需联网，专为园区弱网场景设计。</p>
+
+        <div class="stats-grid" aria-label="项目数据">
+          <article class="stat-card">
+            <div class="stat-icon">🎢</div>
+            <strong>17</strong>
+            <span>游乐项目</span>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon">🎭</div>
+            <strong>15</strong>
+            <span>演出</span>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon">🍴</div>
+            <strong>15</strong>
+            <span>餐厅</span>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon">🏷️</div>
+            <strong>47</strong>
+            <span>标签</span>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon">🗓️</div>
+            <strong>2</strong>
+            <span>套行程</span>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon">💡</div>
+            <strong>14 / 33</strong>
+            <span>技巧 / 避雷</span>
+          </article>
+        </div>
+
+        <div class="feature-grid" aria-label="核心能力">
+          <article class="feature">
+            <div class="icon">▦</div>
+            <div>
+              <h3>9宫格快速导航</h3>
+              <p>首页直达核心内容，查询更高效</p>
+            </div>
+          </article>
+          <article class="feature">
+            <div class="icon">◆</div>
+            <div>
+              <h3>分区筛选浏览</h3>
+              <p>按区域 / 类型精细筛选，快速定位</p>
+            </div>
+          </article>
+          <article class="feature">
+            <div class="icon">★</div>
+            <div>
+              <h3>Top5 排名推荐</h3>
+              <p>精选优质项目 / 餐厅，省时省心</p>
+            </div>
+          </article>
+          <article class="feature">
+            <div class="icon">☁</div>
+            <div>
+              <h3>离线可用</h3>
+              <p>纯本地运行，园区弱网也能畅用</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <aside class="phone hero-phone" aria-label="首页截图">
+        <div class="screen">
+          <img src="./images/home.jpg" alt="首页截图"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="fallback">
+            <div><b>首页截图</b><small>./images/home.jpg</small></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="modules" aria-label="核心页面">
+      <article class="module">
+        <div class="module-title">
+          <div class="module-icon">🎢</div>
+          <div>
+            <h2>游乐项目</h2>
+            <p>分区筛选 · 项目详情 · 排行推荐</p>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="screen">
+            <img src="./images/projects.jpg" alt="游乐项目列表截图"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="fallback">
+              <div><b>游乐项目</b><small>./images/projects.jpg</small></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="module">
+        <div class="module-title">
+          <div class="module-icon">🍴</div>
+          <div>
+            <h2>餐厅美食</h2>
+            <p>区域选择 · 菜品推荐 · 游客评价</p>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="screen">
+            <img src="./images/restaurants.jpg" alt="餐厅页面截图"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="fallback">
+              <div><b>餐厅美食</b><small>./images/restaurants.jpg</small></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="module">
+        <div class="module-title">
+          <div class="module-icon">🎭</div>
+          <div>
+            <h2>演出节目</h2>
+            <p>演出时间表 · 场次详情 · 类型筛选</p>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="screen">
+            <img src="./images/shows.jpg" alt="演出页面截图"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="fallback">
+              <div><b>演出节目</b><small>./images/shows.jpg</small></div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="preview-strip" aria-label="更多页面预览">
+      <div class="strip-label">
+        <span class="spark">✦</span>
+        更多<br>精彩内容
+      </div>
+
+      <div class="thumbs">
+        <article class="mini-phone">
+          <div class="phone">
+            <div class="screen">
+              <img src="./images/more.jpg" alt="更多内容截图"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="fallback">
+                <div><b>更多</b><small>more.jpg</small></div>
+              </div>
+            </div>
+          </div>
+          <p>更多内容</p>
+        </article>
+
+        <article class="mini-phone">
+          <div class="phone">
+            <div class="screen">
+              <img src="./images/tags.jpg" alt="标签索引截图"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="fallback">
+                <div><b>标签</b><small>tags.jpg</small></div>
+              </div>
+            </div>
+          </div>
+          <p>标签索引</p>
+        </article>
+
+        <article class="mini-phone">
+          <div class="phone">
+            <div class="screen">
+              <img src="./images/project-detail.jpg" alt="项目详情截图"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="fallback">
+                <div><b>项目详情</b><small>project-detail.jpg</small></div>
+              </div>
+            </div>
+          </div>
+          <p>项目详情</p>
+        </article>
+
+        <article class="mini-phone">
+          <div class="phone">
+            <div class="screen">
+              <img src="./images/restaurant-detail.jpg" alt="餐厅详情截图"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="fallback">
+                <div><b>餐厅详情</b><small>restaurant-detail.jpg</small></div>
+              </div>
+            </div>
+          </div>
+          <p>餐厅详情</p>
+        </article>
+
+        <article class="mini-phone">
+          <div class="phone">
+            <div class="screen">
+              <img src="./images/tips.jpg" alt="隐藏技巧截图"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="fallback">
+                <div><b>技巧</b><small>tips.jpg</small></div>
+              </div>
+            </div>
+          </div>
+          <p>隐藏技巧</p>
+        </article>
+
+        <article class="mini-phone">
+          <div class="phone">
+            <div class="screen">
+              <img src="./images/warnings.jpg" alt="避雷提醒截图"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="fallback">
+                <div><b>避雷</b><small>warnings.jpg</small></div>
+              </div>
+            </div>
+          </div>
+          <p>避雷提醒</p>
+        </article>
+
+        <article class="mini-phone">
+          <div class="phone">
+            <div class="screen">
+              <img src="./images/preparations.jpg" alt="行前准备截图"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="fallback">
+                <div><b>行前准备</b><small>preparations.jpg</small></div>
+              </div>
+            </div>
+          </div>
+          <p>行前准备</p>
+        </article>
+      </div>
+    </section>
+
+
+  </main>
+</body>
+
+</html>

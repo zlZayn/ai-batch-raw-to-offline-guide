@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+node_modules/
 
 # Output (generated, can be regenerated)
 output/
@@ -19,5 +20,11 @@ desktop.ini
 
 # Env
 .venv/
-venv/
-env/
+venv/env/
+
+# Screenshot scripts (dev tool)
+screenshot.js
+
+# Temporary / AI generated
+-p/
+images/ChatGPT Image*
