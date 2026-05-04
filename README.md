@@ -1,92 +1,156 @@
-# 北京环球影城攻略 — 离线交互版
+# AI 驱动的离线攻略生成器
 
-一个手机端离线网页应用，打开即可查阅全部攻略，无需网络。专为园区内手机信号差或无网络的场景设计。
+> **一句话介绍：** 把碎片化的非结构化素材（笔记、截图、口述）丢给 AI，自动炼制成一个可交互的离线 HTML 攻略页面——无需联网、无需服务器、打开即用。
 
-## 快速使用
+**在线预览：** [https://zlzayn.github.io/ai-batch-raw-to-offline-guide/](https://zlzayn.github.io/ai-batch-raw-to-offline-guide/)
 
-打开 `output/guide.html` 即可使用，无需安装、无需联网、无需服务器。微信发送、AirDrop、文件传输均可分享。
+---
 
-## 功能详情
+## 创作故事
 
-### 首页
+之前去 **香港迪士尼** 和 **珠海长隆海洋王国** 时被折磨得不轻——小红书上的攻略东拼西凑，截图存了一堆，现场信号差到刷不出页面，排着队只能干等。那时就在想：**为什么没有一个离线就能用的全景攻略？**
 
-- **9宫格快速导航**：项目、演出、餐厅、行程、技巧、避雷、小道、标签、行前准备
-- **Top5 排名柱状图**：评分最高的 5 个项目，渐变色条 + 星级，可点击跳转详情
-- **自动轮播**：3 页内容（技巧 / 避雷 / 菜品），每 5 秒切换，支持触摸滑动
+所以去 **北京环球影城**之前，我决定先把这事做了——把所有项目排名、餐厅评价、隐藏技巧、避雷提醒全部整理成结构化数据，写了一个手机端离线网页。带着这个工具去的环球影城，亲测好用。
 
-### 游乐项目（17个）
+做完后我发现，这套数据结构和页面模板其实不限于环球影城——换一套数据，上海迪士尼、成都美食地图、甚至个人影单推荐都能用。于是我把它改造成了一个 **AI 驱动的生成流水线**：你只要提供素材，告诉 AI 想做什么，一个可交互的离线网页就自动生成了。CI 脚本会全程校验数据完整性，不会漏掉任何引用关系。
 
-- 列表页按排名排序，支持按园区筛选（7 个园区 + 全部）
-- 详情页：身高限制、时长、室内/室外、湿身提示、单人通道、官方拍照、排队策略、存包指南、座位建议、评价、观点、避雷、关联信息
+这就是这个项目的完整故事：从一个自己用的小工具，变成一套任何人（哪怕不懂代码）都能用的攻略生成器。**一个去之前就做好了的工具。**
 
-### 演出推荐（15场）
+---
 
-- 列表页支持按园区筛选
-- 详情页：语言、季节限定、时间表、亮点、巡游路线、观看技巧
+## 核心亮点
 
-### 餐厅与菜品（15家餐厅 + 40道菜品）
+1. **单文件离线** — 一个 HTML 带走全部攻略，无需网络、无需安装、无需服务器
+2. **全域双向链接** — 看任何详情页，关联的项目/演出/餐厅/技巧/避雷一键跳转
+3. **正反方观点并排** — 不是平均分，而是同时展示优点和缺点的真实评价
+4. **动态轮播刷新** — 每次切回页面，技巧/避雷/菜品都会随机刷新
+5. **标签跨类型聚合** — 点一个标签，能同时搜出项目+演出+餐厅+菜品+技巧+避雷
 
-- 餐厅列表显示人均价格，详情页：人均、营业时间、室内/室外、推荐菜品、评价
-- 菜品列表显示价格，详情页：价格、口味标签、替代菜品、评价
+---
 
-### 标签索引（47个标签，11个分类）
+## 使用场景
 
-- 按分类浏览，点击标签查看所有关联内容
+1. 园区内无信号时随时查阅
+2. 出发前规划最佳游玩路线
+3. 排队时看隐藏技巧和小道
+4. 选餐厅不想踩雷先翻评价
+5. 纠结玩哪个看排名和正反方观点
 
-### 行程方案（2套一日游）
+---
 
-- 时间轴布局，项目/餐厅/演出名称可点击跳转
+## 快速开始
 
-### 隐藏技巧（14条） / 避雷提醒（33条） / 秘密小道（3条）
+### 方式一：直接打开（已有生成产物）
 
-### 行前准备
+如果你已经拿到了 `output/guide.html`（或根目录的 `index.html`）：
 
-- 交通指南、票价与优速通、停车与寄存、租赁服务、穿着建议、必带物品、禁带清单
+- **手机**：用微信/文件管理器打开，添加到桌面像 App 一样使用
+- **电脑**：双击直接用浏览器打开
+- **分享**：AirDrop、微信发送、网盘分享均可，对方打开就能用
 
-## 文件结构
+### 方式二：从源码生成
+
+> 注意：`output/` 目录被 `.gitignore` 排除，**clone 下来后默认没有生成产物**，需要手动生成。
+
+```bash
+# 1. 安装依赖
+pip install jinja2
+
+# 2. 生成攻略页面（校验数据 → 生成 HTML → 验证产物）
+python scripts/ci.py
+
+# 生成成功后，打开 output/guide.html 即可预览
+```
+
+### 方式三：GitHub Pages 在线访问
+
+本项目已配置 GitHub Actions 自动部署，访问：
+
+[https://zlzayn.github.io/ai-batch-raw-to-offline-guide/](https://zlzayn.github.io/ai-batch-raw-to-offline-guide/)
+
+> 根目录的 `index.html` 是 `output/guide.html` 的副本，专门用于 GitHub Pages 托管。
+
+---
+
+## 项目结构
 
 ```
-北京环球影城攻略/
-├── data/v3/                        ← 结构化数据（13 个 JSON）
-│   ├── attractions.json             ← 17 个游乐项目
-│   ├── shows.json                   ← 15 场演出
-│   ├── restaurants.json             ← 15 家餐厅
-│   ├── dishes.json                  ← 40 道菜品
-│   ├── tips.json                    ← 14 条技巧
-│   ├── warnings.json                ← 33 条避雷
-│   ├── itineraries.json             ← 2 套行程
-│   ├── shortcuts.json               ← 3 条小道
-│   ├── reviews.json                 ← 101 条评价
-│   ├── opinions.json                ← 24 条观点
-│   ├── tags.json                    ← 47 个标签（11 分类）
-│   ├── preparations.json            ← 行前准备
-│   └── meta.json                    ← 源文件索引
-├── generator/                       ← HTML 生成器
-│   ├── generate_guide.py            ← 生成脚本（Jinja2）
-│   └── guide_template.html          ← 页面模板
-├── scripts/                         ← 工具脚本
-│   ├── ci.py                        ← CI 管线（校验+生成+验证）
-│   ├── analyze_data.py              ← 数据结构分析（生成图表+JSON）
-│   └── export_xlsx.py               ← 导出 Excel
-├── output/                          ← 生成产物
-│   ├── guide.html                   ← 攻略主页（~350KB）
-│   ├── v3_data.xlsx                 ← Excel 导出
-│   └── data_analysis/               ← 数据分析图表
-├── docs/                            ← 项目文档
-│   ├── design.md                    ← 产品设计
-│   └── workflow.md                  ← 技术实现
-├── src/                             ← 原始素材（16 份 .md）
-├── changelog.md                     ← 变更日志
-└── README.md                        ← 本文件
+ai-batch-raw-to-offline-guide/
+│
+├── data/v3/                          ← 结构化数据层（13 个 JSON）
+│   ├── meta.json                     ← 项目元信息、源文件索引
+│   ├── attractions.json              ← 游乐项目
+│   ├── shows.json                    ← 演出
+│   ├── restaurants.json              ← 餐厅
+│   ├── dishes.json                   ← 菜品
+│   ├── tips.json                     ← 技巧
+│   ├── warnings.json                 ← 避雷
+│   ├── shortcuts.json                ← 小道
+│   ├── itineraries.json              ← 行程
+│   ├── reviews.json                  ← 评价
+│   ├── opinions.json                 ← 观点
+│   ├── tags.json                     ← 标签（11 个分类）
+│   └── preparations.json             ← 行前准备
+│
+├── generator/                        ← HTML 生成器
+│   ├── generate_guide.py             ← 生成脚本（数据 → HTML）
+│   └── guide_template.html           ← 页面模板（含全部渲染逻辑）
+│
+├── scripts/                          ← 工具脚本
+│   ├── ci.py                         ← CI 守门员（校验 + 生成 + 验证）
+│   ├── analyze_data.py               ← 数据结构分析（图表 + JSON 报告）
+│   └── export_xlsx.py                ← 导出 Excel
+│
+├── output/                           ← 生成产物（被 .gitignore 排除，需手动生成）
+│   ├── guide.html                    ← 攻略主页（单文件离线版）
+│   ├── v3_data.xlsx                  ← Excel 导出
+│   └── data_analysis/                ← 数据分析图表
+│
+├── projects/                         ← 其他主题项目（示例/测试）
+│   └── 上海迪士尼攻略/               ← 上海迪士尼数据（换主题验证用例）
+│       ├── data/v3/                  ← 上海迪士尼结构化数据
+│       ├── generator/                ← 可直接用根目录生成器生成 HTML
+│       ├── scripts/                  ← 可直接用根目录脚本跑 CI
+│       └── _raw_research.md          ← 原始研究素材
+│
+├── docs/                             ← 项目文档
+│   ├── usage.md                      ← AI 使用教程（换主题全流程指南）
+│   ├── design.md                     ← 产品设计：信息架构、视觉规范
+│   └── workflow.md                   ← 技术实现：生成流水线、索引算法
+│
+├── src/                              ← 原始素材（Markdown 笔记）
+├── index.html                        ← GitHub Pages 入口（output/guide.html 的副本）
+├── .github/workflows/static.yml      ← GitHub Actions 自动部署配置
+├── changelog.md                      ← 变更日志
+└── README.md                         ← 本文件
 ```
+
+---
+
+## 换主题教程
+
+想把这个项目改成**上海迪士尼攻略**、**成都美食地图**、**个人影单推荐**？
+
+不需要写代码，全程 AI 协作。详细教程见：
+
+**[docs/usage.md](docs/usage.md)** — AI 驱动的「素材 → 交互式网页」生成流水线使用指南
+
+教程包含：
+- 三步上手流程
+- AI 工作规范（可直接复制发给 AI）
+- 三种使用场景（换主题 / 减实体 / 全新定制）
+- 四组件联动修改规则
+- CI 校验与修复循环
+
+---
 
 ## 常用命令
 
 ```bash
-# 完整 CI（数据校验 → 生成 HTML → 生成后验证）
+# 完整 CI：数据校验 → 生成 HTML → 验证产物
 python scripts/ci.py
 
-# 仅重新生成 HTML
+# 仅重新生成 HTML（跳过校验，不推荐）
 python generator/generate_guide.py
 
 # 导出 Excel
@@ -96,12 +160,29 @@ python scripts/export_xlsx.py
 python scripts/analyze_data.py
 ```
 
-依赖：Python 3.6+、Jinja2（`pip install jinja2`）。
+**依赖：** Python 3.6+、`pip install jinja2`
+
+---
 
 ## 文档索引
 
-| 文档 | 路径 | 内容 |
-|------|------|------|
-| **产品设计** | `docs/design.md` | 信息架构、数据关联关系、视觉设计规范、交互决策 |
-| **技术实现** | `docs/workflow.md` | 生成流程、索引算法、前端路由/筛选/轮播系统 |
-| **变更日志** | `changelog.md` | 版本时间线 + 数据结构演进 |
+| 文档 | 路径 | 内容 | 适合谁看 |
+|------|------|------|---------|
+| **AI 使用教程** | `docs/usage.md` | 换主题全流程、AI 工作规范、CI 修复指南 | 想用 AI 生成新主题的人 |
+| **产品设计** | `docs/design.md` | 信息架构、数据关联关系、视觉设计规范 | AI 改样式时参考 |
+| **技术实现** | `docs/workflow.md` | 生成流水线、索引算法、前端路由/筛选/轮播 | AI 改功能时参考 |
+| **变更日志** | `changelog.md` | Schema 版本演进、数据结构变更历史 | 关注历史的人 |
+
+---
+
+## 技术栈
+
+- **数据层**：JSON Schema（自定义结构化规范）
+- **生成层**：Python + Jinja2（模板渲染）
+- **校验层**：Python CI 脚本（ID 格式、引用完整性、双向一致性）
+- **展示层**：原生 HTML/CSS/JS（单文件离线、零依赖）
+- **部署层**：GitHub Actions → GitHub Pages
+
+---
+
+> 全栈独立开发：一个人负责从项目架构、数据设计、前端交互到 AI 生成流水线的全部设计与实现。
