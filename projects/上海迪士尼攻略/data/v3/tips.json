@@ -1,1 +1,187 @@
-{"version": "3.2.0", "last_updated": "2026-05-03", "tips": [{"id": "tip_early_entry", "category": "省时策略", "title": "购买早享卡（强烈推荐！）", "content": "早享卡约149-179元，可提前1小时入园。这1小时差距巨大——你可以趁没人玩完翱翔飞越地平线和雷鸣山漂流两个顶级项目。入住迪士尼酒店也可享受提前入园权益。早享卡用户建议7:00前到安检口排队", "tags": ["tag_time_saving"], "source_files": ["src_shanghai_disney"], "attraction_ids": ["attr_soaring", "attr_rapids"], "opinion_ids": []}, {"id": "tip_app_usage", "category": "数字化工具", "title": "上海迪士尼度假区App是核心工具", "content": "必须提前下载并注册登录！功能包括：查看实时排队时间、抢预约等候卡（免费但限量）、购买尊享卡、看Map和演出时间表、部分餐厅手机点餐。入园第一件事就是打开App", "tags": ["tag_time_saving"], "source_files": ["src_shanghai_disney"], "attraction_ids": [], "opinion_ids": []}, {"id": "tip_single_rider", "category": "省时策略", "title": "善用单人通道", "content": "部分热门项目设有单人通道，比普通队伍快很多！适合不介意和朋友分开坐的人。创极速光轮、飞越地平线等项目的单人通道效率很高", "tags": ["tag_time_saving"], "source_files": ["src_shanghai_disney"], "attraction_ids": ["attr_tron", "attr_soaring"], "opinion_ids": []}, {"id": "tip_show_timing", "category": "省时策略", "title": "利用演出时段玩热门项目", "content": "花车巡游（约15:30）、室内演出进行时，大部分人去看演出了，这时候去排热门项目时间会大幅缩短。这是不用花钱的省时技巧", "tags": ["tag_time_saving", "tag_crowd_afternoon"], "source_files": ["src_shanghai_disney"], "attraction_ids": ["attr_soaring", "attr_zootopia", "attr_tron"], "opinion_ids": []}, {"id": "tip_lunch_timing", "category": "省时策略", "title": "错峰用餐", "content": "避开12:30-13:30午餐高峰，建议11:30前或13:30后就餐。同理晚餐在17:00-18:00之间排队较短。餐厅选择人均80-100元的正式餐厅性价比最高", "tags": ["tag_time_saving", "tag_save_money"], "source_files": ["src_shanghai_disney"], "attraction_ids": [], "opinion_ids": []}, {"id": "tip_weather", "category": "游玩策略", "title": "小雨天反而是好天气", "content": "风雨天气人少很多！小雨天体验反而更好——排队短、不太热。夏季雷阵雨频繁，建议带好雨具继续玩。但台风天气可能缩短运营或闭园", "tags": ["tag_time_saving"], "source_files": ["src_shanghai_disney"], "attraction_ids": [], "opinion_ids": []}, {"id": "tip_vip_card", "category": "省钱vs省时权衡", "title": "尊享卡（付费快速通行）策略", "content": "尊享卡单项目80-160元不等，套票更划算。预算充足推荐：早享卡+尊享卡套票可节省3-5小时排队时间。疯狂动物城：热力追踪的尊享卡最难抢，要在App上第一时间抢购", "tags": ["tag_time_saving"], "source_files": ["src_shanghai_disney"], "attraction_ids": ["attr_zootopia", "attr_soaring", "attr_tron"], "opinion_ids": []}, {"id": "tip_water_food", "category": "省钱策略", "title": "带水带零食入园", "content": "可带入未开封矿泉水（通常2瓶500ml没问题）和少量未开封零食（面包、饼干、能量棒一般OK）。园内水10元/瓶。早餐吃饱再入园，减少园内餐饮支出", "tags": ["tag_save_money"], "source_files": ["src_shanghai_disney"], "attraction_ids": [], "opinion_ids": []}, {"id": "tip_merchandise", "category": "省钱策略", "title": "迪士尼周边装备网购提前准备", "content": "发箍/头饰园内129-199元/个，淘宝同款10-20元。雨衣园内15元/件且质量差，网上买厚实分体式雨衣+鞋套才几块钱。提前网购能省不少", "tags": ["tag_save_money", "tag_shopping"], "source_files": ["src_shanghai_disney"], "attraction_ids": [], "opinion_ids": []}, {"id": "tip_fireworks_spot", "category": "观赏策略", "title": "烟花占位攻略", "content": "奇想花园正对城堡是最佳观赏位置，提前60-90分钟占位（旺季需要更早）。带小孩可考虑租毯子席地而坐。注意烟花期间城堡附近会封路，提前规划好离场路线", "tags": [], "source_files": ["src_shanghai_disney"], "attraction_ids": [], "opinion_ids": []}, {"id": "tip_shoes_socks", "category": "行前准备", "title": "穿对鞋子+长袜", "content": "日均步数20000+！一定要穿已经磨合过的运动鞋，绝对不要穿新鞋或高跟鞋。棉质长袜能大幅减少脚后跟磨出水泡的问题。这可能是全天舒适度最关键的因素", "tags": ["tag_clothing"], "source_files": ["src_shanghai_disney"], "attraction_ids": [], "opinion_ids": []}, {"id": "tip_power_bank", "category": "行前准备", "title": "自带大容量充电宝", "content": "需要一直用Disney App查排队时间，园区共享充电宝经常借空。建议自带20000mAh以上充电宝，确保手机撑满一整天", "tags": [], "source_files": ["src_shanghai_disney"], "attraction_ids": [], "opinion_ids": []}]}
+{
+  "version": "3.2.0",
+  "last_updated": "2026-05-03",
+  "tips": [
+    {
+      "id": "tip_early_entry",
+      "category": "省时策略",
+      "title": "购买早享卡（强烈推荐！）",
+      "content": "早享卡约149-179元，可提前1小时入园。这1小时差距巨大——你可以趁没人玩完翱翔飞越地平线和雷鸣山漂流两个顶级项目。入住迪士尼酒店也可享受提前入园权益。早享卡用户建议7:00前到安检口排队",
+      "tags": [
+        "tag_time_saving"
+      ],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "attraction_ids": [
+        "attr_soaring",
+        "attr_rapids"
+      ],
+      "opinion_ids": []
+    },
+    {
+      "id": "tip_app_usage",
+      "category": "数字化工具",
+      "title": "上海迪士尼度假区App是核心工具",
+      "content": "必须提前下载并注册登录！功能包括：查看实时排队时间、抢预约等候卡（免费但限量）、购买尊享卡、看Map和演出时间表、部分餐厅手机点餐。入园第一件事就是打开App",
+      "tags": [
+        "tag_time_saving"
+      ],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "attraction_ids": [],
+      "opinion_ids": []
+    },
+    {
+      "id": "tip_single_rider",
+      "category": "省时策略",
+      "title": "善用单人通道",
+      "content": "部分热门项目设有单人通道，比普通队伍快很多！适合不介意和朋友分开坐的人。创极速光轮、飞越地平线等项目的单人通道效率很高",
+      "tags": [
+        "tag_time_saving"
+      ],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "attraction_ids": [
+        "attr_tron",
+        "attr_soaring"
+      ],
+      "opinion_ids": []
+    },
+    {
+      "id": "tip_show_timing",
+      "category": "省时策略",
+      "title": "利用演出时段玩热门项目",
+      "content": "花车巡游（约15:30）、室内演出进行时，大部分人去看演出了，这时候去排热门项目时间会大幅缩短。这是不用花钱的省时技巧",
+      "tags": [
+        "tag_time_saving",
+        "tag_crowd_afternoon"
+      ],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "attraction_ids": [
+        "attr_soaring",
+        "attr_zootopia",
+        "attr_tron"
+      ],
+      "opinion_ids": []
+    },
+    {
+      "id": "tip_lunch_timing",
+      "category": "省时策略",
+      "title": "错峰用餐",
+      "content": "避开12:30-13:30午餐高峰，建议11:30前或13:30后就餐。同理晚餐在17:00-18:00之间排队较短。餐厅选择人均80-100元的正式餐厅性价比最高",
+      "tags": [
+        "tag_time_saving",
+        "tag_save_money"
+      ],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "attraction_ids": [],
+      "opinion_ids": []
+    },
+    {
+      "id": "tip_weather",
+      "category": "游玩策略",
+      "title": "小雨天反而是好天气",
+      "content": "风雨天气人少很多！小雨天体验反而更好——排队短、不太热。夏季雷阵雨频繁，建议带好雨具继续玩。但台风天气可能缩短运营或闭园",
+      "tags": [
+        "tag_time_saving"
+      ],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "attraction_ids": [],
+      "opinion_ids": []
+    },
+    {
+      "id": "tip_vip_card",
+      "category": "省钱vs省时权衡",
+      "title": "尊享卡（付费快速通行）策略",
+      "content": "尊享卡单项目80-160元不等，套票更划算。预算充足推荐：早享卡+尊享卡套票可节省3-5小时排队时间。疯狂动物城：热力追踪的尊享卡最难抢，要在App上第一时间抢购",
+      "tags": [
+        "tag_time_saving"
+      ],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "attraction_ids": [
+        "attr_zootopia",
+        "attr_soaring",
+        "attr_tron"
+      ],
+      "opinion_ids": []
+    },
+    {
+      "id": "tip_water_food",
+      "category": "省钱策略",
+      "title": "带水带零食入园",
+      "content": "可带入未开封矿泉水（通常2瓶500ml没问题）和少量未开封零食（面包、饼干、能量棒一般OK）。园内水10元/瓶。早餐吃饱再入园，减少园内餐饮支出",
+      "tags": [
+        "tag_save_money"
+      ],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "attraction_ids": [],
+      "opinion_ids": []
+    },
+    {
+      "id": "tip_merchandise",
+      "category": "省钱策略",
+      "title": "迪士尼周边装备网购提前准备",
+      "content": "发箍/头饰园内129-199元/个，淘宝同款10-20元。雨衣园内15元/件且质量差，网上买厚实分体式雨衣+鞋套才几块钱。提前网购能省不少",
+      "tags": [
+        "tag_save_money",
+        "tag_shopping"
+      ],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "attraction_ids": [],
+      "opinion_ids": []
+    },
+    {
+      "id": "tip_fireworks_spot",
+      "category": "观赏策略",
+      "title": "烟花占位攻略",
+      "content": "奇想花园正对城堡是最佳观赏位置，提前60-90分钟占位（旺季需要更早）。带小孩可考虑租毯子席地而坐。注意烟花期间城堡附近会封路，提前规划好离场路线",
+      "tags": [],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "attraction_ids": [],
+      "opinion_ids": []
+    },
+    {
+      "id": "tip_shoes_socks",
+      "category": "行前准备",
+      "title": "穿对鞋子+长袜",
+      "content": "日均步数20000+！一定要穿已经磨合过的运动鞋，绝对不要穿新鞋或高跟鞋。棉质长袜能大幅减少脚后跟磨出水泡的问题。这可能是全天舒适度最关键的因素",
+      "tags": [
+        "tag_clothing"
+      ],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "attraction_ids": [],
+      "opinion_ids": []
+    },
+    {
+      "id": "tip_power_bank",
+      "category": "行前准备",
+      "title": "自带大容量充电宝",
+      "content": "需要一直用Disney App查排队时间，园区共享充电宝经常借空。建议自带20000mAh以上充电宝，确保手机撑满一整天",
+      "tags": [],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "attraction_ids": [],
+      "opinion_ids": []
+    }
+  ]
+}

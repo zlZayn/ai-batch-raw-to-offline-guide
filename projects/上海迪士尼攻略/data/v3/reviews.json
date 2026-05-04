@@ -1,1 +1,130 @@
-{"version": "3.2.0", "last_updated": "2026-05-03", "reviews": [{"id": "rev_attr_01", "target_type": "attraction", "target_id": "attr_soaring", "rating": 5, "title": "全球最佳的飞行影院没有之一", "content": "翱翔·飞跃地平线的沉浸感太强了！从长城到泰姬陵再到金字塔，每个场景都栩栩如生。气味特效、风的感觉都做得很到位。唯一缺点就是排队实在太长——强烈建议买早享卡第一时间冲！", "author": "资深迪士尼玩家", "date": "2026-04"}, {"id": "rev_attr_02", "target_type": "attraction", "target_id": "attr_tron", "rating": 5, "title": "创极速光轮=全园最刺激", "content": "摩托车式过山车太酷了！起步加速那一瞬间整个人被按在座位上，黑暗中穿梭电子世界的视觉效果炸裂。《创：战神》主题光效更是加分项。胆子大的必刷！", "author": "过山车爱好者", "date": "2026-03"}, {"id": "rev_attr_03", "target_type": "attraction", "target_id": "attr_zootopia", "rating": 5, "title": "疯狂动物城太惊艳了", "content": "整个园区还原度爆表！热力追踪的无轨乘驾技术让每趟体验都不一样，穿越冰川区、撒哈拉广场、雨林区、猛兽大道的细节丰富到不可思议。排队2小时也值了……好吧其实还是有点累", "author": "动画电影粉丝", "date": "2026-02"}, {"id": "rev_attr_04", "target_type": "attraction", "target_id": "attr_pirates", "rating": 5, "title": "加勒比海盗——被低估的神作", "content": "很多人不知道这个项目有多牛。巨型多媒体屏幕+实体沉船效果+杰克船长的幽默台词，完全不输环球的级别。而且排队相对短，性价比极高！", "author": "科技爱好者", "date": "2026-01"}, {"id": "rev_attr_05", "target_type": "attraction", "target_id": "attr_mine_train", "rating": 4, "title": "全家都能开心的过山车", "content": "速度适中不会太吓人，钻石矿洞的场景做得精致。带孩子坐刚好——大人觉得刺激小孩也不会哭。就是排队越来越长了", "author": "亲子游妈妈", "date": "2025-12"}, {"id": "rev_attr_06", "target_type": "attraction", "target_id": "attr_rapids", "rating": 4, "title": "夏天必玩但要准备好装备", "content": "漂流本身很好玩！但真的会湿透……第一次去没经验穿了一次性雨衣结果裤子全湿了。第二次学聪明了带了分体式雨衣+鞋套完美解决。夏季玩这个特别爽", "date": "2025-08"}, {"id": "rev_attr_07", "target_type": "attraction", "target_id": "attr_rex", "rating": 4, "title": "失重感爽到飞起", "content": "抱抱龙的U型轨道来回冲刺每次都有不同的失重感，尤其是从最高点往下冲的那一下！刺激度仅次于创极速光轮但排队时间友好很多", "date": "2025-07"}, {"id": "rev_rest_01", "target_type": "restaurant", "target_id": "rest_royal_banquet", "rating": 4, "title": "贵但值得一次体验", "content": "300-500元的价位确实不便宜，但能和迪士尼角色共餐、合影互动，对孩子来说是梦想成真。食物味道中规中矩，主要卖的是体验和氛围。需要提前预约", "author": "亲子游家庭", "date": "2026-02"}, {"id": "rev_rest_02", "target_type": "restaurant", "target_id": "rest_manyue", "rating": 5, "title": "漫月轩是园区内餐饮天花板", "content": "中式元素主题餐厅，高山/海洋/沙漠/森林/河流五大元素的装修很有品味。菜品质量在园区内算最好的，人均80-100吃得很舒服。用餐环境优雅适合约会或想安静吃饭的时候来", "author": "美食爱好者", "date": "2026-01"}, {"id": "rev_rest_03", "target_type": "restaurant", "target_id": "rest_barbosar", "rating": 4, "title": "海盗氛围拉满的烧烤", "content": "肋排和烤肉分量足味道好，海盗船舱的环境设计让你感觉真的在船上用餐。人均100-150虽然不便宜但在乐园里算合理。火鸡腿是招牌必点", "date": "2025-12"}, {"id": "rev_dish_01", "target_type": "dish", "target_id": "dish_turkey_leg", "rating": 4, "title": "标志性火鸡腿果然名不虚传", "content": "比脸还大的火鸡腿！肉质嫩不柴，调味偏甜但很香。90元一个确实不便宜但管饱，一个人吃完基本不用吃别的了。拍照也很好看", "date": "2025-10"}, {"id": "rev_show_01", "target_type": "show", "target_id": "show_illuminations", "rating": 5, "title": "烟花秀值回票价的一半", "content": "奇梦之光幻影秀太震撼了！城堡投影+烟花+灯光+音乐+经典迪士尼歌曲的配合天衣无缝。看到冰雪奇缘主题曲响起的时候全场大合唱那刻真的感动。一定要留到最后看！", "date": "2026-03"}, {"id": "rev_show_02", "target_type": "show", "target_id": "show_parade", "rating": 5, "title": "花车巡游是快乐源泉", "content": "当音乐响起花车出来的瞬间真的会被治愈！所有演职人员都在挥手笑，那种感染力太强了。不管几岁看到米奇花车出来都会开心得像个孩子", "date": "2026-02"}]}
+{
+  "version": "3.2.0",
+  "last_updated": "2026-05-03",
+  "reviews": [
+    {
+      "id": "rev_attr_01",
+      "target_type": "attraction",
+      "target_id": "attr_soaring",
+      "rating": 5,
+      "title": "全球最佳的飞行影院没有之一",
+      "content": "翱翔·飞跃地平线的沉浸感太强了！从长城到泰姬陵再到金字塔，每个场景都栩栩如生。气味特效、风的感觉都做得很到位。唯一缺点就是排队实在太长——强烈建议买早享卡第一时间冲！",
+      "author": "资深迪士尼玩家",
+      "date": "2026-04"
+    },
+    {
+      "id": "rev_attr_02",
+      "target_type": "attraction",
+      "target_id": "attr_tron",
+      "rating": 5,
+      "title": "创极速光轮=全园最刺激",
+      "content": "摩托车式过山车太酷了！起步加速那一瞬间整个人被按在座位上，黑暗中穿梭电子世界的视觉效果炸裂。《创：战神》主题光效更是加分项。胆子大的必刷！",
+      "author": "过山车爱好者",
+      "date": "2026-03"
+    },
+    {
+      "id": "rev_attr_03",
+      "target_type": "attraction",
+      "target_id": "attr_zootopia",
+      "rating": 5,
+      "title": "疯狂动物城太惊艳了",
+      "content": "整个园区还原度爆表！热力追踪的无轨乘驾技术让每趟体验都不一样，穿越冰川区、撒哈拉广场、雨林区、猛兽大道的细节丰富到不可思议。排队2小时也值了……好吧其实还是有点累",
+      "author": "动画电影粉丝",
+      "date": "2026-02"
+    },
+    {
+      "id": "rev_attr_04",
+      "target_type": "attraction",
+      "target_id": "attr_pirates",
+      "rating": 5,
+      "title": "加勒比海盗——被低估的神作",
+      "content": "很多人不知道这个项目有多牛。巨型多媒体屏幕+实体沉船效果+杰克船长的幽默台词，完全不输环球的级别。而且排队相对短，性价比极高！",
+      "author": "科技爱好者",
+      "date": "2026-01"
+    },
+    {
+      "id": "rev_attr_05",
+      "target_type": "attraction",
+      "target_id": "attr_mine_train",
+      "rating": 4,
+      "title": "全家都能开心的过山车",
+      "content": "速度适中不会太吓人，钻石矿洞的场景做得精致。带孩子坐刚好——大人觉得刺激小孩也不会哭。就是排队越来越长了",
+      "author": "亲子游妈妈",
+      "date": "2025-12"
+    },
+    {
+      "id": "rev_attr_06",
+      "target_type": "attraction",
+      "target_id": "attr_rapids",
+      "rating": 4,
+      "title": "夏天必玩但要准备好装备",
+      "content": "漂流本身很好玩！但真的会湿透……第一次去没经验穿了一次性雨衣结果裤子全湿了。第二次学聪明了带了分体式雨衣+鞋套完美解决。夏季玩这个特别爽",
+      "date": "2025-08"
+    },
+    {
+      "id": "rev_attr_07",
+      "target_type": "attraction",
+      "target_id": "attr_rex",
+      "rating": 4,
+      "title": "失重感爽到飞起",
+      "content": "抱抱龙的U型轨道来回冲刺每次都有不同的失重感，尤其是从最高点往下冲的那一下！刺激度仅次于创极速光轮但排队时间友好很多",
+      "date": "2025-07"
+    },
+    {
+      "id": "rev_rest_01",
+      "target_type": "restaurant",
+      "target_id": "rest_royal_banquet",
+      "rating": 4,
+      "title": "贵但值得一次体验",
+      "content": "300-500元的价位确实不便宜，但能和迪士尼角色共餐、合影互动，对孩子来说是梦想成真。食物味道中规中矩，主要卖的是体验和氛围。需要提前预约",
+      "author": "亲子游家庭",
+      "date": "2026-02"
+    },
+    {
+      "id": "rev_rest_02",
+      "target_type": "restaurant",
+      "target_id": "rest_manyue",
+      "rating": 5,
+      "title": "漫月轩是园区内餐饮天花板",
+      "content": "中式元素主题餐厅，高山/海洋/沙漠/森林/河流五大元素的装修很有品味。菜品质量在园区内算最好的，人均80-100吃得很舒服。用餐环境优雅适合约会或想安静吃饭的时候来",
+      "author": "美食爱好者",
+      "date": "2026-01"
+    },
+    {
+      "id": "rev_rest_03",
+      "target_type": "restaurant",
+      "target_id": "rest_barbosar",
+      "rating": 4,
+      "title": "海盗氛围拉满的烧烤",
+      "content": "肋排和烤肉分量足味道好，海盗船舱的环境设计让你感觉真的在船上用餐。人均100-150虽然不便宜但在乐园里算合理。火鸡腿是招牌必点",
+      "date": "2025-12"
+    },
+    {
+      "id": "rev_dish_01",
+      "target_type": "dish",
+      "target_id": "dish_turkey_leg",
+      "rating": 4,
+      "title": "标志性火鸡腿果然名不虚传",
+      "content": "比脸还大的火鸡腿！肉质嫩不柴，调味偏甜但很香。90元一个确实不便宜但管饱，一个人吃完基本不用吃别的了。拍照也很好看",
+      "date": "2025-10"
+    },
+    {
+      "id": "rev_show_01",
+      "target_type": "show",
+      "target_id": "show_illuminations",
+      "rating": 5,
+      "title": "烟花秀值回票价的一半",
+      "content": "奇梦之光幻影秀太震撼了！城堡投影+烟花+灯光+音乐+经典迪士尼歌曲的配合天衣无缝。看到冰雪奇缘主题曲响起的时候全场大合唱那刻真的感动。一定要留到最后看！",
+      "date": "2026-03"
+    },
+    {
+      "id": "rev_show_02",
+      "target_type": "show",
+      "target_id": "show_parade",
+      "rating": 5,
+      "title": "花车巡游是快乐源泉",
+      "content": "当音乐响起花车出来的瞬间真的会被治愈！所有演职人员都在挥手笑，那种感染力太强了。不管几岁看到米奇花车出来都会开心得像个孩子",
+      "date": "2026-02"
+    }
+  ]
+}

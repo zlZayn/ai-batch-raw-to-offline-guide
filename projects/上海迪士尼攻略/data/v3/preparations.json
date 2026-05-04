@@ -1,1 +1,181 @@
-{"version": "3.2.0", "last_updated": "2026-05-03", "preparations": [{"id": "prep_id_card", "name": "身份证件", "category": "必带物品", "importance": "critical", "notes": "实名制购票后必须原件刷证入园（2024.12.23起实行严格实名制），一张证件同一天限购一张。入园时刷证件+人脸识别", "tags": []}, {"id": "prep_phone_power", "name": "手机 + 大容量充电宝", "category": "必带物品", "importance": "critical", "notes": "需要一直用Disney App查排队时间+抢等候卡。园区共享充电宝经常借空，建议自带20000mAh以上充电宝确保撑满一整天", "tags": []}, {"id": "prep_shoes", "name": "舒适的运动鞋（已磨合过的！）", "category": "必带物品", "importance": "critical", "notes": "日均步数20000+！绝对不要穿新鞋或高跟鞋。穿已经磨合过最重要——脚后跟容易磨出水泡，棉质长袜能大幅减少这个问题", "tags": ["tag_clothing"]}, {"id": "prep_raincoat", "name": "分体式雨衣 + 鞋套", "category": "必带物品", "importance": "high", "notes": "雷鸣山漂流必备！园内15元/件是一次性薄塑料质量很差。提前网上买好厚实分体式雨衣+鞋套，几块钱搞定。不带的话鞋子必湿，湿脚走一天太痛苦", "tags": ["tag_clothing"]}, {"id": "prep_sunscreen", "name": "防晒用品（帽子/墨镜/防晒霜）", "category": "必带物品", "importance": "high", "notes": "夏季暴晒无遮阳区域多（排队时尤其严重），不涂防晒必晒伤。帽子还可以在巡游/演出时替代雨伞使用（撑伞会影响他人观看）", "tags": ["tag_clothing"]}, {"id": "prep_water_snacks", "name": "未开封矿泉水 + 少量零食", "category": "必带物品", "importance": "medium", "notes": "允许带入未封装水（通常2瓶500ml没问题，多了可能被拦）和少量未封装零食（面包/饼干/能量棒一般没问题，自热火锅绝对不行）。园内水10元/瓶", "tags": ["tag_save_money"]}, {"id": "prep_wipes", "name": "湿纸巾/纸巾", "category": "必带物品", "importance": "medium", "notes": "园厕所有纸但高峰时段可能缺货。随身携带以备不时之需", "tags": []}, {"id": "prep_fan", "name": "便携风扇/小电扇", "category": "必带物品（夏季）", "importance": "medium", "notes": "夏季排队时救命神器。排队无遮挡区域暴晒，有小风扇体验会好很多", "tags": []}, {"id": "prep_umbrella", "name": "雨伞", "category": "可选物品", "importance": "low", "notes": "遮阳挡雨两用，但巡游/演出时不能撑开影响他人。建议用帽子替代作为遮阳工具", "tags": ["tag_clothing"]}, {"id": "prep_headband", "name": "迪士尼发箍/头饰", "category": "可选物品", "importance": "low", "notes": "园内129-199元/个，淘宝同款只要10-20元。拍照上镜神器，提前网购好入园直接戴", "tags": ["tag_shopping", "tag_clothing"]}, {"id": "prep_autograph_book", "name": "Autograph Book签名本+笔", "category": "可选物品", "importance": "low", "notes": "给迪士尼角色签名的本子和笔。米奇等角色都很配合签名，是一份特别的纪念品", "tags": []}, {"id": "prep_plastic_bag", "name": "塑料袋", "category": "可选物品", "importance": "low", "notes": "装雨衣垃圾或漂流时保护手机防水用。多带几个备用", "tags": []}, {"id": "prep_no_selfie_stick", "name": "自拍杆禁入", "category": "禁止携带", "importance": "critical", "notes": "伸缩式自拍杆不可入内！手持短柄部分安检口放行看运气但不保证。建议不要带", "tags": ["tag_prohibited"]}, {"id": "prep_no_glass", "name": "玻璃制品禁入", "category": "禁止携带", "importance": "high", "notes": "除婴儿食品容器外一律不可带入。玻璃瓶酱菜/罐头都不行", "tags": ["tag_prohibited"]}, {"id": "prep_no_weapon_toy", "name": "武器类玩具禁入", "category": "禁止携带", "importance": "high", "notes": "即使是仿真武器也不行——玩具刀剑/仿真枪都不能带入园区", "tags": ["tag_prohibited"]}, {"id": "prep_no_folding_chair", "name": "折叠椅/野餐垫可能被拦", "category": "禁止携带", "importance": "medium", "notes": "部分安检口会拦截折叠椅和野餐垫。如需等烟花建议用园区内租赁的毯子", "tags": ["tag_prohibited"]}, {"id": "prep_no_drone", "name": "无人机禁入", "category": "禁止携带", "importance": "high", "notes": "无人机严禁带入和使用", "tags": ["tag_prohibited"]}, {"id": "prep_night_before_app", "name": "前夜：下载登录App并绑定门票", "category": "入园前夜准备", "importance": "critical", "notes": "提前下载'上海迪士尼度假区'App->注册账号->绑定门票。入园第一件事就是抢等候卡+查排队时间", "tags": []}, {"id": "prep_night_alarm", "name": "前夜：设好闹钟", "category": "入园前夜准备", "importance": "high", "notes": "早享卡用户7:00前到安检口；普通票也要8:00前到。设多个闹钟防止起不来", "tags": []}]}
+{
+  "version": "3.2.0",
+  "last_updated": "2026-05-03",
+  "preparations": [
+    {
+      "id": "prep_id_card",
+      "name": "身份证件",
+      "category": "必带物品",
+      "importance": "critical",
+      "notes": "实名制购票后必须原件刷证入园（2024.12.23起实行严格实名制），一张证件同一天限购一张。入园时刷证件+人脸识别",
+      "tags": []
+    },
+    {
+      "id": "prep_phone_power",
+      "name": "手机 + 大容量充电宝",
+      "category": "必带物品",
+      "importance": "critical",
+      "notes": "需要一直用Disney App查排队时间+抢等候卡。园区共享充电宝经常借空，建议自带20000mAh以上充电宝确保撑满一整天",
+      "tags": []
+    },
+    {
+      "id": "prep_shoes",
+      "name": "舒适的运动鞋（已磨合过的！）",
+      "category": "必带物品",
+      "importance": "critical",
+      "notes": "日均步数20000+！绝对不要穿新鞋或高跟鞋。穿已经磨合过最重要——脚后跟容易磨出水泡，棉质长袜能大幅减少这个问题",
+      "tags": [
+        "tag_clothing"
+      ]
+    },
+    {
+      "id": "prep_raincoat",
+      "name": "分体式雨衣 + 鞋套",
+      "category": "必带物品",
+      "importance": "high",
+      "notes": "雷鸣山漂流必备！园内15元/件是一次性薄塑料质量很差。提前网上买好厚实分体式雨衣+鞋套，几块钱搞定。不带的话鞋子必湿，湿脚走一天太痛苦",
+      "tags": [
+        "tag_clothing"
+      ]
+    },
+    {
+      "id": "prep_sunscreen",
+      "name": "防晒用品（帽子/墨镜/防晒霜）",
+      "category": "必带物品",
+      "importance": "high",
+      "notes": "夏季暴晒无遮阳区域多（排队时尤其严重），不涂防晒必晒伤。帽子还可以在巡游/演出时替代雨伞使用（撑伞会影响他人观看）",
+      "tags": [
+        "tag_clothing"
+      ]
+    },
+    {
+      "id": "prep_water_snacks",
+      "name": "未开封矿泉水 + 少量零食",
+      "category": "必带物品",
+      "importance": "medium",
+      "notes": "允许带入未封装水（通常2瓶500ml没问题，多了可能被拦）和少量未封装零食（面包/饼干/能量棒一般没问题，自热火锅绝对不行）。园内水10元/瓶",
+      "tags": [
+        "tag_save_money"
+      ]
+    },
+    {
+      "id": "prep_wipes",
+      "name": "湿纸巾/纸巾",
+      "category": "必带物品",
+      "importance": "medium",
+      "notes": "园厕所有纸但高峰时段可能缺货。随身携带以备不时之需",
+      "tags": []
+    },
+    {
+      "id": "prep_fan",
+      "name": "便携风扇/小电扇",
+      "category": "必带物品（夏季）",
+      "importance": "medium",
+      "notes": "夏季排队时救命神器。排队无遮挡区域暴晒，有小风扇体验会好很多",
+      "tags": []
+    },
+    {
+      "id": "prep_umbrella",
+      "name": "雨伞",
+      "category": "可选物品",
+      "importance": "low",
+      "notes": "遮阳挡雨两用，但巡游/演出时不能撑开影响他人。建议用帽子替代作为遮阳工具",
+      "tags": [
+        "tag_clothing"
+      ]
+    },
+    {
+      "id": "prep_headband",
+      "name": "迪士尼发箍/头饰",
+      "category": "可选物品",
+      "importance": "low",
+      "notes": "园内129-199元/个，淘宝同款只要10-20元。拍照上镜神器，提前网购好入园直接戴",
+      "tags": [
+        "tag_shopping",
+        "tag_clothing"
+      ]
+    },
+    {
+      "id": "prep_autograph_book",
+      "name": "Autograph Book签名本+笔",
+      "category": "可选物品",
+      "importance": "low",
+      "notes": "给迪士尼角色签名的本子和笔。米奇等角色都很配合签名，是一份特别的纪念品",
+      "tags": []
+    },
+    {
+      "id": "prep_plastic_bag",
+      "name": "塑料袋",
+      "category": "可选物品",
+      "importance": "low",
+      "notes": "装雨衣垃圾或漂流时保护手机防水用。多带几个备用",
+      "tags": []
+    },
+    {
+      "id": "prep_no_selfie_stick",
+      "name": "自拍杆禁入",
+      "category": "禁止携带",
+      "importance": "critical",
+      "notes": "伸缩式自拍杆不可入内！手持短柄部分安检口放行看运气但不保证。建议不要带",
+      "tags": [
+        "tag_prohibited"
+      ]
+    },
+    {
+      "id": "prep_no_glass",
+      "name": "玻璃制品禁入",
+      "category": "禁止携带",
+      "importance": "high",
+      "notes": "除婴儿食品容器外一律不可带入。玻璃瓶酱菜/罐头都不行",
+      "tags": [
+        "tag_prohibited"
+      ]
+    },
+    {
+      "id": "prep_no_weapon_toy",
+      "name": "武器类玩具禁入",
+      "category": "禁止携带",
+      "importance": "high",
+      "notes": "即使是仿真武器也不行——玩具刀剑/仿真枪都不能带入园区",
+      "tags": [
+        "tag_prohibited"
+      ]
+    },
+    {
+      "id": "prep_no_folding_chair",
+      "name": "折叠椅/野餐垫可能被拦",
+      "category": "禁止携带",
+      "importance": "medium",
+      "notes": "部分安检口会拦截折叠椅和野餐垫。如需等烟花建议用园区内租赁的毯子",
+      "tags": [
+        "tag_prohibited"
+      ]
+    },
+    {
+      "id": "prep_no_drone",
+      "name": "无人机禁入",
+      "category": "禁止携带",
+      "importance": "high",
+      "notes": "无人机严禁带入和使用",
+      "tags": [
+        "tag_prohibited"
+      ]
+    },
+    {
+      "id": "prep_night_before_app",
+      "name": "前夜：下载登录App并绑定门票",
+      "category": "入园前夜准备",
+      "importance": "critical",
+      "notes": "提前下载'上海迪士尼度假区'App->注册账号->绑定门票。入园第一件事就是抢等候卡+查排队时间",
+      "tags": []
+    },
+    {
+      "id": "prep_night_alarm",
+      "name": "前夜：设好闹钟",
+      "category": "入园前夜准备",
+      "importance": "high",
+      "notes": "早享卡用户7:00前到安检口；普通票也要8:00前到。设多个闹钟防止起不来",
+      "tags": []
+    }
+  ]
+}

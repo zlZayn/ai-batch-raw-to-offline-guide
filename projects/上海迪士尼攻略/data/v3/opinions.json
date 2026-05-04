@@ -1,1 +1,61 @@
-{"version": "3.2.0", "last_updated": "2026-05-03", "opinions": [{"id": "opi_attr_must_01", "target_type": "attraction", "target_id": "attr_soaring", "stance": "pro", "title": "必玩中的必玩", "content": "翱翔·飞跃地平线是上海迪士尼无可替代的No.1项目。全球最佳飞行影院之一，没有任何替代品可以媲美这个体验。即使排队2小时也值得一刷再刷", "source_files": ["src_shanghai_disney"]}, {"id": "opi_attr_must_03", "target_type": "attraction", "target_id": "attr_zootopia", "stance": "pro", "title": "最新顶流值得排长队", "content": "疯狂动物城是全球首个该IP的主题园区，TEA 2025年度大奖得主。无轨Dark Ride技术业界领先，90-180分钟排队虽然痛苦但体验绝对物超所值", "source_files": ["src_shanghai_disney"]}, {"id": "opi_show_fireworks", "target_type": "show", "target_id": "show_illuminations", "stance": "pro", "title": "烟花秀是完美的句号", "content": "无论如何都要留到晚上看完烟花再走！这是整个迪士尼之旅的情感高潮。建议提前1小时以上在奇想花园正对城堡的位置占位", "source_files": ["src_shanghai_disney"]}, {"id": "opi_rest_manyue", "target_type": "restaurant", "target_id": "rest_manyue", "stance": "pro", "title": "园区餐饮最佳选择", "content": "漫月轩无论环境、口味还是人均都在园区内属于第一梯队。如果想好好吃一顿饭而不是随便填肚子，选这里没错", "source_files": ["src_shanghai_disney"]}, {"id": "opi_dish_buns", "target_type": "dish", "target_id": "dish_steamed_buns", "stance": "neutral", "title": "蒸包子套餐引发热议", "content": "十周年限定米妮造型蒸包子套餐约70元，网友评价两极分化：有人觉得可爱创意好有人觉得定价偏高。属于见仁见智的选择", "source_files": ["src_shanghai_disney"]}]}
+{
+  "version": "3.2.0",
+  "last_updated": "2026-05-03",
+  "opinions": [
+    {
+      "id": "opi_attr_must_01",
+      "target_type": "attraction",
+      "target_id": "attr_soaring",
+      "stance": "pro",
+      "title": "必玩中的必玩",
+      "content": "翱翔·飞跃地平线是上海迪士尼无可替代的No.1项目。全球最佳飞行影院之一，没有任何替代品可以媲美这个体验。即使排队2小时也值得一刷再刷",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
+    },
+    {
+      "id": "opi_attr_must_03",
+      "target_type": "attraction",
+      "target_id": "attr_zootopia",
+      "stance": "pro",
+      "title": "最新顶流值得排长队",
+      "content": "疯狂动物城是全球首个该IP的主题园区，TEA 2025年度大奖得主。无轨Dark Ride技术业界领先，90-180分钟排队虽然痛苦但体验绝对物超所值",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
+    },
+    {
+      "id": "opi_show_fireworks",
+      "target_type": "show",
+      "target_id": "show_illuminations",
+      "stance": "pro",
+      "title": "烟花秀是完美的句号",
+      "content": "无论如何都要留到晚上看完烟花再走！这是整个迪士尼之旅的情感高潮。建议提前1小时以上在奇想花园正对城堡的位置占位",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
+    },
+    {
+      "id": "opi_rest_manyue",
+      "target_type": "restaurant",
+      "target_id": "rest_manyue",
+      "stance": "pro",
+      "title": "园区餐饮最佳选择",
+      "content": "漫月轩无论环境、口味还是人均都在园区内属于第一梯队。如果想好好吃一顿饭而不是随便填肚子，选这里没错",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
+    },
+    {
+      "id": "opi_dish_buns",
+      "target_type": "dish",
+      "target_id": "dish_steamed_buns",
+      "stance": "neutral",
+      "title": "蒸包子套餐引发热议",
+      "content": "十周年限定米妮造型蒸包子套餐约70元，网友评价两极分化：有人觉得可爱创意好有人觉得定价偏高。属于见仁见智的选择",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
+    }
+  ]
+}

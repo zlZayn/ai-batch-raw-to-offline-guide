@@ -1,1 +1,209 @@
-{"version": "3.2.0", "last_updated": "2026-05-03", "restaurants": [{"id": "rest_royal_banquet", "name": "皇家宴会厅", "tags": ["tag_restaurant", "tag_disney_fan"], "source_files": ["src_shanghai_disney"], "recommended_dish_ids": [], "location": "梦幻世界-奇幻童话城堡内", "review_ids": ["rev_rest_01"], "opinion_ids": [], "zone_ids": ["tag_zone_fantasy"], "warning_ids": [], "average_price": 400, "indoor": true, "business_hours": "以App当日公布为准（需提前预约）"}, {"id": "rest_manyue", "name": "漫月轩", "tags": ["tag_restaurant", "tag_taste_savory", "tag_taste_classic"], "source_files": ["src_shanghai_disney"], "recommended_dish_ids": ["dish_manyue_main"], "location": "梦幻世界", "review_ids": ["rev_rest_02"], "opinion_ids": ["opi_rest_manyue"], "zone_ids": ["tag_zone_fantasy"], "warning_ids": [], "average_price": 100, "indoor": true, "business_hours": "11:00-20:30"}, {"id": "rest_barbosar", "name": "巴波萨烧烤", "tags": ["tag_restaurant", "tag_taste_savory", "tag_taste_classic"], "source_files": ["src_shanghai_disney"], "recommended_dish_ids": ["dish_ribs", "dish_turkey_leg"], "location": "宝藏湾", "review_ids": ["rev_rest_03"], "opinion_ids": [], "zone_ids": ["tag_zone_treasure"], "warning_ids": [], "average_price": 125, "indoor": true, "business_hours": "11:00-20:30"}, {"id": "rest_tunkeli", "name": "部落丰盛堂", "tags": ["tag_restaurant", "tag_taste_savory"], "source_files": ["src_shanghai_disney"], "recommended_dish_ids": ["dish_bbq"], "location": "探险岛", "review_ids": [], "opinion_ids": [], "zone_ids": ["tag_zone_adventure"], "warning_ids": [], "average_price": 90, "indoor": true, "business_hours": "11:00-20:30"}, {"id": "rest_pinochio", "name": "皮诺丘乡村厨房", "tags": ["tag_restaurant", "tag_save_money"], "source_files": ["src_shanghai_disney"], "recommended_dish_ids": ["dish_pizza", "dish_pasta"], "location": "梦幻世界", "review_ids": [], "opinion_ids": [], "zone_ids": ["tag_zone_fantasy"], "warning_ids": [], "average_price": 85, "indoor": true, "business_hours": "10:00-20:30"}, {"id": "rest_old_vine", "name": "老藤树食栈", "tags": ["tag_restaurant", "tag_taste_savory", "tag_taste_classic"], "source_files": ["src_shanghai_disney"], "recommended_dish_ids": ["dish_turkey_leg"], "location": "探险岛", "review_ids": [], "opinion_ids": [], "zone_ids": ["tag_zone_adventure"], "warning_ids": [], "average_price": 100, "indoor": false, "business_hours": "10:00-20:30"}, {"id": "rest_star_terrace", "name": "星露台餐厅", "tags": ["tag_restaurant", "tag_save_money"], "source_files": ["src_shanghai_disney"], "recommended_dish_ids": ["dish_burger"], "location": "明日世界", "review_ids": [], "opinion_ids": [], "zone_ids": ["tag_zone_tomorrow"], "warning_ids": [], "average_price": 80, "indoor": true, "business_hours": "10:30-20:30"}, {"id": "rest_birdwing", "name": "大鸟翼烤廊", "tags": ["tag_restaurant", "tag_taste_savory"], "source_files": ["src_shanghai_disney"], "recommended_dish_ids": ["dish_roast_chicken"], "location": "探险岛", "review_ids": [], "opinion_ids": [], "zone_ids": ["tag_zone_adventure"], "warning_ids": [], "average_price": 100, "indoor": false, "business_hours": "11:00-20:30"}]}
+{
+  "version": "3.2.0",
+  "last_updated": "2026-05-03",
+  "restaurants": [
+    {
+      "id": "rest_royal_banquet",
+      "name": "皇家宴会厅",
+      "tags": [
+        "tag_restaurant",
+        "tag_disney_fan"
+      ],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "recommended_dish_ids": [],
+      "location": "梦幻世界-奇幻童话城堡内",
+      "review_ids": [
+        "rev_rest_01"
+      ],
+      "opinion_ids": [],
+      "zone_ids": [
+        "tag_zone_fantasy"
+      ],
+      "warning_ids": [],
+      "average_price": 400,
+      "indoor": true,
+      "business_hours": "以App当日公布为准（需提前预约）"
+    },
+    {
+      "id": "rest_manyue",
+      "name": "漫月轩",
+      "tags": [
+        "tag_restaurant",
+        "tag_taste_savory",
+        "tag_taste_classic"
+      ],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "recommended_dish_ids": [
+        "dish_manyue_main"
+      ],
+      "location": "梦幻世界",
+      "review_ids": [
+        "rev_rest_02"
+      ],
+      "opinion_ids": [
+        "opi_rest_manyue"
+      ],
+      "zone_ids": [
+        "tag_zone_fantasy"
+      ],
+      "warning_ids": [],
+      "average_price": 100,
+      "indoor": true,
+      "business_hours": "11:00-20:30"
+    },
+    {
+      "id": "rest_barbosar",
+      "name": "巴波萨烧烤",
+      "tags": [
+        "tag_restaurant",
+        "tag_taste_savory",
+        "tag_taste_classic"
+      ],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "recommended_dish_ids": [
+        "dish_ribs",
+        "dish_turkey_leg"
+      ],
+      "location": "宝藏湾",
+      "review_ids": [
+        "rev_rest_03"
+      ],
+      "opinion_ids": [],
+      "zone_ids": [
+        "tag_zone_treasure"
+      ],
+      "warning_ids": [],
+      "average_price": 125,
+      "indoor": true,
+      "business_hours": "11:00-20:30"
+    },
+    {
+      "id": "rest_tunkeli",
+      "name": "部落丰盛堂",
+      "tags": [
+        "tag_restaurant",
+        "tag_taste_savory"
+      ],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "recommended_dish_ids": [
+        "dish_bbq"
+      ],
+      "location": "探险岛",
+      "review_ids": [],
+      "opinion_ids": [],
+      "zone_ids": [
+        "tag_zone_adventure"
+      ],
+      "warning_ids": [],
+      "average_price": 90,
+      "indoor": true,
+      "business_hours": "11:00-20:30"
+    },
+    {
+      "id": "rest_pinochio",
+      "name": "皮诺丘乡村厨房",
+      "tags": [
+        "tag_restaurant",
+        "tag_save_money"
+      ],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "recommended_dish_ids": [
+        "dish_pizza",
+        "dish_pasta"
+      ],
+      "location": "梦幻世界",
+      "review_ids": [],
+      "opinion_ids": [],
+      "zone_ids": [
+        "tag_zone_fantasy"
+      ],
+      "warning_ids": [],
+      "average_price": 85,
+      "indoor": true,
+      "business_hours": "10:00-20:30"
+    },
+    {
+      "id": "rest_old_vine",
+      "name": "老藤树食栈",
+      "tags": [
+        "tag_restaurant",
+        "tag_taste_savory",
+        "tag_taste_classic"
+      ],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "recommended_dish_ids": [
+        "dish_turkey_leg"
+      ],
+      "location": "探险岛",
+      "review_ids": [],
+      "opinion_ids": [],
+      "zone_ids": [
+        "tag_zone_adventure"
+      ],
+      "warning_ids": [],
+      "average_price": 100,
+      "indoor": false,
+      "business_hours": "10:00-20:30"
+    },
+    {
+      "id": "rest_star_terrace",
+      "name": "星露台餐厅",
+      "tags": [
+        "tag_restaurant",
+        "tag_save_money"
+      ],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "recommended_dish_ids": [
+        "dish_burger"
+      ],
+      "location": "明日世界",
+      "review_ids": [],
+      "opinion_ids": [],
+      "zone_ids": [
+        "tag_zone_tomorrow"
+      ],
+      "warning_ids": [],
+      "average_price": 80,
+      "indoor": true,
+      "business_hours": "10:30-20:30"
+    },
+    {
+      "id": "rest_birdwing",
+      "name": "大鸟翼烤廊",
+      "tags": [
+        "tag_restaurant",
+        "tag_taste_savory"
+      ],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "recommended_dish_ids": [
+        "dish_roast_chicken"
+      ],
+      "location": "探险岛",
+      "review_ids": [],
+      "opinion_ids": [],
+      "zone_ids": [
+        "tag_zone_adventure"
+      ],
+      "warning_ids": [],
+      "average_price": 100,
+      "indoor": false,
+      "business_hours": "11:00-20:30"
+    }
+  ]
+}

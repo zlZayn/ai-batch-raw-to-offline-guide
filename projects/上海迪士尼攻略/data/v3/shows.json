@@ -1,1 +1,245 @@
-{"version": "3.2.0", "last_updated": "2026-05-03", "shows": [{"id": "show_illuminations", "name": "奇梦之光幻影秀", "subtype": "夜间烟花灯光秀", "rating": 5, "ranking": 1, "tags": ["tag_type_light_show", "tag_disney_fan"], "location": "奇幻童话城堡前", "duration_minutes": 20, "schedule_tip": "通常20:00或20:30开始（以当天App公布为准）。提前60-90分钟占位才有好位置，旺季需更早。奇想花园正对城堡的区域是最佳观赏点。烟花期间城堡附近会封路，提前规划好离场路线", "source_files": ["src_shanghai_disney"], "review_ids": ["rev_show_01"], "opinion_ids": ["opi_show_fireworks"], "warning_ids": ["warn_show_01"], "zone_ids": ["tag_zone_fantasy"]}, {"id": "show_mickey_book", "name": "米奇妙游童话书", "subtype": "室内舞台剧", "rating": 5, "ranking": 2, "tags": ["tag_type_live_show", "tag_disney_fan", "tag_kid_friendly"], "location": "梦幻世界-林间剧场", "duration_minutes": 28, "schedule_tip": "约28分钟，米奇带领大家进入经典迪士尼故事世界。强推！演出频率较高，注意App上查当日时间表", "source_files": ["src_shanghai_disney"], "review_ids": [], "opinion_ids": [], "warning_ids": [], "zone_ids": ["tag_zone_fantasy"]}, {"id": "show_jack_sparrow", "name": "风暴来临：杰克船长之惊天特技大冒险", "subtype": "特技表演", "rating": 5, "ranking": 3, "tags": ["tag_type_stunt_show", "tag_disney_fan"], "location": "宝藏湾-凡迭戈剧院", "duration_minutes": 30, "schedule_tip": "约30分钟，室内特技表演，爆炸/落水/打斗效果震撼。强推！需提前到场排队入场", "source_files": ["src_shanghai_disney"], "review_ids": [], "opinion_ids": [], "warning_ids": [], "zone_ids": ["tag_zone_treasure"]}, {"id": "show_frozen", "name": "冰雪奇缘：欢唱盛会", "subtype": "互动演唱会", "rating": 4, "ranking": 4, "tags": ["tag_type_interactive_show", "tag_disney_fan", "tag_kid_friendly"], "location": "梦幻世界-林间剧场", "duration_minutes": 20, "schedule_tip": "约20分钟，《Let It Go》全场大合唱环节是亮点。小朋友超级喜欢", "source_files": ["src_shanghai_disney"], "review_ids": [], "opinion_ids": [], "warning_ids": [], "zone_ids": ["tag_zone_fantasy"]}, {"id": "show_parade", "name": "米奇童话专列（花车巡游）", "subtype": "花车巡游", "rating": 5, "ranking": 5, "tags": ["tag_type_parade", "tag_disney_fan"], "location": "巡游路线（经过米奇大街）", "duration_minutes": 15, "schedule_tip": "通常15:30左右开始（以App当日为准），提前20分钟占位。必看！", "source_files": ["src_shanghai_disney"], "review_ids": ["rev_show_02"], "opinion_ids": [], "warning_ids": ["warn_show_02"], "zone_ids": ["tag_zone_mickey"]}, {"id": "show_royal_princess", "name": "金色童话盛典", "subtype": "公主歌舞秀", "rating": 3, "ranking": 6, "tags": ["tag_type_live_show", "tag_kid_friendly"], "location": "奇幻童话城堡前的舞台", "duration_minutes": 15, "schedule_tip": "在城堡舞台上演出的公主歌舞秀", "source_files": ["src_shanghai_disney"], "review_ids": [], "opinion_ids": [], "warning_ids": [], "zone_ids": ["tag_zone_wonder"]}, {"id": "show_band", "name": "上海迪士尼乐团", "subtype": "户外乐队演出", "rating": 3, "ranking": 7, "tags": ["tag_type_live_show"], "location": "米奇大街", "duration_minutes": 10, "schedule_tip": "不定时演出，路过可以驻足欣赏", "source_files": ["src_shanghai_disney"], "review_ids": [], "opinion_ids": [], "warning_ids": [], "zone_ids": ["tag_zone_mickey"]}, {"id": "show_color_party", "name": "迪士尼彩色庆典：街头派对", "subtype": "街头派对", "rating": 3, "ranking": 8, "tags": ["tag_type_interactive_show"], "location": "奇想花园", "duration_minutes": 15, "schedule_tip": "春季活动期间的特别演出", "source_files": ["src_shanghai_disney"], "review_ids": [], "opinion_ids": [], "warning_ids": [], "zone_ids": ["tag_zone_wonder"]}, {"id": "show_avengers", "name": "复仇者联盟培训行动", "subtype": "互动招募", "rating": 3, "ranking": 9, "tags": ["tag_type_interactive_show", "tag_marvel_fan"], "location": "明日世界E空间", "duration_minutes": 15, "schedule_tip": "漫威主题互动演出，可以参与'培训'", "source_files": ["src_shanghai_disney"], "review_ids": [], "opinion_ids": [], "warning_ids": [], "zone_ids": ["tag_zone_tomorrow"]}, {"id": "show_rhythm", "name": "节奏探险之旅", "subtype": "沉浸式音乐展", "rating": 3, "ranking": 10, "tags": ["tag_type_interactive_show"], "location": "明日世界", "duration_minutes": 15, "schedule_tip": "2024年新增的沉浸式音乐体验", "source_files": ["src_shanghai_disney"], "review_ids": [], "opinion_ids": [], "warning_ids": [], "zone_ids": ["tag_zone_tomorrow"]}]}
+{
+  "version": "3.2.0",
+  "last_updated": "2026-05-03",
+  "shows": [
+    {
+      "id": "show_illuminations",
+      "name": "奇梦之光幻影秀",
+      "subtype": "夜间烟花灯光秀",
+      "rating": 5,
+      "ranking": 1,
+      "tags": [
+        "tag_type_light_show",
+        "tag_disney_fan"
+      ],
+      "location": "奇幻童话城堡前",
+      "duration_minutes": 20,
+      "schedule_tip": "通常20:00或20:30开始（以当天App公布为准）。提前60-90分钟占位才有好位置，旺季需更早。奇想花园正对城堡的区域是最佳观赏点。烟花期间城堡附近会封路，提前规划好离场路线",
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "review_ids": [
+        "rev_show_01"
+      ],
+      "opinion_ids": [
+        "opi_show_fireworks"
+      ],
+      "warning_ids": [
+        "warn_show_01"
+      ],
+      "zone_ids": [
+        "tag_zone_fantasy"
+      ]
+    },
+    {
+      "id": "show_mickey_book",
+      "name": "米奇妙游童话书",
+      "subtype": "室内舞台剧",
+      "rating": 5,
+      "ranking": 2,
+      "tags": [
+        "tag_type_live_show",
+        "tag_disney_fan",
+        "tag_kid_friendly"
+      ],
+      "location": "梦幻世界-林间剧场",
+      "duration_minutes": 28,
+      "schedule_tip": "约28分钟，米奇带领大家进入经典迪士尼故事世界。强推！演出频率较高，注意App上查当日时间表",
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "review_ids": [],
+      "opinion_ids": [],
+      "warning_ids": [],
+      "zone_ids": [
+        "tag_zone_fantasy"
+      ]
+    },
+    {
+      "id": "show_jack_sparrow",
+      "name": "风暴来临：杰克船长之惊天特技大冒险",
+      "subtype": "特技表演",
+      "rating": 5,
+      "ranking": 3,
+      "tags": [
+        "tag_type_stunt_show",
+        "tag_disney_fan"
+      ],
+      "location": "宝藏湾-凡迭戈剧院",
+      "duration_minutes": 30,
+      "schedule_tip": "约30分钟，室内特技表演，爆炸/落水/打斗效果震撼。强推！需提前到场排队入场",
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "review_ids": [],
+      "opinion_ids": [],
+      "warning_ids": [],
+      "zone_ids": [
+        "tag_zone_treasure"
+      ]
+    },
+    {
+      "id": "show_frozen",
+      "name": "冰雪奇缘：欢唱盛会",
+      "subtype": "互动演唱会",
+      "rating": 4,
+      "ranking": 4,
+      "tags": [
+        "tag_type_interactive_show",
+        "tag_disney_fan",
+        "tag_kid_friendly"
+      ],
+      "location": "梦幻世界-林间剧场",
+      "duration_minutes": 20,
+      "schedule_tip": "约20分钟，《Let It Go》全场大合唱环节是亮点。小朋友超级喜欢",
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "review_ids": [],
+      "opinion_ids": [],
+      "warning_ids": [],
+      "zone_ids": [
+        "tag_zone_fantasy"
+      ]
+    },
+    {
+      "id": "show_parade",
+      "name": "米奇童话专列（花车巡游）",
+      "subtype": "花车巡游",
+      "rating": 5,
+      "ranking": 5,
+      "tags": [
+        "tag_type_parade",
+        "tag_disney_fan"
+      ],
+      "location": "巡游路线（经过米奇大街）",
+      "duration_minutes": 15,
+      "schedule_tip": "通常15:30左右开始（以App当日为准），提前20分钟占位。必看！",
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "review_ids": [
+        "rev_show_02"
+      ],
+      "opinion_ids": [],
+      "warning_ids": [
+        "warn_show_02"
+      ],
+      "zone_ids": [
+        "tag_zone_mickey"
+      ]
+    },
+    {
+      "id": "show_royal_princess",
+      "name": "金色童话盛典",
+      "subtype": "公主歌舞秀",
+      "rating": 3,
+      "ranking": 6,
+      "tags": [
+        "tag_type_live_show",
+        "tag_kid_friendly"
+      ],
+      "location": "奇幻童话城堡前的舞台",
+      "duration_minutes": 15,
+      "schedule_tip": "在城堡舞台上演出的公主歌舞秀",
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "review_ids": [],
+      "opinion_ids": [],
+      "warning_ids": [],
+      "zone_ids": [
+        "tag_zone_wonder"
+      ]
+    },
+    {
+      "id": "show_band",
+      "name": "上海迪士尼乐团",
+      "subtype": "户外乐队演出",
+      "rating": 3,
+      "ranking": 7,
+      "tags": [
+        "tag_type_live_show"
+      ],
+      "location": "米奇大街",
+      "duration_minutes": 10,
+      "schedule_tip": "不定时演出，路过可以驻足欣赏",
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "review_ids": [],
+      "opinion_ids": [],
+      "warning_ids": [],
+      "zone_ids": [
+        "tag_zone_mickey"
+      ]
+    },
+    {
+      "id": "show_color_party",
+      "name": "迪士尼彩色庆典：街头派对",
+      "subtype": "街头派对",
+      "rating": 3,
+      "ranking": 8,
+      "tags": [
+        "tag_type_interactive_show"
+      ],
+      "location": "奇想花园",
+      "duration_minutes": 15,
+      "schedule_tip": "春季活动期间的特别演出",
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "review_ids": [],
+      "opinion_ids": [],
+      "warning_ids": [],
+      "zone_ids": [
+        "tag_zone_wonder"
+      ]
+    },
+    {
+      "id": "show_avengers",
+      "name": "复仇者联盟培训行动",
+      "subtype": "互动招募",
+      "rating": 3,
+      "ranking": 9,
+      "tags": [
+        "tag_type_interactive_show",
+        "tag_marvel_fan"
+      ],
+      "location": "明日世界E空间",
+      "duration_minutes": 15,
+      "schedule_tip": "漫威主题互动演出，可以参与'培训'",
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "review_ids": [],
+      "opinion_ids": [],
+      "warning_ids": [],
+      "zone_ids": [
+        "tag_zone_tomorrow"
+      ]
+    },
+    {
+      "id": "show_rhythm",
+      "name": "节奏探险之旅",
+      "subtype": "沉浸式音乐展",
+      "rating": 3,
+      "ranking": 10,
+      "tags": [
+        "tag_type_interactive_show"
+      ],
+      "location": "明日世界",
+      "duration_minutes": 15,
+      "schedule_tip": "2024年新增的沉浸式音乐体验",
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "review_ids": [],
+      "opinion_ids": [],
+      "warning_ids": [],
+      "zone_ids": [
+        "tag_zone_tomorrow"
+      ]
+    }
+  ]
+}
