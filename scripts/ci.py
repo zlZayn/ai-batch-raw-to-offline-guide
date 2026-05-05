@@ -1,11 +1,13 @@
-
 """CI 管线：数据校验 → 生成 HTML → 生成后验证。
 
 用法: python scripts/ci.py
 退出码: 0=全部通过, 1=有错误
 """
 
-import json, os, sys, re
+import json, os, sys, re, io
+
+if hasattr(sys.stdout, "buffer"):
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data", "v3")
@@ -59,22 +61,36 @@ def validate_data():
 
     # 构建查找表
     lookup = {}
-    for key, entities in [("attractions", attractions), ("shows", shows),
-                           ("restaurants", restaurants), ("dishes", dishes),
-                           ("tips", tips), ("warnings", warnings_data),
-                           ("shortcuts", shortcuts), ("itineraries", itineraries),
-                           ("reviews", reviews), ("opinions", opinions)]:
+    for key, entities in [
+        ("attractions", attractions),
+        ("shows", shows),
+        ("restaurants", restaurants),
+        ("dishes", dishes),
+        ("tips", tips),
+        ("warnings", warnings_data),
+        ("shortcuts", shortcuts),
+        ("itineraries", itineraries),
+        ("reviews", reviews),
+        ("opinions", opinions),
+    ]:
         for e in entities:
             lookup[e["id"]] = key
 
     # 1. ID 唯一性
     print("[1] ID 唯一性...")
     seen = {}
-    for key, entities in [("attractions", attractions), ("shows", shows),
-                           ("restaurants", restaurants), ("dishes", dishes),
-                           ("tips", tips), ("warnings", warnings_data),
-                           ("shortcuts", shortcuts), ("itineraries", itineraries),
-                           ("reviews", reviews), ("opinions", opinions)]:
+    for key, entities in [
+        ("attractions", attractions),
+        ("shows", shows),
+        ("restaurants", restaurants),
+        ("dishes", dishes),
+        ("tips", tips),
+        ("warnings", warnings_data),
+        ("shortcuts", shortcuts),
+        ("itineraries", itineraries),
+        ("reviews", reviews),
+        ("opinions", opinions),
+    ]:
         for e in entities:
             eid = e["id"]
             if eid in seen:
@@ -111,7 +127,9 @@ def validate_data():
                 if ref_id not in lookup:
                     err(f"{entity_key}/{e['id']}.{ref_field} → {ref_id} 不存在")
                 elif lookup[ref_id] != target_type:
-                    err(f"{entity_key}/{e['id']}.{ref_field} → {ref_id} 类型为 {lookup[ref_id]}，期望 {target_type}")
+                    err(
+                        f"{entity_key}/{e['id']}.{ref_field} → {ref_id} 类型为 {lookup[ref_id]}，期望 {target_type}"
+                    )
     # reviews/opinions target_id
     for r in reviews:
         tid = r.get("target_id")
@@ -126,10 +144,15 @@ def validate_data():
 
     # 3. tags 引用
     print("[3] tags 引用...")
-    for key, entities in [("attractions", attractions), ("shows", shows),
-                           ("restaurants", restaurants), ("dishes", dishes),
-                           ("tips", tips), ("warnings", warnings_data),
-                           ("shortcuts", shortcuts)]:
+    for key, entities in [
+        ("attractions", attractions),
+        ("shows", shows),
+        ("restaurants", restaurants),
+        ("dishes", dishes),
+        ("tips", tips),
+        ("warnings", warnings_data),
+        ("shortcuts", shortcuts),
+    ]:
         for e in entities:
             for t in e.get("tags", []):
                 if t not in all_tags:
@@ -139,9 +162,13 @@ def validate_data():
 
     # 4. zone_ids 引用
     print("[4] zone_ids 引用...")
-    for key, entities in [("attractions", attractions), ("shows", shows),
-                           ("restaurants", restaurants), ("dishes", dishes),
-                           ("warnings", warnings_data)]:
+    for key, entities in [
+        ("attractions", attractions),
+        ("shows", shows),
+        ("restaurants", restaurants),
+        ("dishes", dishes),
+        ("warnings", warnings_data),
+    ]:
         for e in entities:
             for z in e.get("zone_ids", []):
                 if z not in zone_tag_ids:
@@ -153,8 +180,12 @@ def validate_data():
     print("[5] 客观字段校验...")
     # attractions
     for a in attractions:
-        if a.get("duration_minutes") is not None and not isinstance(a["duration_minutes"], (int, float)):
-            err(f"attractions/{a['id']}.duration_minutes 类型错误: {type(a['duration_minutes']).__name__}")
+        if a.get("duration_minutes") is not None and not isinstance(
+            a["duration_minutes"], (int, float)
+        ):
+            err(
+                f"attractions/{a['id']}.duration_minutes 类型错误: {type(a['duration_minutes']).__name__}"
+            )
         if not isinstance(a.get("indoor", True), bool):
             err(f"attractions/{a['id']}.indoor 不是布尔值")
         if not isinstance(a.get("water_splash", False), bool):
@@ -171,9 +202,13 @@ def validate_data():
             err(f"shows/{s['id']}.is_seasonal 不是布尔值")
     # restaurants
     for r in restaurants:
-        if r.get("average_price") is not None and not isinstance(r["average_price"], (int, float)):
+        if r.get("average_price") is not None and not isinstance(
+            r["average_price"], (int, float)
+        ):
             err(f"restaurants/{r['id']}.average_price 类型错误")
-        if r.get("business_hours") is not None and not isinstance(r["business_hours"], str):
+        if r.get("business_hours") is not None and not isinstance(
+            r["business_hours"], str
+        ):
             err(f"restaurants/{r['id']}.business_hours 不是字符串")
         if not isinstance(r.get("indoor", True), bool):
             err(f"restaurants/{r['id']}.indoor 不是布尔值")
@@ -188,11 +223,17 @@ def validate_data():
 
     # 6. 字段一致性
     print("[6] 字段一致性...")
-    for entity_key, entities in [("attractions", attractions), ("shows", shows),
-                                  ("restaurants", restaurants), ("dishes", dishes),
-                                  ("tips", tips), ("warnings", warnings_data),
-                                  ("shortcuts", shortcuts)]:
-        if not entities: continue
+    for entity_key, entities in [
+        ("attractions", attractions),
+        ("shows", shows),
+        ("restaurants", restaurants),
+        ("dishes", dishes),
+        ("tips", tips),
+        ("warnings", warnings_data),
+        ("shortcuts", shortcuts),
+    ]:
+        if not entities:
+            continue
         field_sets = [set(e.keys()) for e in entities]
         common = set.intersection(*field_sets)
         all_fields = set.union(*field_sets)
@@ -201,6 +242,58 @@ def validate_data():
             warn(f"{entity_key}: 字段差异: {sorted(extra)}")
         else:
             ok(f"{entity_key}: {len(common)} 个字段一致")
+
+    # 7. 双向链接一致性（确保正反方向互相匹配）
+    print("[7] 双向链接一致性...")
+    reviews_by_id = {r["id"]: r for r in reviews}
+    opinions_by_id = {o["id"]: o for o in opinions}
+    dishes_by_id = {d["id"]: d for d in dishes}
+    warnings_by_id = {w["id"]: w for w in warnings_data}
+    restaurants_by_id = {r["id"]: r for r in restaurants}
+
+    bidir_checks = [
+        # entity_key, entities, forward_field, reverse_map_key, reverse_field
+        # 检查：entity.forward_field 中引用的对象，其 reverse_field 必须包含 entity.id
+        ("attractions", attractions, "review_ids", reviews_by_id, "target_id"),
+        ("attractions", attractions, "opinion_ids", opinions_by_id, "target_id"),
+        ("attractions", attractions, "warning_ids", warnings_by_id, "attraction_ids"),
+        ("shows", shows, "opinion_ids", opinions_by_id, "target_id"),
+        ("shows", shows, "warning_ids", warnings_by_id, "show_ids"),
+        (
+            "restaurants",
+            restaurants,
+            "recommended_dish_ids",
+            dishes_by_id,
+            "restaurant_ids",
+        ),
+        ("restaurants", restaurants, "review_ids", reviews_by_id, "target_id"),
+        ("restaurants", restaurants, "opinion_ids", opinions_by_id, "target_id"),
+        ("restaurants", restaurants, "warning_ids", warnings_by_id, "restaurant_ids"),
+        ("dishes", dishes, "review_ids", reviews_by_id, "target_id"),
+        ("dishes", dishes, "opinion_ids", opinions_by_id, "target_id"),
+        ("dishes", dishes, "restaurant_ids", restaurants_by_id, "recommended_dish_ids"),
+        ("tips", tips, "opinion_ids", opinions_by_id, "target_id"),
+    ]
+    for entity_key, entities, forward_field, reverse_map, reverse_field in bidir_checks:
+        for e in entities:
+            for ref_id in e.get(forward_field, []):
+                ref_obj = reverse_map.get(ref_id)
+                if ref_obj is None:
+                    continue  # 存在性已由[2]覆盖
+                if reverse_field == "target_id":
+                    expected = e["id"]
+                    actual = ref_obj.get("target_id")
+                    if actual != expected:
+                        err(
+                            f"{entity_key}/{e['id']}.{forward_field} → {ref_id} 的 target_id 指向 {actual}，期望 {expected}"
+                        )
+                else:
+                    if e["id"] not in ref_obj.get(reverse_field, []):
+                        err(
+                            f"{entity_key}/{e['id']}.{forward_field} → {ref_id}，但 {ref_id}.{reverse_field} 不含 {e['id']}"
+                        )
+    if not any("双向链接" in e for e in errors):
+        ok("所有双向链接一致")
 
     return len(errors) == 0
 
@@ -234,13 +327,15 @@ def validate_html():
 
     # 1. div 配对检查（近似计数，Jinja2 条件渲染会导致误差）
     print("[1] div 标签配对...")
-    opens = len(re.findall(r'<div\b[^/]*>', html))
-    closes = len(re.findall(r'</div>', html))
+    opens = len(re.findall(r"<div\b[^/]*>", html))
+    closes = len(re.findall(r"</div>", html))
     diff = abs(opens - closes)
     if diff > 50:
         err(f"div 严重不配对: 开 {opens} 个, 闭 {closes} 个, 差 {opens - closes}")
     elif diff > 0:
-        warn(f"div 轻微不配对: 开 {opens} 个, 闭 {closes} 个, 差 {opens - closes}（Jinja2 条件渲染正常现象）")
+        warn(
+            f"div 轻微不配对: 开 {opens} 个, 闭 {closes} 个, 差 {opens - closes}（Jinja2 条件渲染正常现象）"
+        )
     else:
         ok(f"div 配对正确 ({opens} 个)")
 
@@ -257,8 +352,16 @@ def validate_html():
 
     # 3. 颜色变量检查
     print("[3] 颜色变量...")
-    color_vars = ["--c-attraction", "--c-show", "--c-restaurant", "--c-dish",
-                  "--c-tip", "--c-warning", "--c-shortcut", "--c-itinerary"]
+    color_vars = [
+        "--c-attraction",
+        "--c-show",
+        "--c-restaurant",
+        "--c-dish",
+        "--c-tip",
+        "--c-warning",
+        "--c-shortcut",
+        "--c-itinerary",
+    ]
     for cv in color_vars:
         if cv not in html:
             err(f"缺少颜色变量 {cv}")
@@ -275,10 +378,20 @@ def validate_html():
 
     # 5. 关键渲染函数存在
     print("[5] 渲染函数...")
-    required_funcs = ["renderAttractionDetail", "renderShowDetail", "renderDishDetail",
-                      "renderRestaurantDetail", "renderItineraryDetail", "renderTipDetail",
-                      "renderWarningDetail", "renderShortcutDetail", "renderRelations",
-                      "renderReviews", "renderOpinions", "renderWarnings"]
+    required_funcs = [
+        "renderAttractionDetail",
+        "renderShowDetail",
+        "renderDishDetail",
+        "renderRestaurantDetail",
+        "renderItineraryDetail",
+        "renderTipDetail",
+        "renderWarningDetail",
+        "renderShortcutDetail",
+        "renderRelations",
+        "renderReviews",
+        "renderOpinions",
+        "renderWarnings",
+    ]
     for fn in required_funcs:
         if f"function {fn}" not in html:
             err(f"缺少函数 {fn}")
@@ -290,7 +403,9 @@ def validate_html():
     inline_styles = re.findall(r'class="card" style="[^"]*"', html)
     # 排除已知的特殊用途内联样式
     allowed_patterns = ["background:linear-gradient", "margin-top:20px"]
-    real_issues = [s for s in inline_styles if not any(p in s for p in allowed_patterns)]
+    real_issues = [
+        s for s in inline_styles if not any(p in s for p in allowed_patterns)
+    ]
     if real_issues:
         for s in real_issues:
             err(f"残留内联 style: {s}")
@@ -304,7 +419,7 @@ def validate_html():
     detail_end = html.find("function renderPreparations")
     if detail_start > 0 and detail_end > detail_start:
         detail_html = html[detail_start:detail_end]
-        emoji_titles = re.findall(r'section-title[^>]*>[📌⚡⚠️]', detail_html)
+        emoji_titles = re.findall(r"section-title[^>]*>[📌⚡⚠️]", detail_html)
         if emoji_titles:
             for t in emoji_titles:
                 err(f"残留 emoji section-title: {t}")
@@ -316,16 +431,25 @@ def validate_html():
     # 8. renderEntityLinks 使用检查（详情页函数体内不应直接调用）
     print("[8] renderEntityLinks 使用检查...")
     # 提取各详情页函数体（不含 renderRelations 内部）
-    detail_funcs = ["renderAttractionDetail", "renderShowDetail", "renderDishDetail",
-                    "renderRestaurantDetail", "renderItineraryDetail", "renderTipDetail",
-                    "renderWarningDetail", "renderShortcutDetail"]
+    detail_funcs = [
+        "renderAttractionDetail",
+        "renderShowDetail",
+        "renderDishDetail",
+        "renderRestaurantDetail",
+        "renderItineraryDetail",
+        "renderTipDetail",
+        "renderWarningDetail",
+        "renderShortcutDetail",
+    ]
     entity_link_in_detail = 0
     for fn in detail_funcs:
         fn_start = html.find(f"function {fn}")
-        if fn_start < 0: continue
+        if fn_start < 0:
+            continue
         # 找到函数结尾（下一个 function 或文件末尾）
         fn_end = html.find("\nfunction ", fn_start + 1)
-        if fn_end < 0: fn_end = len(html)
+        if fn_end < 0:
+            fn_end = len(html)
         fn_body = html[fn_start:fn_end]
         # 排除 renderRelations 内部的调用
         rel_start = fn_body.find("renderRelations")
@@ -333,7 +457,7 @@ def validate_html():
             check_body = fn_body[:rel_start]
         else:
             check_body = fn_body
-        entity_link_in_detail += len(re.findall(r'renderEntityLinks\(', check_body))
+        entity_link_in_detail += len(re.findall(r"renderEntityLinks\(", check_body))
     if entity_link_in_detail > 0:
         err(f"详情页函数中有 {entity_link_in_detail} 处 renderEntityLinks 调用")
     else:

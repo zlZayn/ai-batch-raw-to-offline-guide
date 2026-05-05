@@ -170,7 +170,9 @@
         "md_xhs_01"
       ],
       "recommended_dish_ids": [
-        "dish_chicken_cartilage_platter"
+        "dish_chicken_cartilage_platter",
+        "dish_slush_green_apple",
+        "dish_slush_blueberry"
       ],
       "location": "侏罗纪世界",
       "review_ids": [
@@ -231,7 +233,9 @@
       "recommended_dish_ids": [
         "dish_peking_duck_pizza",
         "dish_four_cheese_pizza",
-        "dish_spicy_chicken_wings"
+        "dish_spicy_chicken_wings",
+        "dish_tuna_pancake",
+        "dish_lasagna"
       ],
       "location": "变形金刚区",
       "review_ids": [
@@ -312,7 +316,10 @@
         "md_xhs_01"
       ],
       "location": "城市大道",
-      "recommended_dish_ids": [],
+      "recommended_dish_ids": [
+        "dish_oil_splash_noodles",
+        "dish_baozi"
+      ],
       "review_ids": [
         "rev_rest_11"
       ],
@@ -367,7 +374,9 @@
       ],
       "recommended_dish_ids": [
         "dish_slush_green_apple",
-        "dish_slush_blueberry"
+        "dish_slush_blueberry",
+        "dish_slush_banana",
+        "dish_slush_jasmine_peach"
       ],
       "review_ids": [
         "rev_rest_13"
@@ -394,7 +403,8 @@
       "recommended_dish_ids": [
         "dish_slush_green_apple",
         "dish_slush_blueberry",
-        "dish_slush_rainbow"
+        "dish_slush_rainbow",
+        "dish_slush_banana"
       ],
       "review_ids": [
         "rev_rest_14"

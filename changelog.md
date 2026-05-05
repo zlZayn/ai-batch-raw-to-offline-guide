@@ -4,7 +4,46 @@
 
 ---
 
-## 3.2.0 — 2026-04-09
+## 3.3.0 — 2026-05-05
+
+### 双向链接一致性检查 + 数据修复
+
+#### 一、ci.py 新增第 7 项：双向链接一致性
+
+新增 `bidir_checks` 检查，覆盖 13 组关联关系：
+
+| 正向声明 | 反向验证 |
+|---------|---------|
+| `attraction.review_ids` → | `review.target_id` 必须指向该 attraction |
+| `attraction.opinion_ids` → | `opinion.target_id` 必须指向该 attraction |
+| `attraction.warning_ids` → | `warning.attraction_ids` 必须包含该 attraction |
+| `show.opinion_ids` → | `opinion.target_id` 必须指向该 show |
+| `show.warning_ids` → | `warning.show_ids` 必须包含该 show |
+| `restaurant.recommended_dish_ids` → | `dish.restaurant_ids` 必须包含该 restaurant |
+| `restaurant.review_ids` → | `review.target_id` 必须指向该 restaurant |
+| `restaurant.opinion_ids` → | `opinion.target_id` 必须指向该 restaurant |
+| `restaurant.warning_ids` → | `warning.restaurant_ids` 必须包含该 restaurant |
+| `dish.review_ids` → | `review.target_id` 必须指向该 dish |
+| `dish.opinion_ids` → | `opinion.target_id` 必须指向该 dish |
+| `dish.restaurant_ids` → | `restaurant.recommended_dish_ids` 必须包含该 dish |
+| `tip.opinion_ids` → | `opinion.target_id` 必须指向该 tip |
+
+#### 二、数据修复：10 处双向链接不一致
+
+首次运行时发现 10 条真实数据不一致（全部为 dish ↔ restaurant 归属关系）：
+
+- `rest_cybertron` 缺失 2 道菜品反向引用（tuna_pancake、lasagna）
+- `rest_bubba_gump` 缺失 2 道菜品反向引用（oil_splash_noodles、baozi）
+- `rest_energy_crystal` 缺失 2 道菜品反向引用（两个雪泥）
+- `rest_nublar_slush` 缺失 2 道菜品反向引用（banana、jasmine_peach）
+- `rest_coke_tower_snack` 缺失 1 道菜品反向引用（banana）
+- `dish_slush_blueberry` 缺失 1 家餐厅反向引用（nublar_slush）
+
+#### 三、底层修复
+
+- 修复 Windows GBK 编码下 `✓` 无法打印的 bug（`sys.stdout` 改为 UTF-8）
+
+---## 3.2.0 — 2026-04-09
 
 ### 客观字段补全 + 样式统一 + CI 管线
 

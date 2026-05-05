@@ -409,6 +409,7 @@ scripts/ci.py            ← CI（检查这些字段的合法性）
 **(4) scripts/ci.py**
 - 去掉对 shows / shortcuts 的字段完整性检查
 - 去掉 ID 格式校验中的对应前缀
+- 去掉双向链接一致性检查中的对应关系
 - 检查是否有交叉校验依赖这两个类型
 
 **改完立刻跑 `python scripts/ci.py` 验证。**
@@ -454,6 +455,7 @@ scripts/ci.py            ← CI（检查这些字段的合法性）
 - 加 shopping 的字段完整性校验
 - 加 ID 格式校验
 - 加引用完整性校验
+- 加双向链接一致性检查（`bidir_checks` 列表新增一组正向→反向校验）
 
 **改完立刻跑 `python scripts/ci.py` 验证。**
 

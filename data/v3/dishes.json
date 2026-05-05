@@ -480,7 +480,8 @@
       "name": "蓝莓雪泥",
       "restaurant_ids": [
         "rest_coke_tower_snack",
-        "rest_energy_crystal"
+        "rest_energy_crystal",
+        "rest_nublar_slush"
       ],
       "alternatives": [],
       "source_files": [
