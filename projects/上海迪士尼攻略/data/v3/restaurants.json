@@ -38,7 +38,8 @@
         "src_shanghai_disney"
       ],
       "recommended_dish_ids": [
-        "dish_manyue_main"
+        "dish_manyue_main",
+        "dish_noodle_soup"
       ],
       "location": "梦幻世界",
       "review_ids": [
@@ -68,7 +69,8 @@
       ],
       "recommended_dish_ids": [
         "dish_ribs",
-        "dish_turkey_leg"
+        "dish_turkey_leg",
+        "dish_fish_chips"
       ],
       "location": "宝藏湾",
       "review_ids": [
@@ -119,7 +121,8 @@
       ],
       "recommended_dish_ids": [
         "dish_pizza",
-        "dish_pasta"
+        "dish_pasta",
+        "dish_mickey_waffle"
       ],
       "location": "梦幻世界",
       "review_ids": [],
@@ -168,7 +171,8 @@
         "src_shanghai_disney"
       ],
       "recommended_dish_ids": [
-        "dish_burger"
+        "dish_burger",
+        "dish_fried_chicken"
       ],
       "location": "明日世界",
       "review_ids": [],
@@ -204,6 +208,51 @@
       "average_price": 100,
       "indoor": false,
       "business_hours": "11:00-20:30"
+    },
+    {
+      "id": "rest_zootopia_dining",
+      "name": "疯狂动物城主题餐饮",
+      "tags": [
+        "tag_restaurant"
+      ],
+      "recommended_dish_ids": [
+        "dish_zootopia_meal"
+      ],
+      "location": "疯狂动物城",
+      "review_ids": [],
+      "opinion_ids": [],
+      "warning_ids": [],
+      "zone_ids": [
+        "tag_zoomania"
+      ],
+      "average_price": 80,
+      "indoor": true,
+      "business_hours": "10:00-20:00"
+    },
+    {
+      "id": "rest_snack_stalls",
+      "name": "园区小食亭",
+      "tags": [
+        "tag_snack"
+      ],
+      "recommended_dish_ids": [
+        "dish_turkey_leg",
+        "dish_popcorn_bucket",
+        "dish_mickey_icecream",
+        "dish_spring_rolls",
+        "dish_churro",
+        "dish_frozen_coke"
+      ],
+      "location": "各园区均有分布",
+      "review_ids": [],
+      "opinion_ids": [],
+      "warning_ids": [],
+      "zone_ids": [
+        "tag_zone_fantasy"
+      ],
+      "average_price": 60,
+      "indoor": false,
+      "business_hours": "09:00-20:30"
     }
   ]
 }

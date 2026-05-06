@@ -553,5 +553,24 @@
 
 ---
 
+| 文件 | 数量 | 状态 |
+|------|:----:|:----:|
+| attractions | 22 | ✅ 完成 |
+| shows | 14 | ✅ 完成 |
+| restaurants | 10 | ✅ 完成 |
+| dishes | 20 | ✅ 完成 |
+| tips | 17 | ✅ 完成 |
+| warnings | 17 | ✅ 完成 |
+| shortcuts | 5 | ?? 待确认（基于 v3 原始数据，请核实准确性） |
+| itineraries | 2 | ✅ 完成（含一日游高效路线） |
+| reviews | 29 | ✅ 完成 |
+| opinions | 11 | ✅ 完成 |
+| tags | 49 | ✅ 完成 |
+| preparations | 19 | ?? 待确认（基于根目录 v3 模板） |
+
+生成：`python scripts/ci.py` 或 `python scripts/stats.py projects/上海迪士尼攻略/data/v3`
+
+---
+
 *资料来源：百度百科（截至 2026 年更新）、上海迪士尼度假区官网公告、公开新闻报道*
 *本文件仅供内部整理使用，后续将转化为结构化 JSON 数据输入到攻略生成系统中*

@@ -245,6 +245,99 @@
         "src_shanghai_disney"
       ],
       "zone_ids": []
+    },
+    {
+      "id": "warn_weather_01",
+      "category": "天气应对",
+      "content": "夏季（7-8月）高温暴晒+雷阵雨频繁，注意防暑降温+雨具。冬季（12-2月）阴冷潮湿需保暖。台风天气可能会缩短运营时间或闭园",
+      "severity": "high",
+      "alternative": "出行前看天气预报，夏季带折叠伞和防晒，冬季带暖宝宝",
+      "alternative_details": "春秋最佳游玩季节：4-5月、9-10月，天气舒适人相对少",
+      "tags": [
+        "tag_clothing"
+      ],
+      "attraction_ids": [],
+      "restaurant_ids": [],
+      "show_ids": [],
+      "shortcut_ids": [],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "zone_ids": []
+    },
+    {
+      "id": "warn_powerbank_01",
+      "category": "必备物品",
+      "content": "园区共享充电宝经常借空，建议自带20000mAh以上充电宝。手机需要一直用Disney App查排队时间，耗电极快",
+      "severity": "high",
+      "alternative": "自带大容量充电宝",
+      "alternative_details": "手机没电=无法看排队时间、抢等候卡、导航，是园内最致命的问题之一",
+      "tags": [],
+      "attraction_ids": [],
+      "restaurant_ids": [],
+      "show_ids": [],
+      "shortcut_ids": [],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "zone_ids": []
+    },
+    {
+      "id": "warn_shoes_01",
+      "category": "穿着建议",
+      "content": "日均步数20000+，不要穿新鞋或高跟鞋。穿已经磨合过的运动鞋是最重要的准备之一。走一天路脚后跟容易磨出水泡，建议穿棉质长袜",
+      "severity": "high",
+      "alternative": "穿旧运动鞋+棉袜",
+      "alternative_details": "穿长袜——棉质长袜能大幅减少脚后跟磨出水泡的问题",
+      "tags": [
+        "tag_clothing"
+      ],
+      "attraction_ids": [],
+      "restaurant_ids": [],
+      "show_ids": [],
+      "shortcut_ids": [],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "zone_ids": []
+    },
+    {
+      "id": "warn_parking_01",
+      "category": "交通提醒",
+      "content": "停车场收费昂贵（2024.8.8起）：首小时14元，之后每半小时+7元，全天封顶112元。7:00-11:30入场按100元/天计费",
+      "severity": "medium",
+      "alternative": "坐地铁11号线到迪士尼站，方便又省钱",
+      "alternative_details": "自驾：西入口（度假区高架路）、东入口（阳光大道）、南入口（星光大道）。P5/P6停车场每次60元",
+      "tags": [
+        "tag_save_money"
+      ],
+      "attraction_ids": [],
+      "restaurant_ids": [],
+      "show_ids": [],
+      "shortcut_ids": [],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "zone_ids": []
+    },
+    {
+      "id": "warn_prohibited_01",
+      "category": "安检提醒",
+      "content": "以下物品不可带入：自拍杆（伸缩式）、大型三脚架、轮滑鞋/滑板/平衡车、无人机、武器类玩具（含仿真）。折叠椅/野餐垫部分安检口会拦",
+      "severity": "high",
+      "alternative": "出发前检查背包，确认没有违禁品",
+      "alternative_details": "手持短柄自拍杆部分安检口放行看运气，不建议冒险。微单+小镜头一般没问题",
+      "tags": [
+        "tag_prohibited"
+      ],
+      "attraction_ids": [],
+      "restaurant_ids": [],
+      "show_ids": [],
+      "shortcut_ids": [],
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "zone_ids": []
     }
   ]
 }

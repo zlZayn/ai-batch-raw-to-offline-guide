@@ -125,6 +125,166 @@
       "title": "花车巡游是快乐源泉",
       "content": "当音乐响起花车出来的瞬间真的会被治愈！所有演职人员都在挥手笑，那种感染力太强了。不管几岁看到米奇花车出来都会开心得像个孩子",
       "date": "2026-02"
+    },
+    {
+      "id": "rev_attr_tron_01",
+      "target_type": "attractions",
+      "target_id": "attr_tron",
+      "content": "摩托车式过山车太刺激了！速度感极强，电子世界的特效超酷",
+      "sentiment": "positive",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
+    },
+    {
+      "id": "rev_attr_tron_02",
+      "target_type": "attractions",
+      "target_id": "attr_tron",
+      "content": "速度太快有点吓人，但体验很独特值得一试",
+      "sentiment": "positive",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
+    },
+    {
+      "id": "rev_attr_soaring_01",
+      "target_type": "attractions",
+      "target_id": "attr_soaring",
+      "content": "俯瞰世界各地的感觉太棒了，最后长城的画面最震撼",
+      "sentiment": "positive",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
+    },
+    {
+      "id": "rev_attr_soaring_02",
+      "target_type": "attractions",
+      "target_id": "attr_soaring",
+      "content": "排了2小时的队体验5分钟，值不值看个人",
+      "sentiment": "neutral",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
+    },
+    {
+      "id": "rev_attr_zootopia_01",
+      "target_type": "attractions",
+      "target_id": "attr_zootopia",
+      "content": "动物城还原度超高，热力追踪的沉浸感无敌",
+      "sentiment": "positive",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
+    },
+    {
+      "id": "rev_attr_zootopia_02",
+      "target_type": "attractions",
+      "target_id": "attr_zootopia",
+      "content": "排队太久了，希望能增加运力",
+      "sentiment": "neutral",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
+    },
+    {
+      "id": "rev_attr_pirates_01",
+      "target_type": "attractions",
+      "target_id": "attr_pirates",
+      "content": "加勒比海盗太震撼了！巨型多媒体屏幕+实体特效的结合效果绝了",
+      "sentiment": "positive",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
+    },
+    {
+      "id": "rev_attr_rapids_01",
+      "target_type": "attractions",
+      "target_id": "attr_rapids",
+      "content": "漂流刺激但一定会湿，雨衣必备",
+      "sentiment": "positive",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
+    },
+    {
+      "id": "rev_attr_rapids_02",
+      "target_type": "attractions",
+      "target_id": "attr_rapids",
+      "content": "被淋得浑身湿透但很好玩",
+      "sentiment": "positive",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
+    },
+    {
+      "id": "rev_attr_mine_01",
+      "target_type": "attractions",
+      "target_id": "attr_mine_train",
+      "content": "小矮人矿山车全家都爱，不太刺激但很有意思",
+      "sentiment": "positive",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
+    },
+    {
+      "id": "rev_show_illuminations_01",
+      "target_type": "shows",
+      "target_id": "show_illuminations",
+      "content": "烟花秀太美了，城堡光影+烟花的组合让人流泪",
+      "sentiment": "positive",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
+    },
+    {
+      "id": "rev_show_illuminations_02",
+      "target_type": "shows",
+      "target_id": "show_illuminations",
+      "content": "人太多了根本拍不到好照片",
+      "sentiment": "negative",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
+    },
+    {
+      "id": "rev_show_parade_01",
+      "target_type": "shows",
+      "target_id": "show_parade",
+      "content": "花车巡游氛围超好，每个迪士尼角色都活力满满",
+      "sentiment": "positive",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
+    },
+    {
+      "id": "rev_show_jack_01",
+      "target_type": "shows",
+      "target_id": "show_jack_sparrow",
+      "content": "杰克船长的特技表演太精彩了，爆炸效果震撼",
+      "sentiment": "positive",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
+    },
+    {
+      "id": "rev_rest_barbosar_01",
+      "target_type": "restaurants",
+      "target_id": "rest_barbosar",
+      "content": "海盗主题餐厅氛围很好，肋排分量足",
+      "sentiment": "positive",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
+    },
+    {
+      "id": "rev_rest_manyue_01",
+      "target_type": "restaurants",
+      "target_id": "rest_manyue",
+      "content": "中式套餐精致好吃，环境好适合约会",
+      "sentiment": "positive",
+      "source_files": [
+        "src_shanghai_disney"
+      ]
     }
   ]
 }

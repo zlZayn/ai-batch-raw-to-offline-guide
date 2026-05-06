@@ -7,7 +7,8 @@
       "name": "火鸡腿（标志性大火鸡腿）",
       "restaurant_ids": [
         "rest_barbosar",
-        "rest_old_vine"
+        "rest_old_vine",
+        "rest_snack_stalls"
       ],
       "alternatives": [
         {
@@ -206,7 +207,9 @@
     {
       "id": "dish_mickey_icecream",
       "name": "米奇头冰淇淋/米妮甜筒",
-      "restaurant_ids": [],
+      "restaurant_ids": [
+        "rest_snack_stalls"
+      ],
       "alternatives": [],
       "source_files": [
         "src_shanghai_disney"
@@ -225,7 +228,9 @@
     {
       "id": "dish_popcorn_bucket",
       "name": "爆米花桶（每季度换造型）",
-      "restaurant_ids": [],
+      "restaurant_ids": [
+        "rest_snack_stalls"
+      ],
       "alternatives": [],
       "source_files": [
         "src_shanghai_disney"
@@ -279,6 +284,149 @@
       "zone_ids": [],
       "price": 70,
       "is_seasonal": true
+    },
+    {
+      "id": "dish_zootopia_meal",
+      "name": "动物城风格主题餐",
+      "restaurant_ids": [
+        "rest_zootopia_dining"
+      ],
+      "tags": [
+        "tag_dish_type_main",
+        "tag_taste_savory"
+      ],
+      "zone_ids": [
+        "tag_zoomania"
+      ],
+      "price": 80,
+      "review_ids": [],
+      "opinion_ids": [],
+      "is_seasonal": false
+    },
+    {
+      "id": "dish_fried_chicken",
+      "name": "炸鸡套餐",
+      "restaurant_ids": [
+        "rest_star_terrace"
+      ],
+      "tags": [
+        "tag_dish_type_main",
+        "tag_taste_savory"
+      ],
+      "zone_ids": [
+        "tag_zone_tomorrow"
+      ],
+      "price": 85,
+      "review_ids": [],
+      "opinion_ids": [],
+      "is_seasonal": false
+    },
+    {
+      "id": "dish_noodle_soup",
+      "name": "汤面套餐",
+      "restaurant_ids": [
+        "rest_manyue"
+      ],
+      "tags": [
+        "tag_dish_type_main",
+        "tag_taste_savory"
+      ],
+      "zone_ids": [
+        "tag_zone_fantasy"
+      ],
+      "price": 85,
+      "review_ids": [],
+      "opinion_ids": [],
+      "is_seasonal": false
+    },
+    {
+      "id": "dish_fish_chips",
+      "name": "炸鱼薯条",
+      "restaurant_ids": [
+        "rest_barbosar"
+      ],
+      "tags": [
+        "tag_dish_type_main",
+        "tag_taste_savory"
+      ],
+      "zone_ids": [
+        "tag_zone_treasure"
+      ],
+      "price": 110,
+      "review_ids": [],
+      "opinion_ids": [],
+      "is_seasonal": false
+    },
+    {
+      "id": "dish_spring_rolls",
+      "name": "迪士尼特色春卷",
+      "restaurant_ids": [
+        "rest_snack_stalls"
+      ],
+      "tags": [
+        "tag_dish_type_snack",
+        "tag_taste_savory"
+      ],
+      "zone_ids": [
+        "tag_zone_fantasy"
+      ],
+      "price": 40,
+      "review_ids": [],
+      "opinion_ids": [],
+      "is_seasonal": false
+    },
+    {
+      "id": "dish_churro",
+      "name": "迪士尼奇拿（肉桂甜条）",
+      "restaurant_ids": [
+        "rest_snack_stalls"
+      ],
+      "tags": [
+        "tag_dish_type_snack",
+        "tag_taste_sweet"
+      ],
+      "zone_ids": [
+        "tag_zone_fantasy"
+      ],
+      "price": 35,
+      "review_ids": [],
+      "opinion_ids": [],
+      "is_seasonal": false
+    },
+    {
+      "id": "dish_frozen_coke",
+      "name": "冰镇可乐",
+      "restaurant_ids": [
+        "rest_snack_stalls"
+      ],
+      "tags": [
+        "tag_dish_type_drink"
+      ],
+      "zone_ids": [
+        "tag_zone_fantasy"
+      ],
+      "price": 15,
+      "review_ids": [],
+      "opinion_ids": [],
+      "is_seasonal": false
+    },
+    {
+      "id": "dish_mickey_waffle",
+      "name": "米奇华夫饼",
+      "restaurant_ids": [
+        "rest_pinochio"
+      ],
+      "tags": [
+        "tag_dish_type_dessert",
+        "tag_taste_sweet"
+      ],
+      "zone_ids": [
+        "tag_zone_fantasy"
+      ],
+      "price": 55,
+      "review_ids": [],
+      "opinion_ids": [],
+      "is_seasonal": false
     }
   ]
 }

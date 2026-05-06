@@ -240,6 +240,96 @@
       "zone_ids": [
         "tag_zone_tomorrow"
       ]
+    },
+    {
+      "id": "show_lark_story",
+      "name": "百灵故事会",
+      "subtype": "木偶说故事",
+      "rating": 2,
+      "ranking": 11,
+      "tags": [
+        "tag_type_live_show",
+        "tag_kid_friendly"
+      ],
+      "location": "梦幻世界",
+      "duration_minutes": 20,
+      "schedule_tip": "适合低龄儿童的木偶说故事演出",
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "review_ids": [],
+      "opinion_ids": [],
+      "warning_ids": [],
+      "zone_ids": [
+        "tag_zone_fantasy"
+      ]
+    },
+    {
+      "id": "show_dream_festival",
+      "name": "梦幻节",
+      "subtype": "开园舞蹈",
+      "rating": 2,
+      "ranking": 12,
+      "tags": [
+        "tag_type_live_show"
+      ],
+      "location": "梦幻世界",
+      "duration_minutes": 15,
+      "schedule_tip": "早晨开园时的欢迎舞蹈表演",
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "review_ids": [],
+      "opinion_ids": [],
+      "warning_ids": [],
+      "zone_ids": [
+        "tag_zone_fantasy"
+      ]
+    },
+    {
+      "id": "show_tang_taichi",
+      "name": "唐式太极",
+      "subtype": "传统文化互动",
+      "rating": 2,
+      "ranking": 13,
+      "tags": [
+        "tag_type_interactive_show"
+      ],
+      "location": "奇想花园",
+      "duration_minutes": 10,
+      "schedule_tip": "迪士尼独特的中西文化融合演出，米奇教你打太极",
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "review_ids": [],
+      "opinion_ids": [],
+      "warning_ids": [],
+      "zone_ids": [
+        "tag_zone_wonder"
+      ]
+    },
+    {
+      "id": "show_surprise_parade",
+      "name": "奇妙惊喜巡游",
+      "subtype": "花车巡游",
+      "rating": 3,
+      "ranking": 14,
+      "tags": [
+        "tag_type_parade",
+        "tag_disney_fan"
+      ],
+      "location": "巡游路线",
+      "duration_minutes": 15,
+      "schedule_tip": "五周年限定花车巡游，季节性演出。与米奇童话专列不同，更强调惊喜元素",
+      "source_files": [
+        "src_shanghai_disney"
+      ],
+      "review_ids": [],
+      "opinion_ids": [],
+      "warning_ids": [],
+      "zone_ids": [
+        "tag_zone_mickey"
+      ]
     }
   ]
 }
