@@ -1,6 +1,6 @@
-"""
-基于 Schema 的数据验证器
-自动根据 schema.json 验证数据完整性和双向链接一致性
+"""Schema-driven data validator. Usage:
+python scripts/schema_validator.py
+python scripts/schema_validator.py <path/to/data>
 """
 
 import json
@@ -298,14 +298,19 @@ class SchemaValidator:
 
 
 def main():
-    """命令行入口"""
-    import argparse
-    parser = argparse.ArgumentParser(description="Schema 驱动的数据验证器")
-    parser.add_argument("--data-dir", "-d", help="数据目录路径（默认: ./data）")
-    parser.add_argument("--schema", "-s", help="Schema 文件路径（默认: ./schema.json）")
-    args = parser.parse_args()
+    """命令行入口。Usage:
+    python scripts/schema_validator.py
+    python scripts/schema_validator.py <path/to/data>
+    """
+    import sys
+    data_dir = DEFAULT_DATA_DIR
+    if len(sys.argv) > 1:
+        data_dir = os.path.join(BASE_DIR, sys.argv[1])
+    if not os.path.isdir(data_dir):
+        print(f"[ERR] {data_dir} not found")
+        sys.exit(1)
 
-    validator = SchemaValidator(data_dir=args.data_dir)
+    validator = SchemaValidator(data_dir=data_dir)
     validator.load_all_data()
     validator.build_lookup()
 
@@ -338,4 +343,4 @@ def main():
 
 
 if __name__ == "__main__":
-    exit(main())
+    main()
