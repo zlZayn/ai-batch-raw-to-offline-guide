@@ -4,7 +4,7 @@
 import json, os, math
 from collections import Counter, defaultdict
 
-DATA_DIR = os.path.join(os.path.dirname(__file__), '..', 'data', 'v3')
+DATA_DIR = os.path.join(os.path.dirname(__file__), '..', 'data')
 OUT_DIR = os.path.join(os.path.dirname(__file__), '..', 'output', 'data_analysis')
 os.makedirs(OUT_DIR, exist_ok=True)
 

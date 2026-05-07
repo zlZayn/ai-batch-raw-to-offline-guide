@@ -4,6 +4,51 @@
 
 ---
 
+## 3.4.0 — 2026-05-07
+
+### Schema 驱动架构重构
+
+#### 一、核心架构变更
+
+- **新增 `schema.json`**：声明式 Schema 定义，包含 13 种实体类型（meta、tags、attractions、shows、restaurants、dishes、tips、warnings、shortcuts、itineraries、reviews、opinions、preparations）及其字段、引用关系、反向引用规则
+
+- **新增 `scripts/schema_validator.py`**：Schema 驱动的数据验证器，支持：
+  - ID 唯一性检查
+  - 引用完整性验证（无悬空引用）
+  - 字段类型校验
+  - 双向链接一致性验证
+  - 命令行参数支持（`--data-dir`、`--schema`）
+
+- **新增 `generator/schema_generator.py`**：Schema 驱动的 HTML 生成器，支持：
+  - 自动根据 Schema 构建索引
+  - 子项目支持（`--data-dir`、`--template-dir`、`--output-dir`）
+  - 与旧版 `generate_guide.py` 输出完全一致
+
+#### 二、目录结构扁平化
+
+- **数据目录**：`data/v3/` → `data/`（13 个 JSON 文件直接存放）
+- **删除旧脚本**：`scripts/ci.py`、`generator/generate_guide.py`
+- **更新辅助脚本**：`analyze_data.py`、`export_xlsx.py`、`stats.py` 适配新路径
+
+#### 三、子项目支持
+
+- `projects/上海迪士尼攻略/` 复用根目录脚本
+- 支持独立数据目录验证和生成
+- 支持自定义模板目录
+
+#### 四、文档更新
+
+- `docs/usage.md`：完整重构，包含 Schema 驱动架构说明
+- `docs/workflow.md`：更新脚本引用
+- `docs/design.md`：更新数据路径说明
+- `README.md`：更新项目结构和命令说明
+
+#### 五、CI/CD 更新
+
+- `.github/workflows/static.yml`：改用 `schema_validator.py` + `schema_generator.py`
+
+---
+
 ## 3.3.0 — 2026-05-05
 
 ### 双向链接一致性检查 + 数据修复
@@ -259,14 +304,13 @@ v2 结构（版本目录包含所有内容）：
   v1/data/ + v1/docs/
   v2/data/ + v2/docs/ + v2/generator/ + v2/output/
 
-v3 结构（数据分版本，代码统一）：
-  data/v1/          ← 历史数据
-  data/v2/          ← 历史数据
-  data/v3/          ← 当前数据（统一 schema）
+v3 结构（Schema 驱动，数据扁平化）：
+  data/             ← 当前数据（Schema 驱动，扁平化）
+  schema.json       ← Schema 定义（实体、字段、关系）
   generator/        ← 生成脚本 + 模板
   output/           ← 最终产物
   docs/             ← 项目文档
-  scripts/          ← 数据迁移 + 校验工具
+  scripts/          ← Schema 驱动工具
 ```
 
 ---

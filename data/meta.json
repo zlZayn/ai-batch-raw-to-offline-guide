@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-08",
+  "last_updated": "2026-05-07",
   "park": {
     "name": "北京环球度假区",
     "name_en": "Universal Studios Beijing",
@@ -26,7 +26,7 @@
       "城市大道"
     ]
   },
-  "version": "2.0.0",
+  "version": "3.2.0",
   "source_files": [
     {
       "id": "src_img_01",
@@ -226,5 +226,19 @@
       "category": "supplementary",
       "type": "compiled"
     }
+  ],
+  "schema_version": "3.2.0",
+  "previous_version": "2.0.0",
+  "migration_date": "2026-04-08",
+  "changes": [
+    "zone_id → zone_ids (全实体统一为数组)",
+    "taste_tags → tags (dishes 统一)",
+    "warn_warn_* ID 规范化为 warn_{category}_{编号}",
+    "删除 6 条重复 warning",
+    "修正 9 条餐饮 warning 的 zone 标签",
+    "关联孤儿 warning 到对应实体",
+    "express_pass 价格类型统一为 object",
+    "restaurants 新增 warning_ids",
+    "preparations 新增 warning_ids"
   ]
 }
