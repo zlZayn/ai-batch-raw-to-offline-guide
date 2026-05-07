@@ -254,7 +254,9 @@ sys.stdout.write(rewrites.get(old, old) + "\n")
 
 ```bash
 # 用绝对路径调用脚本（filter-branch 会在临时目录下运行）
-git filter-branch --msg-filter "python D:/项目/path/to/msg_filter.py" -- --all
+# 示例（Windows）：git filter-branch --msg-filter "python D:/项目/path/to/msg_filter.py" -- --all
+# 示例（Linux/Mac）：git filter-branch --msg-filter "python /home/user/project/msg_filter.py" -- --all
+git filter-branch --msg-filter "python /absolute/path/to/msg_filter.py" -- --all
 ```
 
 **3. 清理备份 ref**

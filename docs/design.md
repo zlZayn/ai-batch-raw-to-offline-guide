@@ -6,7 +6,9 @@
 
 **核心场景**：园区内手机信号差或无网络时，仍能完整使用所有功能。
 
-**数据规模**：内嵌全量结构化数据（17项目、15演出、15餐厅、40菜品、14技巧、33避雷、47标签11分类、101评价、24观点），最终产物 `guide.html` 约 350KB，微信均可直接发送。
+**数据规模**：内嵌全量结构化数据（17项目、15演出、15餐厅、40菜品、3秘密小道、2行程方案、14技巧、33避雷、8行前准备模块、47标签11分类、101评价、24观点），最终产物 `guide.html` 约 350KB，微信均可直接发送。
+
+> **注**：`meta.json` 与其他 JSON 文件不同，它不包含实体数组，而是存放项目元信息（园区配置、版本信息）和源文件索引。
 
 ## 2. 技术选型
 
@@ -39,7 +41,7 @@
 | 行程方案 | 2 | itineraries.json | `#itineraries` | `#itinerary/{id}` |
 | 隐藏技巧 | 14 | tips.json | `#tips` | `#tip/{id}` |
 | 避雷 | 33 | warnings.json | `#warnings`（按严重度排序） | `#warning/{id}` |
-| 行前准备 | 8模块 | preparations.json | `#preparations`（模块入口） | `#preparation/{section}` |
+| 行前准备 | 8模块 | preparations.json | `#preparations`（模块入口） | `#preparations/{section}` |
 | 标签 | 47（11分类） | tags.json | `#tags`（按分类展示） | `#tag/{id}`（关联所有实体） |
 | 元数据 | 1组 | meta.json | 无 | 无 |
 
