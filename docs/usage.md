@@ -322,9 +322,51 @@ AI 自动运行校验命令
 }
 ```
 
+## reviews（评价）
+
+```json
+{
+  "id": "rev_attr_01",
+  "target_type": "attraction",
+  "target_id": "attr_forbidden_journey",
+  "content": "评价内容",
+  "sentiment": "positive",
+  "source_files": ["md_xxx"]
+}
+```
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| `target_type` | string | 目标实体类型（attraction/show/restaurant/dish） |
+| `target_id` | string | 目标实体 ID |
+| `content` | string | 评价内容 |
+| `sentiment` | string | 情感倾向：positive/negative/neutral |
+
+## opinions（观点）
+
+```json
+{
+  "id": "op_xxx",
+  "target_type": "attraction",
+  "target_id": "attr_xxx",
+  "stance": "pro",
+  "claim": "观点主张",
+  "reasoning": "论证理由",
+  "source_files": ["md_xxx"]
+}
+```
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| `target_type` | string | 目标实体类型 |
+| `target_id` | string | 目标实体 ID |
+| `stance` | string | 立场：pro（正方）/ contra（反方） |
+| `claim` | string | 观点主张（一句话） |
+| `reasoning` | string | 详细论证理由 |
+
 ## 其余实体
 
-shows / shortcuts / itineraries / reviews / opinions / preparations — 请直接读取 `data/v3/` 下对应文件作为参考。**不要假设字段名，必须与现有文件一致。**
+shows / shortcuts / itineraries / preparations — 请直接读取 `data/v3/` 下对应文件作为参考。**不要假设字段名，必须与现有文件一致。**
 
 ## ID 命名规范
 
