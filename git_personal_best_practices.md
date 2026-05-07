@@ -12,6 +12,7 @@
 | 遇到了问题想救命 | [踩坑自救 - 撤销速查表](#31-撤销操作速查表) |
 | 想改写已推送的提交信息 | [场景 5：批量改写已推送的提交信息](#场景-5批量改写已推送的提交信息) |
 | 想让 Git 更顺手 | [配置优化](#四配置优化) |
+| 要用命令行创建/合并 PR | [PR 工作流规范](#六pr-工作流规范github-cli) |
 
 ---
 
@@ -576,3 +577,105 @@ API_KEY=your_api_key_here
 ---
 
 > **个人项目的 Git 规范不是为了给别人看，而是为了给三个月后的自己少挖坑。**
+
+---
+
+## 六、PR 工作流规范（GitHub CLI）
+
+> 以下流程用于通过命令行完成 PR 创建、审查和合并。
+
+### 6.1 推送前检查
+
+**检查提交信息是否符合规范：**
+
+```bash
+# 查看最后一次提交信息
+git log -1 --pretty=%B
+
+# 检查格式：类型: 描述
+# 类型: feat|fix|refactor|docs|style|perf|test|chore|init|wip|ci
+```
+
+**如果不符合规范，修改提交信息：**
+
+```bash
+# 修改最后一次提交信息
+git commit --amend -m "feat: correct commit message"
+
+# 如果已推送，强制推送（仅个人分支）
+git push --force-with-lease origin <branch>
+```
+
+### 6.2 创建 PR
+
+```bash
+# 1. 推送分支到远程
+git push origin feature/add-dark-mode
+
+# 2. 使用 GitHub CLI 创建 PR
+gh pr create \
+  --title "feat: add dark mode support" \
+  --body "## 变更内容
+- 具体变更点 1
+- 具体变更点 2
+
+## 检查清单
+- [ ] 代码通过 lint 检查
+- [ ] 本地测试通过
+- [ ] 提交信息符合规范
+
+## 关联 Issue
+Closes #123"
+
+# 3. 查看创建的 PR
+gh pr view
+```
+
+**PR 标题规范：** 与提交信息一致，使用 `<类型>: <描述>` 格式。
+
+### 6.3 PR 审查
+
+```bash
+# 查看 PR 列表
+gh pr list
+
+# 查看 PR 详情和 diff
+gh pr view <pr-number>
+gh pr diff <pr-number>
+
+# 本地检出测试
+gh pr checkout <pr-number>
+npm run test
+
+# 提交审查意见
+gh pr review <pr-number> --approve --body "LGTM!"
+gh pr review <pr-number> --request-changes --body "需要修改..."
+```
+
+### 6.4 合并 PR
+
+```bash
+# 确认 CI 检查通过
+gh pr checks <pr-number>
+
+# 合并 PR（推荐 squash 保持历史整洁）
+gh pr merge <pr-number> --squash --delete-branch
+
+# 或普通合并
+gh pr merge <pr-number> --merge --delete-branch
+
+# 合并后清理本地分支
+git branch -d feature/add-dark-mode
+git remote prune origin
+```
+
+### 6.5 快捷别名
+
+```bash
+# GitHub CLI 别名（添加到 ~/.bashrc 或 ~/.zshrc）
+alias gpr='gh pr create'      # 创建 PR
+alias gpl='gh pr list'        # 查看 PR 列表
+alias gpv='gh pr view'        # 查看 PR
+alias gpc='gh pr checkout'    # 检出 PR
+alias gpm='gh pr merge'       # 合并 PR
+```
