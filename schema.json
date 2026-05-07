@@ -1,0 +1,426 @@
+{
+  "$schema": "guide-data-schema-v1",
+  "description": "通用攻略数据结构 Schema，定义实体、字段和关系",
+
+  "entities": {
+    "meta": {
+      "description": "元数据",
+      "singleton": true,
+      "fields": {
+        "version": { "type": "string", "required": true },
+        "last_updated": { "type": "string", "format": "date" },
+        "park": { "type": "object" }
+      }
+    },
+
+    "tags": {
+      "description": "标签系统",
+      "fields": {
+        "categories": { "type": "array", "itemType": "object" },
+        "tags": {
+          "type": "array",
+          "itemType": "object",
+          "fields": {
+            "id": { "type": "string", "required": true },
+            "name": { "type": "string", "required": true },
+            "category": { "type": "string", "required": true },
+            "description": { "type": "string" }
+          }
+        }
+      }
+    },
+
+    "attractions": {
+      "description": "游乐项目",
+      "fields": {
+        "id": { "type": "string", "required": true, "primaryKey": true },
+        "name": { "type": "string", "required": true },
+        "rating": { "type": "number", "min": 1, "max": 5 },
+        "ranking": { "type": "number" },
+        "subtype": { "type": "string" },
+        "duration_minutes": { "type": "number" },
+        "indoor": { "type": "boolean", "default": true },
+        "water_splash": { "type": "boolean", "default": false },
+        "single_rider": { "type": "boolean", "default": false },
+        "has_photo": { "type": "boolean", "default": false },
+        "zone_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "tags.tags",
+          "refFilter": { "category": "zone" },
+          "index": "zone_index"
+        },
+        "tags": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "tags.tags",
+          "index": "tag_index"
+        },
+        "review_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "reviews",
+          "backref": "target_id"
+        },
+        "opinion_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "opinions",
+          "backref": "target_id"
+        },
+        "warning_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "warnings",
+          "backref": "attraction_ids"
+        }
+      }
+    },
+
+    "shows": {
+      "description": "演出",
+      "fields": {
+        "id": { "type": "string", "required": true, "primaryKey": true },
+        "name": { "type": "string", "required": true },
+        "language": { "type": "string" },
+        "is_seasonal": { "type": "boolean", "default": false },
+        "location": { "type": "string" },
+        "zone_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "tags.tags",
+          "refFilter": { "category": "zone" },
+          "index": "zone_index"
+        },
+        "tags": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "tags.tags",
+          "index": "tag_index"
+        },
+        "opinion_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "opinions",
+          "backref": "target_id"
+        },
+        "warning_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "warnings",
+          "backref": "show_ids"
+        }
+      }
+    },
+
+    "restaurants": {
+      "description": "餐厅",
+      "fields": {
+        "id": { "type": "string", "required": true, "primaryKey": true },
+        "name": { "type": "string", "required": true },
+        "average_price": { "type": "number" },
+        "business_hours": { "type": "string" },
+        "indoor": { "type": "boolean", "default": true },
+        "location": { "type": "string" },
+        "zone_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "tags.tags",
+          "refFilter": { "category": "zone" },
+          "index": "zone_index"
+        },
+        "tags": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "tags.tags",
+          "index": "tag_index"
+        },
+        "recommended_dish_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "dishes",
+          "backref": "restaurant_ids"
+        },
+        "review_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "reviews",
+          "backref": "target_id"
+        },
+        "opinion_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "opinions",
+          "backref": "target_id"
+        },
+        "warning_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "warnings",
+          "backref": "restaurant_ids"
+        }
+      }
+    },
+
+    "dishes": {
+      "description": "菜品",
+      "fields": {
+        "id": { "type": "string", "required": true, "primaryKey": true },
+        "name": { "type": "string", "required": true },
+        "price": { "type": "number" },
+        "is_seasonal": { "type": "boolean", "default": false },
+        "zone_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "tags.tags",
+          "refFilter": { "category": "zone" },
+          "index": "zone_index"
+        },
+        "tags": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "tags.tags",
+          "index": "tag_index"
+        },
+        "restaurant_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "restaurants",
+          "backref": "recommended_dish_ids"
+        },
+        "review_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "reviews",
+          "backref": "target_id"
+        },
+        "opinion_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "opinions",
+          "backref": "target_id"
+        }
+      }
+    },
+
+    "tips": {
+      "description": "技巧/攻略",
+      "fields": {
+        "id": { "type": "string", "required": true, "primaryKey": true },
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "content": { "type": "string" },
+        "tags": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "tags.tags",
+          "index": "tag_index"
+        },
+        "attraction_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "attractions"
+        },
+        "opinion_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "opinions",
+          "backref": "target_id"
+        }
+      }
+    },
+
+    "warnings": {
+      "description": "避雷/警告",
+      "fields": {
+        "id": { "type": "string", "required": true, "primaryKey": true },
+        "content": { "type": "string", "required": true },
+        "category": { "type": "string" },
+        "severity": { "type": "string", "enum": ["high", "medium", "low"] },
+        "alternative": { "type": "string" },
+        "tags": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "tags.tags",
+          "index": "tag_index"
+        },
+        "attraction_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "attractions"
+        },
+        "show_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "shows"
+        },
+        "restaurant_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "restaurants"
+        },
+        "shortcut_ids": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "shortcuts"
+        }
+      }
+    },
+
+    "shortcuts": {
+      "description": "秘密小道/快捷方式",
+      "fields": {
+        "id": { "type": "string", "required": true, "primaryKey": true },
+        "name": { "type": "string", "required": true },
+        "from": { "type": "string" },
+        "to": { "type": "string" },
+        "route": { "type": "string" },
+        "savings": { "type": "string" },
+        "avoid_mistake": { "type": "string" },
+        "condition": { "type": "string" },
+        "tags": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "tags.tags",
+          "index": "tag_index"
+        }
+      }
+    },
+
+    "itineraries": {
+      "description": "行程安排",
+      "fields": {
+        "id": { "type": "string", "required": true, "primaryKey": true },
+        "name": { "type": "string", "required": true },
+        "description": { "type": "string" },
+        "tags": {
+          "type": "array",
+          "itemType": "string",
+          "ref": "tags.tags",
+          "index": "tag_index"
+        },
+        "time_slots": {
+          "type": "array",
+          "itemType": "object",
+          "fields": {
+            "period": { "type": "string" },
+            "items": {
+              "type": "array",
+              "itemType": "object",
+              "fields": {
+                "time": { "type": "string" },
+                "action": { "type": "string" },
+                "note": { "type": "string" },
+                "attraction_ids": {
+                  "type": "array",
+                  "itemType": "string",
+                  "ref": "attractions"
+                },
+                "show_ids": {
+                  "type": "array",
+                  "itemType": "string",
+                  "ref": "shows"
+                },
+                "restaurant_ids": {
+                  "type": "array",
+                  "itemType": "string",
+                  "ref": "restaurants"
+                }
+              }
+            }
+          }
+        },
+        "principles": { "type": "array", "itemType": "string" }
+      }
+    },
+
+    "reviews": {
+      "description": "评价",
+      "fields": {
+        "id": { "type": "string", "required": true, "primaryKey": true },
+        "target_id": {
+          "type": "string",
+          "required": true,
+          "ref": "attractions,shows,restaurants,dishes"
+        },
+        "content": { "type": "string" },
+        "rating": { "type": "number", "min": 1, "max": 5 },
+        "sentiment": { "type": "string", "enum": ["positive", "negative", "neutral", "mixed"] }
+      }
+    },
+
+    "opinions": {
+      "description": "对立观点",
+      "fields": {
+        "id": { "type": "string", "required": true, "primaryKey": true },
+        "target_id": {
+          "type": "string",
+          "required": true,
+          "ref": "attractions,shows,restaurants,dishes,tips"
+        },
+        "stance": { "type": "string", "enum": ["pro", "con"] },
+        "claim": { "type": "string" },
+        "reasoning": { "type": "string" }
+      }
+    },
+
+    "preparations": {
+      "description": "行前准备",
+      "singleton": true,
+      "fields": {
+        "transportation": { "type": "object" },
+        "clothing": { "type": "object" },
+        "essential_items": { "type": "array", "itemType": "object" },
+        "prohibited_items": { "type": "array", "itemType": "object" },
+        "best_dates": { "type": "object" },
+        "crowd_estimation": { "type": "object" },
+        "pre_trip_checklist": { "type": "array", "itemType": "object" },
+        "ticket_prices": { "type": "object" },
+        "parking": { "type": "object" },
+        "locker": { "type": "object" },
+        "rental": { "type": "object" }
+      }
+    }
+  },
+
+  "indexes": {
+    "auto": {
+      "tag_index": {
+        "description": "按标签索引实体",
+        "source": "entities.*.tags",
+        "groupBy": "entityType"
+      },
+      "zone_index": {
+        "description": "按园区索引实体",
+        "source": "entities.*.zone_ids",
+        "groupBy": "entityType"
+      }
+    },
+    "backrefs": {
+      "reviews_by_target": {
+        "description": "评价按目标实体分组",
+        "from": "reviews",
+        "by": "target_id"
+      },
+      "opinions_by_target": {
+        "description": "观点按目标实体分组",
+        "from": "opinions",
+        "by": "target_id"
+      },
+      "warnings_by_target": {
+        "description": "警告按目标实体分组",
+        "from": "warnings",
+        "by": ["attraction_ids", "show_ids", "restaurant_ids", "shortcut_ids"]
+      }
+    }
+  },
+
+  "templates": {
+    "helpers": {
+      "find": "根据 ID 和类型查找实体",
+      "findBackrefs": "查找反向引用",
+      "tagLookup": "标签 ID 转名称",
+      "zonesHtml": "园区 IDs 转 HTML"
+    }
+  }
+}

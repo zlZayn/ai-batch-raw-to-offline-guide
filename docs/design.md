@@ -326,7 +326,7 @@ warnings.json (扁平结构，33条)
 
 ### 数据更新策略
 
-数据以JSON文件形式存放在 `data/v3/` 目录，结构清晰、易于编辑。修改JSON后运行 `python scripts/ci.py` 即可自动校验数据完整性并重新生成 `guide.html`。这种"数据与模板分离"的设计让非技术人员也能更新攻略内容。
+数据以JSON文件形式存放在 `data/` 目录，结构清晰、易于编辑。修改JSON后运行 `python scripts/schema_validator.py` 验证数据完整性，再运行 `python generator/schema_generator.py` 重新生成 `guide.html`。这种"Schema 驱动、数据与模板分离"的设计让非技术人员也能更新攻略内容。
 
 ### 其他决策
 

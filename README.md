@@ -12,7 +12,7 @@
 
 所以去 **北京环球影城**之前，我决定先把这事做了——把所有项目排名、餐厅评价、隐藏技巧、避雷提醒全部整理成结构化数据，写了一个手机端离线网页。带着这个工具去的环球影城，亲测好用。
 
-做完后我发现，这套数据结构和页面模板其实不限于环球影城——换一套数据，上海迪士尼、成都美食地图、甚至个人影单推荐都能用。于是我把它改造成了一个 **AI 驱动的生成流水线**：你只要提供素材，告诉 AI 想做什么，一个可交互的离线网页就自动生成了。CI 脚本会全程校验数据完整性，不会漏掉任何引用关系。
+做完后我发现，这套数据结构和页面模板其实不限于环球影城——换一套数据，上海迪士尼、成都美食地图、甚至个人影单推荐都能用。于是我把它改造成了一个 **AI 驱动的生成流水线**：你只要提供素材，告诉 AI 想做什么，一个可交互的离线网页就自动生成了。Schema 驱动的验证系统会全程校验数据完整性，不会漏掉任何引用关系。
 
 这就是这个项目的完整故事：从一个自己用的小工具，变成一套任何人（哪怕不懂代码）都能用的攻略生成器。**一个去之前就做好了的工具。**
 
@@ -56,8 +56,11 @@
 # 1. 安装依赖
 pip install jinja2
 
-# 2. 生成攻略页面（校验数据 → 生成 HTML → 验证产物）
-python scripts/ci.py
+# 2. 验证数据完整性
+python scripts/schema_validator.py
+
+# 3. 生成攻略页面
+python generator/schema_generator.py
 
 # 生成成功后，打开 output/guide.html 即可预览
 ```
@@ -77,7 +80,9 @@ python scripts/ci.py
 ```
 ai-batch-raw-to-offline-guide/
 │
-├── data/v3/                          ← 结构化数据层（13 个 JSON）
+├── schema.json                       ← Schema 定义（实体、字段、关系）
+│
+├── data/                             ← 结构化数据层（13 个 JSON）
 │   ├── meta.json                     ← 项目元信息、源文件索引
 │   ├── attractions.json              ← 游乐项目
 │   ├── shows.json                    ← 演出
@@ -93,13 +98,14 @@ ai-batch-raw-to-offline-guide/
 │   └── preparations.json             ← 行前准备
 │
 ├── generator/                        ← HTML 生成器
-│   ├── generate_guide.py             ← 生成脚本（数据 → HTML）
-│   └── guide_template.html           ← 页面模板（含全部渲染逻辑）
+│   ├── schema_generator.py           ← Schema 驱动生成脚本
+│   └── guide_template.html           ← 页面模板（可自定义）
 │
 ├── scripts/                          ← 工具脚本
-│   ├── ci.py                         ← CI 守门员（校验 + 生成 + 验证）
+│   ├── schema_validator.py           ← Schema 驱动数据验证
 │   ├── analyze_data.py               ← 数据结构分析（图表 + JSON 报告）
-│   └── export_xlsx.py                ← 导出 Excel
+│   ├── export_xlsx.py                ← 导出 Excel
+│   └── stats.py                      ← 数据统计
 │
 ├── output/                           ← 生成产物（被 .gitignore 排除，需手动生成）
 │   ├── guide.html                    ← 攻略主页（单文件离线版）
@@ -108,10 +114,9 @@ ai-batch-raw-to-offline-guide/
 │
 ├── projects/                         ← 其他主题项目（示例/测试）
 │   └── 上海迪士尼攻略/               ← 上海迪士尼数据（换主题验证用例）
-│       ├── data/v3/                  ← 上海迪士尼结构化数据
-│       ├── generator/                ← 可直接用根目录生成器生成 HTML
-│       ├── scripts/                  ← 可直接用根目录脚本跑 CI
-│       └── _raw_research.md          ← 原始研究素材
+│       ├── data/                     ← 上海迪士尼结构化数据
+│       ├── _raw_research.md          ← 原始研究素材
+│       └── README.md                 ← 使用说明（复用根目录脚本）
 │
 ├── docs/                             ← 项目文档
 │   ├── usage.md                      ← AI 使用教程（换主题全流程指南）
@@ -121,6 +126,7 @@ ai-batch-raw-to-offline-guide/
 ├── src/                              ← 原始素材（Markdown 笔记）
 ├── index.html                        ← GitHub Pages 入口（output/guide.html 的副本）
 ├── .github/workflows/static.yml      ← GitHub Actions 自动部署配置
+├── VERIFICATION_REPORT.md            ← Schema 系统验证报告
 ├── changelog.md                      ← 变更日志
 └── README.md                         ← 本文件
 ```
@@ -139,28 +145,47 @@ ai-batch-raw-to-offline-guide/
 - 三步上手流程
 - AI 工作规范（可直接复制发给 AI）
 - 三种使用场景（换主题 / 减实体 / 全新定制）
-- 四组件联动修改规则
-- CI 校验与修复循环
+- Schema 定义与修改规则
+- 数据验证与修复循环
 
 ---
 
 ## 常用命令
 
 ```bash
-# 完整 CI：数据校验 → 生成 HTML → 验证产物
-python scripts/ci.py
+# 验证数据完整性（基于 Schema）
+python scripts/schema_validator.py
 
-# 仅重新生成 HTML（跳过校验，不推荐）
-python generator/generate_guide.py
+# 生成 HTML（Schema 驱动）
+python generator/schema_generator.py
 
 # 导出 Excel
 python scripts/export_xlsx.py
 
 # 数据结构分析（生成图表到 output/data_analysis/）
 python scripts/analyze_data.py
+
+# 数据统计
+python scripts/stats.py
 ```
 
 **依赖：** Python 3.6+、`pip install jinja2`
+
+---
+
+## 架构说明
+
+本项目采用 **Schema 驱动架构**：
+
+1. **Schema 定义** (`schema.json`) - 声明式定义实体类型、字段、引用关系
+2. **数据验证** (`schema_validator.py`) - 基于 Schema 自动验证数据完整性
+3. **索引生成** (`schema_generator.py`) - 基于 Schema 自动构建双向链接索引
+4. **模板渲染** (`guide_template.html`) - 可自定义的展示层
+
+**优势：**
+- 修改数据结构只需更新 Schema，验证和生成自动适应
+- 双向链接由系统自动维护，无需人工干预
+- 模板与数据解耦，可自由定制展示方式
 
 ---
 
@@ -168,18 +193,20 @@ python scripts/analyze_data.py
 
 | 文档 | 路径 | 内容 | 适合谁看 |
 |------|------|------|---------|
-| **AI 使用教程** | `docs/usage.md` | 换主题全流程、AI 工作规范、CI 修复指南 | 想用 AI 生成新主题的人 |
+| **AI 使用教程** | `docs/usage.md` | 换主题全流程、AI 工作规范、验证修复指南 | 想用 AI 生成新主题的人 |
 | **产品设计** | `docs/design.md` | 信息架构、数据关联关系、视觉设计规范 | AI 改样式时参考 |
 | **技术实现** | `docs/workflow.md` | 生成流水线、索引算法、前端路由/筛选/轮播 | AI 改功能时参考 |
+| **验证报告** | `VERIFICATION_REPORT.md` | Schema 系统验证方法、测试结果 | 关注可靠性的人 |
 | **变更日志** | `changelog.md` | Schema 版本演进、数据结构变更历史 | 关注历史的人 |
 
 ---
 
 ## 技术栈
 
-- **数据层**：JSON Schema（自定义结构化规范）
-- **生成层**：Python + Jinja2（模板渲染）
-- **校验层**：Python CI 脚本（ID 格式、引用完整性、双向一致性）
+- **Schema 层**：JSON Schema（声明式数据结构定义）
+- **数据层**：JSON 文件（按实体类型组织）
+- **验证层**：Python Schema 验证器（引用完整性、双向一致性）
+- **生成层**：Python + Jinja2（Schema 驱动模板渲染）
 - **展示层**：原生 HTML/CSS/JS（单文件离线、零依赖）
 - **部署层**：GitHub Actions → GitHub Pages
 

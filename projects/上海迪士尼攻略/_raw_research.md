@@ -568,7 +568,7 @@
 | tags | 49 | ✅ 完成 |
 | preparations | 19 | ?? 待确认（基于根目录 v3 模板） |
 
-生成：`python scripts/ci.py` 或 `python scripts/stats.py projects/上海迪士尼攻略/data/v3`
+生成：`python scripts/schema_validator.py` 或 `python scripts/stats.py data`
 
 ---
 

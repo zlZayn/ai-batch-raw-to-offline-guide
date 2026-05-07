@@ -1,12 +1,12 @@
 """Print entity count per JSON file. Usage:
 python scripts/stats.py
-python scripts/stats.py <path/to/data_v3>
+python scripts/stats.py <path/to/data>
 """
 
 import json, os, sys
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_DIR = os.path.join(BASE, "data", "v3")
+DATA_DIR = os.path.join(BASE, "data")
 
 if len(sys.argv) > 1:
     DATA_DIR = os.path.join(BASE, sys.argv[1])

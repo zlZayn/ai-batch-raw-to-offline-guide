@@ -55,7 +55,7 @@
 **关键能力检查：你用的工具必须同时满足**
 
 1. 能读取/写入项目中的文件
-2. 能在终端执行 `python scripts/ci.py` 这样的命令
+2. 能在终端执行 `python scripts/schema_validator.py` 这样的命令
 3. 上下文窗口够大（装得下整个项目）
 
 **操作方法：**
@@ -121,30 +121,31 @@ AI 自动运行校验命令
 # 你的角色
 
 你是一个专业的技术执行者。用户想基于「环球攻略指南」项目做一个新的交互式指南网页。
-你的职责是：从素材中提取结构化数据 → 按规范填入 JSON → 必要时改代码/模板/校验规则 → 运行 CI 确保 → 产出可用的离线 HTML 页面。
+你的职责是：从素材中提取结构化数据 → 按规范填入 JSON → 必要时改代码/模板/校验规则 → 运行验证确保 → 产出可用的离线 HTML 页面。
 
 ---
 
 # 第零步：读取全部上下文（强制，不可跳过）
 
-在你做任何事之前，必须依次读取以下 12 个文件。**每读一个都要确认自己理解了它的内容和作用。**
+在你做任何事之前，必须依次读取以下文件。**每读一个都要确认自己理解了它的内容和作用。**
 
 ## 必读清单
 
 | # | 文件 | 为什么要读 |
 |---|------|-----------|
 | 1 | `docs/usage.md` | 工作流程和规范（就是本文件） |
-| 2 | `data/v3/meta.json` | 项目元信息配置结构 |
-| 3 | `data/v3/attractions.json` | **最关键的参考**——字段最复杂、嵌套最深，其他实体都参考它的模式 |
-| 4 | `data/v3/restaurants.json` | 餐厅实体的真实字段名和结构 |
-| 5 | `data/v3/dishes.json` | 菜品及替代关系（alternatives）的结构 |
-| 6 | `data/v3/tips.json` | 技巧如何引用其他实体 |
-| 7 | `data/v3/warnings.json` | 避雷如何同时关联多种实体 |
-| 8 | `data/v3/tags.json` | 标签分类体系（有 categories + tags 双层结构） |
-| 9 | `data/v3/shows.json`, `shortcuts.json`, `itineraries.json`, `reviews.json`, `opinions.json`, `preparations.json` | 其余全部数据文件 |
-| 10 | `generator/generate_guide.py` | 数据加载逻辑、索引构建逻辑、如何传给模板 |
-| 11 | `generator/guide_template.html` | 每个字段在页面上怎么渲染（render 函数） |
-| 12 | `scripts/ci.py` | 校验规则——什么数据合法、什么不合法 |
+| 2 | `schema.json` | **Schema 定义** — 实体类型、字段、引用关系 |
+| 3 | `data/meta.json` | 项目元信息配置结构 |
+| 4 | `data/attractions.json` | **最关键的参考** — 字段最复杂、嵌套最深，其他实体都参考它的模式 |
+| 5 | `data/restaurants.json` | 餐厅实体的真实字段名和结构 |
+| 6 | `data/dishes.json` | 菜品及替代关系（alternatives）的结构 |
+| 7 | `data/tips.json` | 技巧如何引用其他实体 |
+| 8 | `data/warnings.json` | 避雷如何同时关联多种实体 |
+| 9 | `data/tags.json` | 标签分类体系（有 categories + tags 双层结构） |
+| 10 | `data/shows.json`, `shortcuts.json`, `itineraries.json`, `reviews.json`, `opinions.json`, `preparations.json` | 其余全部数据文件 |
+| 11 | `generator/schema_generator.py` | 数据加载逻辑、索引构建逻辑、如何传给模板 |
+| 12 | `generator/guide_template.html` | 每个字段在页面上怎么渲染（render 函数） |
+| 13 | `scripts/schema_validator.py` | 校验规则 — 什么数据合法、什么不合法 |
 
 **缺少任何一个都会导致生成的数据无法通过校验或页面渲染异常。**
 
@@ -152,17 +153,17 @@ AI 自动运行校验命令
 
 回答以下问题。如果不确定任何一个答案，回去重读对应文件：
 
-- `_ENTITY_TYPES` 列表包含哪几种类型？
+- Schema 中定义了哪些实体类型？
 - attractions 的 `height_requirement` 是字符串还是对象？有哪些子字段？
 - `locker` / `queue_strategy` / `seat_advice` 分别是什么结构？
 - warnings 怎么同时关联 attraction / show / restaurant / shortcut？
 - dishes 的 `alternatives` 是简单 ID 数组还是对象数组？里面有什么字段？
 - tags.json 有没有顶层 `categories` 数组？和 `tags` 数组什么关系？
 - reviews / opinions 用什么字段指向目标实体？（entity_id 还是 target_id？）
-- `build_bidirectional_index()` 里硬编码了哪些字段名？
+- `build_indexes()` 里构建了哪些索引？
 - guide_template.html 有几个 render 函数？各渲染哪种实体？
 
-**原则：不要猜测字段名。以现有 JSON 文件中的实际字段名为唯一标准。**
+**原则：不要猜测字段名。以 schema.json 和现有 JSON 文件中的实际字段名为唯一标准。**
 
 ---
 
@@ -172,7 +173,7 @@ AI 自动运行校验命令
 
 1. **主题** — "上海迪士尼攻略"？ "成都美食地图"？还是别的？
 2. **素材** — Markdown 笔记？ 截图？ 备忘录文本？ 还是你直接口述？
-3. **实体类型** — 从现有 8 种主实体中选择需要的（attractions, shows, restaurants, dishes, tips, warnings, shortcuts, itineraries）
+3. **实体类型** — 从 Schema 定义的实体中选择需要的
 4. **是否需要改动结构** — 只换数据？还是要增减实体类型或字段？
 
 给出方案后 **等待用户确认再动手**。不跳过确认环节。
@@ -182,7 +183,7 @@ AI 自动运行校验命令
 # Phase 2：按真实字段结构提取数据
 
 > 以下是每种实体的完整字段定义。
-> 这些字段名来自 data/v3/*.json 的实际内容，不是概括。
+> 这些字段名来自 schema.json 和 data/*.json 的实际内容，不是概括。
 > 提取数据时必须严格使用这些字段名。
 
 ## attractions（游乐项目）
@@ -366,7 +367,7 @@ AI 自动运行校验命令
 
 ## 其余实体
 
-shows / shortcuts / itineraries / preparations — 请直接读取 `data/v3/` 下对应文件作为参考。**不要假设字段名，必须与现有文件一致。**
+shows / shortcuts / itineraries / preparations — 请直接读取 `data/` 下对应文件作为参考。**不要假设字段名，必须与现有文件一致。**
 
 ## ID 命名规范
 
@@ -407,24 +408,26 @@ ID 在整个项目中全局唯一，不可重复。
 组件关系：
 
 ```
-data/v3/*.json          ← 数据（声明了有哪些字段）
+schema.json              ← Schema 定义（声明了有哪些实体和字段）
+     ↕ 字段定义必须一致
+data/*.json              ← 数据（按 Schema 填充内容）
      ↕ 字段名必须一致
-generate_guide.py       ← 生成器（读取这些字段、构建索引）
+generator/schema_generator.py  ← 生成器（读取 Schema、构建索引）
      ↕ 变量名必须一致  
-guide_template.html      ← 模板（渲染这些字段到页面）
+generator/guide_template.html  ← 模板（渲染字段到页面）
      ↕ 校验规则必须匹配
-scripts/ci.py            ← CI（检查这些字段的合法性）
+scripts/schema_validator.py    ← 验证器（检查数据合法性）
 ```
 
 下面按场景列出具体要改什么。
 
 ## 场景 A：只换数据不改结构（最常见）
 
-比如把环球影城换成迪士尼，8 种实体类型不变。
+比如把环球影城换成迪士尼，实体类型不变。
 
-**只改 data/v3/ 下的文件** —— 替换数据内容即可。
+**只改 `data/` 下的文件** —— 替换数据内容即可。
 
-不需要改 generate_guide.py / guide_template.html / ci.py。
+不需要改 schema.json / schema_generator.py / guide_template.html / schema_validator.py。
 
 ## 场景 B：去掉某些实体类型
 
@@ -432,14 +435,11 @@ scripts/ci.py            ← CI（检查这些字段的合法性）
 
 需要**同步改 4 个地方**：
 
-**(1) data/v3/**
-- 清空 shows.json 和 shortcuts.json 的内容（保留空壳或删掉实体数组）
+**(1) schema.json**
+- 从 `entities` 中删除 `shows` 和 `shortcuts` 定义
 
-**(2) generator/generate_guide.py**
-- 从 `_ENTITY_TYPES` 列表中删掉 `"shows"` 和 `"shortcuts"`
-- 从 `build_bidirectional_index()` 的 `entity_collections` 中删掉对应项
-- 如果有代码硬编码遍历 show_ids / shortcut_ids（warnings 索引构建处），清理掉
-- **搜索整个文件，确认没有遗漏引用**
+**(2) data/**
+- 删除 `shows.json` 和 `shortcuts.json` 文件
 
 **(3) generator/guide_template.html**
 - 删掉 `renderShowList()` 和 `renderShowDetail()` 函数
@@ -448,13 +448,8 @@ scripts/ci.py            ← CI（检查这些字段的合法性）
 - 删掉路由（hash change handler）中的对应 case
 - **搜索整个文件，确认没有遗漏调用**
 
-**(4) scripts/ci.py**
-- 去掉对 shows / shortcuts 的字段完整性检查
-- 去掉 ID 格式校验中的对应前缀
-- 去掉双向链接一致性检查中的对应关系
-- 检查是否有交叉校验依赖这两个类型
-
-**改完立刻跑 `python scripts/ci.py` 验证。**
+**(4) 验证**
+- 改完立刻跑 `python scripts/schema_validator.py` 验证
 
 ## 场景 C：新增实体类型
 
@@ -462,7 +457,10 @@ scripts/ci.py            ← CI（检查这些字段的合法性）
 
 需要**同步改 4 个地方**：
 
-**(1) 新建 data/v3/shopping.json**
+**(1) schema.json**
+- 在 `entities` 中添加 `shopping` 定义，包含字段和引用关系
+
+**(2) 新建 data/shopping.json**
 ```json
 {
   "version": "3.2.0",
@@ -478,14 +476,7 @@ scripts/ci.py            ← CI（检查这些字段的合法性）
   ]
 }
 ```
-字段设计参考 attractions 或 restaurants 的模式。
-
-**(2) generator/generate_guide.py**
-- `_ENTITY_TYPES` 加 `"shopping"`
-- `load_all_data()` 加 shopping 的加载
-- `build_lookup_maps()` 会自动处理（因为遍历 _ENTITY_TYPES）
-- `build_bidirectional_index()` 的 `entity_collections` 加 shopping
-- 如果 tips/warnings/reviews 要关联 shopping，在 backrefs 构建逻辑中加对应处理
+字段设计参考 schema.json 中其他实体的模式。
 
 **(3) generator/guide_template.html**
 - 新增 `renderShoppingList()` 函数（参照 renderAttractionList 的模式）
@@ -493,21 +484,16 @@ scripts/ci.py            ← CI（检查这些字段的合法性）
 - 首页导航网格加 shopping 入口
 - 路由加 shopping 的 case
 
-**(4) scripts/ci.py**
-- 加 shopping 的字段完整性校验
-- 加 ID 格式校验
-- 加引用完整性校验
-- 加双向链接一致性检查（`bidir_checks` 列表新增一组正向→反向校验）
-
-**改完立刻跑 `python scripts/ci.py` 验证。**
+**(4) 验证**
+- 改完立刻跑 `python scripts/schema_validator.py` 验证
 
 ## 场景 D：给某实体增加/删除字段
 
 比如"attractions 要加 ticket_price 字段"。
 
-**(1) data/v3/attractions.json** — 每个对象加上 `"ticket_price": 99`
-**(2) guide_template.html** — renderAttractionDetail() 中加上渲染新字段的 HTML
-**(3) （可选）ci.py** — 如果要对新字段加校验
+**(1) schema.json** — 在 attractions 的 fields 中添加新字段定义
+**(2) data/attractions.json** — 每个对象加上 `"ticket_price": 99`
+**(3) guide_template.html** — renderAttractionDetail() 中加上渲染新字段的 HTML
 
 **如果删除字段**：同样要在模板中移除对应的 `{{ }}` 渲染，否则 Jinja2 报 undefined 错误导致生成失败。
 
@@ -515,13 +501,13 @@ scripts/ci.py            ← CI（检查这些字段的合法性）
 
 比如"换个颜色"。
 
-只改 guide_template.html 的 CSS 变量（`:root` 部分）。不动数据、不动 Python。
+只改 guide_template.html 的 CSS 变量（`:root` 部分）。不动数据、不动 Schema、不动 Python。
 
 ---
 
-# Phase 4：CI 校验
+# Phase 4：验证
 
-运行：`python scripts/ci.py`
+运行：`python scripts/schema_validator.py`
 
 - ✅ 全 PASS → 进入 Phase 5
 - ❌ 有 FAILED → 进入修复循环
@@ -531,7 +517,7 @@ scripts/ci.py            ← CI（检查这些字段的合法性）
 1. 逐条阅读错误信息
 2. 定位到具体文件和字段
 3. 修复
-4. 重跑 `python scripts/ci.py`
+4. 重跑 `python scripts/schema_validator.py`
 5. 如仍有错误 → 重复
 
 **3 轮后仍有未修复错误 → 停止，向用户报告完整错误日志，说明哪些需要用户确认事实信息。**
@@ -542,18 +528,18 @@ scripts/ci.py            ← CI（检查这些字段的合法性）
 
 让用户打开 `output/guide.html` 预览。根据反馈调整。
 
-**每次调整后（无论改数据还是代码），都必须重跑 `python scripts/ci.py` 直到全 PASS。**
+**每次调整后（无论改数据还是代码），都必须重跑 `python scripts/schema_validator.py` 直到全 PASS。**
 
 ---
 
 # 最高优先级原则（违反任一条都导致失败）
 
-1. **字段名精确匹配** — JSON 中的字段名、Python 代码中的键名、模板中的变量名、CI 中的校验字段，四者必须完全一致。以现有 data/v3/*.json 为唯一标准
-2. **改动必联动** — 改数据结构时必须同步检查并修改 generate_guide.py + guide_template.html + ci.py。漏一个就报错
-3. **每次改完必跑 CI** — 任何修改后必须执行 `python scripts/ci.py` 并看到全 PASS
+1. **Schema 即契约** — 所有数据、验证、索引都基于 schema.json 定义
+2. **改动必联动** — 改 Schema 时必须同步检查 data / template。漏一个就报错
+3. **每次改完必跑验证** — 任何修改后必须执行 `python scripts/schema_validator.py` 并看到全 PASS
 4. **不确定就不编** — 不确定的数据写 null 或问用户
 5. **保持一致** — 同一项目中区域缩写、ID 风格统一
-6. **报错原样呈现** — CI 失败时把完整输出贴给用户，不总结不简化
+6. **报错原样呈现** — 验证失败时把完整输出贴给用户，不总结不简化
 ```markdown 📋 AI 规范结束 📋
 
 > 以上是完整的 AI 规范。
@@ -597,7 +583,7 @@ scripts/ci.py            ← CI（检查这些字段的合法性）
 素材我贴给你看。
 ```
 
-4. AI 会按照「场景 B：去掉某些实体类型」的规则同步改 4 类文件
+4. AI 会按照「场景 B：去掉某些实体类型」的规则同步改文件
 5. AI 给出方案 → 你确认 → AI 执行 → 你预览
 
 ### 场景 3：全新主题（最大改动）
@@ -617,7 +603,7 @@ scripts/ci.py            ← CI（检查这些字段的合法性）
 请你改造整个项目来适配。
 ```
 
-4. AI 按「场景 C：新增实体类型」的规则新建实体、改代码、改模板、改 CI
+4. AI 按「场景 C：新增实体类型」的规则新建实体、改 Schema、改模板
 5. 全程你只需要审核方案和数据准确性
 
 ---
@@ -628,16 +614,19 @@ scripts/ci.py            ← CI（检查这些字段的合法性）
 
 ```bash
 # 完整流程：校验 → 生成 HTML → 验证产物
-python scripts/ci.py
+python scripts/schema_validator.py
 
 # 仅生成 HTML（跳过校验，不推荐跳过）
-python generator/generate_guide.py
+python generator/schema_generator.py
 
 # 导出 Excel
 python scripts/export_xlsx.py
 
 # 数据分析（生成图表）
 python scripts/analyze_data.py
+
+# 数据统计
+python scripts/stats.py
 ```
 
 ---
@@ -649,7 +638,9 @@ python scripts/analyze_data.py
 ```
 环球攻略指南html/
 │
-├── data/v3/                          ← ★ 数据层（AI 读写数据的地方）
+├── schema.json                       ← ★ Schema 定义（实体、字段、关系）
+│
+├── data/                             ← ★ 数据层（AI 读写数据的地方）
 │   ├── meta.json                     ← 项目名称、园区配置
 │   ├── attractions.json              ← 游乐项目
 │   ├── shows.json                    ← 演出
@@ -665,13 +656,14 @@ python scripts/analyze_data.py
 │   └── preparations.json             ← 行前准备
 │
 ├── generator/
-│   ├── generate_guide.py             ← 生成器（改实体时 AI 要改这里）
-│   └── guide_template.html           ← 页面模板（改样式/字段时 AI 要改这里）
+│   ├── schema_generator.py           ← 生成器（Schema 驱动）
+│   └── guide_template.html           ← 页面模板（可自定义）
 │
 ├── scripts/
-│   ├── ci.py                         ← CI 守门员（改实体时 AI 要改这里）
+│   ├── schema_validator.py           ← 验证器（Schema 驱动）
 │   ├── analyze_data.py               ← 分析工具
-│   └── export_xlsx.py                ← 导出工具
+│   ├── export_xlsx.py                ← 导出工具
+│   └── stats.py                      ← 统计工具
 │
 ├── output/                           ← ★ 最终产物在这里
 │   ├── guide.html                    ← 你的攻略网页（打开即用）
@@ -683,15 +675,17 @@ python scripts/analyze_data.py
 **四个组件的联动关系：**
 
 ```
-data/v3/*.json (数据)        ← 声明字段
-     ↕ 字段名必须完全一致
-generate_guide.py (生成器)   ← 读取字段、建索引
+schema.json (Schema 定义)     ← 声明实体、字段、关系
+     ↕ 定义必须一致
+data/*.json (数据)             ← 按 Schema 填充内容
+     ↕ 字段名必须一致
+generator/schema_generator.py (生成器)  ← 读取 Schema、构建索引
      ↕ 注入变量名必须一致
-guide_template.html (模板)   ← 渲染字段到页面
+generator/guide_template.html (模板)    ← 渲染字段到页面
      ↕ 校验规则必须匹配数据
-scripts/ci.py (守门员)       ← 检查字段合法性
+scripts/schema_validator.py (验证器)    ← 检查数据合法性
 
-→ 这是一个整体，改一处必须检查其余三处
+→ 这是一个整体，改 Schema 必须检查数据、模板、验证器
 ```
 
 ---
@@ -700,20 +694,20 @@ scripts/ci.py (守门员)       ← 检查字段合法性
 
 你可能担心：让 AI 自由发挥，数据会不会一团糟？
 
-答案是不会。因为有 **CI 脚本作为不可绕过的守门员**。
+答案是不会。因为有 **Schema + 验证器作为不可绕过的守门员**。
 
 工作流程中有这道安全网：
 
 ```
 AI 写入数据 / 修改代码
         ↓
-  python scripts/ci.py   ← 强制检查（写在代码里的硬规则）
+  python scripts/schema_validator.py   ← 强制检查（基于 Schema 的硬规则）
         ↓
     ├─ ✅ 全 PASS  →  生成 HTML  →  成功
     └─ ❌ 有 FAIL  →  AI 必须修  →  重跑  →  循环直到 PASS
 ```
 
-CI 具体检查的内容：
+验证器具体检查的内容：
 
 | 检查项 | 说明 |
 |--------|------|
@@ -722,9 +716,9 @@ CI 具体检查的内容：
 | 字段完整性 | 必需字段不能少，数据类型不能错 |
 | 双向一致性 | A 关联 B，B 也必须关联 A |
 
-这些规则写在 `scripts/ci.py` 的代码里，**不是靠 AI 自觉遵守**。AI 写错了就会被拦截。
+这些规则基于 `schema.json` 定义，**不是靠 AI 自觉遵守**。AI 写错了就会被拦截。
 
-所以本质上是：你在有安全网的环境里和 AI 自由协作，CI 永远不会放过错误。
+所以本质上是：你在有安全网的环境里和 AI 自由协作，验证器永远不会放过错误。
 
 ---
 
@@ -739,7 +733,7 @@ CI 具体检查的内容：
 推荐同时满足这三个条件的：
 
 1. 能上传整个项目文件夹（Claude 支持）
-2. 能执行终端命令（跑 python scripts/ci.py）
+2. 能执行终端命令（跑 python scripts/schema_validator.py）
 3. 上下文够长（装下全部代码 + 数据 + 教程 + 你的对话）
 
 ### AI 生成的数据准确吗？
@@ -751,11 +745,11 @@ CI 具体检查的内容：
 
 建议流程：AI 出初稿 → 你快速浏览一遍 → 把错误列出来 → AI 批量修复。
 
-### CI 一直报错怎么办？
+### 验证一直报错怎么办？
 
 把完整报错日志贴给 AI，再加上这句：
 
-> "这是 ci.py 的报错。逐条定位到具体文件和字段修复，然后重跑 python scripts/ci.py。循环直到全 PASS。"
+> "这是 schema_validator.py 的报错。逐条定位到具体文件和字段修复，然后重跑 python scripts/schema_validator.py。循环直到全 PASS。"
 
 3 轮还修不好时，AI 应该来找你确认事实性信息。
 
@@ -768,20 +762,18 @@ CI 具体检查的内容：
 
 ### 为什么反复强调"联动修改"?
 
-因为这四个组件靠字段名紧密绑定在一起：
+因为这四个组件靠 Schema 紧密绑定在一起：
 
 ```
-JSON 写了 rating  →  模板就必须用 {{ entity.rating }}
-                 →  CI 就必须检查 rating 存不存在
+Schema 定义了 rating 字段  →  数据 JSON 必须有 rating
+                        →  模板必须用 {{ entity.rating }}
+                        →  验证器必须检查 rating 存不存在
 
-如果你把 JSON 改成 score 但忘了改模板
-  → Jinja2 渲染时报 undefined → 生成失败
-
-如果你改了模板但忘了改 CI
-  → CI 不会检查 score 的合法性 → 质量失控
+如果你把 Schema 改成 score 但忘了改数据/模板
+  → 验证器会报错 → 生成失败
 ```
 
-**所以改任何一处，必须检查其余三处。这就是为什么规范里列出了每种场景下 4 个文件分别要改什么。**
+**所以改 Schema，必须检查数据、模板、验证器。这就是为什么规范里列出了每种场景下要改什么。**
 
 ---
 
@@ -791,4 +783,5 @@ JSON 写了 rating  →  模板就必须用 {{ entity.rating }}
 |------|------|------|---------|
 | 产品设计 | docs/design.md | 信息架构、数据关系模型、视觉规范 | AI 改样式时参考 |
 | 技术实现 | docs/workflow.md | 生成流水线、索引算法、前端路由筛选 | AI 改功能时参考 |
+| 验证报告 | VERIFICATION_REPORT.md | Schema 系统验证方法、测试结果 | 关注可靠性的人 |
 | 变更日志 | changelog.md | Schema 版本演进历史 | 关注历史的人 |

@@ -1,24 +1,31 @@
-# Workflow — 北京环球影城攻略离线H5生成流程
+# Workflow — 攻略离线H5生成流程
 
 ## 概述
 
-Python生成器（`generator/generate_guide.py`）+ Jinja2模板（`generator/guide_template.html`）→ 单HTML文件（`output/guide.html`）。
+Schema 驱动架构：
+- `schema.json` 定义数据结构
+- `generator/schema_generator.py` 读取 Schema 生成索引
+- Jinja2模板 `generator/guide_template.html` 渲染
+- 输出单HTML文件 `output/guide.html`
 
 ## 流程图
 
 ```
-data/v3/*.json (13个)
+schema.json (Schema定义)
       │
       ▼
-┌─ generate_guide.py ───────────────────┐
+data/*.json (13个JSON文件)
+      │
+      ▼
+┌─ schema_generator.py ─────────────────┐
 │  1. load_all_data()                   │
-│  2. build_lookup_maps()               │  ← ID→对象 Map 构建
-│  3. build_bidirectional_index()       │
+│  2. build_maps()                      │  ← ID→对象 Map 构建
+│  3. build_indexes()                   │
 │     ├─ tag_index                      │
 │     ├─ zone_index                     │
 │     ├─ backrefs                       │
 │     └─ alternative_index              │
-│  4. _to_plain() + json.dumps()         │
+│  4. _to_plain() + json.dumps()        │
 │  5. Jinja2 render(guide_template.html)│
 └───────────────────────────────────────┘
       │
@@ -30,7 +37,7 @@ output/guide.html (~350KB)
 
 ### 步骤1：加载数据
 
-`load_all_data()` 加载 `data/v3/` 目录下13个JSON文件，返回字典：
+`load_all_data()` 加载 `data/` 目录下13个JSON文件，返回字典：
 
 ```python
 {
@@ -42,10 +49,10 @@ output/guide.html (~350KB)
 
 ### 步骤2：构建查找映射
 
-`build_lookup_maps(data)` 为 10 种实体类型构建 ID→对象 Map，实现 O(1) 查找：
+`build_maps()` 为 8 种实体类型构建 ID→对象 Map，实现 O(1) 查找：
 
 ```python
-lookup_maps = {
+maps = {
     "attractions": {id: attraction, ...},
     "shows": {id: show, ...},
     "restaurants": {id: restaurant, ...},
@@ -53,19 +60,18 @@ lookup_maps = {
     "tips": {id: tip, ...},
     "shortcuts": {id: shortcut, ...},
     "warnings": {id: warning, ...},
-    "tags": {id: tag, ...},
-    "reviews": {id: review, ...},
-    "opinions": {id: opinion, ...},
+    "itineraries": {id: itinerary, ...},
+    "reviews_by_target": {target_id: [reviews], ...},
+    "opinions_by_target": {target_id: [opinions], ...},
+    "warnings_by_target": {target_id: [warnings], ...},
 }
 ```
-
-同时构建 `warnings_by_target` 映射：遍历所有 warning 的 `attraction_ids`、`show_ids`、`restaurant_ids`、`shortcut_ids` 字段，建立 entity_id → [warnings] 的反向索引。
 
 这些 Map 被序列化后注入模板，前端通过 `find(id, type)` 函数实现 O(1) 实体查找。
 
 ### 步骤3：构建索引
 
-`build_bidirectional_index(data)` 返回包含4个索引的字典。
+`build_indexes()` 返回包含4个索引的字典。
 
 #### 3.1 tag_index
 
@@ -107,7 +113,7 @@ lookup_maps = {
 
 从两个数据源提取替代关系：
 
-- `warnings[].alternatives[]` → `{type, entity_id, name, reason}`
+- `warnings[].alternative` → `{type, entity_id, name, reason}`
 - `dishes[].alternatives[]` → `{type: "dish", entity_id, name: "", reason: note, alt_type}`
 
 输出结构：
@@ -237,26 +243,19 @@ LIST = { home, attractions, shows, show_schedule, restaurants, dishes, itinerari
 ## 数据更新流程
 
 ```bash
-# 完整 CI（数据校验 → 生成 HTML → 生成后验证）
-python scripts/ci.py
+# 验证数据完整性（基于 Schema）
+python scripts/schema_validator.py
 
-# 仅重新生成攻略主页
-python generator/generate_guide.py
+# 生成攻略主页
+python generator/schema_generator.py
 ```
 
-## 数据版本管理
+## 工具脚本
 
-```
-data/
-  v1/    ← 历史版本（归档）
-  v2/    ← 历史版本（归档）
-  v3/    ← 当前版本（统一 schema）
-```
-
-工具脚本：
-- `scripts/ci.py` — CI 管线（校验+生成+验证）
+- `scripts/schema_validator.py` — Schema 驱动数据验证
 - `scripts/analyze_data.py` — 数据结构分析
 - `scripts/export_xlsx.py` — 导出 Excel
+- `scripts/stats.py` — 数据统计
 
 ## 依赖
 
