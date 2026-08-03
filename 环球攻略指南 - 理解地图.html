@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>环球攻略指南 — AI 驱动离线攻略生成器 · 理解地图</title>
+<style>
+:root{
+  --cream:#FAF6EB;--paper:#F3EDDD;--forest:#1E3A24;--sky:#BCD8EE;
+  --sage:#AFCDA8;--ink:#1A2018;--marker:#F5E08A;--brick:#B5482A;
+  --correct:#2F7D46;--wrong:#B5482A;
+  --font-display:"Archivo Black","Noto Sans SC","PingFang SC",sans-serif;
+  --font-head:"Poppins","Noto Sans SC","PingFang SC",sans-serif;
+  --font-body:-apple-system,"PingFang SC","Noto Sans SC",sans-serif;
+  --font-mono:"Roboto Mono","JetBrains Mono",monospace;
+  --radius-pill:999px;--radius-card:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font-body);background:var(--cream);color:var(--ink);line-height:1.7;font-size:15px}
+a{color:var(--forest);text-decoration:underline}
+
+/* === SIDEBAR === */
+.sidebar{
+  position:fixed;left:0;top:0;bottom:0;width:260px;
+  background:var(--forest);color:#e8f0e8;padding:24px 18px;
+  overflow-y:auto;z-index:100;display:flex;flex-direction:column;
+}
+.sidebar h1{font-family:var(--font-display);font-size:18px;color:var(--marker);margin-bottom:6px;line-height:1.3}
+.sidebar .subtitle{font-size:12px;color:#a8c8a8;margin-bottom:20px}
+.sidebar .progress-box{background:rgba(255,255,255,.08);border-radius:10px;padding:12px;margin-bottom:20px}
+.sidebar .progress-label{font-size:12px;color:#a8c8a8;margin-bottom:6px}
+.sidebar .progress-bar{height:8px;background:rgba(255,255,255,.15);border-radius:4px;overflow:hidden}
+.sidebar .progress-fill{height:100%;background:var(--marker);width:0%;transition:width .4s;border-radius:4px}
+.sidebar .progress-num{font-size:12px;color:var(--marker);margin-top:4px}
+.sidebar nav{flex:1}
+.sidebar nav a{
+  display:block;padding:7px 10px;border-radius:8px;font-size:13px;
+  color:#c8dcc8;text-decoration:none;margin-bottom:2px;transition:all .15s;
+}
+.sidebar nav a:hover{background:rgba(255,255,255,.1);color:#fff}
+.sidebar nav a .num{color:var(--marker);font-weight:700;margin-right:6px;font-size:12px}
+
+/* === MAIN === */
+.main{margin-left:260px;padding:32px 40px 80px;max-width:820px}
+.main h2{font-family:var(--font-head);font-size:24px;color:var(--forest);margin:48px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--sage)}
+.main h2:first-of-type{margin-top:0}
+.main h3{font-size:17px;color:var(--forest);margin:24px 0 10px;font-weight:700}
+
+/* === CARDS === */
+.card{
+  background:#fff;border-radius:var(--radius-card);padding:20px 22px;
+  margin-bottom:16px;border-left:4px solid var(--sage);position:relative;
+}
+.card.source{border-left-color:var(--sky);background:#f6fafe}
+.card.warning{border-left-color:var(--brick);background:#fef6f4}
+.card.concept{border-left-color:var(--marker);background:#fffef5}
+.card.key{border-left-color:var(--forest);background:#f4f9f4}
+.card .card-title{font-weight:700;font-size:15px;margin-bottom:6px}
+.card .card-label{
+  display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;
+  border-radius:var(--radius-pill);margin-bottom:8px;
+}
+.card .card-label.bg{background:var(--sky);color:#1a4a6a}
+.card .card-label.fact{background:var(--sage);color:var(--forest)}
+.card .card-label.judge{background:var(--marker);color:#6b5a00}
+.card .card-label.infer{background:#e8d8f0;color:#5a3a7a}
+.card .card-label.src{background:#d4eaf4;color:#1a4a6a}
+.card .card-label.warn{background:#fdd8d0;color:var(--brick)}
+.card .card-label.tip{background:#d8f0d8;color:var(--forest)}
+
+.source-text{
+  font-family:var(--font-mono);font-size:13px;background:#eef4f8;
+  padding:10px 14px;border-radius:8px;margin:8px 0;color:#2a4a5a;
+  border-left:3px solid var(--sky);line-height:1.6;
+}
+.note{font-size:13px;color:#666;margin-top:6px;font-style:italic}
+
+/* === ARCHITECTURE DIAGRAM === */
+.arch-diagram{
+  background:#fff;border-radius:var(--radius-card);padding:24px;margin:16px 0;
+  font-family:var(--font-mono);font-size:13px;line-height:1.8;
+  overflow-x:auto;border:1px solid #e0d8c0;
+}
+.arch-diagram .layer{
+  background:var(--paper);border-radius:8px;padding:10px 16px;margin:6px 0;
+  border-left:4px solid var(--forest);position:relative;
+}
+.arch-diagram .arrow{text-align:center;color:var(--brick);font-weight:700;font-size:16px;margin:4px 0}
+
+/* === TASK CARDS === */
+.task{
+  background:#fff;border-radius:var(--radius-card);padding:22px 24px;
+  margin-bottom:18px;border:2px solid #e0d8c0;
+}
+.task .q{font-weight:700;font-size:15px;margin-bottom:14px;line-height:1.6}
+.task .opts{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.task .opt{
+  display:block;width:100%;text-align:left;padding:10px 14px;
+  border:2px solid #ddd;border-radius:10px;background:#faf8f2;
+  cursor:pointer;font-size:14px;font-family:var(--font-body);
+  transition:all .15s;line-height:1.5;
+}
+.task .opt:hover{border-color:var(--forest);background:#f0f6ef}
+.task .opt.selected{border-color:var(--forest);background:#e4f0e2;font-weight:600}
+.task .check{
+  display:inline-block;padding:8px 24px;border:none;border-radius:var(--radius-pill);
+  background:var(--forest);color:#fff;font-size:14px;font-weight:600;
+  cursor:pointer;font-family:var(--font-body);transition:opacity .15s;
+}
+.task .check:hover{opacity:.85}
+.feedback{
+  margin-top:12px;padding:12px 16px;border-radius:10px;font-size:14px;
+  background:#f5f2ea;color:#666;line-height:1.6;
+}
+.feedback.ok{background:#e8f5e8;color:var(--correct);border:1px solid #c0e0c0}
+.feedback.no{background:#fef0ed;color:var(--wrong);border:1px solid #f0c8c0}
+.feedback .src{
+  display:block;margin-top:8px;font-family:var(--font-mono);font-size:12px;
+  color:#5a7a8a;background:#eef4f8;padding:8px 10px;border-radius:6px;
+}
+
+/* === PROGRESS BAR (top) === */
+.top-bar{
+  position:fixed;top:0;left:260px;right:0;height:4px;
+  background:#e0d8c0;z-index:90;
+}
+.top-bar-fill{height:100%;background:var(--marker);width:0%;transition:width .4s}
+
+/* === REPORT === */
+#report{
+  background:#fff;border-radius:var(--radius-card);padding:20px;
+  font-family:var(--font-mono);font-size:13px;white-space:pre-wrap;
+  line-height:1.8;min-height:120px;border:1px solid #e0d8c0;
+}
+.report-btn{
+  padding:10px 24px;border:none;border-radius:var(--radius-pill);
+  background:var(--forest);color:#fff;font-size:14px;font-weight:600;
+  cursor:pointer;font-family:var(--font-body);margin-right:8px;margin-top:8px;
+}
+
+/* === WRONG BOX === */
+#wrongBox{list-style:none;padding:0}
+#wrongBox li{padding:6px 0;font-size:14px;border-bottom:1px solid #eee;color:#666}
+
+/* === MISC === */
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:var(--radius-pill);margin:2px 4px 2px 0}
+.tag-forest{background:var(--sage);color:var(--forest)}
+.tag-sky{background:var(--sky);color:#1a4a6a}
+.tag-marker{background:var(--marker);color:#6b5a00}
+.tag-brick{background:#fdd8d0;color:var(--brick)}
+ul.check-list{list-style:none;padding:0}
+ul.check-list li{padding:6px 0;padding-left:24px;position:relative;font-size:14px}
+ul.check-list li::before{content:"✓";position:absolute;left:0;color:var(--correct);font-weight:700}
+
+.footer{
+  text-align:center;padding:32px 0;font-size:13px;color:#888;
+  border-top:1px solid #e0d8c0;margin-top:48px;
+}
+.footer a{color:var(--forest)}
+
+@media(max-width:768px){
+  .sidebar{position:relative;width:100%;padding:16px}
+  .main{margin-left:0;padding:16px}
+  .top-bar{left:0}
+  .sidebar nav{display:flex;flex-wrap:wrap;gap:4px}
+  .sidebar nav a{font-size:12px;padding:4px 8px}
+}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <h1>环球攻略指南</h1>
+  <div class="subtitle">AI 驱动的离线攻略生成器 · 理解地图</div>
+  <div class="progress-box">
+    <div class="progress-label">任务进度</div>
+    <div class="progress-bar"><div class="progress-fill" id="barFill"></div></div>
+    <div class="progress-num" id="barNum">0 / 8</div>
+  </div>
+  <nav>
+    <a href="#s1"><span class="num">01</span>学习目标</a>
+    <a href="#s2"><span class="num">02</span>零基础背景包</a>
+    <a href="#s3"><span class="num">03</span>原文问题定位</a>
+    <a href="#s4"><span class="num">04</span>原文结构地图</a>
+    <a href="#s5"><span class="num">05</span>核心判断与依据</a>
+    <a href="#s6"><span class="num">06</span>关键概念拆解</a>
+    <a href="#s7"><span class="num">07</span>苏格拉底式阅读</a>
+    <a href="#s8"><span class="num">08</span>闯关式任务</a>
+    <a href="#s9"><span class="num">09</span>误解与边界</a>
+    <a href="#s10"><span class="num">10</span>背景知识缺口</a>
+    <a href="#s11"><span class="num">11</span>复盘与报告</a>
+  </nav>
+</div>
+
+<!-- TOP BAR -->
+<div class="top-bar"><div class="top-bar-fill" id="topBarFill"></div></div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+<!-- ===== MODULE 1: 学习目标 ===== -->
+<h2 id="s1">01 · 学习目标与阅读路径</h2>
+
+<div class="card key">
+  <div class="card-title">这篇内容你要学会什么</div>
+  <p>这是一个<strong>AI 驱动的攻略生成器</strong>项目。它从微信截图、小红书笔记等碎片素材出发，经过四层流水线，最终产出一个 350KB 的离线 HTML 应用。</p>
+  <p style="margin-top:8px">你将理解这个系统为什么这样设计、每一层解决什么问题、以及哪些设计模式可以迁移到其他场景。</p>
+</div>
+
+<div class="card">
+  <div class="card-title">📋 学完后你能做到</div>
+  <ul class="check-list">
+    <li><strong>目标 1</strong>：画出四层流水线架构（素材→Markdown→JSON→HTML），说清每层的输入、输出和职责</li>
+    <li><strong>目标 2</strong>：解释 JSON Schema 为什么是整个系统的"灵魂"而不是附加工具</li>
+    <li><strong>目标 3</strong>：区分四套索引（tag_index / zone_index / backrefs / alternative_index）各自解决什么问题</li>
+    <li><strong>目标 4</strong>：说出"单 HTML + 零框架"这个技术选型背后的三个设计约束</li>
+    <li><strong>目标 5</strong>：指出至少 2 个可迁移到其他领域的设计模式</li>
+  </ul>
+</div>
+
+<div class="card source">
+  <div class="card-title">📍 阅读路径</div>
+  <p><strong>先补背景</strong>（模块02）→ <strong>理解问题</strong>（模块03）→ <strong>看架构全貌</strong>（模块04）→ <strong>逐层拆核心判断</strong>（模块05-06）→ <strong>做题检验</strong>（模块07-08）→ <strong>避坑+延伸</strong>（模块09-11）</p>
+</div>
+
+<!-- ===== MODULE 2: 零基础背景包 ===== -->
+<h2 id="s2">02 · 零基础背景包</h2>
+<p style="margin-bottom:16px;color:#666;font-size:14px">进入原文拆解前，先补读懂本文必须知道的基础概念。</p>
+
+<div class="card concept">
+  <span class="card-label bg">背景补充</span>
+  <div class="card-title">1. 什么是 JSON Schema</div>
+  <p>JSON Schema 是一种用 JSON 格式描述"数据应该长什么样"的规范。它定义了有哪些字段、字段类型是什么、哪些必填、引用关系怎样。<strong>类比</strong>：它就像数据库的表结构定义（CREATE TABLE），但用 JSON 而非 SQL 写。</p>
+  <p class="note">为什么读本文需要它：这个项目的核心设计就是用 Schema 同时约束 AI 输出和模板渲染输入。</p>
+</div>
+
+<div class="card concept">
+  <span class="card-label bg">背景补充</span>
+  <div class="card-title">2. 什么是 SPA（单页应用）</div>
+  <p>SPA = Single Page Application。整个应用只有一个 HTML 页面，用户点击链接时不刷新页面，而是通过 JavaScript 动态切换内容。路由用 URL 的 hash 部分（如 `#attractions/xxx`）来标识当前显示哪个"页面"。</p>
+  <p class="note">为什么读本文需要它：这个项目的前端是一个 23 路由的 SPA，所有路由都在一个 HTML 文件内。</p>
+</div>
+
+<div class="card concept">
+  <span class="card-label bg">背景补充</span>
+  <div class="card-title">3. 什么是 Jinja2 模板引擎</div>
+  <p>Jinja2 是 Python 的一个模板库。它让你在 HTML 里写占位符（如 `{{ variable }}`），Python 程序在构建时把真实数据填进去，输出一个完整的 HTML 文件。<strong>它在服务端运行时渲染，不是在浏览器里动态渲染。</strong></p>
+  <p class="note">为什么读本文需要它：这个项目的生成器用 Jinja2 把 JSON 数据注入到 HTML 模板中。</p>
+</div>
+
+<div class="card concept">
+  <span class="card-label bg">背景补充</span>
+  <div class="card-title">4. 什么是双向索引（Back-reference）</div>
+  <p>在数据系统中，A 引用 B 时，通常只能从 A 找到 B。双向索引是反过来也建立一份映射：从 B 也能找到"谁引用了我"。这需要在构建时额外计算一份反向查找表。</p>
+  <p class="note">为什么读本文需要它：这个项目用 4 套双向索引让任意两个实体都能建立连接。</p>
+</div>
+
+<!-- ===== MODULE 3: 原文问题定位 ===== -->
+<h2 id="s3">03 · 原文问题定位</h2>
+
+<div class="card key">
+  <span class="card-label judge">判断</span>
+  <div class="card-title">表面在讲什么</div>
+  <p>表面在讲"如何做一个环球影城离线攻略网页"。</p>
+  <div class="source-text">原文依据："去北京环球影城之前，我决定先把这事做了——把所有项目排名、餐厅评价、隐藏技巧、避雷提醒全部整理成结构化数据，写了一个手机端离线网页。"（README.md）</div>
+</div>
+
+<div class="card key">
+  <span class="card-label judge">判断</span>
+  <div class="card-title">深层在回答什么问题</div>
+  <p><strong>如何设计一套"Schema 驱动"的流水线，让非结构化素材能自动转化为可交互的离线应用？</strong></p>
+  <p class="note">作者自己也意识到了："做完后我发现，这套数据结构和页面模板其实不限于环球影城。"他真正关心的是流水线的通用性。</p>
+</div>
+
+<div class="card">
+  <span class="card-label infer">推论</span>
+  <div class="card-title">如果只记一个问题</div>
+  <p><strong>JSON Schema 在这条流水线里到底扮演了什么角色，为什么作者说它是"灵魂"？</strong></p>
+  <p class="note">注意：这不是原文原句，而是基于"Schema 是护城河""Schema 设计好了，上游 AI 知道该怎么写，下游模板知道该怎么读"等多处表述的综合推论。</p>
+</div>
+
+<!-- ===== MODULE 4: 原文结构地图 ===== -->
+<h2 id="s4">04 · 原文结构地图</h2>
+
+<div class="card">
+  <span class="card-label fact">事实</span>
+  <div class="card-title">原文结构类型：机制型文章</div>
+  <p>这不是观点论证文，而是<strong>系统设计说明</strong>。核心结构是"问题→分层方案→每层细节→扩展性"。</p>
+</div>
+
+<div class="arch-diagram">
+  <div class="layer" style="border-left-color:#8B5CF6">
+    <strong>第一层：原始素材 → 结构化 Markdown</strong><br>
+    输入：截图/备忘录/口述（完全非结构化）<br>
+    工具：AI（OCR + 语义理解 + 去重 + 矛盾判断）<br>
+    输出：16 份 Markdown 文件
+  </div>
+  <div class="arrow">↓ AI 驱动</div>
+  <div class="layer" style="border-left-color:#3B82F6">
+    <strong>第二层：Markdown → 严格 Schema 的 JSON ★核心</strong><br>
+    输入：16 份 Markdown<br>
+    约束：JSON Schema（声明实体/字段/引用关系）<br>
+    输出：14 个 JSON 文件，12 种实体，全部 ID 引用
+  </div>
+  <div class="arrow">↓ Python + Jinja2</div>
+  <div class="layer" style="border-left-color:#10B981">
+    <strong>第三层：JSON → 双向索引 + 模板注入</strong><br>
+    输入：14 个 JSON<br>
+    处理：build_maps() → build_indexes() → 序列化 → Jinja2 render<br>
+    输出：4 套双向索引 + DATA/INDEXES 全局变量
+  </div>
+  <div class="arrow">↓ 一键生成</div>
+  <div class="layer" style="border-left-color:#F59E0B">
+    <strong>第四层：单 HTML 离线应用</strong><br>
+    产物：guide.html (~350KB)<br>
+    特性：23 路由 SPA、零依赖、100% 离线、微信可发
+  </div>
+</div>
+
+<div class="card source">
+  <div class="card-title">原文依据</div>
+  <div class="source-text">"非结构化信息（截图/文字/备忘录）→ AI 驱动：理解、提取、结构化 → 半结构化 Markdown（16 份主题文档）→ AI 驱动：按 Schema 规范转换 → 超结构化 JSON（14 个文件，严格字段约束）→ Python 一键生成 → 离线 H5 应用"（作品集.md）</div>
+</div>
+
+<!-- ===== MODULE 5: 核心判断与依据 ===== -->
+<h2 id="s5">05 · 核心判断与依据</h2>
+
+<!-- 判断 1 -->
+<div class="card key">
+  <span class="card-label judge">判断 ①</span>
+  <div class="card-title">Schema 是"翻译层"，不是"验证工具"</div>
+  <div class="source-text">原文依据："它既是对 AI 输出的约束契约，也是 HTML 模板渲染的数据源。Schema 设计好了，上游 AI 知道该怎么写，下游模板知道该怎么读。"（作品集.md）</div>
+  <p><strong>为什么重要：</strong>大多数项目把 Schema 当成事后校验的工具。这个项目把 Schema 提升为<strong>系统的核心接口</strong>——AI 和模板都以它为准。改了 Schema，上下游自动适应。</p>
+  <p class="note">可能的误读：以为 Schema 只是"JSON 格式检查器"。实际上它是整个流水线的契约层。</p>
+</div>
+
+<!-- 判断 2 -->
+<div class="card key">
+  <span class="card-label judge">判断 ②</span>
+  <div class="card-title">一切皆 ID 引用，杜绝文本内嵌</div>
+  <div class="source-text">原文依据："{ 'id': 'rest_three_broomsticks', 'recommended_dish_ids': ['dish_roast_chicken_ribs', 'dish_butterbeer'] } ——数据只存在一个地方（Single Source of Truth），修改菜品名只需改 dishes.json 一处。"（作品集.md）</div>
+  <p><strong>为什么重要：</strong>文本内嵌是数据系统中最常见的技术债。一旦菜品名改了，所有引用它的地方都要同步改。ID 引用让修改变成单点操作，而且让双向索引成为可能。</p>
+  <p class="note">类型：这是作者明确表述的设计判断，不是推论。</p>
+</div>
+
+<!-- 判断 3 -->
+<div class="card key">
+  <span class="card-label judge">判断 ③</span>
+  <div class="card-title">单 HTML + 零框架，不是偷懒，是刻意选型</div>
+  <div class="source-text">原文依据："数据量小（350KB），引入 React/Vue 反而增加体积和复杂度。Vanilla JS + Jinja2 模板足以支撑 23 个路由的 SPA，且产物更小、加载更快。"（design.md）</div>
+  <p><strong>三个设计约束决定了这个选型：</strong></p>
+  <ul style="margin:8px 0;padding-left:20px">
+    <li><strong>离线优先</strong>：园区内无信号，必须单文件可用</li>
+    <li><strong>分享门槛低</strong>：微信发送一个文件即可，不需要安装</li>
+    <li><strong>数据量小</strong>：350KB 数据不值得引入框架的复杂度</li>
+  </ul>
+</div>
+
+<!-- 判断 4 -->
+<div class="card key">
+  <span class="card-label judge">判断 ④</span>
+  <div class="card-title">双向索引由 Python 在构建时自动计算，不靠前端硬编码</div>
+  <div class="source-text">原文依据："这些关联不是手写硬编码的，是 Python 从 JSON 的 ID 引用关系中自动计算出来的。"（作品集.md）</div>
+  <p><strong>为什么重要：</strong>如果关联关系靠前端 JS 硬编码，每次增删实体都要改 JS。构建时计算意味着前端代码是通用的——换一套数据，同样的代码就能工作。</p>
+</div>
+
+<!-- 判断 5 -->
+<div class="card key">
+  <span class="card-label judge">判断 ⑤</span>
+  <div class="card-title">AI 是执行者，人是决策者</div>
+  <div class="source-text">原文依据："你是产品经理，AI 是你的全栈工程师。"（docs/usage.md）"不擅自拍板（方案需你确认）"（角色分工表）</div>
+  <p><strong>为什么重要：</strong>这个项目不是"AI 自动做一切"。它设计了清晰的人机分工：AI 负责读写数据、改代码、跑命令；人负责决策、提供素材、审核结果。这比"AI 全自动"更可靠。</p>
+</div>
+
+<!-- 判断 6 -->
+<div class="card key">
+  <span class="card-label judge">判断 ⑥</span>
+  <div class="card-title">四组件耦合，改一个必须查其余三个</div>
+  <div class="source-text">原文依据："这套系统有 4 个组件通过字段名紧密耦合。改其中一个必须检查其余三个。"（docs/usage.md）——schema.json ↔ data/*.json ↔ schema_generator.py ↔ guide_template.html</div>
+  <p><strong>为什么重要：</strong>这是这套架构的主要代价。Schema 驱动带来了自动化和一致性，但也带来了耦合。作者没有回避这一点，反而在文档中详细列出了 5 种修改场景的联动规则。</p>
+</div>
+
+<!-- ===== MODULE 6: 关键概念拆解 ===== -->
+<h2 id="s6">06 · 关键概念拆解</h2>
+
+<div class="card concept">
+  <span class="card-label tip">概念 ①</span>
+  <div class="card-title">Schema 驱动架构</div>
+  <p><strong>原文怎么用：</strong>"Schema 驱动架构：schema.json 定义数据结构，generator/schema_generator.py 读取 Schema 生成索引"（workflow.md）</p>
+  <p><strong>人话解释：</strong>先定义"数据应该长什么样"（Schema），再按这个定义去填数据、写代码。Schema 是所有组件共同遵守的契约。</p>
+  <p><strong>和其他概念的关系：</strong>Schema 是四层流水线中第二层的核心。它同时约束上游（AI 输出格式）和下游（模板渲染输入）。</p>
+  <div class="source-text">原文依据："修改数据结构只需更新 Schema，验证和生成自动适应。"（README.md）</div>
+  <p class="note">不要误解成：Schema 只是一个 JSON 文件。它是整个系统的设计哲学——用声明式定义驱动一切。</p>
+</div>
+
+<div class="card concept">
+  <span class="card-label tip">概念 ②</span>
+  <div class="card-title">Single Source of Truth（数据单一来源）</div>
+  <p><strong>原文怎么用：</strong>"数据只存在一个地方（Single Source of Truth），修改菜品名只需改 dishes.json 一处。"（作品集.md）</p>
+  <p><strong>人话解释：</strong>每条信息只存一份。所有需要这条信息的地方，都通过 ID 去引用它，而不是复制一份过来。</p>
+  <p><strong>和其他概念的关系：</strong>这是"一切皆 ID 引用"原则的底层逻辑。正因为数据只有一份，ID 引用才有意义。</p>
+  <p class="note">不要误解成：这意味着数据冗余为零。标签（tags）被多个实体引用，这是引用关系，不是冗余。</p>
+</div>
+
+<div class="card concept">
+  <span class="card-label tip">概念 ③</span>
+  <div class="card-title">四套双向索引</div>
+  <p><strong>原文怎么用：</strong>"build_indexes() 返回包含 4 个索引的字典：tag_index、zone_index、backrefs、alternative_index"（workflow.md）</p>
+  <p><strong>人话解释：</strong></p>
+  <ul style="margin:4px 0 8px 20px;font-size:14px">
+    <li><strong>tag_index</strong>：按标签找实体（"高刺激"标签下有哪些项目？）</li>
+    <li><strong>zone_index</strong>：按园区找实体（哈利波特区有哪些餐厅？）</li>
+    <li><strong>backrefs</strong>：反向引用（哪些技巧提到了这个项目？）</li>
+    <li><strong>alternative_index</strong>：替代关系（这个菜品有哪些替代选项？）</li>
+  </ul>
+  <p><strong>和其他概念的关系：</strong>索引的构建依赖 ID 引用关系。没有"一切皆 ID"，就不可能自动计算这些索引。</p>
+</div>
+
+<div class="card concept">
+  <span class="card-label tip">概念 ④</span>
+  <div class="card-title">四组件耦合</div>
+  <p><strong>原文怎么用：</strong>"schema.json ↔ data/*.json ↔ schema_generator.py ↔ guide_template.html —— 字段定义必须一致、字段名必须一致、变量名必须一致、校验规则必须匹配"（docs/usage.md）</p>
+  <p><strong>人话解释：</strong>这四个文件通过字段名"锁"在一起。改了 schema.json 里的字段名，其他三个文件必须同步改，否则系统报错。</p>
+  <p><strong>和其他概念的关系：</strong>这是 Schema 驱动架构的代价。换来的好处是：只要 Schema 对了，上下游自动对齐。</p>
+</div>
+
+<div class="card concept">
+  <span class="card-label tip">概念 ⑤</span>
+  <div class="card-title">构建时 vs 运行时</div>
+  <p><strong>原文怎么用：</strong>"Jinja2 在构建时完成模板渲染，运行时零开销。"（design.md）"Python 从 JSON 的 ID 引用关系中自动计算出来的"（作品集.md）</p>
+  <p><strong>人话解释：</strong>所有复杂计算（索引构建、模板渲染、数据注入）都在"构建时"完成——也就是你跑 python 命令的时候。用户打开 HTML 时，一切已经是成品，不需要再计算。</p>
+  <p><strong>和其他概念的关系：</strong>这是"单 HTML + 零框架"选型成立的前提。正因为复杂逻辑在构建时处理完了，运行时只需要简单的 Vanilla JS。</p>
+</div>
+
+<div class="card concept">
+  <span class="card-label tip">概念 ⑥</span>
+  <div class="card-title">联动修改规则</div>
+  <p><strong>原文怎么用：</strong>"场景 A：只换数据不改结构 —— 只改 data/ 下的文件。场景 B：去掉某些实体类型 —— 需要同步改 4 个地方。"（docs/usage.md）</p>
+  <p><strong>人话解释：</strong>作者把修改操作分成了 5 种场景（A-E），每种场景列出了具体要改哪些文件。这是一份"操作手册"，防止改了 A 忘了 B。</p>
+</div>
+
+<!-- ===== MODULE 7: 苏格拉底式阅读关卡 ===== -->
+<h2 id="s7">07 · 苏格拉底式阅读关卡</h2>
+<p style="margin-bottom:16px;color:#666;font-size:14px">先用问题帮助你自己发现结构，再进入闯关任务。</p>
+
+<div class="card" style="border-left-color:#9CA3AF">
+  <strong>问题 1（入门）：</strong>作者在第一层和第二层都用了 AI。这两层的 AI 做的事情有什么本质区别？
+  <p class="note" style="margin-top:8px">提示：第一层处理的是什么格式的数据？第二层呢？约束条件有什么不同？</p>
+</div>
+
+<div class="card" style="border-left-color:#9CA3AF">
+  <strong>问题 2（判断）：</strong>"单 HTML 方案彻底消除网络依赖"——这句话是事实、判断还是推论？
+  <p class="note" style="margin-top:8px">提示：想想"单 HTML"和"无网络"之间是因果关系还是设计目标。</p>
+</div>
+
+<div class="card" style="border-left-color:#9CA3AF">
+  <strong>问题 3（关系）：</strong>如果没有"一切皆 ID 引用"这个设计，四套双向索引还能不能自动构建？为什么？
+  <p class="note" style="margin-top:8px">提示：想象一下如果餐厅里写的是字符串菜名（"烤鸡排骨拼盘"），而不是 ID（"dish_roast_chicken_ribs"）。</p>
+</div>
+
+<div class="card" style="border-left-color:#9CA3AF">
+  <strong>问题 4（隐含前提）：</strong>"Vanilla JS + Jinja2 足以支撑 23 个路由的 SPA"——这里隐含了什么前提条件？如果数据量从 350KB 变成 35MB，结论还成立吗？
+</div>
+
+<div class="card" style="border-left-color:#9CA3AF">
+  <strong>问题 5（反向思考）：</strong>这套架构最大的代价是什么？作者在文档中是否承认了这个代价？
+  <p class="note" style="margin-top:8px">提示：重新看看"四组件耦合"那部分。</p>
+</div>
+
+<div class="card" style="border-left-color:#9CA3AF">
+  <strong>问题 6（迁移）：</strong>如果要把这套架构用在"个人电影推荐"场景，哪些实体类型需要保留，哪些可以去掉？
+</div>
+
+<!-- ===== MODULE 8: 闯关式任务 ===== -->
+<h2 id="s8">08 · 闯关式任务</h2>
+<p style="margin-bottom:16px;color:#666;font-size:14px">用闭环题检验你的理解。答错会告诉你应该复习哪个模块。</p>
+
+<!-- Task 1 -->
+<div class="task" data-task="Q1" data-answer="C"
+     data-ok="正确。Schema 是 AI 和模板之间的'翻译层'——对上游约束输出格式，对下游提供输入契约。这不是验证，而是接口设计。"
+     data-no="Schema 的核心角色不是'验证数据格式'（这只是附带功能），而是作为 AI 和模板之间的共享契约。回到模块 05 判断①复习。"
+     data-src="原文：'它既是对 AI 输出的约束契约，也是 HTML 模板渲染的数据源。'（作品集.md）"
+     data-review="回到「模块05·核心判断①」复习">
+  <div class="q">Q1：在这个项目中，JSON Schema 最核心的角色是什么？</div>
+  <div class="opts">
+    <button class="opt" data-val="A">A. 用来生成 API 文档</button>
+    <button class="opt" data-val="B">B. 用来验证 JSON 文件格式是否合法</button>
+    <button class="opt" data-val="C">C. 作为 AI 输出和模板渲染之间的共享契约</button>
+    <button class="opt" data-val="D">D. 用来定义数据库表结构</button>
+  </div>
+  <button class="check">检查</button>
+  <div class="feedback" aria-live="polite">选择后点击检查，这里会显示反馈。</div>
+</div>
+
+<!-- Task 2 -->
+<div class="task" data-task="Q2" data-answer="B"
+     data-ok="正确。ID 引用让数据只存一处（Single Source of Truth），修改变成单点操作。文本内嵌是最常见的技术债——改一个名字要改 N 个地方。"
+     data-no="文本内嵌的最大问题不是'占空间'，而是'改一处要改 N 处'。ID 引用让数据只存一份，修改变成单点操作。回到模块 05 判断②复习。"
+     data-src="原文：'数据只存在一个地方（Single Source of Truth），修改菜品名只需改 dishes.json 一处。'（作品集.md）"
+     data-review="回到「模块05·核心判断②」复习">
+  <div class="q">Q2：为什么这个项目要求"一切皆 ID 引用，杜绝文本内嵌"？</div>
+  <div class="opts">
+    <button class="opt" data-val="A">A. 因为 JSON 文件不能存中文字符串</button>
+    <button class="opt" data-val="B">B. 因为 ID 引用让数据只存一处，修改不遗漏</button>
+    <button class="opt" data-val="C">C. 因为 ID 比字符串更短，节省文件体积</button>
+    <button class="opt" data-val="D">D. 因为前端 JavaScript 只能处理 ID</button>
+  </div>
+  <button class="check">检查</button>
+  <div class="feedback" aria-live="polite">选择后点击检查，这里会显示反馈。</div>
+</div>
+
+<!-- Task 3 -->
+<div class="task" data-task="Q3" data-multi="true" data-answer="A,C,D"
+     data-ok="正确！三个约束是：①离线优先（园区无信号）、②分享门槛低（微信一个文件）、③数据量小（不值得引入框架）。B 不是原因——Vanilla JS 在复杂场景下反而更难维护，这个选型成立是因为场景简单。"
+     data-no="选错了。注意 B 说的不是约束，而是 Vanilla JS 的潜在缺点。真正决定选型的三个约束是：离线优先、分享门槛低、数据量小。回到模块 05 判断③复习。"
+     data-src="原文：'园区内无网络是核心痛点，单文件方案彻底消除网络依赖。'（design.md）'数据量小（350KB），引入 React/Vue 反而增加体积和复杂度。'（design.md）"
+     data-review="回到「模块05·核心判断③」复习">
+  <div class="q">Q3（多选）：哪些约束条件决定了"单 HTML + 零框架"这个技术选型？</div>
+  <div class="opts">
+    <button class="opt" data-val="A">A. 园区内无信号，必须离线可用</button>
+    <button class="opt" data-val="B">B. Vanilla JS 比 React 性能更好</button>
+    <button class="opt" data-val="C">C. 需要通过微信一个文件分享</button>
+    <button class="opt" data-val="D">D. 数据量只有 350KB，不值得引入框架</button>
+  </div>
+  <button class="check">检查</button>
+  <div class="feedback" aria-live="polite">选择后点击检查，这里会显示反馈。</div>
+</div>
+
+<!-- Task 4 -->
+<div class="task" data-task="Q4" data-answer="D"
+     data-ok="正确。backrefs 是从 tips/warnings/itineraries 中提取对实体的引用，反向建立索引——让你从一个项目找到'哪些技巧提到了我'。"
+     data-no="backrefs 不是标签索引（那是 tag_index），也不是园区索引（那是 zone_index）。它是"反向引用"——从被引用方找到引用方。回到模块 06 概念③复习。"
+     data-src="原文：'从 tips、warnings、itineraries 中提取对实体的引用关系，反向建立索引。'（workflow.md）"
+     data-review="回到「模块06·概念③·四套双向索引」复习">
+  <div class="q">Q4：backrefs 索引解决的是什么问题？</div>
+  <div class="opts">
+    <button class="opt" data-val="A">A. 按标签查找关联实体</button>
+    <button class="opt" data-val="B">B. 按园区筛选实体列表</button>
+    <button class="opt" data-val="C">C. 建立菜品之间的替代关系</button>
+    <button class="opt" data-val="D">D. 从被引用方反查"谁引用了我"</button>
+  </div>
+  <button class="check">检查</button>
+  <div class="feedback" aria-live="polite">选择后点击检查，这里会显示反馈。</div>
+</div>
+
+<!-- Task 5 -->
+<div class="task" data-task="Q5" data-answer="B"
+     data-ok="正确！所有索引构建和模板渲染都在构建时完成（跑 Python 命令时），用户打开 HTML 时一切都是成品。这就是为什么运行时只需要简单的 Vanilla JS。"
+     data-no="注意区分'构建时'和'运行时'。索引构建发生在你跑 python schema_generator.py 的时候（构建时），不是用户打开网页的时候（运行时）。回到模块 06 概念⑤复习。"
+     data-src="原文：'Jinja2 在构建时完成模板渲染，运行时零开销。'（design.md）"
+     data-review="回到「模块06·概念⑤·构建时 vs 运行时」复习">
+  <div class="q">Q5：四套双向索引是在什么时候构建的？</div>
+  <div class="opts">
+    <button class="opt" data-val="A">A. 用户打开 HTML 页面时，由 JavaScript 构建</button>
+    <button class="opt" data-val="B">B. 开发者运行 python schema_generator.py 时，由 Python 构建</button>
+    <button class="opt" data-val="C">C. AI 提取数据时自动构建</button>
+    <button class="opt" data-val="D">D. 浏览器加载页面后，由 Web Worker 构建</button>
+  </div>
+  <button class="check">检查</button>
+  <div class="feedback" aria-live="polite">选择后点击检查，这里会显示反馈。</div>
+</div>
+
+<!-- Task 6 -->
+<div class="task" data-task="Q6" data-answer="C"
+     data-ok="正确。只换数据不改结构时，只需要改 data/ 下的 JSON 文件。schema.json / schema_generator.py / guide_template.html / schema_validator.py 都不用动。"
+     data-no="注意是'只换数据不改结构'（场景 A）。这种情况下 JSON 的字段结构不变，只是内容变了，所以 Schema、生成器、模板、验证器都不需要改。回到模块 06 概念⑥复习。"
+     data-src="原文：'场景 A：只换数据不改结构——只改 data/ 下的文件。不需要改 schema.json / schema_generator.py / guide_template.html / schema_validator.py。'（docs/usage.md）"
+     data-review="回到「模块06·概念⑥·联动修改规则」复习">
+  <div class="q">Q6：把环球影城数据换成上海迪士尼数据（实体类型不变），需要改哪些文件？</div>
+  <div class="opts">
+    <button class="opt" data-val="A">A. 只改 schema.json</button>
+    <button class="opt" data-val="B">B. 改 schema.json + data/*.json + 生成器 + 模板</button>
+    <button class="opt" data-val="C">C. 只改 data/ 下的 JSON 文件</button>
+    <button class="opt" data-val="D">D. 全部文件都要改</button>
+  </div>
+  <button class="check">检查</button>
+  <div class="feedback" aria-live="polite">选择后点击检查，这里会显示反馈。</div>
+</div>
+
+<!-- Task 7: Match -->
+<div class="task" data-task="Q7" data-type="selects"
+     data-ok="全部正确！四套索引各司其职：tag 按标签找实体，zone 按园区找实体，backrefs 反向引用，alternative 替代关系。"
+     data-no="有配对错误。tag_index 是按标签聚合，zone_index 是按园区聚合，backrefs 是反向引用，alternative_index 是替代关系。回到模块 06 概念③复习。"
+     data-src="原文：'build_indexes() 返回包含 4 个索引的字典。'（workflow.md）"
+     data-review="回到「模块06·概念③·四套双向索引」复习">
+  <div class="q">Q7（匹配）：把每套索引和它解决的问题配对。</div>
+  <div class="opts">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+      <span style="min-width:160px;font-weight:600">tag_index</span>
+      <select class="match" data-correct="A" style="flex:1;padding:8px;border:2px solid #ddd;border-radius:8px;font-size:14px">
+        <option value="">请选择…</option>
+        <option value="A">按标签查找关联实体</option>
+        <option value="B">从被引用方反查引用方</option>
+        <option value="C">按园区筛选实体列表</option>
+        <option value="D">建立替代选项关系</option>
+      </select>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+      <span style="min-width:160px;font-weight:600">zone_index</span>
+      <select class="match" data-correct="C" style="flex:1;padding:8px;border:2px solid #ddd;border-radius:8px;font-size:14px">
+        <option value="">请选择…</option>
+        <option value="A">按标签查找关联实体</option>
+        <option value="B">从被引用方反查引用方</option>
+        <option value="C">按园区筛选实体列表</option>
+        <option value="D">建立替代选项关系</option>
+      </select>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+      <span style="min-width:160px;font-weight:600">backrefs</span>
+      <select class="match" data-correct="B" style="flex:1;padding:8px;border:2px solid #ddd;border-radius:8px;font-size:14px">
+        <option value="">请选择…</option>
+        <option value="A">按标签查找关联实体</option>
+        <option value="B">从被引用方反查引用方</option>
+        <option value="C">按园区筛选实体列表</option>
+        <option value="D">建立替代选项关系</option>
+      </select>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+      <span style="min-width:160px;font-weight:600">alternative_index</span>
+      <select class="match" data-correct="D" style="flex:1;padding:8px;border:2px solid #ddd;border-radius:8px;font-size:14px">
+        <option value="">请选择…</option>
+        <option value="A">按标签查找关联实体</option>
+        <option value="B">从被引用方反查引用方</option>
+        <option value="C">按园区筛选实体列表</option>
+        <option value="D">建立替代选项关系</option>
+      </select>
+    </div>
+  </div>
+  <button class="check">检查</button>
+  <div class="feedback" aria-live="polite">选择后点击检查，这里会显示反馈。</div>
+</div>
+
+<!-- Task 8 -->
+<div class="task" data-task="Q8" data-answer="B"
+     data-ok="正确！这是一个典型的'并列结构'——四种实体通过不同的 _ids 字段关联 warning，不是因果链。作者用统一的字段命名规范（{type}_ids）来处理这种并列关系。"
+     data-no="注意 warning 的关联方式不是因果链，而是并列结构——attraction_ids、show_ids、restaurant_ids、shortcut_ids 四个独立字段。回到模块 04 结构地图复习。"
+     data-src="原文：'warnings 怎么同时关联 attraction / show / restaurant / shortcut？'——通过四个独立的 _ids 数组字段。（docs/usage.md）"
+     data-review="回到「模块04·原文结构地图」复习">
+  <div class="q">Q8：一个 warning（避雷）如何同时关联项目、演出、餐厅和小道？</div>
+  <div class="opts">
+    <button class="opt" data-val="A">A. 用一个通用的 entity_ids 字段存所有关联</button>
+    <button class="opt" data-val="B">B. 用 attraction_ids / show_ids / restaurant_ids / shortcut_ids 四个独立字段</button>
+    <button class="opt" data-val="C">C. 只关联一个实体，其他实体通过标签间接关联</button>
+    <button class="opt" data-val="D">D. 通过外键表建立多对多关系</button>
+  </div>
+  <button class="check">检查</button>
+  <div class="feedback" aria-live="polite">选择后点击检查，这里会显示反馈。</div>
+</div>
+
+<!-- ===== MODULE 9: 误解与边界 ===== -->
+<h2 id="s9">09 · 误解与边界</h2>
+
+<div class="card warning">
+  <span class="card-label warn">误解 ①</span>
+  <div class="card-title">"Schema 只是验证工具"</div>
+  <p><strong>可能误解：</strong>以为 schema.json 只是用来检查 JSON 格式对不对的。</p>
+  <p><strong>原文真正说了什么：</strong>"它既是对 AI 输出的约束契约，也是 HTML 模板渲染的数据源。"——它是接口，不是守卫。</p>
+  <p><strong>原文没有说什么：</strong>没有说 Schema 可以替代 API 设计或数据库设计。</p>
+  <p><strong>如何避免：</strong>记住 Schema 在这个项目中是"翻译层"，同时服务上游和下游。</p>
+</div>
+
+<div class="card warning">
+  <span class="card-label warn">误解 ②</span>
+  <div class="card-title">"单 HTML 是技术限制"</div>
+  <p><strong>可能误解：</strong>以为选单 HTML 是因为作者不会用框架，或者是项目太小不值得用。</p>
+  <p><strong>原文真正说了什么：</strong>"园区内无网络是核心痛点，单文件方案彻底消除网络依赖。"——这是刻意的设计决策，不是能力限制。</p>
+  <p><strong>如何避免：</strong>从用户场景（无信号+微信分享）倒推技术选型，而不是从技术能力出发。</p>
+</div>
+
+<div class="card warning">
+  <span class="card-label warn">误解 ③</span>
+  <div class="card-title">"AI 自动完成一切"</div>
+  <p><strong>可能误解：</strong>以为用户只需要丢素材进去，AI 就能自动生成完美攻略。</p>
+  <p><strong>原文真正说了什么：</strong>"你是产品经理，AI 是你的全栈工程师。"——需要人确认方案、审核结果、提供决策。AI 不擅自拍板。</p>
+  <p><strong>如何避免：</strong>注意 usage.md 中的 Phase 1（确认需求）明确要求"等待用户确认再动手"。</p>
+</div>
+
+<div class="card warning">
+  <span class="card-label warn">误解 ④</span>
+  <div class="card-title">"这套架构只适用于主题公园"</div>
+  <p><strong>可能误解：</strong>以为这是一个环球影城专属工具。</p>
+  <p><strong>原文真正说了什么：</strong>"这套数据结构和页面模板其实不限于环球影城——换一套数据，上海迪士尼、成都美食地图、甚至个人影单推荐都能用。"（README.md）</p>
+  <p><strong>如何避免：</strong>理解 Schema 是通用的，数据是可替换的。</p>
+</div>
+
+<!-- ===== MODULE 10: 背景知识缺口 ===== -->
+<h2 id="s10">10 · 背景知识缺口</h2>
+
+<div class="card">
+  <div class="card-title">要完全理解这篇，还需要补哪些背景</div>
+
+  <p style="margin:12px 0"><strong>🔑 推荐补（直接影响理解深度）：</strong></p>
+  <ul style="padding-left:20px;margin-bottom:16px">
+    <li><strong>JSON Schema 规范</strong>——理解 $schema、type、ref、required 等关键字的含义。建议先看 json-schema.org 的 5 分钟入门。</li>
+    <li><strong>数据归一化理论</strong>——"一切皆 ID 引用"本质上是数据库设计中的第三范式（3NF）。了解 1NF/2NF/3NF 能帮你理解为什么要消除文本内嵌。</li>
+  </ul>
+
+  <p style="margin:12px 0"><strong>📌 可以先不补（了解即可）：</strong></p>
+  <ul style="padding-left:20px;margin-bottom:16px">
+    <li><strong>Jinja2 模板语法细节</strong>——知道"构建时渲染"就够了，不需要会写模板。</li>
+    <li><strong>Vanilla JS SPA 路由实现</strong>——知道用 hash 路由就够了，不需要会手写路由库。</li>
+    <li><strong>GitHub Actions CI/CD</strong>——和架构设计无关，只是部署方式。</li>
+  </ul>
+
+  <p style="margin:12px 0"><strong>🎯 推荐下一步学习问题：</strong></p>
+  <ul style="padding-left:20px">
+    <li>如果实体类型从 12 种变成 50 种，这套架构还能撑住吗？瓶颈在哪？</li>
+    <li>有没有比"四组件耦合"更好的方式来保持一致性？</li>
+    <li>如果需要多人同时编辑数据，这个工作流需要怎么改？</li>
+  </ul>
+</div>
+
+<!-- ===== MODULE 11: 复盘与学习报告 ===== -->
+<h2 id="s11">11 · 复盘与学习报告</h2>
+
+<div class="card">
+  <div class="card-title">完成所有题目后，生成你的学习报告</div>
+  <p style="margin-bottom:12px">报告会记录你的答题情况、错题回顾和下一步建议。点击按钮生成，可复制保存。</p>
+  <button class="report-btn" id="genReport">📊 生成学习报告</button>
+  <button class="report-btn" id="copyReport" style="background:#5856d6">📋 复制到剪贴板</button>
+</div>
+
+<div id="report" style="margin-top:12px">点击「生成学习报告」按钮后，这里会显示你的学习报告。</div>
+
+<div style="margin-top:24px">
+  <h3 style="font-size:15px;margin-bottom:12px">📌 错题回顾</h3>
+  <ul id="wrongBox"><li style="color:#888">还没有错题。答错的题会自动收集到这里。</li></ul>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>由 <a href="https://github.com/nousresearch/hermes-agent" target="_blank" rel="noopener">Grokko</a> 生成</p>
+  <p style="margin-top:4px;font-size:12px;color:#aaa">这个工具能帮你预习难啃的干货，但不能代替完整学习。学习愉快 🌱</p>
+</div>
+
+</div><!-- end .main -->
+
+<!-- ===== FIXED INTERACTION ENGINE (原样粘贴，不许改写逻辑) ===== -->
+<script>
+(function(){
+  "use strict";
+  function $all(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));}
+  function selectedVals(t){return $all('.opt.selected',t).map(function(o){return o.getAttribute('data-val');}).sort();}
+  function setFb(t,state,html){var fb=t.querySelector('.feedback');if(!fb)return;fb.className='feedback'+(state?(' '+state):'');fb.innerHTML=html;}
+  function updateBar(){
+    var all=$all('.task'),done=$all('.task[data-answered="1"]');
+    var fill=document.getElementById('barFill'),num=document.getElementById('barNum');
+    if(fill)fill.style.width=all.length?(done.length/all.length*100)+'%':'0%';
+    if(num)num.textContent=done.length+' / '+all.length;
+    var topFill=document.getElementById('topBarFill');
+    if(topFill)topFill.style.width=all.length?(done.length/all.length*100)+'%':'0%';
+  }
+  function renderWrong(){
+    var box=document.getElementById('wrongBox');if(!box)return;
+    var wrong=$all('.task[data-answered="1"][data-correct="0"]');
+    if(!wrong.length){box.innerHTML='<li style="color:#888">还没有错题。答错的题会自动收集到这里。</li>';return;}
+    box.innerHTML='';
+    wrong.forEach(function(t){var li=document.createElement('li');li.textContent='【'+(t.getAttribute('data-task')||'')+'】'+(t.getAttribute('data-review')||'回到对应模块复习');box.appendChild(li);});
+  }
+  function check(t){
+    var type=t.getAttribute('data-type'),ok=false;
+    if(type==='selects'){
+      var sels=$all('select.match',t),allok=true,empty=false;
+      sels.forEach(function(s){if(!s.value)empty=true;if(s.value!==s.getAttribute('data-correct'))allok=false;});
+      if(empty){setFb(t,'no','请先把每一项都选好再检查。');return;}
+      ok=allok;
+    }else{
+      var sel=selectedVals(t);
+      if(!sel.length){setFb(t,'no','请先选择一个选项再检查。');return;}
+      var ans=(t.getAttribute('data-answer')||'').split(',').map(function(x){return x.trim();}).sort();
+      ok=(sel.join('|')===ans.join('|'));
+    }
+    var body=ok?(t.getAttribute('data-ok')||'回答正确。'):(t.getAttribute('data-no')||'再想想。');
+    var src=t.getAttribute('data-src');
+    setFb(t,ok?'ok':'no',(ok?'✅ ':'❌ ')+body+(src?('<span class="src">'+src+'</span>'):''));
+    t.setAttribute('data-answered','1');t.setAttribute('data-correct',ok?'1':'0');
+    updateBar();renderWrong();
+  }
+  function genReport(){
+    var box=document.getElementById('report');if(!box)return;
+    var all=$all('.task'),done=$all('.task[data-answered="1"]'),right=$all('.task[data-answered="1"][data-correct="1"]');
+    var lines=['=== 学习报告 ===','完成题目：'+done.length+' / '+all.length,'答对：'+right.length+' 题',''];
+    var wrong=$all('.task[data-answered="1"][data-correct="0"]');
+    if(wrong.length){lines.push('我答错的题（建议复习）：');wrong.forEach(function(t){lines.push('- '+(t.getAttribute('data-task')||'')+'：'+(t.getAttribute('data-review')||''));});}
+    else{lines.push('暂无错题。');}
+    lines.push('');
+    lines.push('我现在理解了什么：');
+    lines.push('- 四层流水线架构（素材→Markdown→JSON→HTML）');
+    lines.push('- JSON Schema 是 AI 和模板之间的翻译层/契约');
+    lines.push('- 四套双向索引在构建时自动计算');
+    lines.push('- 单 HTML 选型背后的三个约束');
+    lines.push('');
+    lines.push('下一步该追问什么：');
+    lines.push('- 如果实体类型扩展到 50 种，架构瓶颈在哪？');
+    lines.push('- 有没有比四组件耦合更好的一致性方案？');
+    box.textContent=lines.join('\n');
+  }
+  document.addEventListener('click',function(e){
+    var c=e.target.closest?e.target:null;
+    var opt=c&&e.target.closest('.opt');
+    if(opt){var t=opt.closest('.task');if(!t)return;
+      if(t.getAttribute('data-multi')==='true'){opt.classList.toggle('selected');}
+      else{$all('.opt',t).forEach(function(o){o.classList.remove('selected');});opt.classList.add('selected');}
+      return;}
+    var btn=c&&e.target.closest('.check');
+    if(btn){var tk=btn.closest('.task');if(tk)check(tk);return;}
+    if(e.target&&e.target.id==='genReport'){genReport();return;}
+    if(e.target&&e.target.id==='copyReport'){var r=document.getElementById('report');if(r&&navigator.clipboard)navigator.clipboard.writeText(r.textContent);return;}
+  });
+  function init(){updateBar();renderWrong();}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+</body>
+</html>

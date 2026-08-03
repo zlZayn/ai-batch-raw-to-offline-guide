@@ -4,6 +4,8 @@
 
 **在线预览：** [https://zlzayn.github.io/ai-batch-raw-to-offline-guide/](https://zlzayn.github.io/ai-batch-raw-to-offline-guide/)
 
+![项目预览](preview-hd.png)
+
 ---
 
 ## 创作故事
