@@ -55,8 +55,8 @@
 > 注意：`output/` 目录被 `.gitignore` 排除，**clone 下来后默认没有生成产物**，需要手动生成。
 
 ```bash
-# 1. 安装依赖
-pip install jinja2
+# 1. 安装依赖（或 uv sync：项目自带 pyproject.toml + uv.lock）
+pip install jinja2 openpyxl
 
 # 2. 验证数据完整性
 python scripts/schema_validator.py
@@ -107,7 +107,8 @@ ai-batch-raw-to-offline-guide/
 │   ├── schema_validator.py           ← Schema 驱动数据验证
 │   ├── analyze_data.py               ← 数据结构分析（图表 + JSON 报告）
 │   ├── export_xlsx.py                ← 导出 Excel
-│   └── stats.py                      ← 数据统计
+│   ├── stats.py                      ← 数据统计
+│   └── screenshot.js                 ← 截图工具（Node/puppeteer，被 .gitignore 排除）
 │
 ├── output/                           ← 生成产物（被 .gitignore 排除，需手动生成）
 │   ├── guide.html                    ← 攻略主页（单文件离线版）
@@ -121,12 +122,19 @@ ai-batch-raw-to-offline-guide/
 │       └── README.md                 ← 使用说明（复用根目录脚本）
 │
 ├── docs/                             ← 项目文档
+│   ├── ARCHITECTURE.md               ← 架构设计：设计哲学、关键决策、数据流、契约
 │   ├── usage.md                      ← AI 使用教程（换主题全流程指南）
 │   ├── design.md                     ← 产品设计：信息架构、视觉规范
 │   └── workflow.md                   ← 技术实现：生成流水线、索引算法
 │
 ├── src/                              ← 原始素材（Markdown 笔记）
+├── images/                           ← 截图素材
 ├── index.html                        ← GitHub Pages 入口（output/guide.html 的副本）
+├── preview.html                      ← 构建预览页
+├── preview-hd.png                    ← 项目预览图
+├── main.py                           ← uv 脚手架占位入口
+├── package.json / package-lock.json  ← Node 侧（截图工具依赖 puppeteer）
+├── LICENSE
 ├── .github/workflows/static.yml      ← GitHub Actions 自动部署配置
 ├── VERIFICATION_REPORT.md            ← Schema 系统验证报告
 ├── changelog.md                      ← 变更日志
@@ -171,7 +179,7 @@ python scripts/analyze_data.py
 python scripts/stats.py
 ```
 
-**依赖：** Python 3.6+、`pip install jinja2`
+**依赖：** Python 3.12+、`pip install jinja2 openpyxl`（推荐 `uv sync` 安装）
 
 ---
 
@@ -198,8 +206,13 @@ python scripts/stats.py
 | **AI 使用教程** | `docs/usage.md` | 换主题全流程、AI 工作规范、验证修复指南 | 想用 AI 生成新主题的人 |
 | **产品设计** | `docs/design.md` | 信息架构、数据关联关系、视觉设计规范 | AI 改样式时参考 |
 | **技术实现** | `docs/workflow.md` | 生成流水线、索引算法、前端路由/筛选/轮播 | AI 改功能时参考 |
+| **架构设计** | `docs/ARCHITECTURE.md` | 设计哲学、关键决策、数据流、契约 | 改架构/理解为什么时参考 |
 | **验证报告** | `VERIFICATION_REPORT.md` | Schema 系统验证方法、测试结果 | 关注可靠性的人 |
 | **变更日志** | `changelog.md` | Schema 版本演进、数据结构变更历史 | 关注历史的人 |
+
+---
+
+开发者/维护者：工作规则（命令、验证快照、待办、活跃坑）见 [AGENTS.md](AGENTS.md)。
 
 ---
 
