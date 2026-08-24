@@ -4,3 +4,6 @@ version = "0.1.0"
 description = "Offline guide for AI batch raw data processing workflows"
 requires-python = ">=3.12"
 dependencies = ["jinja2", "openpyxl"]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
