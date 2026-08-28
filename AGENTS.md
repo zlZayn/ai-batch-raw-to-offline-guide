@@ -24,4 +24,5 @@
 - 架构设计 → [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
 - 生成器 → [generator/README.md](generator/README.md)
 - 脚本 → [scripts/README.md](scripts/README.md)
+- 测试 → [tests/README.md](tests/README.md)
 - 决策记录 → [.agents/notes/](.agents/notes/)
