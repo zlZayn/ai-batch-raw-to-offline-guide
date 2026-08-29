@@ -7,7 +7,7 @@ from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), '..', 'data')
-OUTPUT = os.path.join(os.path.dirname(__file__), '..', 'output', 'v3_data.xlsx')
+OUTPUT = os.path.join(os.path.dirname(__file__), '..', 'output', 'data.xlsx')
 
 HEADER_FILL = PatternFill('solid', fgColor='1F4E79')
 HEADER_FONT = Font(bold=True, color='FFFFFF', size=11)
