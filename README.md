@@ -56,6 +56,9 @@ uv run python generator/schema_generator.py
 
 已配置 GitHub Actions 自动部署，访问上方的在线预览链接。
 
+> ⚠️ **不推荐作为日常使用方式**——本项目定位就是**离线使用**：把 `output/guide.html` 下载到手机/电脑本地，无网络也能用。
+> GitHub Pages 只是**项目展示用途**（在线预览、分享给别人先看效果），且 GitHub 在国内访问不稳定，线上加载反而比本地慢。
+
 > 根目录的 `index.html` 是 `output/guide.html` 的副本，专门用于 GitHub Pages 托管（CI 自动生成）。
 
 ---
