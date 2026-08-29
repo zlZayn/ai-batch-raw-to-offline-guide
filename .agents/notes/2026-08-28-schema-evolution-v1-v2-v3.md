@@ -12,10 +12,10 @@
 - v2：多目录（data/docs/generator/output 分版本目录），开始半结构化
 - v3（当前）：Schema 驱动 + 数据扁平化，13 实体、ID 引用、双向链接由系统自动构建
 - 当前文档以 v3 为唯一事实源；v1/v2 仅存在于 changelog 历史
-- 版本号现状：meta/tags.json 内 version 仍写 3.2.0，schema.json 的 $schema 写 guide-data-schema-v1——三处不同步，属已知遗留，不强行统一（避免破坏数据校验）
+- 版本号现状（2026-08-29 更新）：schema.json 的 $schema 已统一为 guide-data-schema-v3；meta/tags.json 内 version 字段仍写 3.2.0——数据文件 version 是数据内容（会进产物），不动，仅在 changelog 记录
 
 ## 替代方案（强制）
-- 强行统一三处版本号：数据文件 version 字段被 validator/模板引用，改值有回归风险，收益仅是表面一致
+- 强行统一全部三处版本号（含 data version 字段）：数据文件 version 会进产物，改值有回归风险且收益仅是表面一致——故只统一 schema 标识，data 不动
 - 不写本记录：迭代决策继续丢失，「为什么 v3 是 ID 引用」无人能答
 
 ## 影响

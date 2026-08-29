@@ -45,4 +45,5 @@
 - stance 枚举：`pro` / `contra`（数据实际值，schema 已对齐）
 - sentiment 枚举：`positive` / `negative` / `neutral` / `mixed`
 - severity 枚举：`high` / `medium` / `low`
-- rating：schema 声明 1-5，data 中存在 0 分记录（validator 不检查范围，已知遗留）
+- rating：schema 声明 0-5，与 data 实际一致（未评分项为 0）
+- schema 版本标识：`$schema: guide-data-schema-v3`（与 changelog 3.x 体系一致）

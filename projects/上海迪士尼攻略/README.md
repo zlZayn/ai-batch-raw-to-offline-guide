@@ -48,4 +48,4 @@ uv run python generator/schema_generator.py
 
 数据文件遵循根目录 `schema.json` 定义的 Schema 规范。
 
-如需自定义模板，在项目内建 `generator/guide_template.html` 后，用生成器的 `--template-dir` 参数指向本目录（生成器只认参数指定的单个模板目录，无自动回退）：
+如需自定义模板，把模板文件放在任意目录（如 `my_templates/`）后，用生成器的 `--template-dir` 指向该目录（生成器只认参数指定的单个模板目录，无自动回退）：

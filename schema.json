@@ -1,5 +1,5 @@
 {
-  "$schema": "guide-data-schema-v1",
+  "$schema": "guide-data-schema-v3",
   "description": "通用攻略数据结构 Schema，定义实体、字段和关系",
 
   "entities": {
@@ -35,7 +35,7 @@
       "fields": {
         "id": { "type": "string", "required": true, "primaryKey": true },
         "name": { "type": "string", "required": true },
-        "rating": { "type": "number", "min": 1, "max": 5 },
+        "rating": { "type": "number", "min": 0, "max": 5 },
         "ranking": { "type": "number" },
         "subtype": { "type": "string" },
         "duration_minutes": { "type": "number" },
@@ -350,7 +350,6 @@
           "ref": "attractions,shows,restaurants,dishes"
         },
         "content": { "type": "string" },
-        "rating": { "type": "number", "min": 1, "max": 5 },
         "sentiment": { "type": "string", "enum": ["positive", "negative", "neutral", "mixed"] },
         "source_files": { "type": "array", "itemType": "string" }
       }
