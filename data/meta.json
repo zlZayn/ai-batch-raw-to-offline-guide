@@ -213,18 +213,6 @@
       "filename": "src/09_避雷提醒/避雷提醒.md",
       "category": "warnings",
       "type": "compiled"
-    },
-    {
-      "id": "md_xhs_01",
-      "filename": "src/10_小红书补充/餐饮与项目补充.md",
-      "category": "supplementary",
-      "type": "compiled"
-    },
-    {
-      "id": "md_xhs_02",
-      "filename": "src/10_小红书补充/行前与技巧补充.md",
-      "category": "supplementary",
-      "type": "compiled"
     }
   ],
   "schema_version": "3.2.0",
