@@ -30,21 +30,22 @@
 本项目复用根目录的 Schema 驱动脚本：
 
 ```bash
-# 1. 进入项目根目录
-cd /workspace
+# 1. 定位到项目根目录 ai-batch-raw-to-offline-guide（命令见根 README.md「快速开始」）
+#    本目录不单独装环境，全部命令在项目根目录执行
 
 # 2. 验证数据完整性
-python scripts/schema_validator.py
+uv run python scripts/schema_validator.py
 
 # 3. 生成 HTML
-python generator/schema_generator.py
+uv run python generator/schema_generator.py
 
-# 生成结果在 output/guide.html
+# 生成结果在项目根 output/guide.html
 ```
+
+> 提示：更精确的用法是给生成器指定数据目录，见根 docs/usage.md 与 generator/README.md（--data-dir 参数）。
 
 ## 数据说明
 
 数据文件遵循根目录 `schema.json` 定义的 Schema 规范。
 
-如需自定义模板，可在本项目创建 `generator/guide_template.html`，
-生成器会优先使用项目内的模板，否则使用根目录的默认模板。
+如需自定义模板，在项目内建 `generator/guide_template.html` 后，用生成器的 `--template-dir` 参数指向本目录（生成器只认参数指定的单个模板目录，无自动回退）：

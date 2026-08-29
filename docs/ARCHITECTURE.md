@@ -15,7 +15,7 @@
 - ID 自描述前缀：attr_ / rest_ / dish_ / tip_ / warn_ / tag_ 等，前缀表类型、后缀表内容
 - 子项目复用：projects/ 下新主题复用根目录脚本，靠 --data-dir 等参数切换
 - Python 侧 uv 管理：pyproject.toml + uv.lock + .python-version（3.12.10）
-- Node 侧仅截图工具：package.json 依赖 puppeteer，仅供开发，不参与产物
+- Node 侧仅截图工具：tools/screenshot/（package.json + screenshot.js，puppeteer），仅供开发，不参与产物
 
 ## 数据流
 - src/（非结构化素材）→ 按 Schema 结构化 → data/（13 个 JSON）→ schema_validator.py 校验 → schema_generator.py 构建索引并渲染 → output/guide.html（单文件）
@@ -24,7 +24,8 @@
 - schema.json 是数据结构唯一来源，validator 与 generator 都读取
 - data/ 下 JSON 文件名与 schema 的 entities 键一一对应；实体集合以自身名为键
 - 生成器输出 output/guide.html（被 .gitignore 排除，需手动生成）
-- index.html 是 output/guide.html 的副本，供 GitHub Pages 托管
+- index.html 是 output/guide.html 的副本，供 GitHub Pages 托管（CI 复制，见 static.yml）
+- preview-hd.png（根）是截图工具产物 output/preview-hd.png 的发布副本，仅用于 README 展示
 - meta.json 的 last_updated 用北京时间（UTC+8）
 - GitHub Actions：static.yml 跑 validator → generator → 部署 Pages
 

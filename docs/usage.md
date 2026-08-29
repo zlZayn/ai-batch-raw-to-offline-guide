@@ -670,9 +670,11 @@ ai-batch-raw-to-offline-guide/
 │
 ├── output/                           ← ★ 最终产物在这里
 │   ├── guide.html                    ← 你的攻略网页（打开即用）
-│   └── v3_data.xlsx                  ← Excel 版
+│   └── data.xlsx                    ← Excel 版
 │
 └── src/                              ← 素材参考（人读为主，不参与运行）
+```
+(project 根另含 tools/screenshot/：Node 截图工具，仅供开发，与本教程无关)
 
 **src/ 与 data/ 的关系**：src/ 是历史素材，仅供人参考与核对；运行与校验只看 data/ + schema.json，两者不一致以 data/ 为准。
 ```
