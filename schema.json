@@ -43,6 +43,11 @@
         "water_splash": { "type": "boolean", "default": false },
         "single_rider": { "type": "boolean", "default": false },
         "has_photo": { "type": "boolean", "default": false },
+        "locker": { "type": "object" },
+        "queue_strategy": { "type": "object" },
+        "seat_advice": { "type": "array", "itemType": "object" },
+        "height_requirement": { "type": "object" },
+        "source_files": { "type": "array", "itemType": "string" },
         "zone_ids": {
           "type": "array",
           "itemType": "string",
@@ -338,6 +343,7 @@
       "description": "评价",
       "fields": {
         "id": { "type": "string", "required": true, "primaryKey": true },
+        "target_type": { "type": "string" },
         "target_id": {
           "type": "string",
           "required": true,
@@ -345,7 +351,8 @@
         },
         "content": { "type": "string" },
         "rating": { "type": "number", "min": 1, "max": 5 },
-        "sentiment": { "type": "string", "enum": ["positive", "negative", "neutral", "mixed"] }
+        "sentiment": { "type": "string", "enum": ["positive", "negative", "neutral", "mixed"] },
+        "source_files": { "type": "array", "itemType": "string" }
       }
     },
 
@@ -353,14 +360,16 @@
       "description": "对立观点",
       "fields": {
         "id": { "type": "string", "required": true, "primaryKey": true },
+        "target_type": { "type": "string" },
         "target_id": {
           "type": "string",
           "required": true,
           "ref": "attractions,shows,restaurants,dishes,tips"
         },
-        "stance": { "type": "string", "enum": ["pro", "con"] },
+        "stance": { "type": "string", "enum": ["pro", "contra"] },
         "claim": { "type": "string" },
-        "reasoning": { "type": "string" }
+        "reasoning": { "type": "string" },
+        "source_files": { "type": "array", "itemType": "string" }
       }
     },
 
