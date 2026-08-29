@@ -55,7 +55,7 @@
 **关键能力检查：你用的工具必须同时满足**
 
 1. 能读取/写入项目中的文件
-2. 能在终端执行 `python scripts/schema_validator.py` 这样的命令
+2. 能在终端执行 `uv run python scripts/schema_validator.py` 这样的命令
 3. 上下文窗口够大（装得下整个项目）
 
 **操作方法：**
@@ -133,6 +133,7 @@ AI 自动运行校验命令
 
 | # | 文件 | 为什么要读 |
 |---|------|-----------|
+| 0 | `AGENTS.md`（根目录） | **项目规则层** — 全局规则、命令、验证快照、活跃坑（自动注入，但建议主动确认） |
 | 1 | `docs/usage.md` | 工作流程和规范（就是本文件） |
 | 2 | `schema.json` | **Schema 定义** — 实体类型、字段、引用关系 |
 | 3 | `data/meta.json` | 项目元信息配置结构 |
@@ -449,7 +450,7 @@ scripts/schema_validator.py    ← 验证器（检查数据合法性）
 - **搜索整个文件，确认没有遗漏调用**
 
 **(4) 验证**
-- 改完立刻跑 `python scripts/schema_validator.py` 验证
+- 改完立刻跑 `uv run python scripts/schema_validator.py` 验证
 
 ## 场景 C：新增实体类型
 
@@ -485,7 +486,7 @@ scripts/schema_validator.py    ← 验证器（检查数据合法性）
 - 路由加 shopping 的 case
 
 **(4) 验证**
-- 改完立刻跑 `python scripts/schema_validator.py` 验证
+- 改完立刻跑 `uv run python scripts/schema_validator.py` 验证
 
 ## 场景 D：给某实体增加/删除字段
 
@@ -507,17 +508,19 @@ scripts/schema_validator.py    ← 验证器（检查数据合法性）
 
 # Phase 4：验证
 
-运行：`python scripts/schema_validator.py`
+运行：`uv run python scripts/schema_validator.py`
 
 - ✅ 全 PASS → 进入 Phase 5
 - ❌ 有 FAILED → 进入修复循环
+
+数据规范冒烟测试：`uv run pytest`（tests/ 下断言唯一 ID 311 / 有效引用 779 / 双向链接 234）
 
 ## 修复循环（最多自修复 3 轮）
 
 1. 逐条阅读错误信息
 2. 定位到具体文件和字段
 3. 修复
-4. 重跑 `python scripts/schema_validator.py`
+4. 重跑 `uv run python scripts/schema_validator.py`
 5. 如仍有错误 → 重复
 
 **3 轮后仍有未修复错误 → 停止，向用户报告完整错误日志，说明哪些需要用户确认事实信息。**
@@ -528,7 +531,7 @@ scripts/schema_validator.py    ← 验证器（检查数据合法性）
 
 让用户打开 `output/guide.html` 预览。根据反馈调整。
 
-**每次调整后（无论改数据还是代码），都必须重跑 `python scripts/schema_validator.py` 直到全 PASS。**
+**每次调整后（无论改数据还是代码），都必须重跑 `uv run python scripts/schema_validator.py` 直到全 PASS。**
 
 ---
 
@@ -536,7 +539,7 @@ scripts/schema_validator.py    ← 验证器（检查数据合法性）
 
 1. **Schema 即契约** — 所有数据、验证、索引都基于 schema.json 定义
 2. **改动必联动** — 改 Schema 时必须同步检查 data / template。漏一个就报错
-3. **每次改完必跑验证** — 任何修改后必须执行 `python scripts/schema_validator.py` 并看到全 PASS
+3. **每次改完必跑验证** — 任何修改后必须执行 `uv run python scripts/schema_validator.py` 并看到全 PASS
 4. **不确定就不编** — 不确定的数据写 null 或问用户
 5. **保持一致** — 同一项目中区域缩写、ID 风格统一
 6. **报错原样呈现** — 验证失败时把完整输出贴给用户，不总结不简化
@@ -614,19 +617,19 @@ scripts/schema_validator.py    ← 验证器（检查数据合法性）
 
 ```bash
 # 完整流程：校验 → 生成 HTML → 验证产物
-python scripts/schema_validator.py
+uv run python scripts/schema_validator.py
 
 # 仅生成 HTML（跳过校验，不推荐跳过）
-python generator/schema_generator.py
+uv run python generator/schema_generator.py
 
 # 导出 Excel
-python scripts/export_xlsx.py
+uv run python scripts/export_xlsx.py
 
 # 数据分析（生成图表）
-python scripts/analyze_data.py
+uv run python scripts/analyze_data.py
 
 # 数据统计
-python scripts/stats.py
+uv run python scripts/stats.py
 ```
 
 ---
@@ -636,7 +639,7 @@ python scripts/stats.py
 > 帮你快速找到东西在哪
 
 ```
-环球攻略指南html/
+ai-batch-raw-to-offline-guide/
 │
 ├── schema.json                       ← ★ Schema 定义（实体、字段、关系）
 │
@@ -669,7 +672,9 @@ python scripts/stats.py
 │   ├── guide.html                    ← 你的攻略网页（打开即用）
 │   └── v3_data.xlsx                  ← Excel 版
 │
-└── src/                              ← 你的原始素材放这
+└── src/                              ← 素材参考（人读为主，不参与运行）
+
+**src/ 与 data/ 的关系**：src/ 是历史素材，仅供人参考与核对；运行与校验只看 data/ + schema.json，两者不一致以 data/ 为准。
 ```
 
 **四个组件的联动关系：**
@@ -701,7 +706,7 @@ scripts/schema_validator.py (验证器)    ← 检查数据合法性
 ```
 AI 写入数据 / 修改代码
         ↓
-  python scripts/schema_validator.py   ← 强制检查（基于 Schema 的硬规则）
+  uv run python scripts/schema_validator.py   ← 强制检查（基于 Schema 的硬规则）
         ↓
     ├─ ✅ 全 PASS  →  生成 HTML  →  成功
     └─ ❌ 有 FAIL  →  AI 必须修  →  重跑  →  循环直到 PASS
@@ -711,10 +716,13 @@ AI 写入数据 / 修改代码
 
 | 检查项 | 说明 |
 |--------|------|
-| ID 格式 | 每个 id 是否符合 `{前缀}_{标识}` 格式 |
+| 唯一 ID | 每个 id 全局唯一，重复即报错 |
 | 引用完整性 | A 引用了 B 的 id，B 必须真实存在（无悬空引用） |
-| 字段完整性 | 必需字段不能少，数据类型不能错 |
+| 字段类型 | 字段类型须与 schema.json 声明一致 |
+| 必填字段 | schema 标记 required 的字段不能缺失 |
 | 双向一致性 | A 关联 B，B 也必须关联 A |
+
+ID 前缀格式（`{前缀}_{标识}`）是 AI 工作规范要求，见「Phase 2：ID 命名规范」。
 
 这些规则基于 `schema.json` 定义，**不是靠 AI 自觉遵守**。AI 写错了就会被拦截。
 
@@ -733,7 +741,7 @@ AI 写入数据 / 修改代码
 推荐同时满足这三个条件的：
 
 1. 能上传整个项目文件夹（Claude 支持）
-2. 能执行终端命令（跑 python scripts/schema_validator.py）
+2. 能执行终端命令（跑 uv run python scripts/schema_validator.py）
 3. 上下文够长（装下全部代码 + 数据 + 教程 + 你的对话）
 
 ### AI 生成的数据准确吗？
@@ -749,7 +757,7 @@ AI 写入数据 / 修改代码
 
 把完整报错日志贴给 AI，再加上这句：
 
-> "这是 schema_validator.py 的报错。逐条定位到具体文件和字段修复，然后重跑 python scripts/schema_validator.py。循环直到全 PASS。"
+> "这是 schema_validator.py 的报错。逐条定位到具体文件和字段修复，然后重跑 uv run python scripts/schema_validator.py。循环直到全 PASS。"
 
 3 轮还修不好时，AI 应该来找你确认事实性信息。
 

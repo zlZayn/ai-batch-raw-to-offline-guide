@@ -59,10 +59,10 @@
 pip install jinja2 openpyxl
 
 # 2. 验证数据完整性
-python scripts/schema_validator.py
+uv run python scripts/schema_validator.py
 
 # 3. 生成攻略页面
-python generator/schema_generator.py
+uv run python generator/schema_generator.py
 
 # 生成成功后，打开 output/guide.html 即可预览
 ```
@@ -164,22 +164,25 @@ ai-batch-raw-to-offline-guide/
 
 ```bash
 # 验证数据完整性（基于 Schema）
-python scripts/schema_validator.py
+uv run python scripts/schema_validator.py
 
 # 生成 HTML（Schema 驱动）
-python generator/schema_generator.py
+uv run python generator/schema_generator.py
 
 # 导出 Excel
-python scripts/export_xlsx.py
+uv run python scripts/export_xlsx.py
 
 # 数据结构分析（生成图表到 output/data_analysis/）
-python scripts/analyze_data.py
+uv run python scripts/analyze_data.py
 
 # 数据统计
-python scripts/stats.py
+uv run python scripts/stats.py
+
+# 数据规范冒烟测试
+uv run pytest
 ```
 
-**依赖：** Python 3.12+、`pip install jinja2 openpyxl`（推荐 `uv sync` 安装）
+**依赖：** Python 3.12+、项目含 pyproject.toml + uv.lock（推荐 `uv sync` 安装；或 `pip install jinja2 openpyxl`）
 
 ---
 

@@ -7,6 +7,7 @@
 - Schema 是唯一契约：数据定义（schema.json）同时驱动验证与生成，改结构只改一处
 - 单文件离线：产物是一个零依赖 HTML，打开即用
 - 关联靠系统算：双向链接与索引由生成器从 ID 引用自动构建，不手写
+- data/ 是运行真相，src/ 是素材参考：校验与生成只看 data/ + schema.json，以 data/ 为准
 
 ## 关键决策
 - Schema 驱动架构（v3）：schema.json 声明 13 种实体 + 字段 + 引用 + 反向引用规则；validator 与 generator 都只读它

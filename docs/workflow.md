@@ -244,10 +244,10 @@ LIST = { home, attractions, shows, show_schedule, restaurants, dishes, itinerari
 
 ```bash
 # 验证数据完整性（基于 Schema）
-python scripts/schema_validator.py
+uv run python scripts/schema_validator.py
 
 # 生成攻略主页
-python generator/schema_generator.py
+uv run python generator/schema_generator.py
 ```
 
 ## 工具脚本
@@ -257,14 +257,20 @@ python generator/schema_generator.py
 - `scripts/export_xlsx.py` — 导出 Excel
 - `scripts/stats.py` — 数据统计
 
+## 验证
+
+- 数据规范冒烟：`uv run pytest`（tests/test_schema_validator.py，断言 311/779/234）
+- 链接校验：`python <maintenance-flow 技能目录>/check-links.py <项目目录>`
+
 ## 依赖
 
 | 依赖 | 版本 | 用途 |
 |------|------|------|
-| Python | 3.6+ | 运行生成脚本 |
-| Jinja2 | 3.x | HTML模板渲染 |
+| Python | 3.12+（.python-version = 3.12.10） | 运行生成脚本 |
+| Jinja2 | 见 pyproject.toml | HTML模板渲染 |
+| openpyxl | 见 pyproject.toml | Excel 导出 |
 
-安装：`pip install jinja2`
+安装：`uv sync`（项目含 pyproject.toml + uv.lock）
 
 ## 产物规格
 
