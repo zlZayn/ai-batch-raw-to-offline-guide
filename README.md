@@ -2,7 +2,7 @@
 
 > **一句话介绍：** 把碎片化的非结构化素材（笔记、截图、口述）丢给 AI，自动炼制成一个可交互的离线 HTML 攻略页面——无需联网、无需服务器、打开即用。
 
-**在线预览：** [https://zlzayn.github.io/ai-batch-raw-to-offline-guide/](https://zlzayn.github.io/ai-batch-raw-to-offline-guide/)
+**在线预览：** [https://zlzayn.github.io/AI-batch-raw-to-offline-guide/](https://zlzayn.github.io/AI-batch-raw-to-offline-guide/)
 
 ![项目预览](preview-hd.png)
 
@@ -85,7 +85,7 @@ uv run python generator/schema_generator.py
 ### 项目结构
 
 ```
-ai-batch-raw-to-offline-guide/
+AI-batch-raw-to-offline-guide/
 │
 ├── schema.json                       ← Schema 定义（实体、字段、关系）
 │

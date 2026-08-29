@@ -639,7 +639,7 @@ uv run python scripts/stats.py
 > 帮你快速找到东西在哪
 
 ```
-ai-batch-raw-to-offline-guide/
+AI-batch-raw-to-offline-guide/
 │
 ├── schema.json                       ← ★ Schema 定义（实体、字段、关系）
 │

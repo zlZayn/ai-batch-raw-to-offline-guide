@@ -1,4 +1,4 @@
-# ai-batch-raw-to-offline-guide — 维护索引
+# AI-batch-raw-to-offline-guide — 维护索引
 
 ## 全局规则
 - 架构（为什么）→ [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)

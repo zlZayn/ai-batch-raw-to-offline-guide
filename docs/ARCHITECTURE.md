@@ -1,4 +1,4 @@
-# ai-batch-raw-to-offline-guide 架构说明
+# AI-batch-raw-to-offline-guide 架构说明
 
 ## 一句话定位
 - 把碎片化非结构化素材炼成单文件离线 HTML 攻略的 Schema 驱动流水线

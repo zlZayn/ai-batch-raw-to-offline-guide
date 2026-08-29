@@ -30,7 +30,7 @@
 本项目复用根目录的 Schema 驱动脚本：
 
 ```bash
-# 1. 定位到项目根目录 ai-batch-raw-to-offline-guide（命令见根 README.md「快速开始」）
+# 1. 定位到项目根目录 AI-batch-raw-to-offline-guide（命令见根 README.md「快速开始」）
 #    本目录不单独装环境，全部命令在项目根目录执行
 
 # 2. 验证数据完整性

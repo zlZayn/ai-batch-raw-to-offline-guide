@@ -1,5 +1,5 @@
 [project]
-name = "ai-batch-raw-to-offline-guide"
+name = "AI-batch-raw-to-offline-guide"
 version = "0.1.0"
 description = "Offline guide for AI batch raw data processing workflows"
 requires-python = ">=3.12"
