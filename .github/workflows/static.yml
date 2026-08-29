@@ -32,19 +32,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Setup uv + Python 3.12
+        uses: astral-sh/setup-uv@v10
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
-      - name: Install dependencies
-        run: pip install jinja2
+      - name: Install dependencies (uv sync, 清华镜像源)
+        run: uv sync --frozen
 
       - name: Validate data
-        run: python scripts/schema_validator.py
+        run: uv run python scripts/schema_validator.py
 
       - name: Generate HTML
-        run: python generator/schema_generator.py
+        run: uv run python generator/schema_generator.py
 
       - name: Copy generated files to root
         run: cp output/guide.html index.html
