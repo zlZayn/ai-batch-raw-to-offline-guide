@@ -37,7 +37,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install dependencies (uv sync, 官方 PyPI 源)
+      - name: Install dependencies (uv sync)
         run: uv sync --frozen
 
       - name: Validate data
